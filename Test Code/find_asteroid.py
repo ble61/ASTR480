@@ -128,7 +128,7 @@ def Skybotquery(ra, dec, times, radius=10/60, location='474',
             else:
                 df = df.append(res)
     if df is not None:
-        df.reset_index(drop=True)
+        df.reset_index(drop=True) #! should have inplace=True...
     return df
 
 

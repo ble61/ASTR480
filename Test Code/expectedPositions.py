@@ -53,11 +53,11 @@ def plotExpectedPos(posArr, times, lims, names):
         ax.plot(posArr[i,0],posArr[i,1], c="grey", alpha=0.4)
         ax.scatter(posArr[i,0],posArr[i,1], c=times, marker=next(markers), cmap="plasma", norm=cnorm, label = names[i])
     
-    plt.scatter(ra_i, dec_i, marker="+", s=100, c="g") #Center of seach area
+    ax.scatter(ra_i, dec_i, marker="+", s=100, c="g") #Center of seach area
 
     # ax.legend() #! Not really working, stops after a few symbols
 
-    # fig.savefig(f"./posTracks_ra{ra_i}_dec{dec_i}_t{t_i.mjd}.png")
+    fig.savefig(f"./posTracks_ra{ra_i}_dec{dec_i}_t{t_i.mjd}_Mv{magLim}.png")
 
 #sets up positions and time
 #TODO get _i vals as inputs?    
@@ -66,11 +66,12 @@ numTimesteps = 27 #! often small as takes a long time
 t_i=Time("2020-04-17T00:00:00.000", format='isot', scale='utc')
 dt = (27/numTimesteps)*u.day
 timeList = t_i + dt*np.arange(0,numTimesteps)
+magLim = 20.0
 
 #MPC query/ies
 resList = []
 for pos, time in enumerate(timeList.jd):  
-    queryRes = MPCquery(ra_i,dec_i,time, 300, limit="18.0",obscode="C57") #! This is the time sink, especially with so many times
+    queryRes = MPCquery(ra_i,dec_i,time, 300, limit=str(magLim),obscode="C57") #! This is the time sink, especially with so many times
     resList.append(queryRes)
 
 #Gets the unique asteroid names, to be used to get tracks of the same asteroid with time
