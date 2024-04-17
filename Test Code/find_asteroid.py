@@ -126,10 +126,10 @@ def Skybotquery(ra, dec, times, radius=10/60, location='474',
             if df is None:
                 df = res
             else:
-                df = df.append(res)
+                df = pd.concat([df,res],ignore_index=True)
     if df is not None:
         df.reset_index(drop=True) #! should have inplace=True...
-    return df
+    return df 
 
 
 def _read_mpcquery(query):

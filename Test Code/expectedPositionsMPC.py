@@ -1,17 +1,21 @@
-"""expectedPostions.py
+"""expectedPostionsMPC.py
 
 Queries MPC and gets the positions of asteriods in a TESS field in a defined number of timesteps. Plots them in RA and Dec space
 
-B Leicester, 2/4/2024
+B Leicester, 2/4/24
 
-Last Edited 2/4/24
+Last Edited 16/4/24
 
 """
-#TODO speed up MPC query.
-#! problem is keeping them sequential
 
-#TODO colour by time better
+
+#// TODO speed up MPC query.
+#! problem is keeping them sequential
+#*Solved by SkyBot, see other script
+
+#// TODO colour by time better
 #! problem is colour is chosen from cmap uniformly from number of coord pair for that asteriod, not from times themselves
+#*Solved by normalising properly
 
 import numpy as np
 import matplotlib.pyplot as plt
