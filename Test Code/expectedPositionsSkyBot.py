@@ -12,7 +12,7 @@ import numpy.typing as npt
 import matplotlib.pyplot as plt
 import matplotlib.colors as mplc
 import matplotlib.cm as mpcm
-import pandas as pd 
+import pandas as pd
 from astropy.coordinates import SkyCoord
 from astropy.time import Time
 import astropy.units as u
@@ -32,7 +32,7 @@ plt.rcParams.update({
 })
 
 
-def _Skybotquery(ra, dec, times, radius=10/60, location='C57',cache=False):
+def _Skybotquery(ra, dec, times, radius=10/60, location='C57', cache=False):
     """Returns a list of asteroids/comets given a position and time.
     This function relies on The Virtual Observatory Sky Body Tracker (SkyBot)
     service which can be found at http://vo.imcce.fr/webservices/skybot/
@@ -64,7 +64,7 @@ def _Skybotquery(ra, dec, times, radius=10/60, location='C57',cache=False):
     url += '-dec={}&'.format(dec)
     url += '-bd={}&'.format(radius)
     url += '-loc={}&'.format(location)
-    #TODO add more things here?
+    # TODO add more things here?
 
     df = None
     times = np.atleast_1d(times)
@@ -78,25 +78,28 @@ def _Skybotquery(ra, dec, times, radius=10/60, location='C57',cache=False):
         res = pd.read_csv(response, delimiter='|', skiprows=2)
         if len(res) > 0:
             res['epoch'] = time
-            res.rename({'# Num ':'Num', ' Name ':'Name',' RA(h) ':'RA', ' DE(deg) ':'Dec', ' Class ':'Class', ' Mv ':'Mv'}, inplace=True, axis='columns')
-            res = res[['Num', 'Name','RA','Dec', 'Class', 'Mv', 'epoch']].reset_index(drop=True)
+            res.rename({'# Num ': 'Num', ' Name ': 'Name', ' RA(h) ': 'RA', ' DE(deg) ': 'Dec',
+                       ' Class ': 'Class', ' Mv ': 'Mv'}, inplace=True, axis='columns')
+            res = res[['Num', 'Name', 'RA', 'Dec', 'Class',
+                       'Mv', 'epoch']].reset_index(drop=True)
             if df is None:
                 df = res
             else:
-                df = pd.concat([df,res],ignore_index=True)
+                df = pd.concat([df, res], ignore_index=True)
     if df is not None:
-        df.reset_index(drop=True, inplace=True) #// ! should have inplace=True...
-    return df 
+        # // ! should have inplace=True...
+        df.reset_index(drop=True, inplace=True)
+    return df
 
 
-def querySB(targetPos:list, qRad:float =10.0, qLoc:str="C57", numTimesteps:int = 27, magLim:float = 20.0)->tuple[pd.DataFrame,npt.ArrayLike]:
+def querySB(targetPos: list, qRad: float = 10.0, qLoc: str = "C57", numTimesteps: int = 27, magLim: float = 20.0) -> tuple[pd.DataFrame, npt.ArrayLike]:
     """
     Queries SkyBot in a box of width qRad after making a list of the times to query at. returns this timelist after the query has been made and down selected to just the objects brighter than magLim
 
     Inputs
         targetPos: list of len=3, [float, float, Time]
             list of initial ra (float), dec (float) and time (astropy.Time value), the center point of the query and the first time of observations 
-        
+
         qRad: float
             size of query box in degrees, default 10.0
         qLoc: string
@@ -105,7 +108,7 @@ def querySB(targetPos:list, qRad:float =10.0, qLoc:str="C57", numTimesteps:int =
             the number of times to query SB. default 27
         magLim: float
             Limiting magnitude of the query, default 20.0
-    
+
     Outputs
         brightResult: DataFrame
             the magLim cut df from the query. With Collumns ['Num', 'Name','RA','Dec', 'Class', 'Mv', 'epoch']. 
@@ -113,19 +116,22 @@ def querySB(targetPos:list, qRad:float =10.0, qLoc:str="C57", numTimesteps:int =
             astropy.time array like of the times of queries, also in 'epoch' collumn in brigtResult, but makes sure that the whole queried time range is acounted for, instead of maybe nothing was found at one time.
     """
     ra_i, dec_i, t_i = targetPos
-    dt = (27/numTimesteps)*u.day #a dt in days
-    timeList = t_i + dt*np.arange(0,numTimesteps) #list of times constructed sequentially
-    result = _Skybotquery(ra_i, dec_i, timeList.jd, radius=qRad, location=qLoc, cache=True)
-    brightResult = result.loc[result["Mv"]<= magLim].reset_index(drop=True)
+    dt = (27/numTimesteps)*u.day  # a dt in days
+    # list of times constructed sequentially
+    timeList = t_i + dt*np.arange(0, numTimesteps)
+    result = _Skybotquery(ra_i, dec_i, timeList.jd,
+                          radius=qRad, location=qLoc, cache=True)
+    brightResult = result.loc[result["Mv"] <= magLim].reset_index(drop=True)
 
-    coords = SkyCoord(brightResult["RA"], brightResult["Dec"], unit=(u.hourangle,u.deg))
+    coords = SkyCoord(
+        brightResult["RA"], brightResult["Dec"], unit=(u.hourangle, u.deg))
     brightResult["RA"] = coords.ra.deg
     brightResult["Dec"] = coords.dec.deg
 
     return brightResult, timeList
 
 
-def plotExpectedPos(posDf:pd.DataFrame, timeList:npt.ArrayLike, targetPos:list, magLim:float = 20.0, scaleAlpha:bool = False, minLen:int = 0)->plt.Figure:
+def plotExpectedPos(posDf: pd.DataFrame, timeList: npt.ArrayLike, targetPos: list, magLim: float = 20.0, scaleAlpha: bool = False, minLen: int = 0) -> plt.Figure:
     """
     Takes the output of a query to SkyBot, sets up a WCS, and plots the objects position, coloured by time, in Ra/Dec and ecLon/ecLat space. 
 
@@ -136,7 +142,7 @@ def plotExpectedPos(posDf:pd.DataFrame, timeList:npt.ArrayLike, targetPos:list, 
             astropy.time array like of the times of queries, also in 'epoch' collumn in posDf, but makes sure that the whole queried time range is acounted for, instead of maybe nothing was found at one time.
         targetPos: list of len=3, [float, float, Time]
             list of initial ra (float), dec (float) and time (astropy.Time value), the center point of the query and the first time of observations 
-        
+
         magLim: float
             Limiting magnitude of the query, default 20.0 
         scaleAlpha: bool
@@ -148,47 +154,49 @@ def plotExpectedPos(posDf:pd.DataFrame, timeList:npt.ArrayLike, targetPos:list, 
             The figure of the objects position, coloured by time, in Ra/Dec and ecLon/ecLat space. Faint grey lines connect the points to guide the eye.
     """
 
-    ra_i, dec_i, t_i = targetPos #gets _i values from the input list
-    
-    w = wcs.WCS(naxis=2) #? sets up blank WCS
+    ra_i, dec_i, t_i = targetPos  # gets _i values from the input list
 
-    #setting FITS keywords #!guessing what they mean
-    w.wcs.crpix = [0,0]
+    w = wcs.WCS(naxis=2)  # ? sets up blank WCS
+
+    # setting FITS keywords #!guessing what they mean
+    w.wcs.crpix = [0, 0]
     w.wcs.crval = [posDf["RA"].min(), posDf["Dec"].min()]
     w.wcs.cdelt = np.array([-0.066667, 0.066667])
-    w.wcs.mjdref = [posDf["epoch"].mean(),0]
+    w.wcs.mjdref = [posDf["epoch"].mean(), 0]
 
-    #proj. things #! I don't understand
+    # proj. things #! I don't understand
     w.wcs.ctype = ["RA---AIR", "DEC--AIR"]
     w.wcs.set_pv([(2, 1, 45.0)])
 
-    #Set up figure with WCS
-    fig= plt.figure(figsize=(12,12))
-    ax = fig.add_subplot(111,projection = w)
+    # Set up figure with WCS
+    fig = plt.figure(figsize=(12, 12))
+    ax = fig.add_subplot(111, projection=w)
     ax.grid(color='black', ls='solid')
     ax.set_xlabel("RA")
     ax.coords[0].set_format_unit(u.deg)
     ax.set_ylabel("DEC")
 
-    #Set up overlay coords
+    # Set up overlay coords
     overlay = ax.get_coords_overlay('geocentrictrueecliptic')
     overlay.grid(color='black', ls='dotted')
     overlay[0].set_axislabel('ecLon')
     overlay[1].set_axislabel('ecLat')
 
     cmap = "plasma"
-    cnorm = mplc.Normalize(np.min(timeList.mjd), np.max(timeList.mjd))# The delta T of the data, and makes a norm for a cmap 
-    markers = itertools.cycle((".","x","^","*","D","+","v","o", "<", ">","H","1","2","3","4","8","X","p","d","s","P","h"))#lots of symbols so they aren't repeated much
+    # The delta T of the data, and makes a norm for a cmap
+    cnorm = mplc.Normalize(np.min(timeList.mjd), np.max(timeList.mjd))
+    markers = itertools.cycle((".", "x", "^", "*", "D", "+", "v", "o", "<", ">", "H", "1", "2",
+                              "3", "4", "8", "X", "p", "d", "s", "P", "h"))  # lots of symbols so they aren't repeated much
 
-    #setup for possible alpha scaling
-    scaleMult = 0.7 #changes how small alpha can get
-    brightest = posDf["Mv"].min() #* Mag. scale is backwards...
+    # setup for possible alpha scaling
+    scaleMult = 0.7  # changes how small alpha can get
+    brightest = posDf["Mv"].min()  # * Mag. scale is backwards...
     deltaMag = magLim-brightest
 
     unqNames = pd.unique(posDf["Name"])
     
     hs = {}
-    badNames = [] #stops index problem later
+    badNames = []  # stops index problem later
     for name in unqNames:
         try:
             horizQ =Horizons(id = name, epochs = t_i.jd, location= "500@10")
@@ -198,39 +206,46 @@ def plotExpectedPos(posDf:pd.DataFrame, timeList:npt.ArrayLike, targetPos:list, 
             badNames.append(name)
 
     hsList = list(hs.values())
-    #when alpha scale is by H
-    brightest = np.min(hsList) 
+    # when alpha scale is by H
+    brightest = np.min(hsList)
     deltaMag = np.max(hsList)-brightest
 
-    scaleStr =f"Alpha Scaling by H:\nH = {brightest}, $\\alpha$ = 1\nH= {deltaMag+brightest}, $\\alpha$ = {round((1-scaleMult),1)}" 
+    scaleStr = f"Alpha Scaling by H:\nH = {brightest}, $\\alpha$ = 1\nH= {deltaMag+brightest}, $\\alpha$ = {round((1-scaleMult),1)}"
 
-    for i, name in  enumerate(unqNames): #does each name seperatly
+    for i, name in enumerate(unqNames):  # does each name seperatly
         if name in badNames:
             continue
-        nameIDs = posDf.index[posDf["Name"]==name]
+        nameIDs = posDf.index[posDf["Name"] == name]
 
         coords = SkyCoord(posDf.loc[nameIDs]["RA"],
-                        posDf.loc[nameIDs]["Dec"], unit=(u.deg,u.deg))
+                          posDf.loc[nameIDs]["Dec"], unit=(u.deg, u.deg))
         pixels = coords.to_pixel(w)
 
-        #scales each objects alpha
+        # scales each objects alpha
         avgMag = posDf.loc[nameIDs]["Mv"].mean()
         avgMag = hs[name]
         if scaleAlpha:
-            alpha = (1-scaleMult*((avgMag-brightest)/deltaMag)) #scales the alpha of plotting to the brightness of the object, to give some idea of what might be detected
+            # scales the alpha of plotting to the brightness of the object, to give some idea of what might be detected
+            alpha = (1-scaleMult*((avgMag-brightest)/deltaMag))
         else:
-            alpha=1
+            alpha = 1
 
-        #plotting
-        if len(nameIDs)>minLen:
-            ax.plot(pixels[0], pixels[1], c="grey", alpha=0.3) #plots line to help eye track objects
-            ax.scatter(pixels[0], pixels[1], marker=next(markers), c=(posDf.loc[nameIDs]["epoch"]-2400000), cmap=cmap, norm=cnorm, label=name, alpha=alpha) #scatters the pixel coords on wsc set axis, uses different symbol for each, with cmap scaled by the time in the sector.
-    clb = fig.colorbar(mpcm.ScalarMappable(norm=cnorm, cmap=cmap), ax=ax, pad=0.1)
-    clb.ax.set_title("Time in MJD",fontsize=16,y=1.03) 
-    clb.ax.ticklabel_format(useOffset=False)   
-    centerPix = SkyCoord(ra_i,dec_i, unit=(u.deg,u.deg)).to_pixel(w) #center of seach area in pixels
-    ax.scatter(centerPix[0], centerPix[1], marker="+", s=100, c="g") #center marker
-    ax.text(-37,-10,s=scaleStr, fontsize=18)
+        # plotting
+        if len(nameIDs) > minLen:
+            # plots line to help eye track objects
+            ax.plot(pixels[0], pixels[1], c="grey", alpha=0.3)
+            # scatters the pixel coords on wsc set axis, uses different symbol for each, with cmap scaled by the time in the sector.
+            ax.scatter(pixels[0], pixels[1], marker=next(markers), c=(
+                posDf.loc[nameIDs]["epoch"]-2400000), cmap=cmap, norm=cnorm, label=name, alpha=alpha)
+    clb = fig.colorbar(mpcm.ScalarMappable(
+        norm=cnorm, cmap=cmap), ax=ax, pad=0.1)
+    clb.ax.set_title("Time in MJD", fontsize=16, y=1.03)
+    clb.ax.ticklabel_format(useOffset=False)
+    centerPix = SkyCoord(ra_i, dec_i, unit=(u.deg, u.deg)).to_pixel(
+        w)  # center of seach area in pixels
+    ax.scatter(centerPix[0], centerPix[1], marker="+",
+               s=100, c="g")  # center marker
+    ax.text(-37, -10, s=scaleStr, fontsize=18)
 
     fig.tight_layout()
 
