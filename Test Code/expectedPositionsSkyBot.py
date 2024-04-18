@@ -186,29 +186,15 @@ def plotExpectedPos(posDf:pd.DataFrame, timeList:npt.ArrayLike, targetPos:list, 
     deltaMag = magLim-brightest
 
     unqNames = pd.unique(posDf["Name"])
-    #for a vs e or i plots
-    fig2, ax2 = plt.subplots(2, figsize=(6,8))
-    ax2[1].set_xlabel("a [au]")
-    ax2[0].set_ylabel("e")
-    ax2[1].set_ylabel("i [Degrees]")
-    gridA = 0.5
-    ax2[0].grid(alpha=gridA)
-    ax2[1].grid(alpha=gridA)
-    ms=8
+    
     hs = {}
     badNames = [] #stops index problem later
     for name in unqNames:
         try:
-            horizQ = Horizons(id = name, epochs = t_i.jd, location= "500@10")
-            a=horizQ.elements()['a']
-            e=horizQ.elements()['e']
-            i=horizQ.elements()['incl']
+            horizQ =Horizons(id = name, epochs = t_i.jd, location= "500@10")
             hs[name]=float(horizQ.elements()['H'])
-            ax2[0].scatter(a,e, c="tab:blue", s=ms)
-            ax2[1].scatter(a,i, c="tab:blue", s=ms)
-
         except Exception as e:
-            print(f"Name= {name} didn't work, error {str(e)}")
+            print(f"Name= {name} didn't work, error {str(e)}")#some names aren't in jpl?
             badNames.append(name)
 
     hsList = list(hs.values())
@@ -248,14 +234,119 @@ def plotExpectedPos(posDf:pd.DataFrame, timeList:npt.ArrayLike, targetPos:list, 
 
     fig.tight_layout()
 
-    return fig, fig2 #retunrs instead of saves, #? is this useful?
+    return fig #retunrs instead of saves, #? is this useful?
     # fig.savefig(f"./ecCoordsandAlphascaled_ra{ra_i}_dec{dec_i}_t{t_i.mjd}_Mv{magLim}.png") #!CHECK
+
+def plotHorizons(nameList: list[str], t_i:Time, t_f:Time| None = None,loc:str="500@10", plotAEI:bool=False, plotIRDel:bool=False):
+    """
+    Querier for JPL Horizons
+
+    Input
+        nameList: List of strings
+            Name of object to be looked up
+        t_i: Astropy.time.Time
+            Time of query in any of the standard formats
+        t_f: Astropy.time.Time or None
+            Time of final query in any of the standard formats, should be not None if plotIRDel=True
+        loc: string
+            Location code of observer. Defaults to '500@10', which is the sun
+        plotAEI: bool
+            To produce AEI plot, default False
+        plotIRDel: bool
+            To produce I vs R_h and Delta plot, default False
+        
+        Only one of these bools should be True, else second is figure that gets returned.
+    Outputs
+        fig: plt.Figure
+            The plot of the bool that was set to true. 
+
+    """
+
+    ms=3
+    gridA = 0.5
+    if plotAEI:
+        #for a vs e or i plots
+        
+        #setup
+        fig, ax = plt.subplots(2, figsize=(6,8))
+        ax[1].set_xlabel("a [au]")
+        ax[0].set_ylabel("e")
+        ax[1].set_ylabel("i [Degrees]")
+        ax[0].grid(alpha=gridA)
+        ax[1].grid(alpha=gridA)
+        
+        for name in nameList:
+            try:
+                #querry
+                horizQ = Horizons(id = name, epochs = t_i.jd, location= loc)
+                a=horizQ.elements()['a']
+                e=horizQ.elements()['e']
+                i=horizQ.elements()['incl']
+                #plot
+                ax[0].scatter(a,e, c="tab:blue", s=ms)
+                ax[1].scatter(a,i, c="tab:blue", s=ms)
+            except:
+                print(name) #some names aren't in jpl?
+
+    if plotIRDel:
+        #for Incl vs R_h and Delta
+
+        #setup
+        fig, ax = plt.subplots(2, figsize=(6,8))
+        ax[1].set_xlabel("i [Degrees]")
+        ax[0].set_ylabel("R_h [au]")
+        ax[1].set_ylabel("Delta [au]")
+        ax[0].grid(alpha=gridA)
+        ax[1].grid(alpha=gridA)
+
+        for name in nameList:
+            try:
+                incl= Horizons(id = name, epochs = t_i.jd, location= "500@10").elements()['incl'] #problem when getting Incl from TESS
+                
+                #initial Q
+                horizQ_i = Horizons(id = name, epochs = t_i.jd, location= loc)
+                rh_i= horizQ_i.ephemerides()['r']
+                rh_i= horizQ_i.ephemerides()['r']
+                delta_i= horizQ_i.ephemerides()['delta']
+
+                #final Q
+                horizQ_f = Horizons(id = name, epochs = t_f.jd, location= loc)
+                rh_f= horizQ_f.ephemerides()['r']
+                delta_f= horizQ_f.ephemerides()['delta']
+                
+                #pos changes with time, need to get avg 
+                meanRh = (rh_i+rh_f)/2
+                meanDelta = (delta_i+delta_f)/2
+
+                #error can be the lenght moved 
+                errRh = np.abs(rh_i-rh_f)/2
+                errDelta = np.abs(delta_i-delta_f)/2
+                
+                #TODO towards/away colouring, get rid of abs and find later
+
+                ax[0].errorbar(incl,meanRh,errRh,fmt=".", c="tab:blue", markersize=ms, elinewidth=1, capsize=2)
+                ax[1].errorbar(incl,meanDelta,errDelta,fmt=".", c="tab:blue", markersize=ms, elinewidth=1, capsize=2)
+            except Exception as e:
+                print(f"{name}and {e}") #some names aren't in jpl?
+
+    return fig
 
 myTargetPos = [301.60, -38.68, Time("2020-04-17T00:00:00.000", format='isot', scale='utc')]
 magLim = 20.0
 res, times = querySB(myTargetPos, magLim=magLim)
 
-resFig,resFig2 = plotExpectedPos(res, times, myTargetPos, magLim=magLim, scaleAlpha=True)
+res.to_csv(f"./querryResult_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.csv")
 
-resFig.savefig(f"./AlphaScaleText_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.png")
-resFig2.savefig(f"./PointSize_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.png")
+posFig = plotExpectedPos(res, times, myTargetPos, magLim=magLim, scaleAlpha=True)
+posFig.savefig(f"./ExpectedPositionsPlot_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.png")
+
+
+unqNames = list(pd.unique(res['Name']))
+
+eleFig = plotHorizons(unqNames, times[0], plotAEI=True)
+eleFig.savefig(f"./OrbitalElementsPlot_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.png")
+
+
+distanceFig = plotHorizons(unqNames, times[0], t_f=times[-1], loc="500@-95", plotIRDel=True)
+distanceFig.savefig(f"./DistancesVInclPlot_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.png")
+
