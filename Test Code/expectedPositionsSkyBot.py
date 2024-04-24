@@ -189,7 +189,7 @@ def plotExpectedPos(posDf: pd.DataFrame, timeList: npt.ArrayLike, targetPos: lis
                               "3", "4", "8", "X", "p", "d", "s", "P", "h"))  # lots of symbols so they aren't repeated much
 
     # setup for possible alpha scaling
-    scaleMult = 0.7  # changes how small alpha can get
+    scaleMult = 0.90  # changes how small alpha can get
     brightest = posDf["Mv"].min()  # * Mag. scale is backwards...
     deltaMag = magLim-brightest
 
@@ -235,7 +235,7 @@ def plotExpectedPos(posDf: pd.DataFrame, timeList: npt.ArrayLike, targetPos: lis
             # plots line to help eye track objects
             ax.plot(pixels[0], pixels[1], c="grey", alpha=0.3)
             # scatters the pixel coords on wsc set axis, uses different symbol for each, with cmap scaled by the time in the sector.
-            ax.scatter(pixels[0], pixels[1], marker=next(markers), c=(
+            ax.scatter(pixels[0], pixels[1], marker=next(markers),s=1, c=(
                 posDf.loc[nameIDs]["epoch"]-2400000), cmap=cmap, norm=cnorm, label=name, alpha=alpha)
     clb = fig.colorbar(mpcm.ScalarMappable(
         norm=cnorm, cmap=cmap), ax=ax, pad=0.1)
@@ -347,21 +347,51 @@ def plotHorizons(nameList: list[str], t_i:Time, t_f:Time| None = None,loc:str="5
     return fig
 
 myTargetPos = [301.60, -38.68, Time("2020-04-17T00:00:00.000", format='isot', scale='utc')]
-magLim = 20.0
-res, times = querySB(myTargetPos, magLim=magLim)
+magLim = 20
+res, times = querySB(myTargetPos, magLim=magLim, numTimesteps=54)
 
-res.to_csv(f"./querryResult_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.csv")
+# res.to_csv(f"./querryResult_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.csv")
 
-posFig = plotExpectedPos(res, times, myTargetPos, magLim=magLim, scaleAlpha=True)
-posFig.savefig(f"./ExpectedPositionsPlot_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.png")
+# posFig = plotExpectedPos(res, times, myTargetPos, magLim=magLim, scaleAlpha=True)
+# posFig.savefig(f"./ExpectedPositionsPlot_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.png")
 
 
 unqNames = list(pd.unique(res['Name']))
 
-eleFig = plotHorizons(unqNames, times[0], plotAEI=True)
-eleFig.savefig(f"./OrbitalElementsPlot_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.png")
+
+dfsList = []
+
+for i, name in enumerate(unqNames):
+    indexs= res.index[res["Name"]==name]
+    underSampledPos = res.loc[indexs]
+    minTime = underSampledPos["epoch"].min()
+    maxTime = underSampledPos["epoch"].max()
+    deltaTime = maxTime-minTime
+    # print(f"{name} is in view for {deltaTime}")
+    interpPoints = 24 # 12hr gaps, want 30min sampling
+    interpTimes = np.linspace(minTime,maxTime, int(interpPoints*deltaTime))
+    interpRAs = np.interp(x=interpTimes, xp=underSampledPos["epoch"], fp=underSampledPos["RA"])
+    interpDecs = np.interp(x=interpTimes, xp=underSampledPos["epoch"], fp=underSampledPos["Dec"])
+    interpDf = pd.DataFrame({"RA":interpRAs, "Dec":interpDecs, "epoch":interpTimes})
+
+    concatedDF = pd.concat([underSampledPos, interpDf])
+    concatedDF.sort_values(by=['epoch'], inplace=True)
+    concatedDF.reset_index(drop=True, inplace=True)
+    concatedDF.ffill(inplace=True)
+    dfsList.append(concatedDF)
+
+interpRes = pd.concat(dfsList)
+interpRes.reset_index(drop=True, inplace=True)
+# interpRes.to_csv(f"./InterpolatedQuerryResult_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.csv")
+
+posFig = plotExpectedPos(interpRes, times, myTargetPos, magLim=magLim, scaleAlpha=True)
+# posFig.savefig(f"./InterpolatedExpectedPositionsPlot_HscaleOn_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.png")
 
 
-distanceFig = plotHorizons(unqNames, times[0], t_f=times[-1], loc="500@-95", plotIRDel=True)
-distanceFig.savefig(f"./DistancesVInclPlot_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.png")
+# eleFig = plotHorizons(unqNames, times[0], plotAEI=True)
+# eleFig.savefig(f"./OrbitalElementsPlot_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.png")
+
+
+# distanceFig = plotHorizons(unqNames, times[0], t_f=times[-1], loc="500@-95", plotIRDel=True)
+# distanceFig.savefig(f"./DistancesVInclPlot_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.png")
 
