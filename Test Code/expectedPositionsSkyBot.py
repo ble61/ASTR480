@@ -4,7 +4,7 @@ Queries SkyBot and gets the positions of asteriods in a TESS field in a defined 
 
 B Leicester, 16/4/24
 
-Last Edited 16/4/24
+Last Edited 26/4/24
 
 """
 import numpy as np
@@ -21,6 +21,7 @@ from astropy.utils.data import download_file
 from astroquery.jplhorizons import Horizons
 import itertools
 from tqdm import tqdm
+from scipy.spatial import KDTree
 
 plt.rcParams.update({
     "font.size": 16,
@@ -354,10 +355,19 @@ res, times = querySB(myTargetPos, magLim=magLim, numTimesteps=54)
 
 # posFig = plotExpectedPos(res, times, myTargetPos, magLim=magLim, scaleAlpha=True)
 # posFig.savefig(f"./ExpectedPositionsPlot_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.png")
+# eleFig = plotHorizons(unqNames, times[0], plotAEI=True)
+# eleFig.savefig(f"./OrbitalElementsPlot_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.png")
+
+
+# distanceFig = plotHorizons(unqNames, times[0], t_f=times[-1], loc="500@-95", plotIRDel=True)
+# distanceFig.savefig(f"./DistancesVInclPlot_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.png")
+
 
 
 unqNames = list(pd.unique(res['Name']))
 
+
+#* interpolating data. needed so am no doing so many API querries.
 
 dfsList = []
 
@@ -369,29 +379,54 @@ for i, name in enumerate(unqNames):
     deltaTime = maxTime-minTime
     # print(f"{name} is in view for {deltaTime}")
     interpPoints = 24 # 12hr gaps, want 30min sampling
-    interpTimes = np.linspace(minTime,maxTime, int(interpPoints*deltaTime))
+    interpTimes = np.linspace(minTime,maxTime, int(interpPoints*deltaTime))#linspace to sample
+    #Ra and Dec samples
     interpRAs = np.interp(x=interpTimes, xp=underSampledPos["epoch"], fp=underSampledPos["RA"])
     interpDecs = np.interp(x=interpTimes, xp=underSampledPos["epoch"], fp=underSampledPos["Dec"])
-    interpDf = pd.DataFrame({"RA":interpRAs, "Dec":interpDecs, "epoch":interpTimes})
-
+    interpDf = pd.DataFrame({"RA":interpRAs, "Dec":interpDecs, "epoch":interpTimes}) #make into DF
+    #concat with origonals, and then sorts and fills mpty cols
     concatedDF = pd.concat([underSampledPos, interpDf])
     concatedDF.sort_values(by=['epoch'], inplace=True)
     concatedDF.reset_index(drop=True, inplace=True)
     concatedDF.ffill(inplace=True)
-    dfsList.append(concatedDF)
+    dfsList.append(concatedDF) #adds to list for later concat
 
-interpRes = pd.concat(dfsList)
+interpRes = pd.concat(dfsList) #puts evrything back together
 interpRes.reset_index(drop=True, inplace=True)
 # interpRes.to_csv(f"./InterpolatedQuerryResult_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.csv")
 
-posFig = plotExpectedPos(interpRes, times, myTargetPos, magLim=magLim, scaleAlpha=True)
+# posFig = plotExpectedPos(interpRes, times, myTargetPos, magLim=magLim, scaleAlpha=True)
 # posFig.savefig(f"./InterpolatedExpectedPositionsPlot_HscaleOn_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.png")
 
 
-# eleFig = plotHorizons(unqNames, times[0], plotAEI=True)
-# eleFig.savefig(f"./OrbitalElementsPlot_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.png")
+#*gets random offset to make matches from
+
+resForRand, randTimesOut = querySB(targetPos=myTargetPos, numTimesteps=6, magLim=19)
+
+#change at 0.001 place for RA and Dec
+randRAs = resForRand["RA"] + (0.5-np.random.rand(len(resForRand.index)))/1000
+randDecs = resForRand["Dec"] + (0.5-np.random.rand(len(resForRand.index)))/1000
+#Slightly larger change in time
+randTimes = resForRand["epoch"] + (0.5-np.random.rand(len(resForRand.index)))/100
+
+randRes = pd.DataFrame({"Namerand": resForRand["Name"],"RArand":randRAs, "Decrand":randDecs, "epochrand":randTimes}) #into a df.
+
+#* use kd tree to compare the interpolated values to the ones with a random change to them
+#! stolen from stack overflow: https://stackoverflow.com/questions/67099008/matching-nearest-values-in-two-dataframes-of-different-lengths 
+
+tree = KDTree(interpRes[['RA','Dec','epoch']].values) #make tree
+
+dists, indices = tree.query(randRes[['RArand','Decrand','epochrand']].values, k=1) #querry tree for closest matches
+
+fts = [c for c in interpRes.columns]
+
+for c in fts:
+    randRes[c] = interpRes[c].values[indices]
 
 
-# distanceFig = plotHorizons(unqNames, times[0], t_f=times[-1], loc="500@-95", plotIRDel=True)
-# distanceFig.savefig(f"./DistancesVInclPlot_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.png")
+randRes['Namerand'].compare(randRes["Name"])# makes sure the names are the same. sanity check for now, as asteroids in TESS won't have the name, which is the point. should be empty. 
+
+
+
+
 
