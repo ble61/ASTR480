@@ -18,6 +18,7 @@ from astropy.time import Time
 import astropy.units as u
 from astropy import wcs
 from astropy.utils.data import download_file
+from astropy.io import fits
 from astroquery.jplhorizons import Horizons
 import itertools
 from tqdm import tqdm
@@ -347,13 +348,23 @@ def plotHorizons(nameList: list[str], t_i:Time, t_f:Time| None = None,loc:str="5
 
     return fig
 
-myTargetPos = [301.60, -38.68, Time("2020-04-17T00:00:00.000", format='isot', scale='utc')]
+fname = "./TESSdata_Sector2_Cam1_Ccd1_Cut1of16_wcs.fits"
+
+targetWSC = fits.open(fname)[0]
+
+targetRa_i = targetWSC.header["CRVAL1"]
+targetDec_i = targetWSC.header["CRVAL2"]
+targetTime_i = Time(targetWSC.header["DATE-OBS"])
+
+myTargetPos = [targetRa_i, targetDec_i, targetTime_i]
+
+#myTargetPos = [301.60, -38.68, Time("2020-04-17T00:00:00.000", format='isot', scale='utc')] #* This is the one used for practice
 magLim = 20
-res, times = querySB(myTargetPos, magLim=magLim, numTimesteps=54)
+res, times = querySB(myTargetPos, magLim=magLim, numTimesteps=54, qRad=3.2)
 
 # res.to_csv(f"./querryResult_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.csv")
 
-# posFig = plotExpectedPos(res, times, myTargetPos, magLim=magLim, scaleAlpha=True)
+posFig = plotExpectedPos(res, times, myTargetPos, magLim=magLim, scaleAlpha=True)
 # posFig.savefig(f"./ExpectedPositionsPlot_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.png")
 # eleFig = plotHorizons(unqNames, times[0], plotAEI=True)
 # eleFig.savefig(f"./OrbitalElementsPlot_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.png")
@@ -365,6 +376,8 @@ res, times = querySB(myTargetPos, magLim=magLim, numTimesteps=54)
 
 
 unqNames = list(pd.unique(res['Name']))
+
+
 
 
 #* interpolating data. needed so am no doing so many API querries.
@@ -394,37 +407,31 @@ for i, name in enumerate(unqNames):
 interpRes = pd.concat(dfsList) #puts evrything back together
 interpRes.reset_index(drop=True, inplace=True)
 # interpRes.to_csv(f"./InterpolatedQuerryResult_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.csv")
+interpRes.to_csv(f"./InterpolatedQuerryResult{fname.split('/')[-1].split('.')[0]}")
 
-# posFig = plotExpectedPos(interpRes, times, myTargetPos, magLim=magLim, scaleAlpha=True)
+posFig = plotExpectedPos(interpRes, times, myTargetPos, magLim=magLim, scaleAlpha=True)
 # posFig.savefig(f"./InterpolatedExpectedPositionsPlot_HscaleOn_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.png")
 
 
-#*gets random offset to make matches from
+#TODO check names aren't repeated
 
-resForRand, randTimesOut = querySB(targetPos=myTargetPos, numTimesteps=6, magLim=19)
+weirdNames = []
 
-#change at 0.001 place for RA and Dec
-randRAs = resForRand["RA"] + (0.5-np.random.rand(len(resForRand.index)))/1000
-randDecs = resForRand["Dec"] + (0.5-np.random.rand(len(resForRand.index)))/1000
-#Slightly larger change in time
-randTimes = resForRand["epoch"] + (0.5-np.random.rand(len(resForRand.index)))/100
+for name in unqNames:
+    horizQ= Horizons(id = name, epochs = Time("2020-04-17T00:00:00.000").jd, location= "500@-95")
+    try:
+        eph = horizQ.ephemerides()
+        returnedName = eph['targetname'][0]
+        if name.strip() not in returnedName:
+            # print(f"given:{name}, returned: {eph['targetname'][0]}")
+            weirdNames.append((name,returnedName))
+    except Exception as e:
+        print(e)
 
-randRes = pd.DataFrame({"Namerand": resForRand["Name"],"RArand":randRAs, "Decrand":randDecs, "epochrand":randTimes}) #into a df.
-
-#* use kd tree to compare the interpolated values to the ones with a random change to them
-#! stolen from stack overflow: https://stackoverflow.com/questions/67099008/matching-nearest-values-in-two-dataframes-of-different-lengths 
-
-tree = KDTree(interpRes[['RA','Dec','epoch']].values) #make tree
-
-dists, indices = tree.query(randRes[['RArand','Decrand','epochrand']].values, k=1) #querry tree for closest matches
-
-fts = [c for c in interpRes.columns]
-
-for c in fts:
-    randRes[c] = interpRes[c].values[indices]
+print(weirdNames)
 
 
-randRes['Namerand'].compare(randRes["Name"])# makes sure the names are the same. sanity check for now, as asteroids in TESS won't have the name, which is the point. should be empty. 
+#TODO check effectiveness of interp via many many horizons querries
 
 
 
