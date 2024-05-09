@@ -15,6 +15,46 @@ from astropy.time import Time
 from scipy.spatial import KDTree
 
 from expectedPositionsSkyBot import querySB
+# from sklearn.cluster import DBSCAN
+
+
+def useKDTree(df1, df2, cols,k=1):
+    tree = KDTree(df1[cols].values)
+    dists, indices =  tree.query(df2[cols].values, k=k)
+    fts = [c for c in df1.columns]
+    df2["distToMatch"] = dists
+    for c in fts:
+        df2[f"{c}Match"]= df1[c].values[indices]
+
+    return df2
+
+
+# def cross_match_DB(cat1,cat2,distance=2*21,njobs=-1):
+#     all_ra = np.append(cat1['ra'].values,cat2['ra'].values)
+#     all_dec = np.append(cat1['dec'].values,cat2['dec'].values)
+#     cat2_ind = len(cat1)
+
+#     p = np.array([all_ra,all_dec]).T
+#     cluster = DBSCAN(eps=distance/60**2,min_samples=2,n_jobs=njobs).fit(p)
+#     labels = cluster.labels_
+#     unique_labels = set(labels)
+#     cat1_id = []
+#     cat2_id = []
+
+#     for label in unique_labels:
+#         if label > -1:
+#             inds = np.where(labels == label)[0]
+#             if (inds < cat2_ind).any():
+#                 if len(inds) > 2:
+#                     dra = all_ra[np.where(labels == label)[0]]
+#                     ddec = all_dec[np.where(labels == label)[0]]
+#                     d = (dra - dra[0])**2 + (ddec - ddec[0])**2
+#                     args = np.argsort(d)
+#                     inds = inds[args[:2]]
+#                 cat1_id += [inds[0]]
+#                 cat2_id += [inds[1] - cat2_ind]
+#     return cat1_id,cat2_id
+
 
 interpRes = pd.read_csv("./InterpolatedQuerryResultTESSdata_Sector2_Cam1_Ccd1_Cut1of16_wcs")
 
@@ -48,24 +88,34 @@ indexsOfInterest = detectedSources.index[detectedSources["Type"] == "0"]
 
 detectedSources = detectedSources.loc[indexsOfInterest]
 
-detectedSources["jd"] = detectedSources["mjd"] +2400000
+detectedSources["jd"] = detectedSources["mjd"] +2400000.5
+detectedSources.reset_index(drop=True, inplace=True)
+
+colsToUse = ["RA", "Dec", "Time"]
+
+interpRes.rename(columns={"epoch":"Time"}, inplace=True)
 
 
-#* use kd tree to compare the interpolated values to the ones with a random change to them
-#! stolen from stack overflow: https://stackoverflow.com/questions/67099008/matching-nearest-values-in-two-dataframes-of-different-lengths 
+detectedSources.rename(columns={"ra":"RA", "dec":"Dec", "jd":"Time"}, inplace=True)
 
-tree = KDTree(interpRes[['RA','Dec','epoch']].values) #make tree
+matches = useKDTree(df1=interpRes.copy(deep=True), df2=detectedSources.copy(deep=True), cols=colsToUse)
+matches.rename(columns={'Unnamed: 0Match':"IDMatch"}, inplace=True, errors="raise")
 
-dists, indices = tree.query(detectedSources[['ra','dec','jd']].values, k=1) #querry tree for closest matches #!check col names
+# #* use kd tree to compare the interpolated values to the ones with a random change to them
+# #! stolen from stack overflow: https://stackoverflow.com/questions/67099008/matching-nearest-values-in-two-dataframes-of-different-lengths 
 
-fts = [c for c in interpRes.columns]
+# tree = KDTree(interpRes[['RA','Dec','epoch']].values) #make tree
 
-for c in fts:
-    detectedSources[c] = interpRes[c].values[indices]
+# dists, indices = tree.query(detectedSources[['ra','dec','jd']].values, k=1) #querry tree for closest matches #!check col names
 
-#!end stolen
+# fts = [c for c in interpRes.columns]
 
-detectedSources.rename(columns={"Unnamed: 0":"interpIndex"}, errors="raise", inplace=True) #fix col name issue
+# for c in fts:
+#     detectedSources[c] = interpRes[c].values[indices]
+
+# #!end stolen
+
+# detectedSources.rename(columns={"Unnamed: 0":"interpIndex"}, errors="raise", inplace=True) #fix col name issue
 
 # print(randRes['Namerand'].compare(randRes["Name"]))
 # makes sure the names are the same. sanity check for now, as asteroids in TESS won't have the name, which is the point. should be empty. 
@@ -74,46 +124,46 @@ detectedSources.rename(columns={"Unnamed: 0":"interpIndex"}, errors="raise", inp
 
 #TODO completeness
 
-# unqNames = pd.unique(interpRes["Name"])
+unqNames = pd.unique(interpRes["Name"])
 
-# obsForDetect = 1 #number of observations needed to count a detection
+obsForDetect = 1 #number of observations needed to count a detection
 
-# interpedMv = []
-# foundMv = []
-
-
-# for name in unqNames:
-#     indexs= interpRes.index[interpRes["Name"]==name]
-#     cutItrpDf = interpRes.loc[indexs]
-#     avgItrpMv = cutItrpDf["Mv"].mean()
-#     interpedMv.append(avgItrpMv) 
-
-#     resIds = detectedSources.index[detectedSources['Namerand']==name]
-#     if len(resIds)>=obsForDetect:
-#         cutResDf = detectedSources.loc[resIds]
-#         avgResMv = cutResDf["Mv"].mean()
-#         foundMv.append(avgResMv)
-#     # try:
-#     #     resIds = randRes.index[randRes['Namerand']==name]
-#     #     cutResDf = randRes.loc[resIds]
-#     #     avgResMv = cutResDf["Mv"].mean()
-#     #     foundMv.append(avgResMv)
-#     # except:
-#     #     #someing about name not being found
-#     #     continue
-
-# maxMv = np.ceil(np.max(interpedMv))
-# minMv = np.floor(np.min(interpedMv))
-# binSize = 0.25
-# nBins = int((maxMv-minMv)/binSize)
+interpedMv = []
+foundMv = []
 
 
-# interpMvHist, itrpBins = np.histogram(interpedMv, bins = nBins, range=(minMv, maxMv))
+for name in unqNames:
+    indexs= interpRes.index[interpRes["Name"]==name]
+    cutItrpDf = interpRes.loc[indexs]
+    avgItrpMv = cutItrpDf["Mv"].mean()
+    interpedMv.append(avgItrpMv) 
 
-# foundMvHist, foundBins = np.histogram(foundMv, bins = nBins, range=(minMv, maxMv))
+    resIds = matches.index[matches['NameMatch']==name]
+    if len(resIds)>=obsForDetect:
+        cutResDf = matches.loc[resIds]
+        avgResMv = cutResDf["MvMatch"].mean()
+        foundMv.append(avgResMv)
+    # try:
+    #     resIds = randRes.index[randRes['Namerand']==name]
+    #     cutResDf = randRes.loc[resIds]
+    #     avgResMv = cutResDf["Mv"].mean()
+    #     foundMv.append(avgResMv)
+    # except:
+    #     #someing about name not being found
+    #     continue
 
-# print(np.sum(foundMvHist))
+maxMv = np.ceil(np.max(interpedMv))
+minMv = np.floor(np.min(interpedMv))
+binSize = 0.25
+nBins = int((maxMv-minMv)//binSize)
 
-# completenessMvHist = foundMvHist/interpMvHist
 
-# plt.stairs(completenessMvHist, itrpBins)
+interpMvHist, itrpBins = np.histogram(interpedMv, bins = nBins, range=(minMv, maxMv))
+
+foundMvHist, foundBins = np.histogram(foundMv, bins = nBins, range=(minMv, maxMv))
+
+print(f"The number of matched detections with >= {obsForDetect} observations is {np.sum(foundMvHist)}")
+
+completenessMvHist = foundMvHist/interpMvHist
+
+plt.stairs(completenessMvHist, itrpBins)
