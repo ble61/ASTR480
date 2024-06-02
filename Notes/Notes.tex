@@ -1,5 +1,8 @@
 \documentclass[12pt]{article}
-\usepackage{}
+\usepackage{siunitx, natbib, hyperref,graphicx}
+
+\DeclareSIUnit{\arcsec}{''}
+
 \title{A480 Notes}
 \author{Brayden Leicester}
 \begin{document}
@@ -19,6 +22,44 @@ The first interstellar object discovered in late 2017 has come to be called 1I/'
 The Transiting Exoplanet Survey Satellite (TESS) \cite{Ricker2014} is a large area, high cadence, imaging \dots
 
 \section{Method Notes}
+
+%*Pos gathering
+To check for asteroids in the TESS data, the positions of the asteroids with time are required.
+For most asteroids, their orbital elements are well known, so it is a matter of looking them up and cross-matching with transients in the TESS data.
+However, querying APIs for timesteps of \qty{30}{\min} or shorter is
+prohibitively expensive, especially when they rate limit their calls.
+Python was used to make API calls to {Skybot}\footnote{\href{https://vo.imcce.fr/webservices/skybot/}{Skybot}} to get positions of asteroids in a cone search box in RA and Dec space.
+As TESS sectors are 27%?Check
+days long, querying every \qty{12}{\hour} is manageable.
+These positions are still very sparsely spaced in time compared to the TESS data, so an interpolation is needed to bridge the gap.
+With TESS data coming in $\frac12\unit{\hour}$ chunks, 24 interpolated points are needed between each API call.
+Assuming this is fine is justified, as asteroids move at close to a TESS pixel per TESS frame \citep{Pal2018,Pal2020}.
+For the faster TESS data, more interpolated points are needed, but a smaller the change in position between each point.
+
+
+In another series of API calls, this time querying {JPL Horizons}\footnote{\href{https://ssd.jpl.nasa.gov/horizons/}{JPL Horizons}} by object name, the orbital elements of the asteroids can be found.
+From these elements the type of asteroids (i.e. main belt, NEOs, Jupiter Trojan etc.) can be determined by plotting the semi-major axis, $a$, against the inclination, $i$, and the eccentricity, $e$, of the body.
+Osculating elements, such as the heliocentric distance, $r_h$ and the distance to the observer, delta $\delta$%?check
+can also be found from Horizons.
+Plotting inclination against a change in these distances with time can give an idea of the motion of the bodies.
+The JPL queries can also be used to check the validity of the interpolation from Skybot.
+By geting the RA and Dec values of a named asteroid for all the timesteps interpolated, a $\Delta$RA against $|Delta$Dec plot can be made.
+This was heavily rate limited, as the epoch querying did not want to play ball with date formats, but what was produced showed that the interpolation was accurate to within an arcsecond most of the time, the earliest points were the most astray, but this was still within three or four arcseconds, much smaller than the \qty{21}{\arcsec} TESS pixels.
+
+%*Interpolation
+
+%*Cross matching
+Having interpolated these positions, there was a well sampled set of RA, Dec and time values of where these asteroids should be in the TESS data.
+They should show up in a pixel for a small number of frames, of order $\sim1$.
+This is the same as a lot of other transient events, a sharp rise in brightness and then disapering quickly again.
+The number of frames do change, type Ia supernova will brighten is a matter of a few hours and then dim for days, while stellar flares are of similar profile by a smaller max brightness and a corrsepondingly shorter decay time.
+Asteroids are very short, however detection pipelines are robust.
+These pipelines have already found the aforementioned supernova and stellar flares, the job of this work is to catch all the asteroids in the set of all the transients.
+To do this, catelogue matching is in order.
+
+
+
+%*Period fit
 
 
 \bibliographystyle{apalike}
