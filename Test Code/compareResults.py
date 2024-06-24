@@ -18,16 +18,31 @@ from expectedPositionsSkyBot import querySB
 # from sklearn.cluster import DBSCAN
 
 
-def useKDTree(df1, df2, cols,k=1):
+def useKDTree(df1, df2, cols, maxDist:float=0.01,maxTimeSep:float=0.1,k:int=1):
     tree = KDTree(df1[cols].values)
     dists, indices =  tree.query(df2[cols].values, k=k)
+
     fts = [c for c in df1.columns]
     df2["distToMatch"] = dists
     for c in fts:
         df2[f"{c}Match"]= df1[c].values[indices]
 
-    return df2
+    df2.rename(columns={'Unnamed: 0Match':"IDMatch"}, inplace=True, errors="raise")
 
+    #TODO compare time at indices returned
+    timeInds = df2.index[np.abs((df2["Time"]-df2["TimeMatch"]))<maxTimeSep]
+
+    df2=df2.loc[timeInds]
+
+    #TODO take only nearest match for each point
+    smallDistInds = df2.index[df2["distToMatch"]<maxDist]
+    
+    df2= df2.loc[smallDistInds]
+
+    df2 = df2.sort_values("distToMatch").drop_duplicates(subset=["IDMatch"]).sort_index() #drops all the duplicate IDs, as very point should be 1:1 not n:1
+
+    return df2
+ 
 
 # def cross_match_DB(cat1,cat2,distance=2*21,njobs=-1):
 #     all_ra = np.append(cat1['ra'].values,cat2['ra'].values)
@@ -39,12 +54,7 @@ def useKDTree(df1, df2, cols,k=1):
 #     labels = cluster.labels_
 #     unique_labels = set(labels)
 #     cat1_id = []
-#     cat2_id = []
-
-#     for label in unique_labels:
-#         if label > -1:
-#             inds = np.where(labels == label)[0]
-#             if (inds < cat2_ind).any():
+#     cat2_id = []matches.rename(columns={'Unnamed: 0Match':"IDMatch"}, inplace=True, errors="raise")y():
 #                 if len(inds) > 2:
 #                     dra = all_ra[np.where(labels == label)[0]]
 #                     ddec = all_dec[np.where(labels == label)[0]]
@@ -56,8 +66,7 @@ def useKDTree(df1, df2, cols,k=1):
 #     return cat1_id,cat2_id
 
 
-interpRes = pd.read_csv("./InterpolatedQuerryResultTESSdata_Sector2_Cam1_Ccd1_Cut1of16_wcs")
-
+interpRes = pd.read_csv("./InterpolatedQuerryResultTESSdata_Sector2_Cam1_Ccd1_Cut1of16_wcs.csv")
 
 
 # #TODO get csv from Ryan of problems. 
@@ -79,7 +88,7 @@ interpRes = pd.read_csv("./InterpolatedQuerryResultTESSdata_Sector2_Cam1_Ccd1_Cu
 # randRes = pd.DataFrame({"Namerand": resForRand["Name"],"RArand":randRAs, "Decrand":randDecs, "epochrand":randTimes}) #into a df.
 #detectedSources = randRes
 
-detectedSources = pd.read_csv("./TESSdata_Sector2_Cam1_Ccd1_Cut1of16_detected_sources.csv", usecols=["ra", "dec", "mjd", "mag", "Type"])
+detectedSources = pd.read_csv("./TESSdata_Sector2_Cam1_Ccd1_Cut1of16_detected_sources.csv", usecols=["ra", "dec", "mjd", "flux", "Type"])
 
 #     indexs= interpRes.index[interpRes["Name"]==name]
 #     cutItrpDf = interpRes.loc[indexs]
@@ -91,15 +100,16 @@ detectedSources = detectedSources.loc[indexsOfInterest]
 detectedSources["jd"] = detectedSources["mjd"] +2400000.5
 detectedSources.reset_index(drop=True, inplace=True)
 
-colsToUse = ["RA", "Dec", "Time"]
+colsToUse = ["RA", "Dec"]
 
 interpRes.rename(columns={"epoch":"Time"}, inplace=True)
 
 
 detectedSources.rename(columns={"ra":"RA", "dec":"Dec", "jd":"Time"}, inplace=True)
 
-matches = useKDTree(df1=interpRes.copy(deep=True), df2=detectedSources.copy(deep=True), cols=colsToUse)
-matches.rename(columns={'Unnamed: 0Match':"IDMatch"}, inplace=True, errors="raise")
+matches = useKDTree(df1=interpRes.copy(deep=True), df2=detectedSources.copy(deep=True), cols=colsToUse, maxDist=21/3600, maxTimeSep=0.025)
+
+
 
 # #* use kd tree to compare the interpolated values to the ones with a random change to them
 # #! stolen from stack overflow: https://stackoverflow.com/questions/67099008/matching-nearest-values-in-two-dataframes-of-different-lengths 
@@ -126,7 +136,7 @@ matches.rename(columns={'Unnamed: 0Match':"IDMatch"}, inplace=True, errors="rais
 
 unqNames = pd.unique(interpRes["Name"])
 
-obsForDetect = 1 #number of observations needed to count a detection
+obsForDetect=10 #number of observations needed to count a detection
 
 interpedMv = []
 foundMv = []
@@ -167,3 +177,21 @@ print(f"The number of matched detections with >= {obsForDetect} observations is 
 completenessMvHist = foundMvHist/interpMvHist
 
 plt.stairs(completenessMvHist, itrpBins)
+
+
+
+for name in unqNames:
+    nameIDs = matches.index[matches["NameMatch"]==name]
+    nameCut = matches.loc[nameIDs]
+    
+    if len(nameIDs)> obsForDetect:
+        plt.figure()
+        plt.scatter(nameCut["Time"], nameCut["flux"], label=name)
+        plt.legend()
+
+    if name == " 2000 KR32 " or name ==" 2001 OH96 ":
+        nameCut.to_csv(f"./{name}Matches.csv")
+
+
+
+

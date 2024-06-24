@@ -378,8 +378,6 @@ res, times = querySB(myTargetPos, magLim=magLim, numTimesteps=54, qRad=3.2)
 unqNames = list(pd.unique(res['Name']))
 
 
-
-
 #* interpolating data. needed so am no doing so many API querries.
 
 dfsList = []
@@ -397,7 +395,7 @@ for i, name in enumerate(unqNames):
     interpRAs = np.interp(x=interpTimes, xp=underSampledPos["epoch"], fp=underSampledPos["RA"])
     interpDecs = np.interp(x=interpTimes, xp=underSampledPos["epoch"], fp=underSampledPos["Dec"])
     interpDf = pd.DataFrame({"RA":interpRAs, "Dec":interpDecs, "epoch":interpTimes}) #make into DF
-    #concat with origonals, and then sorts and fills mpty cols
+    #*concat with origonals, and then sorts and fills mpty cols
     concatedDF = pd.concat([underSampledPos, interpDf])
     concatedDF.sort_values(by=['epoch'], inplace=True)
     concatedDF.reset_index(drop=True, inplace=True)
@@ -406,29 +404,29 @@ for i, name in enumerate(unqNames):
 
 interpRes = pd.concat(dfsList) #puts evrything back together
 interpRes.reset_index(drop=True, inplace=True)
-# interpRes.to_csv(f"./InterpolatedQuerryResult_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.csv")
-# interpRes.to_csv(f"./InterpolatedQuerryResult{fname.split('/')[-1].split('.')[0]}")
+# # interpRes.to_csv(f"./InterpolatedQuerryResult_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.csv")
+# interpRes.to_csv(f"./InterpolatedQuerryResult{fname.split('/')[-1].split('.')[0]}.csv")
 
-# posFig = plotExpectedPos(interpRes, times, myTargetPos, magLim=magLim, scaleAlpha=True)
+posFig = plotExpectedPos(interpRes, times, myTargetPos, magLim=magLim, scaleAlpha=True)
 # posFig.savefig(f"./InterpolatedExpectedPositionsPlot_HscaleOn_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.png")
 
 
 #TODO check names aren't repeated
 
-weirdNames = []
+# weirdNames = []
 
-for name in unqNames:
-    horizQ= Horizons(id = name, epochs = Time("2020-04-17T00:00:00.000").jd, location= "500@-95")
-    try:
-        eph = horizQ.ephemerides()
-        returnedName = eph['targetname'][0]
-        if name.strip() not in returnedName:
-            # print(f"given:{name}, returned: {eph['targetname'][0]}")
-            weirdNames.append((name,returnedName))
-    except Exception as e:
-        print(e)
+# for name in unqNames:
+#     horizQ= Horizons(id = name, epochs = Time("2020-04-17T00:00:00.000").jd, location= "500@-95")
+#     try:
+#         eph = horizQ.ephemerides()
+#         returnedName = eph['targetname'][0]
+#         if name.strip() not in returnedName:
+#             # print(f"given:{name}, returned: {eph['targetname'][0]}")
+#             weirdNames.append((name,returnedName))
+#     except Exception as e:
+#         print(e)
 
-print(weirdNames)
+# print(weirdNames)
 
 
 #TODO check effectiveness of interp via many many horizons querries
@@ -446,38 +444,38 @@ def tforHorz(time):
     
 # unqNames = [unqNames[0]]
 
-numNames = len(unqNames)
+# numNames = len(unqNames)
 
-for name in unqNames:
-    if np.random.rand()< 1/numNames:
-        ids = interpRes.index[interpRes["Name"]==name]
-        nameCut = interpRes.loc[ids]
-        # timeStart = Time(nameCut["epoch"].min(), format="jd")
-        # timeEnd = Time(nameCut["epoch"].max(), format="jd")
+# for name in unqNames:
+#     if np.random.rand()< 1/numNames:
+#         ids = interpRes.index[interpRes["Name"]==name]
+#         nameCut = interpRes.loc[ids]
+#         # timeStart = Time(nameCut["epoch"].min(), format="jd")
+#         # timeEnd = Time(nameCut["epoch"].max(), format="jd")
         
-        # horizQ = Horizons(id = name, epochs = {"start":str(tforHorz(timeStart)), "stop":str(tforHorz(timeEnd)), "step":"30m"}, location= "500@-95")
-        rasActs = []
-        decsActs = []
-        for time in nameCut["epoch"]:
-            try:
-                horizQ = Horizons(id = name, epochs =time, location= "500@-95")
-                eph = horizQ.ephemerides()
-                rasAct = float(eph["RA"][0])
-                decsAct = float(eph["DEC"][0])
-                rasActs.append(rasAct)
-                decsActs.append(decsAct)
+#         # horizQ = Horizons(id = name, epochs = {"start":str(tforHorz(timeStart)), "stop":str(tforHorz(timeEnd)), "step":"30m"}, location= "500@-95")
+#         rasActs = []
+#         decsActs = []
+#         for time in nameCut["epoch"]:
+#             try:
+#                 horizQ = Horizons(id = name, epochs =time, location= "500@-95")
+#                 eph = horizQ.ephemerides()
+#                 rasAct = float(eph["RA"][0])
+#                 decsAct = float(eph["DEC"][0])
+#                 rasActs.append(rasAct)
+#                 decsActs.append(decsAct)
 
-            except Exception as e:
-                print(e)
+#             except Exception as e:
+#                 print(e)
 
-        rasInterp = nameCut["RA"]
-        decsInterp = nameCut["Dec"]
+#         rasInterp = nameCut["RA"]
+#         decsInterp = nameCut["Dec"]
 
-        deltaRa = rasActs - rasInterp
-        deltaDec = decsActs - decsInterp
-        fig, ax = plt.subplots(1)
-        ax.set_title(name)
-        ax.set_xlabel("Delta RA")
-        ax.set_ylabel("Delta Dec")
-        ax.scatter(deltaRa, deltaDec, c=nameCut["epoch"], cmap="magma")
+#         deltaRa = rasActs - rasInterp
+#         deltaDec = decsActs - decsInterp
+#         fig, ax = plt.subplots(1)
+#         ax.set_title(name)
+#         ax.set_xlabel("Delta RA")
+#         ax.set_ylabel("Delta Dec")
+#         ax.scatter(deltaRa, deltaDec, c=nameCut["epoch"], cmap="magma")
 
