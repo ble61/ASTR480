@@ -30,11 +30,15 @@ unqNames = pd.unique(matchesDF["NameMatch"])
 
 periodDict = {}
 
+badCount = 0
 
 for name in unqNames:
     nameDf = name_cut(matchesDF, name)
     
-    if nameDf.shape[0]<2:
+    numObser = 2
+    if nameDf.shape[0]<numObser:
+        badCount+=1
+        print(f"{badCount}. not enough points (<{numObser}) for {name}")
         continue
     time = nameDf["mjd"].values
     flux = nameDf["flux"].values
@@ -44,5 +48,15 @@ for name in unqNames:
 
 
 print(periodDict)
+print(len(unqNames))
 
-plt.scatter(np.arange(len(periodDict)),periodDict.values())
+fig, ax = plt.subplots()
+
+ax.scatter(np.arange(len(periodDict)),periodDict.values())
+ax.set_ylabel("Period [days]")
+ax.set_xlabel("Index")
+
+
+maxPName = max(periodDict, key=periodDict.get)
+maxP = periodDict[maxPName]
+print(maxPName, maxP)
