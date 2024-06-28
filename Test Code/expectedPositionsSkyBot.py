@@ -243,10 +243,18 @@ def plotExpectedPos(posDf: pd.DataFrame, timeList: npt.ArrayLike, targetPos: lis
         norm=cnorm, cmap=cmap), ax=ax, pad=0.1)
     clb.ax.set_title("Time in MJD", fontsize=16, y=1.03)
     clb.ax.ticklabel_format(useOffset=False)
-    centerPix = SkyCoord(ra_i, dec_i, unit=(u.deg, u.deg)).to_pixel(
-        w)  # center of seach area in pixels
+    centerPix = SkyCoord(ra_i, dec_i, unit=(u.deg, u.deg)).to_pixel(w)  # center of seach area in pixels
     ax.scatter(centerPix[0], centerPix[1], marker="+",
                s=100, c="g")  # center marker
+    
+    #*BOX to check 3.2 deg 
+    # corners = np.array([[ra_i+1.6, dec_i+1.6],[ra_i-1.6, dec_i+1.6],[ra_i-1.6, dec_i-1.6],[ra_i+1.6, dec_i-1.6],[ra_i+1.6, dec_i+1.6]])
+
+    # cornersPix =  SkyCoord(corners, unit=(u.deg, u.deg)).to_pixel(w) 
+
+    # ax.plot(cornersPix[0], cornersPix[1])
+
+
     ax.text(-37, -10, s=scaleStr, fontsize=18)
 
     fig.tight_layout()
@@ -348,7 +356,13 @@ def plotHorizons(nameList: list[str], t_i:Time, t_f:Time| None = None,loc:str="5
 
     return fig
 
-fname = "./TESSdata_Sector2_Cam1_Ccd1_Cut1of16_wcs.fits"
+sector = 29
+cam = 1
+ccd = 3
+cut = 7
+
+
+fname = f"../OzData/{sector}_{cam}_{ccd}_{cut}_wcs.fits"
 
 targetWSC = fits.open(fname)[0]
 
@@ -364,8 +378,9 @@ res, times = querySB(myTargetPos, magLim=magLim, numTimesteps=54, qRad=3.2)
 
 # res.to_csv(f"./querryResult_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.csv")
 
-# posFig = plotExpectedPos(res, times, myTargetPos, magLim=magLim, scaleAlpha=True)
+posFig = plotExpectedPos(res, times, myTargetPos, magLim=magLim, scaleAlpha=True)
 # posFig.savefig(f"./ExpectedPositionsPlot_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.png")
+
 # eleFig = plotHorizons(unqNames, times[0], plotAEI=True)
 # eleFig.savefig(f"./OrbitalElementsPlot_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.png")
 
@@ -395,7 +410,7 @@ for i, name in enumerate(unqNames):
     interpRAs = np.interp(x=interpTimes, xp=underSampledPos["epoch"], fp=underSampledPos["RA"])
     interpDecs = np.interp(x=interpTimes, xp=underSampledPos["epoch"], fp=underSampledPos["Dec"])
     interpDf = pd.DataFrame({"RA":interpRAs, "Dec":interpDecs, "epoch":interpTimes}) #make into DF
-    #*concat with origonals, and then sorts and fills mpty cols
+    #*concat with origonals, and then sorts and fills empty cols
     concatedDF = pd.concat([underSampledPos, interpDf])
     concatedDF.sort_values(by=['epoch'], inplace=True)
     concatedDF.reset_index(drop=True, inplace=True)
@@ -405,7 +420,7 @@ for i, name in enumerate(unqNames):
 interpRes = pd.concat(dfsList) #puts evrything back together
 interpRes.reset_index(drop=True, inplace=True)
 # # interpRes.to_csv(f"./InterpolatedQuerryResult_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.csv")
-# interpRes.to_csv(f"./InterpolatedQuerryResult{fname.split('/')[-1].split('.')[0]}.csv")
+interpRes.to_csv(f"./InterpolatedQuerryResult_{sector}_{cam}_{ccd}_{cut}.csv")
 
 posFig = plotExpectedPos(interpRes, times, myTargetPos, magLim=magLim, scaleAlpha=True)
 # posFig.savefig(f"./InterpolatedExpectedPositionsPlot_HscaleOn_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.png")

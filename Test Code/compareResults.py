@@ -41,6 +41,9 @@ def useKDTree(df1, df2, cols, maxDist:float=0.01,maxTimeSep:float=0.1,k:int=1):
 
     df2 = df2.sort_values("distToMatch").drop_duplicates(subset=["IDMatch"]).sort_index() #drops all the duplicate IDs, as very point should be 1:1 not n:1
 
+    df2.reset_index(drop=False, inplace=True)
+    df2.rename(columns={"index":"DetectIDs"}, inplace=True)
+
     return df2
  
 
@@ -66,7 +69,13 @@ def useKDTree(df1, df2, cols, maxDist:float=0.01,maxTimeSep:float=0.1,k:int=1):
 #     return cat1_id,cat2_id
 
 
-interpRes = pd.read_csv("./InterpolatedQuerryResultTESSdata_Sector2_Cam1_Ccd1_Cut1of16_wcs.csv")
+sector = 29
+cam = 1
+ccd = 3
+cut = 7
+
+
+interpRes = pd.read_csv(f"./InterpolatedQuerryResult_{sector}_{cam}_{ccd}_{cut}.csv")
 
 
 # #TODO get csv from Ryan of problems. 
@@ -88,14 +97,14 @@ interpRes = pd.read_csv("./InterpolatedQuerryResultTESSdata_Sector2_Cam1_Ccd1_Cu
 # randRes = pd.DataFrame({"Namerand": resForRand["Name"],"RArand":randRAs, "Decrand":randDecs, "epochrand":randTimes}) #into a df.
 #detectedSources = randRes
 
-detectedSources = pd.read_csv("./TESSdata_Sector2_Cam1_Ccd1_Cut1of16_detected_sources.csv", usecols=["ra", "dec", "mjd", "flux", "Type"])
+detectedSourcesAll = pd.read_csv(f"../OzData/{sector}_{cam}_{ccd}_{cut}_detected_sources.csv", usecols=["ra", "dec", "mjd", "flux", "Type"])
 
 #     indexs= interpRes.index[interpRes["Name"]==name]
 #     cutItrpDf = interpRes.loc[indexs]
 
-indexsOfInterest = detectedSources.index[detectedSources["Type"] == "0"]
+indexsOfInterest = detectedSourcesAll.index[detectedSourcesAll["Type"] == "0"]
 
-detectedSources = detectedSources.loc[indexsOfInterest]
+detectedSources = detectedSourcesAll.loc[indexsOfInterest]
 
 detectedSources["jd"] = detectedSources["mjd"] +2400000.5
 detectedSources.reset_index(drop=True, inplace=True)
@@ -109,6 +118,7 @@ detectedSources.rename(columns={"ra":"RA", "dec":"Dec", "jd":"Time"}, inplace=Tr
 
 matches = useKDTree(df1=interpRes.copy(deep=True), df2=detectedSources.copy(deep=True), cols=colsToUse, maxDist=21/3600, maxTimeSep=0.025)
 
+matches.to_csv(f"./{sector}_{cam}_{ccd}_{cut}_InterpAndDetect_Matches.csv")
 
 
 # #* use kd tree to compare the interpolated values to the ones with a random change to them
@@ -136,7 +146,8 @@ matches = useKDTree(df1=interpRes.copy(deep=True), df2=detectedSources.copy(deep
 
 unqNames = pd.unique(interpRes["Name"])
 
-obsForDetect=10 #number of observations needed to count a detection
+obsForDetect=80 #number of observations needed to count a detection
+
 
 interpedMv = []
 foundMv = []
@@ -189,8 +200,9 @@ for name in unqNames:
         plt.scatter(nameCut["Time"], nameCut["flux"], label=name)
         plt.legend()
 
-    if name == " 2000 KR32 " or name ==" 2001 OH96 ":
+    if name == " 2001 UR124 " or name ==" Henry ":
         nameCut.to_csv(f"./{name}Matches.csv")
+
 
 
 

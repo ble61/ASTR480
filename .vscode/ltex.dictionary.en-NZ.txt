@@ -2,3 +2,5 @@ TESS
 
 arcsecond
 arcseconds
+exoplanets
+Exoplanet

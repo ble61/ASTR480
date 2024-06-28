@@ -1,7 +1,23 @@
 \documentclass[12pt]{article}
-\usepackage{siunitx, natbib, hyperref,graphicx}
+\usepackage{natbib, hyperref,graphicx}
+
+\usepackage[separate-uncertainty=true,multi-part-units=single]{siunitx}
 
 \DeclareSIUnit{\arcsec}{''}
+
+\usepackage[utf8]{inputenc}
+\usepackage{newunicodechar}
+%\usepackage{libertine}
+
+\DeclareRobustCommand{\okina}{%
+  \raisebox{\dimexpr\fontcharht\font`A-\height}{%
+    \scalebox{0.8}{`}%
+  }%
+}
+\newunicodechar{ʻ}{\okina}
+
+\newcommand{\omuamua}{\okina Omuamua}
+
 
 \title{A480 Notes}
 \author{Brayden Leicester}
@@ -14,12 +30,39 @@ The named asteroids in \cite{Harris1994} (most notably 4179 Toutatis) should be 
 288 Glauke \cite{Harris2015}
 
 \section{Background writing}
-%TODO 1I observation paragraph/s 
-
-The first interstellar object discovered in late 2017 has come to be called 1I/'Omuamua. \dots
 
 %TODO TESS intro
-The Transiting Exoplanet Survey Satellite (TESS) \cite{Ricker2014} is a large area, high cadence, imaging \dots
+The Transiting Exoplanet Survey Satellite (TESS) \cite{Ricker2014} is a large area, high imaging cadence, space telescope. 
+TESS is tasked with staring at the same piece of sky for \qty{27}{\day} at a time (a sector), delivering \qtyproduct{96 x 24}{\degree} full frame images (FFIs) at regular intervals. 
+These FFIs are built from stacked \qty{2}{\second} exposures, leveraging the short readout times of the 16 CCD cameras onboard. 
+With the initial cadence for these full frame images set to \qty{30}{\minute}, the time resolution of TESS is unparalleled. 
+This does come at the cost of spatial resolution, as the pixels are each \qty{21}{\arcsec} square. 
+A Nyquist frequency of \unit{\per\hour} is well sampled enough to characterise most variable stars, as well as find the orbital periods of exoplanets to a high precision. 
+After the initial mission had mapped the entire sky, TESS started to reduce the time of the full frame images, down to \qty{10}{\minute} and then down to only \qty{200}{\second}.
+
+Of interest here is what such a high sampling rate can do for statistic on the asteroid population. 
+For bright asteroids the rotation periods should be able to be easily determined from this vast dataset. 
+The shortest FFIs will be able to accurately determine the rotation periods of all but the fastest rotating asteroids, most of which will be too dim to see in the TESS data. 
+There have been attempts before to find and classify the asteroids in TESS data before by \citet{Pal2018, Pal2020}. This work aims to extend there study to more sectors, and a to use a different data reduction method, using the \texttt{TESSreduce} package \citep{Ridden-Harper2021}. 
+As part of a full sky transient survey using TESS, \texttt{TESSELLATE} (Ridden-Harper and Roxburgh et al., in prep), asteroids pop out as transient objects that are spikes in brightness of pixels for only a few frames. 
+They can confuse pipelines looking for short time stellar transients such as flare stars and supernova. 
+As such, a way of filtering them out is required, as well as this filtering will get the properties of the lightcurves, such as the rotation periods and amplitude variation of these small solar system bodies.
+A full sky, self consistent catalogue of these properties is important for many reasons. 
+The asteroid population statistics are useful in their own right, understanding the orbits of near earth objects is useful for planetary defence, and these bodies \dots      
+
+%TODO 1I observation paragraph/s 
+
+The first interstellar object (ISO) was discovered in late 2017, it has come to be called 1I/\omuamua \citep[see][for a review]{Bannister2019}.
+\omuamua was determined to be spectroscopically red \citep{Fitzsimmons2017, Meech2017}, and having a photometric colour in the neutral end of the solar system range \citep{Bannister2017}. 
+It appeared to be tumbling \citep[e.g.][]{Drahus2018,Fraser2018}, the double peaked light curve was found to have a rotation period of \qty{8.67(0.34)}{\hour} \citep{Belton2018}.
+
+Peak to peak LC of 2.5 mag %TODO cite
+
+Combing the tumbling with an elongation ratio of up to \qty{6(1)}{}:1 \citep{McNeill2018}, 1I is said to have a cigar shape \citep{Belton2018}.  
+
+
+1I was classed as asteroid due to lack of a coma, and no noticable activity %TODO cite
+
 
 \section{Method Notes}
 
@@ -43,7 +86,7 @@ Osculating elements, such as the heliocentric distance, $r_h$ and the distance t
 can also be found from Horizons.
 Plotting inclination against a change in these distances with time can give an idea of the motion of the bodies.
 The JPL queries can also be used to check the validity of the interpolation from Skybot.
-By geting the RA and Dec values of a named asteroid for all the timesteps interpolated, a $\Delta$RA against $|Delta$Dec plot can be made.
+By geting the RA and Dec values of a named asteroid for all the timesteps interpolated, a $\Delta$RA against $\Delta$Dec plot can be made.
 This was heavily rate limited, as the epoch querying did not want to play ball with date formats, but what was produced showed that the interpolation was accurate to within an arcsecond most of the time, the earliest points were the most astray, but this was still within three or four arcseconds, much smaller than the \qty{21}{\arcsec} TESS pixels.
 
 %*Interpolation
@@ -61,7 +104,7 @@ To do this, catelogue matching is in order.
 
 %*Period fit
 
-
 \bibliographystyle{apalike}
 \bibliography{bibfile.bib}
+
 \end{document}

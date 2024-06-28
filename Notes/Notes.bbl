@@ -1,5 +1,35 @@
 \begin{thebibliography}{}
 
+\bibitem[Bannister et~al., 2019]{Bannister2019}
+Bannister, M.~T., Bhandare, A., Dybczyński, P.~A., Fitzsimmons, A., Guilbert-Lepoutre, A., Jedicke, R., Knight, M.~M., Meech, K.~J., McNeill, A., Pfalzner, S., Raymond, S.~N., Snodgrass, C., Trilling, D.~E., and Ye, Q. (2019).
+\newblock The natural history of ‘oumuamua.
+\newblock {\em Nature Astronomy 2019 3:7}, 3:594--602.
+
+\bibitem[Bannister et~al., 2017]{Bannister2017}
+Bannister, M.~T., Schwamb, M.~E., Fraser, W.~C., Marsset, M., Fitzsimmons, A., Benecchi, S.~D., Lacerda, P., Pike, R.~E., Kavelaars, J.~J., Smith, A.~B., Stewart, S.~O., Wang, S.-Y., and Lehner, M.~J. (2017).
+\newblock Col-ossos: Colors of the interstellar planetesimal 1i/‘oumuamua.
+\newblock {\em The Astrophysical Journal Letters}, 851:L38.
+
+\bibitem[Belton et~al., 2018]{Belton2018}
+Belton, M. J.~S., Hainaut, O.~R., Meech, K.~J., Mueller, B. E.~A., Kleyna, J.~T., Weaver, H.~A., Buie, M.~W., Drahus, M., Guzik, P., Wainscoat, R.~J., Waniak, W., Handzlik, B., Kurowski, S., Xu, S., Sheppard, S.~S., Micheli, M., Ebeling, H., and Keane, J.~V. (2018).
+\newblock The excited spin state of 1i/2017 u1 ‘oumuamua.
+\newblock {\em The Astrophysical Journal Letters}, 856:L21.
+
+\bibitem[Drahus et~al., 2018]{Drahus2018}
+Drahus, M., Guzik, P., Waniak, W., Handzlik, B., Kurowski, S., Xu, S., Drahus, M., Guzik, P., Waniak, W., Handzlik, B., Kurowski, S., and Xu, S. (2018).
+\newblock Tumbling motion of 1i/`oumuamua and its implications for the body's distant past.
+\newblock {\em NatAs}, 2:407--412.
+
+\bibitem[Fitzsimmons et~al., 2017]{Fitzsimmons2017}
+Fitzsimmons, A., Snodgrass, C., Rozitis, B., Yang, B., Hyland, M., Seccull, T., Bannister, M.~T., Fraser, W.~C., Jedicke, R., and Lacerda, P. (2017).
+\newblock Spectroscopy and thermal modelling of the first interstellar object 1i/2017 u1 ‘oumuamua.
+\newblock {\em Nature Astronomy}, 2:133--137.
+
+\bibitem[Fraser et~al., 2018]{Fraser2018}
+Fraser, W.~C., Pravec, P., Fitzsimmons, A., Lacerda, P., Bannister, M.~T., Snodgrass, C., and Smolić, I. (2018).
+\newblock The tumbling rotational state of 1i/'oumuamua.
+\newblock {\em Nature Astronomy}, 2:383--386.
+
 \bibitem[Harris, 1994]{Harris1994}
 Harris, A.~W. (1994).
 \newblock Tumbling asteroids.
@@ -7,39 +37,37 @@ Harris, A.~W. (1994).
 
 \bibitem[Harris, 2015]{Harris2015}
 Harris, A.~W. (2015).
-\newblock A perspective of how far asteroid photometry has come in the past
-  forty years.
+\newblock A perspective of how far asteroid photometry has come in the past forty years.
 \newblock {\em MPBu}, 42:10--11.
+
+\bibitem[McNeill et~al., 2018]{McNeill2018}
+McNeill, A., Trilling, D.~E., and Mommert, M. (2018).
+\newblock Constraints on the density and internal strength of 1i/’oumuamua.
+\newblock {\em The Astrophysical Journal Letters}, 857:L1.
+
+\bibitem[Meech et~al., 2017]{Meech2017}
+Meech, K.~J., Weryk, R., Micheli, M., Kleyna, J.~T., Hainaut, O.~R., Jedicke, R., Wainscoat, R.~J., Chambers, K.~C., Keane, J.~V., Petric, A., Denneau, L., Magnier, E., Berger, T., Huber, M.~E., Flewelling, H., Waters, C., Schunova-Lilly, E., and Chastel, S. (2017).
+\newblock A brief visit from a red and extremely elongated interstellar asteroid.
+\newblock {\em Nature}, 552:378--381.
 
 \bibitem[Pál et~al., 2018]{Pal2018}
 Pál, A., Molnár, L., and Kiss, C. (2018).
 \newblock Tess in the solar system.
-\newblock {\em Publications of the Astronomical Society of the Pacific},
-  130:114503.
+\newblock {\em Publications of the Astronomical Society of the Pacific}, 130:114503.
 
 \bibitem[Pál et~al., 2020]{Pal2020}
-Pál, A., Szakáts, R., Kiss, C., Bódi, A., Bognár, Z., Kalup, C., Kiss,
-  L.~L., Marton, G., Molnár, L., Plachy, E., Sárneczky, K., Szabó, G.~M.,
-  and Szabó, R. (2020).
-\newblock Solar system objects observed with tess—first data release: Bright
-  main-belt and trojan asteroids from the southern survey.
+Pál, A., Szakáts, R., Kiss, C., Bódi, A., Bognár, Z., Kalup, C., Kiss, L.~L., Marton, G., Molnár, L., Plachy, E., Sárneczky, K., Szabó, G.~M., and Szabó, R. (2020).
+\newblock Solar system objects observed with tess—first data release: Bright main-belt and trojan asteroids from the southern survey.
 \newblock {\em The Astrophysical Journal Supplement Series}, 247:26.
 
 \bibitem[Ricker et~al., 2014]{Ricker2014}
-Ricker, G.~R., Winn, J.~N., Vanderspek, R., Latham, D.~W., Bakos, G.~{\'A}.,
-  Bean, J.~L., Berta-Thompson, Z.~K., Brown, T.~M., Buchhave, L., Butler,
-  N.~R., Butler, R.~P., Chaplin, W.~J., Charbonneau, D., Christensen-Dalsgaard,
-  J., Clampin, M., Deming, D., Doty, J., Lee, N.~D., Dressing, C., Dunham,
-  E.~W., Endl, M., Fressin, F., Ge, J., Henning, T., Holman, M.~J., Howard,
-  A.~W., Ida, S., Jenkins, J.~M., Jernigan, G., Johnson, J.~A., Kaltenegger,
-  L., Kawai, N., Kjeldsen, H., Laughlin, G., Levine, A.~M., Lin, D., Lissauer,
-  J.~J., MacQueen, P., Marcy, G., McCullough, P.~R., Morton, T.~D., Narita, N.,
-  Paegert, M., Palle, E., Pepe, F., Pepper, J., Quirrenbach, A., Rinehart,
-  S.~A., Sasselov, D., Sato, B., Seager, S., Sozzetti, A., Stassun, K.~G.,
-  Sullivan, P., Szentgyorgyi, A., Torres, G., Udry, S., and Villasenor, J.
-  (2014).
+Ricker, G.~R., Winn, J.~N., Vanderspek, R., Latham, D.~W., Bakos, G.~{\'A}., Bean, J.~L., Berta-Thompson, Z.~K., Brown, T.~M., Buchhave, L., Butler, N.~R., Butler, R.~P., Chaplin, W.~J., Charbonneau, D., Christensen-Dalsgaard, J., Clampin, M., Deming, D., Doty, J., Lee, N.~D., Dressing, C., Dunham, E.~W., Endl, M., Fressin, F., Ge, J., Henning, T., Holman, M.~J., Howard, A.~W., Ida, S., Jenkins, J.~M., Jernigan, G., Johnson, J.~A., Kaltenegger, L., Kawai, N., Kjeldsen, H., Laughlin, G., Levine, A.~M., Lin, D., Lissauer, J.~J., MacQueen, P., Marcy, G., McCullough, P.~R., Morton, T.~D., Narita, N., Paegert, M., Palle, E., Pepe, F., Pepper, J., Quirrenbach, A., Rinehart, S.~A., Sasselov, D., Sato, B., Seager, S., Sozzetti, A., Stassun, K.~G., Sullivan, P., Szentgyorgyi, A., Torres, G., Udry, S., and Villasenor, J. (2014).
 \newblock Transiting exoplanet survey satellite.
-\newblock {\em Journal of Astronomical Telescopes, Instruments, and Systems},
-  1:014003.
+\newblock {\em Journal of Astronomical Telescopes, Instruments, and Systems}, 1:014003.
+
+\bibitem[{Ridden-Harper} et~al., 2021]{Ridden-Harper2021}
+{Ridden-Harper}, R., {Rest}, A., {Hounsell}, R., {M{\"u}ller-Bravo}, T.~E., {Wang}, Q., and {Villar}, V.~A. (2021).
+\newblock {TESSreduce: transient focused TESS data reduction pipeline}.
+\newblock {\em arXiv e-prints}, page arXiv:2111.15006.
 
 \end{thebibliography}
