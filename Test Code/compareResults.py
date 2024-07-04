@@ -23,7 +23,7 @@ def useKDTree(df1, df2, cols, maxDist:float=0.01,maxTimeSep:float=0.1,k:int=1):
     dists, indices =  tree.query(df2[cols].values, k=k)
 
     fts = [c for c in df1.columns]
-    df2["distToMatch"] = dists
+    df2["distToMatch"] = dists 
     for c in fts:
         df2[f"{c}Match"]= df1[c].values[indices]
 

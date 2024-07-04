@@ -40,6 +40,16 @@ Harris, A.~W. (2015).
 \newblock A perspective of how far asteroid photometry has come in the past forty years.
 \newblock {\em MPBu}, 42:10--11.
 
+\bibitem[{Lightkurve Collaboration} et~al., 2018]{Lightkurve2018}
+{Lightkurve Collaboration}, {Cardoso}, J.~V.~d.~M., {Hedges}, C., {Gully-Santiago}, M., {Saunders}, N., {Cody}, A.~M., {Barclay}, T., {Hall}, O., {Sagear}, S., {Turtelboom}, E., {Zhang}, J., {Tzanidakis}, A., {Mighell}, K., {Coughlin}, J., {Bell}, K., {Berta-Thompson}, Z., {Williams}, P., {Dotson}, J., and {Barentsen}, G. (2018).
+\newblock {Lightkurve: Kepler and TESS time series analysis in Python}.
+\newblock Astrophysics Source Code Library.
+
+\bibitem[Maneewongvatana et~al., 1999]{Maneewongvatana1999}
+Maneewongvatana, S., Mount, D.~M., Maneewongvatana, S., and Mount, D.~M. (1999).
+\newblock Analysis of approximate nearest neighbor searching with clustered point sets.
+\newblock {\em arXiv}, page cs/9901013.
+
 \bibitem[McNeill et~al., 2018]{McNeill2018}
 McNeill, A., Trilling, D.~E., and Mommert, M. (2018).
 \newblock Constraints on the density and internal strength of 1i/’oumuamua.
@@ -69,5 +79,10 @@ Ricker, G.~R., Winn, J.~N., Vanderspek, R., Latham, D.~W., Bakos, G.~{\'A}., Bea
 {Ridden-Harper}, R., {Rest}, A., {Hounsell}, R., {M{\"u}ller-Bravo}, T.~E., {Wang}, Q., and {Villar}, V.~A. (2021).
 \newblock {TESSreduce: transient focused TESS data reduction pipeline}.
 \newblock {\em arXiv e-prints}, page arXiv:2111.15006.
+
+\bibitem[Virtanen et~al., 2020]{2020SciPy-NMeth}
+Virtanen, P., Gommers, R., Oliphant, T.~E., Haberland, M., Reddy, T., Cournapeau, D., Burovski, E., Peterson, P., Weckesser, W., Bright, J., {van der Walt}, S.~J., Brett, M., Wilson, J., Millman, K.~J., Mayorov, N., Nelson, A. R.~J., Jones, E., Kern, R., Larson, E., Carey, C.~J., Polat, {\.I}., Feng, Y., Moore, E.~W., {VanderPlas}, J., Laxalde, D., Perktold, J., Cimrman, R., Henriksen, I., Quintero, E.~A., Harris, C.~R., Archibald, A.~M., Ribeiro, A.~H., Pedregosa, F., {van Mulbregt}, P., and {SciPy 1.0 Contributors} (2020).
+\newblock {{SciPy} 1.0: Fundamental Algorithms for Scientific Computing in Python}.
+\newblock {\em Nature Methods}, 17:261--272.
 
 \end{thebibliography}

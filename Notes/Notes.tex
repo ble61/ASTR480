@@ -99,10 +99,15 @@ The number of frames do change, type Ia supernova will brighten is a matter of a
 Asteroids are very short, however detection pipelines are robust.
 These pipelines have already found the aforementioned supernova and stellar flares, the job of this work is to catch all the asteroids in the set of all the transients.
 To do this, catelogue matching is in order.
-
+Using the \texttt{KDTree} algorithm \citep{Maneewongvatana1999} as implemented in \texttt{SciPy} \citep{2020SciPy-NMeth} %TODO cite
+, the RA and Dec values of the interpolated asteroid positions can be queried for each of the unknown detections in the small cut of a TESS sector of interest. 
+The smallest time gap between any match is \qty{0.1}{\day}, this is to stop any matches that are coincident spatialy but very far apart in time and is intentionally longer than one TESS FFI. 
+Then, if multiple detection match to the same interpolated point, a cut is made by smallest distance, in coordinate space, and any distance must be smaller than \qty{0.01}{\degree} (\qty{36}{\arcsec}), which is within 2 TESS pixels. 
 
 
 %*Period fit
+From these matches, the flux of the detection can be plotted against the time of the event, this is a textbook lightcurve. Using the \texttt{Lightkurve} package \citep{Lightkurve2018}, a Lomb-Scargle periodigram can be formed, and the most likely period can be determined. \texttt{Lightkurve} was built for TESS data (as well as for the Kepler mission), so it is the best fit for the analysis here.
+
 
 \bibliographystyle{apalike}
 \bibliography{bibfile.bib}
