@@ -69,16 +69,16 @@ def useKDTree(df1, df2, cols, maxDist:float=0.01,maxTimeSep:float=0.1,k:int=1):
 #     return cat1_id,cat2_id
 
 
-sector = 29
+sector = 22
 cam = 1
 ccd = 3
-cut = 7
+cut = 8
 
 
 interpRes = pd.read_csv(f"./InterpolatedQuerryResult_{sector}_{cam}_{ccd}_{cut}.csv")
 
 
-# #TODO get csv from Ryan of problems. 
+# #// TODO get csv from Ryan of problems. 
 # # will have to rename vars to be readable
 # #*gets random offset to make matches from
 # obsPos = [301.60, -38.68, Time("2020-04-17T00:00:00.000", format='isot', scale='utc')]
@@ -200,7 +200,7 @@ for name in unqNames:
         plt.scatter(nameCut["Time"], nameCut["flux"], label=name)
         plt.legend()
 
-    if name == " 2001 UR124 " or name ==" Henry ":
+    if name == " Ruff " or name ==" Lincoln ":
         nameCut.to_csv(f"./{name}Matches.csv")
 
 

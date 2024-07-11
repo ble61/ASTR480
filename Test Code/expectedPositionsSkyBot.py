@@ -121,8 +121,17 @@ def querySB(targetPos: list, qRad: float = 10.0, qLoc: str = "C57", numTimesteps
     dt = (27/numTimesteps)*u.day  # a dt in days
     # list of times constructed sequentially
     timeList = t_i + dt*np.arange(0, numTimesteps)
-    result = _Skybotquery(ra_i, dec_i, timeList.jd,
+    result = pd.DataFrame()
+    
+    while len(result)<numTimesteps:
+        
+        try:
+            result = _Skybotquery(ra_i, dec_i, timeList.jd,
                           radius=qRad, location=qLoc, cache=True)
+        except:
+            continue
+    
+
     brightResult = result.loc[result["Mv"] <= magLim].reset_index(drop=True)
 
     coords = SkyCoord(
@@ -356,10 +365,10 @@ def plotHorizons(nameList: list[str], t_i:Time, t_f:Time| None = None,loc:str="5
 
     return fig
 
-sector = 29
+sector = 22
 cam = 1
 ccd = 3
-cut = 7
+cut = 8
 
 
 fname = f"../OzData/{sector}_{cam}_{ccd}_{cut}_wcs.fits"

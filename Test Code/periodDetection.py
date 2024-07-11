@@ -3,6 +3,16 @@ import matplotlib.pyplot as plt
 import pandas as pd 
 import lightkurve as lk
 
+plt.rcParams.update({
+    "font.size": 18,
+    "font.family": "serif",
+    "figure.autolayout": True,
+    "axes.grid": False,
+    # "xtick.minor.visible": True,
+    # "ytick.minor.visible": True,
+})
+
+
 def detect_period(times, fluxes, fluxErrs):
     """
     Calculates the periodogram and returns the period at the max power.
@@ -24,7 +34,7 @@ def name_cut(df, name:str, colName:str="NameMatch"):
     return df.loc[df.index[df[colName]==name]]
 
 
-matchesDF = load_matches(29,1,3,7)
+matchesDF = load_matches(22,1,3,8)
 
 unqNames = pd.unique(matchesDF["NameMatch"])
 
@@ -32,10 +42,12 @@ periodDict = {}
 
 badCount = 0
 
+numObser = 2
+
 for name in unqNames:
     nameDf = name_cut(matchesDF, name)
     
-    numObser = 2
+    
     if nameDf.shape[0]<numObser:
         badCount+=1
         print(f"{badCount}. not enough points (<{numObser}) for {name}")
@@ -47,7 +59,7 @@ for name in unqNames:
     periodDict[name] = period
 
 
-print(periodDict)
+# print(periodDict)
 print(len(unqNames))
 
 fig, ax = plt.subplots()
