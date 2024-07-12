@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99d (TeX Live 2023)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: progressReportDraft.aux
+The style file: jphysicsB.bst
+Database file #1: ../Notes/bibfile.bib
+You've used 12 entries,
+            2796 wiz_defined-function locations,
+            722 strings with 10057 characters,
+and the built_in function-call counts, 229423 in all, are:
+= -- 38774
+> -- 3174
+< -- 0
++ -- 20013
+- -- 1032
+* -- 21304
+:= -- 43138
+add.period$ -- 12
+call.type$ -- 12
+change.case$ -- 156
+chr.to.int$ -- 12
+cite$ -- 12
+duplicate$ -- 220
+empty$ -- 388
+format.name$ -- 1068
+if$ -- 41341
+int.to.chr$ -- 5
+int.to.str$ -- 0
+missing$ -- 12
+newline$ -- 47
+num.names$ -- 120
+pop$ -- 32
+preamble$ -- 1
+purify$ -- 180
+quote$ -- 0
+skip$ -- 225
+stack$ -- 0
+substring$ -- 57460
+swap$ -- 74
+text.length$ -- 168
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 48
+warning$ -- 0
+while$ -- 253
+width$ -- 0
+write$ -- 142

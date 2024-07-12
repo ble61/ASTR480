@@ -1,0 +1,93 @@
+\documentclass[12pt]{article}
+
+\usepackage{natbib,hyperref,graphicx}
+\usepackage[separate-uncertainty=true,multi-part-units=single]{siunitx}
+
+\usepackage[margin=1.5cm, left=3cm,twoside]{geometry}
+
+
+
+\DeclareSIUnit{\arcsec}{''}
+
+\usepackage[utf8]{inputenc}
+\usepackage{newunicodechar}
+%\usepackage{libertine}
+
+\DeclareRobustCommand{\okina}{%
+  \raisebox{\dimexpr\fontcharht\font`A-\height}{%
+    \scalebox{0.8}{`}%
+  }%
+}
+\newunicodechar{ʻ}{\okina}
+\newcommand{\omuamua}{\okina Omuamua }
+
+
+\title{ASTR480 Progress Report}
+\author{Brayden Leicester \\[1ex]
+\small{Supervisors: Michele Bannister and Ryan Ridden-Harper}
+}
+\begin{document}
+\maketitle
+
+%*Aim / background summary
+
+%To get all asteriods in TESS. 
+This project aims to find and characterise the lightcurves of all the asteroids seen by the Transiting Exoplanet Survey Satellite (TESS). 
+\section{Background}
+    %Why TESS
+TESS is a large area, high imaging cadence, space telescope  \citep{Ricker2014}. 
+TESS is tasked with observing one piece of sky for \qty{27}{\day} at a time (a sector), delivering \qtyproduct{96 x 24}{\degree} full frame images (FFIs) at regular intervals. 
+With the initial cadence for these full frame images set to \qty{30}{\minute}, the time resolution of TESS is unparalleled, with a Nyquist frequency of \qty{1}{\per\hour}, as the mission was extended the lenght of the FFIs has come down to \qty{10}{\minute} and then \qty{200}{\second}. 
+This high time resolution and observation area does come at the cost of spatial resolution, as the pixels are each \qty{21}{\arcsec} square.
+There have been attempts before to find and classify the asteroids in TESS data before by \citet{Pal2018, Pal2020}. This work aims to extend their study to more sectors, and to use a different data reduction method, the \texttt{TESSreduce} package \citep{Ridden-Harper2021}.
+Because of the survey properties, TESS provides a selfconsitent was to measure the properties of asteroids over the full sky.   
+Another beneficial part of this work is that as part of a full sky transient survey using TESS, \texttt{TESSELLATE} (Ridden-Harper and Roxburgh et al., in prep), asteroids are transient objects that spike the brightness of a pixel for only a few frames.
+The goal of finding all the asteroids will allow for the removal of these spikes from the transient pipeline, as well as to understand the asteroid population better.  
+
+
+    %Why Asteroids
+Asteroids are a key class of solar system objects. 
+Understanding their rotation properties has long been of interest to astronomers \citep[e.g.][]{Weidenschilling1981,Harris1994}.
+
+        %Omuamua
+High amplitude variation has come to the forefront of questions about asteroid properties because of the first interstellar object (ISO) 1I/\omuamua \citep[see][for a review]{Bannister2019}. 
+\omuamua was measured to have a rotation period of \qty{8.67(0.34)}{\hour} \citep{Belton2018} and seemed to be tumbling \citep[e.g.][]{Drahus2018,Fraser2018}. 
+The peak to peak amplitude variation of 2.5 mag %TODO cite
+on the double peaked light curve is of interest, as this is much higher than most asteroids. 
+With the full sky survey of bright asteroids, we hope to find many asteroids with such a large amplitude variation, and to see just how rare \omuamua is.  
+
+\section{Work So Far}
+%* Method / Initial Results
+
+%Querry and interpolate
+
+
+%Match to detections
+Matching these interpolated positions to \texttt{TESSELLATE} detections is important to lower the unknown transient outputs of this pipeline. 
+Using the \texttt{KDTree} algorithm \citep{Maneewongvatana1999} as implemented in \texttt{SciPy} \citep{2020SciPy-NMeth}, the right ascension (RA) and  declination (Dec) coordinates of the interpolated points and the detections can be compared and matched together. 
+Filtering this \texttt{KDTree} output by not allowing the time between spatialy coincident matches to be longer than \qty{0.1}{\day}, \dots 
+
+%Lightcurves; detected VS forced interpolated 
+
+\section{Future Work}
+%* Future work
+
+%Periods and amplitueds for everything detected
+
+%Run on server
+The \texttt{TESSELLATE} pipeline has been running on the OzSTAR supercomputing facilities. 
+After I am confident that all the parts of the asteriod detection and subsequent lightcurve analysis works as required, the same code can be refactored to work on OzSTAR and a largescale analysis of all of the processed TESS sectors can be run. 
+Only after this has completed can the asteriod population statistics can be computed. 
+
+
+\section{Figures}
+%*Figures:
+
+%*Bib
+\def\bibfont{\tiny}
+\bibliographystyle{jphysicsB}
+\bibliography{../Notes/bibfile.bib}
+\end{document}
+
+
+

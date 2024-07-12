@@ -102,7 +102,9 @@ detectedSourcesAll = pd.read_csv(f"../OzData/{sector}_{cam}_{ccd}_{cut}_detected
 #     indexs= interpRes.index[interpRes["Name"]==name]
 #     cutItrpDf = interpRes.loc[indexs]
 
-indexsOfInterest = detectedSourcesAll.index[detectedSourcesAll["Type"] == "0"]
+print(pd.unique(detectedSourcesAll["Type"]))
+
+indexsOfInterest = detectedSourcesAll.index[(detectedSourcesAll["Type"] == "0") | detectedSourcesAll["Type"] == "AST"] #TODO figure out what code is for asteroid.
 
 detectedSources = detectedSourcesAll.loc[indexsOfInterest]
 

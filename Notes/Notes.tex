@@ -15,7 +15,6 @@
   }%
 }
 \newunicodechar{ʻ}{\okina}
-
 \newcommand{\omuamua}{\okina Omuamua}
 
 
@@ -33,7 +32,7 @@ The named asteroids in \cite{Harris1994} (most notably 4179 Toutatis) should be 
 
 %TODO TESS intro
 The Transiting Exoplanet Survey Satellite (TESS) \cite{Ricker2014} is a large area, high imaging cadence, space telescope. 
-TESS is tasked with staring at the same piece of sky for \qty{27}{\day} at a time (a sector), delivering \qtyproduct{96 x 24}{\degree} full frame images (FFIs) at regular intervals. 
+TESS is tasked with observing one piece of sky for \qty{27}{\day} at a time (a sector), delivering \qtyproduct{96 x 24}{\degree} full frame images (FFIs) at regular intervals. 
 These FFIs are built from stacked \qty{2}{\second} exposures, leveraging the short readout times of the 16 CCD cameras onboard. 
 With the initial cadence for these full frame images set to \qty{30}{\minute}, the time resolution of TESS is unparalleled. 
 This does come at the cost of spatial resolution, as the pixels are each \qty{21}{\arcsec} square. 
@@ -43,7 +42,7 @@ After the initial mission had mapped the entire sky, TESS started to reduce the 
 Of interest here is what such a high sampling rate can do for statistic on the asteroid population. 
 For bright asteroids the rotation periods should be able to be easily determined from this vast dataset. 
 The shortest FFIs will be able to accurately determine the rotation periods of all but the fastest rotating asteroids, most of which will be too dim to see in the TESS data. 
-There have been attempts before to find and classify the asteroids in TESS data before by \citet{Pal2018, Pal2020}. This work aims to extend there study to more sectors, and a to use a different data reduction method, using the \texttt{TESSreduce} package \citep{Ridden-Harper2021}. 
+There have been attempts before to find and classify the asteroids in TESS data before by \citet{Pal2018, Pal2020}. This work aims to extend their study to more sectors, and to use a different data reduction method, using the \texttt{TESSreduce} package \citep{Ridden-Harper2021}. 
 As part of a full sky transient survey using TESS, \texttt{TESSELLATE} (Ridden-Harper and Roxburgh et al., in prep), asteroids pop out as transient objects that are spikes in brightness of pixels for only a few frames. 
 They can confuse pipelines looking for short time stellar transients such as flare stars and supernova. 
 As such, a way of filtering them out is required, as well as this filtering will get the properties of the lightcurves, such as the rotation periods and amplitude variation of these small solar system bodies.
@@ -99,9 +98,9 @@ The number of frames do change, type Ia supernova will brighten is a matter of a
 Asteroids are very short, however detection pipelines are robust.
 These pipelines have already found the aforementioned supernova and stellar flares, the job of this work is to catch all the asteroids in the set of all the transients.
 To do this, catelogue matching is in order.
-Using the \texttt{KDTree} algorithm \citep{Maneewongvatana1999} as implemented in \texttt{SciPy} \citep{2020SciPy-NMeth} %TODO cite
+Using the \texttt{KDTree} algorithm \citep{Maneewongvatana1999} as implemented in \texttt{SciPy} \citep{2020SciPy-NMeth} %\\TODO cite
 , the RA and Dec values of the interpolated asteroid positions can be queried for each of the unknown detections in the small cut of a TESS sector of interest. 
-The smallest time gap between any match is \qty{0.1}{\day}, this is to stop any matches that are coincident spatialy but very far apart in time and is intentionally longer than one TESS FFI. 
+The largest time gap between any match is \qty{0.1}{\day}, this is to stop any matches that are coincident spatialy but very far apart in time and is intentionally longer than one TESS FFI. 
 Then, if multiple detection match to the same interpolated point, a cut is made by smallest distance, in coordinate space, and any distance must be smaller than \qty{0.01}{\degree} (\qty{36}{\arcsec}), which is within 2 TESS pixels. 
 
 
