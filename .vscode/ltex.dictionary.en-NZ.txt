@@ -4,3 +4,4 @@ arcsecond
 arcseconds
 exoplanets
 Exoplanet
+periodogram

@@ -98,6 +98,10 @@ INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/geometry/geometry.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/geometry/geometry.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/generic/iftex/ifvtex.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/generic/iftex/ifvtex.sty
+INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/footmisc/footmisc.sty
+INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/footmisc/footmisc.sty
+INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/titlesec/titlesec.sty
+INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/titlesec/titlesec.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/base/inputenc.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/base/inputenc.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/newunicodechar/newunicodechar.sty
@@ -167,6 +171,7 @@ INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pf
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb

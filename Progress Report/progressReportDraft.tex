@@ -5,7 +5,13 @@
 
 \usepackage[margin=1.5cm, left=3cm,twoside]{geometry}
 
+\usepackage[para]{footmisc}
 
+
+\usepackage[compact]{titlesec}
+\titlespacing{\section}{0pt}{2ex}{1ex}
+\titlespacing{\subsection}{0pt}{1ex}{0ex}
+\titlespacing{\subsubsection}{0pt}{0.5ex}{0ex}
 
 \DeclareSIUnit{\arcsec}{''}
 
@@ -47,43 +53,64 @@ The goal of finding all the asteroids will allow for the removal of these spikes
 
     %Why Asteroids
 Asteroids are a key class of solar system objects. 
-Understanding their rotation properties has long been of interest to astronomers \citep[e.g.][]{Weidenschilling1981,Harris1994}.
-
-        %Omuamua
+Understanding their rotation properties has long been of interest to astronomers \citep[e.g.][]{Weidenschilling1981,Harris1994}. %Omuamu
 High amplitude variation has come to the forefront of questions about asteroid properties because of the first interstellar object (ISO) 1I/\omuamua \citep[see][for a review]{Bannister2019}. 
 \omuamua was measured to have a rotation period of \qty{8.67(0.34)}{\hour} \citep{Belton2018} and seemed to be tumbling \citep[e.g.][]{Drahus2018,Fraser2018}. 
-The peak to peak amplitude variation of 2.5 mag %TODO cite
-on the double peaked light curve is of interest, as this is much higher than most asteroids. 
+The peak to peak amplitude variation of 2.5 mag \citep{Meech2017} of the double peaked light curve is of interest, as this is much higher than most asteroids, and it implies a large axis ratio. 
 With the full sky survey of bright asteroids, we hope to find many asteroids with such a large amplitude variation, and to see just how rare \omuamua is.  
 
 \section{Work So Far}
 %* Method / Initial Results
 
 %Querry and interpolate
-
+To check for asteroids in the TESS data, the positions of the asteroids with time are required.
+For most asteroids, their orbital elements are well known, so it is a matter of looking them up and cross-matching with transients in the TESS data.
+Python was used to make API calls to {Skybot}\footnote{\href{https://vo.imcce.fr/webservices/skybot/}{Skybot}} to get positions of asteroids in a cone search box in RA and Dec space.
+As TESS sectors are \qty{27}{\day} long, querying every \qty{12}{\hour} is manageable.
+These positions are still very sparsely spaced in time compared to the TESS data, so an interpolation is needed to bridge the gap.
+With TESS data coming in $\frac12\unit{\hour}$ chunks, 24 interpolated points are needed between each API call.
+This interpolation should be accurate, as asteroids move at close to a TESS pixel per TESS frame on average \citep{Pal2018,Pal2020}, and checking against a higher frequency query to {JPL Horizons}\footnote{\href{https://ssd.jpl.nasa.gov/horizons/}{JPL Horizons}} confirmed this.
+For the faster TESS data, more interpolated points are needed, but a smaller the change in position between each point.
 
 %Match to detections
 Matching these interpolated positions to \texttt{TESSELLATE} detections is important to lower the unknown transient outputs of this pipeline. 
 Using the \texttt{KDTree} algorithm \citep{Maneewongvatana1999} as implemented in \texttt{SciPy} \citep{2020SciPy-NMeth}, the right ascension (RA) and  declination (Dec) coordinates of the interpolated points and the detections can be compared and matched together. 
-Filtering this \texttt{KDTree} output by not allowing the time between spatialy coincident matches to be longer than \qty{0.1}{\day}, \dots 
+Filtering this \texttt{KDTree} output by not allowing the time between spatially coincident matches to be longer than \qty{0.1}{\day} stops any accidental matches in position from non-asteroids. 
 
 %Lightcurves; detected VS forced interpolated 
+There are two sets of points to take lightcurves from. 
+The matches from the detections, which already have a flux calculated, or the interpolated points themselves, which are more numerous but require forcing the photometry. 
+Not every interpolated point gets a match, due to a variety of reasons, %pass in front of stars, dip below limiting mag, bad pipeline, not extreme enough of a difference between frames 
+so a comparison between the two lightcurves is interesting. 
+There were some challenges getting the flux of the interpolated points, even when \texttt{TESSELLATE} had already reduced all the FFIs of interest, due to the timing of the TESS frames, but these were identified and corrected for.
 
 \section{Future Work}
 %* Future work
 
 %Periods and amplitueds for everything detected
+The next part of my analysis has to do with determining the periods and amplitudes of each asteroid's lightcurve.
+For this there are a few methods I can try, using the \texttt{Lightkurve} package built for period analysis of TESS (and Kepler) data of variable stars, or peel back a layer of abstraction and use the Lomb-Scargle periodogram as implemented by \texttt{Astropy}. 
+Some trialling of both methods is needed, as preliminary testing reveals of interesting similarities and differences between the packages. 
+
 
 %Run on server
 The \texttt{TESSELLATE} pipeline has been running on the OzSTAR supercomputing facilities. 
-After I am confident that all the parts of the asteriod detection and subsequent lightcurve analysis works as required, the same code can be refactored to work on OzSTAR and a largescale analysis of all of the processed TESS sectors can be run. 
-Only after this has completed can the asteriod population statistics can be computed. 
+After I am confident that all the parts of the asteroid detection and subsequent lightcurve analysis works as required, the same code can be refactored to work on OzSTAR and a large-scale analysis of all the processed TESS sectors can be run. 
+Only after this has completed can the asteroid population statistics can be computed. 
+I will be looking for completeness of detections of asteroids, as well as accuracy of periods and amplitude variation.
 
 
 \section{Figures}
 %*Figures:
 
+%H-scaled pos plot of higher cam/less asteroids. 
+%Both Lightcurves (interp and detect)
+%? another one?
+
+
 %*Bib
+% \newgeometry{twocolumn,margin=1.5cm, left=3cm,twoside}
+% \newpage
 \def\bibfont{\tiny}
 \bibliographystyle{jphysicsB}
 \bibliography{../Notes/bibfile.bib}

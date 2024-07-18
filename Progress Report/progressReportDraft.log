@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.26)  12 JUL 2024 15:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.26)  16 JUL 2024 13:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -232,14 +232,40 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 \Gm@layouthoffset=\dimen161
 \Gm@layoutvoffset=\dimen162
 \Gm@dimlist=\toks20
+) (/usr/local/texlive/2023/texmf-dist/tex/latex/footmisc/footmisc.sty
+Package: footmisc 2023/07/05 v6.0f a miscellany of footnote facilities
+\FN@temptoken=\toks21
+\footnotemargin=\dimen163
+\@outputbox@depth=\dimen164
+\FN@tempboxb=\box61
+\FN@tempboxc=\box62
+\footglue=\skip55
+\footnotebaselineskip=\dimen165
+Package footmisc Info: Declaring symbol style bringhurst on input line 696.
+Package footmisc Info: Declaring symbol style chicago on input line 704.
+Package footmisc Info: Declaring symbol style wiley on input line 713.
+Package footmisc Info: Declaring symbol style lamport-robust on input line 724.
+Package footmisc Info: Declaring symbol style lamport* on input line 744.
+Package footmisc Info: Declaring symbol style lamport*-robust on input line 765.
+) (/usr/local/texlive/2023/texmf-dist/tex/latex/titlesec/titlesec.sty
+Package: titlesec 2023/10/27 v2.16 Sectioning titles
+\ttl@box=\box63
+\beforetitleunit=\skip56
+\aftertitleunit=\skip57
+\ttl@plus=\dimen166
+\ttl@minus=\dimen167
+\ttl@toksa=\toks22
+\titlewidth=\dimen168
+\titlewidthlast=\dimen169
+\titlewidthfirst=\dimen170
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2021/02/14 v1.3d Input encoding file
-\inpenc@prehook=\toks21
-\inpenc@posthook=\toks22
+\inpenc@prehook=\toks23
+\inpenc@posthook=\toks24
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/newunicodechar/newunicodechar.sty
 Package: newunicodechar 2018/04/08 v1.2 Defining Unicode characters
 )
-Package translations Info: No language package found. I am going to use `english' as default language. on input line 29.
+Package translations Info: No language package found. I am going to use `english' as default language. on input line 35.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/graphics/color.sty
 Package: color 2022/01/06 v1.3d Standard LaTeX Color (DPC)
  (/usr/local/texlive/2023/texmf-dist/tex/latex/graphics-cfg/color.cfg
@@ -249,29 +275,29 @@ Package color Info: Driver file: pdftex.def on input line 149.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/graphics/mathcolor.ltx)) (/usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-02-20 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count292
-\l__pdf_internal_box=\box61
+\l__pdf_internal_box=\box64
 ) (./progressReportDraft.aux)
 \openout1 = `progressReportDraft.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-Package hyperref Info: Link coloring OFF on input line 29.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+Package hyperref Info: Link coloring OFF on input line 35.
  (./progressReportDraft.out) (./progressReportDraft.out)
 \@outlinefile=\write3
 \openout3 = `progressReportDraft.out'.
@@ -279,16 +305,16 @@ Package hyperref Info: Link coloring OFF on input line 29.
  (/usr/local/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count293
-\scratchdimen=\dimen163
-\scratchbox=\box62
+\scratchdimen=\dimen171
+\scratchbox=\box65
 \nofMPsegments=\count294
 \nofMParguments=\count295
-\everyMPshowfont=\toks23
+\everyMPshowfont=\toks25
 \MPscratchCnt=\count296
-\MPscratchDim=\dimen164
+\MPscratchDim=\dimen172
 \MPnumerator=\count297
 \makeMPintoPDFobject=\count298
-\everyMPtoPDFconversion=\toks24
+\everyMPtoPDFconversion=\toks26
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -297,7 +323,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 )) (/usr/local/texlive/2023/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
 File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
 )
-Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 29.
+Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 35.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -334,18 +360,26 @@ Package translations Info: loading dictionary `translations-basic-dictionary' fo
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 31.
+(Font)              <14.4> on input line 37.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 31.
+(Font)              <7> on input line 37.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 39.
+(Font)              <12> on input line 45.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 39.
+(Font)              <8> on input line 45.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 39.
-[1
+(Font)              <6> on input line 45.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 68.
 
-{/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./progressReportDraft.bbl) [2] (./progressReportDraft.aux)
+Overfull \vbox (9.05435pt too high) has occurred while \output is active []
+
+ [1
+
+{/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./progressReportDraft.bbl
+Overfull \vbox (2.12175pt too high) has occurred while \output is active []
+
+ [2]) [3] (./progressReportDraft.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
@@ -354,18 +388,18 @@ Package rerunfilecheck Info: File `progressReportDraft.out' has not changed.
 (rerunfilecheck)             Checksum: C34ADF4BBD1936954F26C4B8ABD59F68;376.
  ) 
 Here is how much of TeX's memory you used:
- 13194 strings out of 474137
- 265014 string characters out of 5744488
- 1940187 words of memory out of 5000000
- 35395 multiletter control sequences out of 15000+600000
+ 13640 strings out of 474137
+ 271642 string characters out of 5744488
+ 1942187 words of memory out of 5000000
+ 35830 multiletter control sequences out of 15000+600000
  563753 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,7n,83p,926b,895s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on progressReportDraft.pdf (2 pages, 155902 bytes).
+ 75i,7n,83p,926b,1041s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on progressReportDraft.pdf (3 pages, 170743 bytes).
 PDF statistics:
- 136 PDF objects out of 1000 (max. 8388607)
- 106 compressed objects within 2 object streams
- 20 named destinations out of 1000 (max. 500000)
+ 157 PDF objects out of 1000 (max. 8388607)
+ 124 compressed objects within 2 object streams
+ 23 named destinations out of 1000 (max. 500000)
  33 words of extra memory for PDF output out of 10000 (max. 10000000)
 

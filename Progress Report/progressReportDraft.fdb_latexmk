@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex progressReportDraft"] 1720754248.21568 "progressReportDraft.aux" "progressReportDraft.bbl" "progressReportDraft" 1720754618.33082 0
+["bibtex progressReportDraft"] 1721092916.69311 "progressReportDraft.aux" "progressReportDraft.bbl" "progressReportDraft" 1721094324.06138 0
   "../Notes/bibfile.bib" 1719875852.15084 35495 a85a98c982d6d6755d18f7f0c2522da7 ""
   "./jphysicsB.bst" 1720749549.37146 24427 1fc04a21f6be5ff35abed674a3850319 ""
-  "progressReportDraft.aux" 1720754618.15672 1579 987258c6a3bf57e33db802194e38bdb1 "pdflatex"
+  "progressReportDraft.aux" 1721094323.87394 1679 6a25860234b3d5d08cd7b549d3e88464 "pdflatex"
   (generated)
   "progressReportDraft.bbl"
   "progressReportDraft.blg"
   (rewritten before read)
-["pdflatex"] 1720754617.78562 "/home/users/ble61/Documents/ASTR480/Progress Report/progressReportDraft.tex" "progressReportDraft.pdf" "progressReportDraft" 1720754618.33093 0
-  "/home/users/ble61/Documents/ASTR480/Progress Report/progressReportDraft.tex" 1720754617.59572 4647 6088e4d148076068a3e4e9b168075373 ""
+["pdflatex"] 1721094323.48288 "/home/users/ble61/Documents/ASTR480/Progress Report/progressReportDraft.tex" "progressReportDraft.pdf" "progressReportDraft" 1721094324.0615 0
+  "/home/users/ble61/Documents/ASTR480/Progress Report/progressReportDraft.tex" 1721094323.29194 7592 3ddb4d7f809f0f57fa453d17832de900 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx6.tfm" 1136768653 1344 8a0be4fe4d376203000810ad4dc81558 ""
@@ -32,6 +32,7 @@
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1248133631 32722 d7379af29a190c3f453aba36302ff5a9 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb" 1248133631 32362 179c33bbf43f19adbb3825bb4e36e57a ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb" 1248133631 32734 69e00a6b65cedb993666e42eedb3d48f ""
+  "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1248133631 32762 224316ccc9ad3ca0423a14971cfa7fc1 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1248133631 32726 0a1aea6fcd6468ee2cf64d891f5c43c8 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1248133631 32626 4f5c1b83753b1dd3a97d1b399a005b4b ""
@@ -62,6 +63,7 @@
   "/usr/local/texlive/2023/texmf-dist/tex/latex/base/size12.clo" 1705352648 8449 f07039d8e4e89f21078d9b5137579bfc ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty" 1579991033 13886 d1306dcf79a944f6988e688c1785f9ce ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/etoolbox/etoolbox.sty" 1601931149 46845 3b58f70c6e861a13d927bff09d35ecbc ""
+  "/usr/local/texlive/2023/texmf-dist/tex/latex/footmisc/footmisc.sty" 1688586963 21399 e9fa1517a82f349507e998594ef20b82 ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/geometry/geometry.sty" 1578002852 41601 9cf6c5257b1bc7af01a58859749dd37a ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/graphics-cfg/color.cfg" 1459978653 1213 620bba36b25224fa9b7e1ccb4ecb76fd ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/graphics-cfg/graphics.cfg" 1465944070 1224 978390e9c2234eab29404bc21b268d1e ""
@@ -87,6 +89,7 @@
   "/usr/local/texlive/2023/texmf-dist/tex/latex/refcount/refcount.sty" 1576624809 9878 9e94e8fa600d95f9c7731bb21dfb67a4 ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty" 1657483315 9714 ba3194bd52c8499b3f1e3eb91d409670 ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/siunitx/siunitx.sty" 1707992430 331158 9a13ba2b112e95c0c101fa5b4db1d792 ""
+  "/usr/local/texlive/2023/texmf-dist/tex/latex/titlesec/titlesec.sty" 1698436711 48766 0b93839be28e9744a24c45075c75b2e2 ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/tools/array.sty" 1698869629 12667 e4b5eb11e4b7239e6c8a52bbe074a6c6 ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl" 1644096163 5588 0c1628daf15f4411ff1f463114c634a3 ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/translations/translations.sty" 1644096163 44247 2188b95d0ee74e31eca4d316263c58a7 ""
@@ -95,10 +98,10 @@
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1708989307.99892 5472569 99e72973af7bd41132687409b8c9c95e ""
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1708921832 8220693 5c9edbd2a6c959e4a5aad3bc8493cf9a ""
   "/usr/local/texlive/2023/texmf.cnf" 1708921747.39568 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "progressReportDraft.aux" 1720754618.15672 1579 987258c6a3bf57e33db802194e38bdb1 "pdflatex"
-  "progressReportDraft.bbl" 1720754248.34472 4174 e951ab65a4d7e64420b52081ab05ca12 "bibtex progressReportDraft"
-  "progressReportDraft.out" 1720754618.15772 376 c34adf4bbd1936954f26c4b8abd59f68 "pdflatex"
-  "progressReportDraft.tex" 1720754617.59572 4647 6088e4d148076068a3e4e9b168075373 ""
+  "progressReportDraft.aux" 1721094323.87394 1679 6a25860234b3d5d08cd7b549d3e88464 "pdflatex"
+  "progressReportDraft.bbl" 1721092916.81894 4548 1cbf15f5e1a8a2b13ef4e9ae8b15c2cc "bibtex progressReportDraft"
+  "progressReportDraft.out" 1721094323.87394 376 c34adf4bbd1936954f26c4b8abd59f68 "pdflatex"
+  "progressReportDraft.tex" 1721094323.29194 7592 3ddb4d7f809f0f57fa453d17832de900 ""
   (generated)
   "progressReportDraft.aux"
   "progressReportDraft.log"

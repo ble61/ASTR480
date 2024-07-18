@@ -124,7 +124,7 @@ def querySB(targetPos: list, qRad: float = 10.0, qLoc: str = "C57", numTimesteps
     result = pd.DataFrame()
     
     while len(result)<numTimesteps:
-        
+
         try:
             result = _Skybotquery(ra_i, dec_i, timeList.jd,
                           radius=qRad, location=qLoc, cache=True)
@@ -264,7 +264,7 @@ def plotExpectedPos(posDf: pd.DataFrame, timeList: npt.ArrayLike, targetPos: lis
     # ax.plot(cornersPix[0], cornersPix[1])
 
 
-    ax.text(-37, -10, s=scaleStr, fontsize=18)
+    if scaleAlpha: ax.text(-37, -10, s=scaleStr, fontsize=18)
 
     fig.tight_layout()
 
@@ -387,7 +387,7 @@ res, times = querySB(myTargetPos, magLim=magLim, numTimesteps=54, qRad=3.2)
 
 # res.to_csv(f"./querryResult_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.csv")
 
-posFig = plotExpectedPos(res, times, myTargetPos, magLim=magLim, scaleAlpha=True)
+posFig = plotExpectedPos(res, times, myTargetPos, magLim=magLim, scaleAlpha=False)
 # posFig.savefig(f"./ExpectedPositionsPlot_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.png")
 
 # eleFig = plotHorizons(unqNames, times[0], plotAEI=True)
@@ -429,7 +429,7 @@ for i, name in enumerate(unqNames):
 interpRes = pd.concat(dfsList) #puts evrything back together
 interpRes.reset_index(drop=True, inplace=True)
 # # interpRes.to_csv(f"./InterpolatedQuerryResult_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.csv")
-interpRes.to_csv(f"./InterpolatedQuerryResult_{sector}_{cam}_{ccd}_{cut}.csv")
+#* interpRes.to_csv(f"./InterpolatedQuerryResult_{sector}_{cam}_{ccd}_{cut}.csv")
 
 posFig = plotExpectedPos(interpRes, times, myTargetPos, magLim=magLim, scaleAlpha=True)
 # posFig.savefig(f"./InterpolatedExpectedPositionsPlot_HscaleOn_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.png")

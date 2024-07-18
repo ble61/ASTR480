@@ -55,7 +55,7 @@ The first interstellar object (ISO) was discovered in late 2017, it has come to 
 \omuamua was determined to be spectroscopically red \citep{Fitzsimmons2017, Meech2017}, and having a photometric colour in the neutral end of the solar system range \citep{Bannister2017}. 
 It appeared to be tumbling \citep[e.g.][]{Drahus2018,Fraser2018}, the double peaked light curve was found to have a rotation period of \qty{8.67(0.34)}{\hour} \citep{Belton2018}.
 
-Peak to peak LC of 2.5 mag %TODO cite
+Peak to peak LC of 2.5 mag \citep{Meech2017} %TODO cite
 
 Combing the tumbling with an elongation ratio of up to \qty{6(1)}{}:1 \citep{McNeill2018}, 1I is said to have a cigar shape \citep{Belton2018}.  
 
@@ -68,8 +68,7 @@ Combing the tumbling with an elongation ratio of up to \qty{6(1)}{}:1 \citep{McN
 %*Pos gathering
 To check for asteroids in the TESS data, the positions of the asteroids with time are required.
 For most asteroids, their orbital elements are well known, so it is a matter of looking them up and cross-matching with transients in the TESS data.
-However, querying APIs for timesteps of \qty{30}{\min} or shorter is
-prohibitively expensive, especially when they rate limit their calls.
+However, querying APIs for timesteps of \qty{30}{\min} or shorter is prohibitively expensive, especially when they rate limit their calls.
 Python was used to make API calls to {Skybot}\footnote{\href{https://vo.imcce.fr/webservices/skybot/}{Skybot}} to get positions of asteroids in a cone search box in RA and Dec space.
 As TESS sectors are 27%?Check
 days long, querying every \qty{12}{\hour} is manageable.
