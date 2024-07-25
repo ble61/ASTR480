@@ -104,7 +104,9 @@ detectedSourcesAll = pd.read_csv(f"../OzData/{sector}_{cam}_{ccd}_{cut}_detected
 
 print(pd.unique(detectedSourcesAll["Type"]))
 
-indexsOfInterest = detectedSourcesAll.index[(detectedSourcesAll["Type"] == "0") | detectedSourcesAll["Type"] == "AST"] #TODO figure out what code is for asteroid.
+indexsOfInterest = detectedSourcesAll.index[(detectedSourcesAll["Type"] == "0")]
+
+indexsOfInterest = detectedSourcesAll.index[(detectedSourcesAll["Type"] == "0") | (detectedSourcesAll["Type"] == "Asteroid")] #// TODO figure out what code is for asteroid.
 
 detectedSources = detectedSourcesAll.loc[indexsOfInterest]
 
@@ -148,7 +150,7 @@ matches.to_csv(f"./{sector}_{cam}_{ccd}_{cut}_InterpAndDetect_Matches.csv")
 
 unqNames = pd.unique(interpRes["Name"])
 
-obsForDetect=80 #number of observations needed to count a detection
+obsForDetect=40 #number of observations needed to count a detection
 
 
 interpedMv = []
@@ -202,7 +204,7 @@ for name in unqNames:
         plt.scatter(nameCut["Time"], nameCut["flux"], label=name)
         plt.legend()
 
-    if name == " Ruff " or name ==" Lincoln ":
+    if name == " Ruff " or name ==" Lincoln " or name ==" 1999 JE82 ":
         nameCut.to_csv(f"./{name}Matches.csv")
 
 

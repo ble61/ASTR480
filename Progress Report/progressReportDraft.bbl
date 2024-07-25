@@ -1,5 +1,9 @@
 \begin{thebibliography}{xx}
 
+\harvarditem{{Astropy Collaboration} \harvardand\ {Astropy Project Contributors et. al.}}{2022}{Astropy2022}
+{Astropy Collaboration} \harvardand\ {Astropy Project Contributors et. al.}  2022 {\em ApJ} {\bf 935},~167.
+\newline\harvardurl{https://ui.adsabs.harvard.edu/abs/2022ApJ...935..167A/abstract}
+
 \harvarditem{Bannister et~al.}{2019}{Bannister2019}
 Bannister M~T, Bhandare A, Dybczyński P~A, Fitzsimmons A, Guilbert-Lepoutre A, Jedicke R, Knight M~M, Meech K~J, McNeill A, Pfalzner S, Raymond S~N, Snodgrass C, Trilling D~E \harvardand\ Ye Q  2019 {\em Nature Astronomy 2019 3:7} {\bf 3},~594--602.
 \newline\harvardurl{https://www.nature.com/articles/s41550-019-0816-x}
@@ -19,8 +23,11 @@ Fraser W~C, Pravec P, Fitzsimmons A, Lacerda P, Bannister M~T, Snodgrass C \harv
 \harvarditem{Harris}{1994}{Harris1994}
 Harris A~W  1994 {\em Icarus} {\bf 107},~209--211.
 
-\harvarditem{Maneewongvatana et~al.}{1999}{Maneewongvatana1999}
-Maneewongvatana S, Mount D~M, Maneewongvatana S \harvardand\ Mount D~M  1999 {\em arXiv} p.~cs/9901013.
+\harvarditem{{Lightkurve Collaboration} et~al.}{2018}{Lightkurve2018}
+{Lightkurve Collaboration}, {Cardoso} J~V~d~M, {Hedges} C, {Gully-Santiago} M, {Saunders} N, {Cody} A~M, {Barclay} T, {Hall} O, {Sagear} S, {Turtelboom} E, {Zhang} J, {Tzanidakis} A, {Mighell} K, {Coughlin} J, {Bell} K, {Berta-Thompson} Z, {Williams} P, {Dotson} J \harvardand\ {Barentsen} G  2018 `{Lightkurve: Kepler and TESS time series analysis in Python}' Astrophysics Source Code Library.
+
+\harvarditem{Maneewongvatana \harvardand\ Mount}{1999}{Maneewongvatana1999}
+Maneewongvatana S \harvardand\ Mount D~M  1999 {\em arXiv} p.~cs/9901013.
 \newline\harvardurl{https://ui.adsabs.harvard.edu/abs/1999cs........1013M/abstract}
 
 \harvarditem{Meech et~al.}{2017}{Meech2017}
@@ -37,7 +44,6 @@ Pál A, Szakáts R, Kiss C, Bódi A, Bognár Z, Kalup C, Kiss L~L, Marton G, Mol
 
 \harvarditem{Ricker et~al.}{2014}{Ricker2014}
 Ricker G~R, Winn J~N, Vanderspek R, Latham D~W, Bakos G~{\'A}, Bean J~L, Berta-Thompson Z~K, Brown T~M, Buchhave L, Butler N~R, Butler R~P, Chaplin W~J, Charbonneau D, Christensen-Dalsgaard J, Clampin M, Deming D, Doty J, Lee N~D, Dressing C, Dunham E~W, Endl M, Fressin F, Ge J, Henning T, Holman M~J, Howard A~W, Ida S, Jenkins J~M, Jernigan G, Johnson J~A, Kaltenegger L, Kawai N, Kjeldsen H, Laughlin G, Levine A~M, Lin D, Lissauer J~J, MacQueen P, Marcy G, McCullough P~R, Morton T~D, Narita N, Paegert M, Palle E, Pepe F, Pepper J, Quirrenbach A, Rinehart S~A, Sasselov D, Sato B, Seager S, Sozzetti A, Stassun K~G, Sullivan P, Szentgyorgyi A, Torres G, Udry S \harvardand\ Villasenor J  2014 {\em Journal of Astronomical Telescopes, Instruments, and Systems} {\bf 1},~014003.
-\newline\harvardurl{http://astronomicaltelescopes.spiedigitallibrary.org/article.aspx?doi=10.1117/1.JATIS.1.1.014003}
 
 \harvarditem{{Ridden-Harper} et~al.}{2021}{Ridden-Harper2021}
 {Ridden-Harper} R, {Rest} A, {Hounsell} R, {M{\"u}ller-Bravo} T~E, {Wang} Q \harvardand\ {Villar} V~A  2021 {\em arXiv e-prints} p.~arXiv:2111.15006.

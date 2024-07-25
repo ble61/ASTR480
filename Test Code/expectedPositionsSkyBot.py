@@ -123,13 +123,17 @@ def querySB(targetPos: list, qRad: float = 10.0, qLoc: str = "C57", numTimesteps
     timeList = t_i + dt*np.arange(0, numTimesteps)
     result = pd.DataFrame()
     
-    while len(result)<numTimesteps:
-
+    while len(result)<numTimesteps: #so if query timesout, it will restart with the cache
         try:
             result = _Skybotquery(ra_i, dec_i, timeList.jd,
-                          radius=qRad, location=qLoc, cache=True)
+                          radius=qRad, location=qLoc, cache=True) #timeout throws error, so need to be in try/except to not close
         except:
-            continue
+            continue #restarts query with cache
+
+        if type(result) != "pandas.core.frame.DataFrame": 
+            #! need something for when no asteroids are in cut.
+            #! else everthing else breaks too. 
+            break #to get out of while
     
 
     brightResult = result.loc[result["Mv"] <= magLim].reset_index(drop=True)
@@ -142,7 +146,7 @@ def querySB(targetPos: list, qRad: float = 10.0, qLoc: str = "C57", numTimesteps
     return brightResult, timeList
 
 
-def plotExpectedPos(posDf: pd.DataFrame, timeList: npt.ArrayLike, targetPos: list, magLim: float = 20.0, scaleAlpha: bool = False, minLen: int = 0) -> plt.Figure:
+def plotExpectedPos(posDf: pd.DataFrame, timeList: npt.ArrayLike, targetPos: list, magLim: float = 20.0, scaleAlpha: bool = False, minLen: int = 0, saving=False) -> plt.Figure:
     """
     Takes the output of a query to SkyBot, sets up a WCS, and plots the objects position, coloured by time, in Ra/Dec and ecLon/ecLat space. 
 
@@ -160,6 +164,8 @@ def plotExpectedPos(posDf: pd.DataFrame, timeList: npt.ArrayLike, targetPos: lis
             If alpha of the symbols should be scaled to the average brigtness of the object
         minLen: int
             Minimum number of hits on each object for it to be plotted, default 0
+        saving: bool
+            If saving the figure is required, default False
     Output
         fig: Figure
             The figure of the objects position, coloured by time, in Ra/Dec and ecLon/ecLat space. Faint grey lines connect the points to guide the eye.
@@ -180,7 +186,8 @@ def plotExpectedPos(posDf: pd.DataFrame, timeList: npt.ArrayLike, targetPos: lis
     w.wcs.set_pv([(2, 1, 45.0)])
 
     # Set up figure with WCS
-    fig = plt.figure(figsize=(12, 12))
+    # fig = plt.figure(figsize=(12, 12))
+    fig = plt.figure(figsize=(10,8))
     ax = fig.add_subplot(111, projection=w)
     ax.grid(color='black', ls='solid')
     ax.set_xlabel("RA")
@@ -221,7 +228,7 @@ def plotExpectedPos(posDf: pd.DataFrame, timeList: npt.ArrayLike, targetPos: lis
     brightest = np.min(hsList)
     deltaMag = np.max(hsList)-brightest
 
-    scaleStr = f"Alpha Scaling by H:\nH = {brightest}, $\\alpha$ = 1\nH= {deltaMag+brightest}, $\\alpha$ = {round((1-scaleMult),1)}"
+    scaleStr = f"Alpha Scaling by $H$:\n$H$ = {brightest}, $\\alpha$ = 1\n$H$= {deltaMag+brightest}, $\\alpha$ = {round((1-scaleMult),1)}"
 
     for i, name in enumerate(unqNames):  # does each name seperatly
         if name in badNames:
@@ -246,7 +253,7 @@ def plotExpectedPos(posDf: pd.DataFrame, timeList: npt.ArrayLike, targetPos: lis
             # plots line to help eye track objects
             ax.plot(pixels[0], pixels[1], c="grey", alpha=0.3)
             # scatters the pixel coords on wsc set axis, uses different symbol for each, with cmap scaled by the time in the sector.
-            ax.scatter(pixels[0], pixels[1], marker=next(markers),s=1, c=(
+            ax.scatter(pixels[0], pixels[1], marker=next(markers),s=5, c=(
                 posDf.loc[nameIDs]["epoch"]-2400000), cmap=cmap, norm=cnorm, label=name, alpha=alpha)
     clb = fig.colorbar(mpcm.ScalarMappable(
         norm=cnorm, cmap=cmap), ax=ax, pad=0.1)
@@ -264,10 +271,11 @@ def plotExpectedPos(posDf: pd.DataFrame, timeList: npt.ArrayLike, targetPos: lis
     # ax.plot(cornersPix[0], cornersPix[1])
 
 
-    if scaleAlpha: ax.text(-37, -10, s=scaleStr, fontsize=18)
+    if scaleAlpha: ax.text(-25, 3, s=scaleStr, fontsize=12)
 
     fig.tight_layout()
 
+    if saving: fig.savefig(f"./Testing Figures/interpPos_{sector}_{cam}_{ccd}_{cut}.png") #!CHECK
     return fig #retunrs instead of saves, #? is this useful?
     # fig.savefig(f"./ecCoordsandAlphascaled_ra{ra_i}_dec{dec_i}_t{t_i.mjd}_Mv{magLim}.png") #!CHECK
 
@@ -326,9 +334,9 @@ def plotHorizons(nameList: list[str], t_i:Time, t_f:Time| None = None,loc:str="5
         #for Incl vs R_h and Delta
 
         #setup
-        fig, ax = plt.subplots(2, figsize=(6,8))
+        fig, ax = plt.subplots(2, figsize=(4,6),gridspec_kw = {'wspace':0, 'hspace':0}, sharex=True)
         ax[1].set_xlabel("i [Degrees]")
-        ax[0].set_ylabel("R_h [au]")
+        ax[0].set_ylabel("$R_h$ [au]")
         ax[1].set_ylabel("Delta [au]")
         ax[0].grid(alpha=gridA)
         ax[1].grid(alpha=gridA)
@@ -366,9 +374,9 @@ def plotHorizons(nameList: list[str], t_i:Time, t_f:Time| None = None,loc:str="5
     return fig
 
 sector = 22
-cam = 1
+cam = 2
 ccd = 3
-cut = 8
+cut = 4
 
 
 fname = f"../OzData/{sector}_{cam}_{ccd}_{cut}_wcs.fits"
@@ -388,18 +396,20 @@ res, times = querySB(myTargetPos, magLim=magLim, numTimesteps=54, qRad=3.2)
 # res.to_csv(f"./querryResult_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.csv")
 
 posFig = plotExpectedPos(res, times, myTargetPos, magLim=magLim, scaleAlpha=False)
+posFig.savefig(f"./Testing Figures/posFig_{sector}_{cam}_{ccd}_{cut}.png")
 # posFig.savefig(f"./ExpectedPositionsPlot_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.png")
 
 # eleFig = plotHorizons(unqNames, times[0], plotAEI=True)
 # eleFig.savefig(f"./OrbitalElementsPlot_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.png")
 
+unqNames = list(pd.unique(res['Name']))
 
-# distanceFig = plotHorizons(unqNames, times[0], t_f=times[-1], loc="500@-95", plotIRDel=True)
+distanceFig = plotHorizons(unqNames, times[0], t_f=times[-1], loc="500@-95", plotIRDel=True)
+distanceFig.savefig(f"./Testing Figures/delRHPlot_{sector}_{cam}_{ccd}_{cut}.png")
 # distanceFig.savefig(f"./DistancesVInclPlot_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.png")
 
 
 
-unqNames = list(pd.unique(res['Name']))
 
 
 #* interpolating data. needed so am no doing so many API querries.
@@ -431,7 +441,7 @@ interpRes.reset_index(drop=True, inplace=True)
 # # interpRes.to_csv(f"./InterpolatedQuerryResult_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.csv")
 #* interpRes.to_csv(f"./InterpolatedQuerryResult_{sector}_{cam}_{ccd}_{cut}.csv")
 
-posFig = plotExpectedPos(interpRes, times, myTargetPos, magLim=magLim, scaleAlpha=True)
+posFig = plotExpectedPos(interpRes, times, myTargetPos, magLim=magLim, scaleAlpha=True, saving=True)
 # posFig.savefig(f"./InterpolatedExpectedPositionsPlot_HscaleOn_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.png")
 
 

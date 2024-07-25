@@ -15,7 +15,7 @@
   }%
 }
 \newunicodechar{ʻ}{\okina}
-\newcommand{\omuamua}{\okina Omuamua}
+\newcommand{\omuamua}{\okina Oumuamua}
 
 
 \title{A480 Notes}
@@ -33,7 +33,7 @@ The named asteroids in \cite{Harris1994} (most notably 4179 Toutatis) should be 
 %TODO TESS intro
 The Transiting Exoplanet Survey Satellite (TESS) \cite{Ricker2014} is a large area, high imaging cadence, space telescope. 
 TESS is tasked with observing one piece of sky for \qty{27}{\day} at a time (a sector), delivering \qtyproduct{96 x 24}{\degree} full frame images (FFIs) at regular intervals. 
-These FFIs are built from stacked \qty{2}{\second} exposures, leveraging the short readout times of the 16 CCD cameras onboard. 
+These FFIs are built from stacked \qty{2}{\second} exposures, leveraging the short readout times of the 16 CCD cameras on-board. 
 With the initial cadence for these full frame images set to \qty{30}{\minute}, the time resolution of TESS is unparalleled. 
 This does come at the cost of spatial resolution, as the pixels are each \qty{21}{\arcsec} square. 
 A Nyquist frequency of \unit{\per\hour} is well sampled enough to characterise most variable stars, as well as find the orbital periods of exoplanets to a high precision. 
@@ -45,8 +45,8 @@ The shortest FFIs will be able to accurately determine the rotation periods of a
 There have been attempts before to find and classify the asteroids in TESS data before by \citet{Pal2018, Pal2020}. This work aims to extend their study to more sectors, and to use a different data reduction method, using the \texttt{TESSreduce} package \citep{Ridden-Harper2021}. 
 As part of a full sky transient survey using TESS, \texttt{TESSELLATE} (Ridden-Harper and Roxburgh et al., in prep), asteroids pop out as transient objects that are spikes in brightness of pixels for only a few frames. 
 They can confuse pipelines looking for short time stellar transients such as flare stars and supernova. 
-As such, a way of filtering them out is required, as well as this filtering will get the properties of the lightcurves, such as the rotation periods and amplitude variation of these small solar system bodies.
-A full sky, self consistent catalogue of these properties is important for many reasons. 
+As such, a way of filtering them out is required, as well as this filtering will get the properties of the light curves, such as the rotation periods and amplitude variation of these small solar system bodies.
+A full sky, self-consistent catalogue of these properties is important for many reasons. 
 The asteroid population statistics are useful in their own right, understanding the orbits of near earth objects is useful for planetary defence, and these bodies \dots      
 
 %TODO 1I observation paragraph/s 

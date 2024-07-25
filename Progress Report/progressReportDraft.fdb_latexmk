@@ -1,14 +1,16 @@
 # Fdb version 4
-["bibtex progressReportDraft"] 1721092916.69311 "progressReportDraft.aux" "progressReportDraft.bbl" "progressReportDraft" 1721094324.06138 0
-  "../Notes/bibfile.bib" 1719875852.15084 35495 a85a98c982d6d6755d18f7f0c2522da7 ""
+["bibtex progressReportDraft"] 1721860246.80086 "progressReportDraft.aux" "progressReportDraft.bbl" "progressReportDraft" 1721872938.93057 0
+  "../Notes/bibfile.bib" 1721773611.17167 42593 17016735ce371b9ed84e81781d9835a6 ""
   "./jphysicsB.bst" 1720749549.37146 24427 1fc04a21f6be5ff35abed674a3850319 ""
-  "progressReportDraft.aux" 1721094323.87394 1679 6a25860234b3d5d08cd7b549d3e88464 "pdflatex"
+  "progressReportDraft.aux" 1721872938.73702 3411 c7f1b71b4d12f4418d8d0242ca2aca89 "pdflatex"
   (generated)
   "progressReportDraft.bbl"
   "progressReportDraft.blg"
   (rewritten before read)
-["pdflatex"] 1721094323.48288 "/home/users/ble61/Documents/ASTR480/Progress Report/progressReportDraft.tex" "progressReportDraft.pdf" "progressReportDraft" 1721094324.0615 0
-  "/home/users/ble61/Documents/ASTR480/Progress Report/progressReportDraft.tex" 1721094323.29194 7592 3ddb4d7f809f0f57fa453d17832de900 ""
+["pdflatex"] 1721872938.31485 "/home/users/ble61/Documents/ASTR480/Progress Report/progressReportDraft.tex" "progressReportDraft.pdf" "progressReportDraft" 1721872938.93068 0
+  "../Test Code/Testing Figures/differentFluxes Ruff .pdf" 1721860057.87018 21314 f63c50c014a1e1ded891213c4cd69fff ""
+  "../Test Code/Testing Figures/interpPos_22_2_3_4.pdf" 1721355572.47989 86018 eead1476e3a3ef16188b81bff29e8f8c ""
+  "/home/users/ble61/Documents/ASTR480/Progress Report/progressReportDraft.tex" 1721872938.11702 10943 1f473e92eca4f62b6a5d16735b6269b9 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx6.tfm" 1136768653 1344 8a0be4fe4d376203000810ad4dc81558 ""
@@ -98,10 +100,10 @@
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1708989307.99892 5472569 99e72973af7bd41132687409b8c9c95e ""
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1708921832 8220693 5c9edbd2a6c959e4a5aad3bc8493cf9a ""
   "/usr/local/texlive/2023/texmf.cnf" 1708921747.39568 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "progressReportDraft.aux" 1721094323.87394 1679 6a25860234b3d5d08cd7b549d3e88464 "pdflatex"
-  "progressReportDraft.bbl" 1721092916.81894 4548 1cbf15f5e1a8a2b13ef4e9ae8b15c2cc "bibtex progressReportDraft"
-  "progressReportDraft.out" 1721094323.87394 376 c34adf4bbd1936954f26c4b8abd59f68 "pdflatex"
-  "progressReportDraft.tex" 1721094323.29194 7592 3ddb4d7f809f0f57fa453d17832de900 ""
+  "progressReportDraft.aux" 1721872938.73702 3411 c7f1b71b4d12f4418d8d0242ca2aca89 "pdflatex"
+  "progressReportDraft.bbl" 1721860246.94652 5180 0821e3277b93340f594fc386401902ff "bibtex progressReportDraft"
+  "progressReportDraft.out" 1721872938.73702 298 073b1fa4a0fc2dd9eb43e7ae16bd8571 "pdflatex"
+  "progressReportDraft.tex" 1721872938.11702 10943 1f473e92eca4f62b6a5d16735b6269b9 ""
   (generated)
   "progressReportDraft.aux"
   "progressReportDraft.log"

@@ -156,6 +156,16 @@ INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm
 INPUT /usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map
+INPUT ../Test Code/Testing Figures/interpPos_22_2_3_4.pdf
+INPUT ../Test Code/Testing Figures/interpPos_22_2_3_4.pdf
+INPUT ../Test Code/Testing Figures/interpPos_22_2_3_4.pdf
+INPUT ../Test Code/Testing Figures/interpPos_22_2_3_4.pdf
+INPUT ../Test Code/Testing Figures/interpPos_22_2_3_4.pdf
+INPUT ../Test Code/Testing Figures/differentFluxes Ruff .pdf
+INPUT ../Test Code/Testing Figures/differentFluxes Ruff .pdf
+INPUT ../Test Code/Testing Figures/differentFluxes Ruff .pdf
+INPUT ../Test Code/Testing Figures/differentFluxes Ruff .pdf
+INPUT ../Test Code/Testing Figures/differentFluxes Ruff .pdf
 INPUT ./progressReportDraft.bbl
 INPUT ./progressReportDraft.bbl
 INPUT progressReportDraft.bbl

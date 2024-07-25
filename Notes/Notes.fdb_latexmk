@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex Notes"] 1721078887.31822 "Notes.aux" "Notes.bbl" "Notes" 1721078887.97802 0
-  "./bibfile.bib" 1719875852.15084 35495 a85a98c982d6d6755d18f7f0c2522da7 ""
+["bibtex Notes"] 1721872950.78413 "Notes.aux" "Notes.bbl" "Notes" 1721872951.43953 0
+  "./bibfile.bib" 1721773611.17167 42593 17016735ce371b9ed84e81781d9835a6 ""
   "/usr/local/texlive/2023/texmf-dist/bibtex/bst/base/apalike.bst" 1292289607 24635 604dafcc79f521a11ea73e506e1fbd98 ""
-  "Notes.aux" 1721078887.78932 1952 e34b1d0c97b74e6b43316866c1c6b779 "pdflatex"
+  "Notes.aux" 1721872951.25412 1955 875186aa8899467aafb50b0c7e06ea2d "pdflatex"
   (generated)
   "Notes.bbl"
   "Notes.blg"
   (rewritten before read)
-["pdflatex"] 1721078887.40571 "/home/users/ble61/Documents/ASTR480/Notes/Notes.tex" "Notes.pdf" "Notes" 1721078887.97815 0
-  "/home/users/ble61/Documents/ASTR480/Notes/Notes.tex" 1721078886.56031 8581 1898479ad4f151e5a7cfe311226f6617 ""
+["pdflatex"] 1721872950.8682 "/home/users/ble61/Documents/ASTR480/Notes/Notes.tex" "Notes.pdf" "Notes" 1721872951.43966 0
+  "/home/users/ble61/Documents/ASTR480/Notes/Notes.tex" 1721872949.92211 8584 0c39b567d1869f93caccb06caae0e56b ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm" 1136768653 1524 4414a8315f39513458b80dfc63bff03a ""
@@ -91,10 +91,10 @@
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1708989307.99892 5472569 99e72973af7bd41132687409b8c9c95e ""
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1708921832 8220693 5c9edbd2a6c959e4a5aad3bc8493cf9a ""
   "/usr/local/texlive/2023/texmf.cnf" 1708921747.39568 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "Notes.aux" 1721078887.78932 1952 e34b1d0c97b74e6b43316866c1c6b779 "pdflatex"
-  "Notes.bbl" 1721078887.40231 6583 3707669559338d85e83fae659be08db9 "bibtex Notes"
-  "Notes.out" 1721078887.78932 366 f549e10a065177f22f0f63eecf3c07be "pdflatex"
-  "Notes.tex" 1721078886.56031 8581 1898479ad4f151e5a7cfe311226f6617 ""
+  "Notes.aux" 1721872951.25412 1955 875186aa8899467aafb50b0c7e06ea2d "pdflatex"
+  "Notes.bbl" 1721872950.86512 6550 35aeb0b97cebe87266391e155b03aaa3 "bibtex Notes"
+  "Notes.out" 1721872951.25412 366 f549e10a065177f22f0f63eecf3c07be "pdflatex"
+  "Notes.tex" 1721872949.92211 8584 0c39b567d1869f93caccb06caae0e56b ""
   (generated)
   "Notes.aux"
   "Notes.log"

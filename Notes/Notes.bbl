@@ -45,8 +45,8 @@ Harris, A.~W. (2015).
 \newblock {Lightkurve: Kepler and TESS time series analysis in Python}.
 \newblock Astrophysics Source Code Library.
 
-\bibitem[Maneewongvatana et~al., 1999]{Maneewongvatana1999}
-Maneewongvatana, S., Mount, D.~M., Maneewongvatana, S., and Mount, D.~M. (1999).
+\bibitem[Maneewongvatana and Mount, 1999]{Maneewongvatana1999}
+Maneewongvatana, S. and Mount, D.~M. (1999).
 \newblock Analysis of approximate nearest neighbor searching with clustered point sets.
 \newblock {\em arXiv}, page cs/9901013.
 

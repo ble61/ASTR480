@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.26)  16 JUL 2024 13:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.26)  25 JUL 2024 14:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -265,7 +265,7 @@ Package: inputenc 2021/02/14 v1.3d Input encoding file
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/newunicodechar/newunicodechar.sty
 Package: newunicodechar 2018/04/08 v1.2 Defining Unicode characters
 )
-Package translations Info: No language package found. I am going to use `english' as default language. on input line 35.
+Package translations Info: No language package found. I am going to use `english' as default language. on input line 36.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/graphics/color.sty
 Package: color 2022/01/06 v1.3d Standard LaTeX Color (DPC)
  (/usr/local/texlive/2023/texmf-dist/tex/latex/graphics-cfg/color.cfg
@@ -279,25 +279,25 @@ File: l3backend-pdftex.def 2024-02-20 L3 backend support: PDF output (pdfTeX)
 ) (./progressReportDraft.aux)
 \openout1 = `progressReportDraft.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-Package hyperref Info: Link coloring OFF on input line 35.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+Package hyperref Info: Link coloring OFF on input line 36.
  (./progressReportDraft.out) (./progressReportDraft.out)
 \@outlinefile=\write3
 \openout3 = `progressReportDraft.out'.
@@ -323,7 +323,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 )) (/usr/local/texlive/2023/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
 File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
 )
-Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 35.
+Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 36.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -333,13 +333,13 @@ Package translations Info: loading dictionary `translations-basic-dictionary' fo
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: twoside 
-* h-part:(L,W,R)=(85.35826pt, 486.25761pt, 42.67912pt)
+* h-part:(L,W,R)=(42.67912pt, 528.93675pt, 42.67912pt)
 * v-part:(T,H,B)=(42.67912pt, 709.61174pt, 42.67912pt)
 * \paperwidth=614.295pt
 * \paperheight=794.96999pt
-* \textwidth=486.25761pt
+* \textwidth=528.93675pt
 * \textheight=709.61174pt
-* \oddsidemargin=13.08827pt
+* \oddsidemargin=-29.59087pt
 * \evensidemargin=-29.59087pt
 * \topmargin=-66.59087pt
 * \headheight=12.0pt
@@ -360,46 +360,85 @@ Package translations Info: loading dictionary `translations-basic-dictionary' fo
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 37.
+(Font)              <14.4> on input line 38.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 37.
+(Font)              <7> on input line 38.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 45.
+(Font)              <12> on input line 47.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 45.
+(Font)              <8> on input line 47.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 45.
+(Font)              <6> on input line 47.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 68.
+(Font)              <5> on input line 71.
+[1
 
-Overfull \vbox (9.05435pt too high) has occurred while \output is active []
+{/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
+*geometry* verbose mode - [ newgeometry ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: twoside 
+* h-part:(L,W,R)=(42.67912pt, 528.93675pt, 42.67912pt)
+* v-part:(T,H,B)=(42.67912pt, 709.61174pt, 42.67912pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=528.93675pt
+* \textheight=709.61174pt
+* \oddsidemargin=-29.59087pt
+* \evensidemargin=-29.59087pt
+* \topmargin=-66.59087pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=44.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumntrue
+* \@twosidetrue
+* \@mparswitchtrue
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
- [1
+<../Test Code/Testing Figures/interpPos_22_2_3_4.pdf, id=97, 722.7pt x 578.16pt>
+File: ../Test Code/Testing Figures/interpPos_22_2_3_4.pdf Graphic file (type pdf)
+<use ../Test Code/Testing Figures/interpPos_22_2_3_4.pdf>
+Package pdftex.def Info: ../Test Code/Testing Figures/interpPos_22_2_3_4.pdf  used on input line 123.
+(pdftex.def)             Requested size: 259.46837pt x 207.57283pt.
+<../Test Code/Testing Figures/differentFluxes Ruff .pdf, id=98, 867.24pt x 433.62pt>
+File: ../Test Code/Testing Figures/differentFluxes Ruff .pdf Graphic file (type pdf)
+<use ../Test Code/Testing Figures/differentFluxes Ruff .pdf>
+Package pdftex.def Info: ../Test Code/Testing Figures/differentFluxes Ruff .pdf  used on input line 136.
+(pdftex.def)             Requested size: 259.46837pt x 129.73633pt.
+ (./progressReportDraft.bbl) [3
 
-{/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./progressReportDraft.bbl
-Overfull \vbox (2.12175pt too high) has occurred while \output is active []
-
- [2]) [3] (./progressReportDraft.aux)
+ <../Test Code/Testing Figures/interpPos_22_2_3_4.pdf> <../Test Code/Testing Figures/differentFluxes Ruff .pdf>] (./progressReportDraft.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `progressReportDraft.out' has not changed.
-(rerunfilecheck)             Checksum: C34ADF4BBD1936954F26C4B8ABD59F68;376.
+(rerunfilecheck)             Checksum: 073B1FA4A0FC2DD9EB43E7AE16BD8571;298.
  ) 
 Here is how much of TeX's memory you used:
- 13640 strings out of 474137
- 271642 string characters out of 5744488
- 1942187 words of memory out of 5000000
- 35830 multiletter control sequences out of 15000+600000
+ 13670 strings out of 474137
+ 272831 string characters out of 5744488
+ 1944187 words of memory out of 5000000
+ 35857 multiletter control sequences out of 15000+600000
  563753 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,7n,83p,926b,1041s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,7n,83p,926b,902s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on progressReportDraft.pdf (3 pages, 170743 bytes).
+Output written on progressReportDraft.pdf (3 pages, 275158 bytes).
 PDF statistics:
- 157 PDF objects out of 1000 (max. 8388607)
- 124 compressed objects within 2 object streams
- 23 named destinations out of 1000 (max. 500000)
- 33 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 287 PDF objects out of 1000 (max. 8388607)
+ 149 compressed objects within 2 object streams
+ 26 named destinations out of 1000 (max. 500000)
+ 35 words of extra memory for PDF output out of 10000 (max. 10000000)
 
