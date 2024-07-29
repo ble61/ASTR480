@@ -374,9 +374,9 @@ def plotHorizons(nameList: list[str], t_i:Time, t_f:Time| None = None,loc:str="5
     return fig
 
 sector = 22
-cam = 2
+cam = 1
 ccd = 3
-cut = 4
+cut = 8
 
 
 fname = f"../OzData/{sector}_{cam}_{ccd}_{cut}_wcs.fits"
@@ -404,8 +404,8 @@ posFig.savefig(f"./Testing Figures/posFig_{sector}_{cam}_{ccd}_{cut}.png")
 
 unqNames = list(pd.unique(res['Name']))
 
-distanceFig = plotHorizons(unqNames, times[0], t_f=times[-1], loc="500@-95", plotIRDel=True)
-distanceFig.savefig(f"./Testing Figures/delRHPlot_{sector}_{cam}_{ccd}_{cut}.png")
+# distanceFig = plotHorizons(unqNames, times[0], t_f=times[-1], loc="500@-95", plotIRDel=True)
+# distanceFig.savefig(f"./Testing Figures/delRHPlot_{sector}_{cam}_{ccd}_{cut}.png")
 # distanceFig.savefig(f"./DistancesVInclPlot_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.png")
 
 

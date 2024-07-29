@@ -30,7 +30,7 @@
 
 
 \title{ASTR480 Progress Report}
-\author{Brayden Leicester \\[1ex]
+\author{Brayden Leicester \textit{61352063} \\[1ex]
 \small{Supervisors: Michele Bannister and Ryan Ridden-Harper}
 }
 \begin{document}
@@ -40,15 +40,16 @@
 
 \section{Background}
 
-%To get all asteriods in TESS. 
+%To get all asteroids in TESS. 
 This project aims to find and characterise the light curves of all the asteroids seen by the Transiting Exoplanet Survey Satellite (TESS). 
     %Why TESS
 TESS is a large area, high cadence imaging , space telescope  \citep{Ricker2014}. 
 TESS is tasked with observing one piece of sky for \qty{27}{\day} at a time (a sector), delivering \qtyproduct{96 x 24}{\degree} full frame images (FFIs) at regular intervals. 
 With the initial cadence for these full frame images set to \qty{30}{\minute}, the time resolution of TESS is unparalleled, with a Nyquist frequency of \qty{1}{\per\hour}, as the mission was extended the length of the FFIs has come down to \qty{10}{\minute} and then \qty{200}{\second}. 
 This high time resolution and observation area does come at the cost of spatial resolution, as the pixels are each \qty{21}{\arcsec} square.
-There have been attempts before to find and classify the asteroids in TESS data before by \citet{Pal2018, Pal2020}. This work aims to extend their study to more sectors, and to use a different data reduction method, the \texttt{TESSreduce} package \citep{Ridden-Harper2021}.
-%TODO expand here...
+There have been attempts before to find and classify the asteroids in TESS data before by \citet{Pal2018, Pal2020}. 
+The first data release in \citet{Pal2020} catalogues nearly 10,000 asteroid light curves from the first year of TESS operation.
+This work aims to extend their study to more sectors, hence characterising more asteroids, and to use a different data reduction method, the \texttt{TESSreduce} package \citep{Ridden-Harper2021} which should increase the accuracy of the photometry due to the improved background subtraction process.
 Because of the survey properties, TESS provides a self-consistent way to measure the properties of asteroids over the full sky.   
 Another beneficial part of this work is that as part of a full sky transient survey using TESS, \texttt{TESSELLATE} (Ridden-Harper and Roxburgh et al., in prep), asteroids are transient objects that spike the brightness of a pixel for only a few frames.
 The goal of finding all the asteroids will allow for the removal of these spikes from the transient pipeline, as well as to understand the asteroid population better.  
@@ -73,7 +74,7 @@ As TESS sectors are \qty{27}{\day} long, querying every \qty{12}{\hour} is manag
 These positions are still very sparsely spaced in time compared to the TESS data, so an interpolation is needed to bridge the gap.
 With TESS data coming in $\frac12\unit{\hour}$ chunks, 24 interpolated points are needed between each API call.
 This interpolation should be accurate, as asteroids move at close to a TESS pixel per FFI on average \citep{Pal2018,Pal2020}, and checking against a higher frequency query to {JPL Horizons}\footnote{\href{https://ssd.jpl.nasa.gov/horizons/}{JPL Horizons: https://ssd.jpl.nasa.gov/horizons/}} confirmed this accuracy.
-For the shorter FFIs, the asteriods will be move fewer pixels per frame, which could cause slight mismatches between the interpolation and the detections. 
+For the shorter FFIs, the asteroids will be move fewer pixels per frame, which could cause slight mismatches between the interpolation and the detections. 
 Horizons was also used get properties of the individual asteroids, such as the absolute magnitude $H$. 
 For the faster TESS data, more interpolated points are needed, but a smaller the change in position between each point.
 These interpolated positions can be seen in \autoref{Fig:interpPos} for a cut from \texttt{TESSELLATE}. 

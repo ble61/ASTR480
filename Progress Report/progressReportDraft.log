@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.26)  25 JUL 2024 14:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.26)  26 JUL 2024 15:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -370,7 +370,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 47.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 71.
+(Font)              <5> on input line 72.
 [1
 
 {/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
@@ -406,15 +406,15 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-<../Test Code/Testing Figures/interpPos_22_2_3_4.pdf, id=97, 722.7pt x 578.16pt>
+<../Test Code/Testing Figures/interpPos_22_2_3_4.pdf, id=100, 722.7pt x 578.16pt>
 File: ../Test Code/Testing Figures/interpPos_22_2_3_4.pdf Graphic file (type pdf)
 <use ../Test Code/Testing Figures/interpPos_22_2_3_4.pdf>
-Package pdftex.def Info: ../Test Code/Testing Figures/interpPos_22_2_3_4.pdf  used on input line 123.
+Package pdftex.def Info: ../Test Code/Testing Figures/interpPos_22_2_3_4.pdf  used on input line 124.
 (pdftex.def)             Requested size: 259.46837pt x 207.57283pt.
-<../Test Code/Testing Figures/differentFluxes Ruff .pdf, id=98, 867.24pt x 433.62pt>
+<../Test Code/Testing Figures/differentFluxes Ruff .pdf, id=101, 867.24pt x 433.62pt>
 File: ../Test Code/Testing Figures/differentFluxes Ruff .pdf Graphic file (type pdf)
 <use ../Test Code/Testing Figures/differentFluxes Ruff .pdf>
-Package pdftex.def Info: ../Test Code/Testing Figures/differentFluxes Ruff .pdf  used on input line 136.
+Package pdftex.def Info: ../Test Code/Testing Figures/differentFluxes Ruff .pdf  used on input line 137.
 (pdftex.def)             Requested size: 259.46837pt x 129.73633pt.
  (./progressReportDraft.bbl) [3
 
@@ -427,18 +427,18 @@ Package rerunfilecheck Info: File `progressReportDraft.out' has not changed.
 (rerunfilecheck)             Checksum: 073B1FA4A0FC2DD9EB43E7AE16BD8571;298.
  ) 
 Here is how much of TeX's memory you used:
- 13670 strings out of 474137
- 272831 string characters out of 5744488
+ 13672 strings out of 474137
+ 272854 string characters out of 5744488
  1944187 words of memory out of 5000000
- 35857 multiletter control sequences out of 15000+600000
- 563753 words of font info for 55 fonts, out of 8000000 for 9000
+ 35858 multiletter control sequences out of 15000+600000
+ 564100 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,7n,83p,926b,902s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on progressReportDraft.pdf (3 pages, 275158 bytes).
+</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on progressReportDraft.pdf (3 pages, 284416 bytes).
 PDF statistics:
- 287 PDF objects out of 1000 (max. 8388607)
- 149 compressed objects within 2 object streams
+ 294 PDF objects out of 1000 (max. 8388607)
+ 154 compressed objects within 2 object streams
  26 named destinations out of 1000 (max. 500000)
  35 words of extra memory for PDF output out of 10000 (max. 10000000)
 
