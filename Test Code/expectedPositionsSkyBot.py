@@ -430,6 +430,7 @@ for i, name in enumerate(unqNames):
     interpDecs = np.interp(x=interpTimes, xp=underSampledPos["epoch"], fp=underSampledPos["Dec"])
     interpDf = pd.DataFrame({"RA":interpRAs, "Dec":interpDecs, "epoch":interpTimes}) #make into DF
     #*concat with origonals, and then sorts and fills empty cols
+    #TODO remove origonal points... 
     concatedDF = pd.concat([underSampledPos, interpDf])
     concatedDF.sort_values(by=['epoch'], inplace=True)
     concatedDF.reset_index(drop=True, inplace=True)
