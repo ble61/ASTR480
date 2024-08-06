@@ -395,8 +395,8 @@ res, times = querySB(myTargetPos, magLim=magLim, numTimesteps=54, qRad=3.2)
 
 # res.to_csv(f"./querryResult_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.csv")
 
-posFig = plotExpectedPos(res, times, myTargetPos, magLim=magLim, scaleAlpha=False)
-posFig.savefig(f"./Testing Figures/posFig_{sector}_{cam}_{ccd}_{cut}.png")
+# posFig = plotExpectedPos(res, times, myTargetPos, magLim=magLim, scaleAlpha=False)
+# posFig.savefig(f"./Testing Figures/posFig_{sector}_{cam}_{ccd}_{cut}.png")
 # posFig.savefig(f"./ExpectedPositionsPlot_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.png")
 
 # eleFig = plotHorizons(unqNames, times[0], plotAEI=True)
@@ -419,6 +419,7 @@ dfsList = []
 for i, name in enumerate(unqNames):
     indexs= res.index[res["Name"]==name]
     underSampledPos = res.loc[indexs]
+    underSampledPos["QueriedPoint"] = np.ones_like(underSampledPos["epoch"])
     minTime = underSampledPos["epoch"].min()
     maxTime = underSampledPos["epoch"].max()
     deltaTime = maxTime-minTime
@@ -428,21 +429,26 @@ for i, name in enumerate(unqNames):
     #Ra and Dec samples
     interpRAs = np.interp(x=interpTimes, xp=underSampledPos["epoch"], fp=underSampledPos["RA"])
     interpDecs = np.interp(x=interpTimes, xp=underSampledPos["epoch"], fp=underSampledPos["Dec"])
-    interpDf = pd.DataFrame({"RA":interpRAs, "Dec":interpDecs, "epoch":interpTimes}) #make into DF
+    interpDf = pd.DataFrame({"RA":interpRAs, "Dec":interpDecs, "epoch":interpTimes, "QueriedPoint":np.zeros_like(interpRAs)}) #make into DF
+    
     #*concat with origonals, and then sorts and fills empty cols
-    #TODO remove origonal points... 
     concatedDF = pd.concat([underSampledPos, interpDf])
     concatedDF.sort_values(by=['epoch'], inplace=True)
     concatedDF.reset_index(drop=True, inplace=True)
-    concatedDF.ffill(inplace=True)
+    concatedDF.ffill(inplace=True) #foward fill mag etc
+    
+    #\\TODO remove origonal points...
+    concatedDF.drop(concatedDF[concatedDF["QueriedPoint"] ==1].index, inplace=True)
+    concatedDF.drop(columns=["QueriedPoint"], inplace=True)
+    
     dfsList.append(concatedDF) #adds to list for later concat
 
 interpRes = pd.concat(dfsList) #puts evrything back together
 interpRes.reset_index(drop=True, inplace=True)
 # # interpRes.to_csv(f"./InterpolatedQuerryResult_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.csv")
-#* interpRes.to_csv(f"./InterpolatedQuerryResult_{sector}_{cam}_{ccd}_{cut}.csv")
+interpRes.to_csv(f"./InterpolatedQuerryResult_{sector}_{cam}_{ccd}_{cut}.csv")
 
-posFig = plotExpectedPos(interpRes, times, myTargetPos, magLim=magLim, scaleAlpha=True, saving=True)
+# posFig = plotExpectedPos(interpRes, times, myTargetPos, magLim=magLim, scaleAlpha=True, saving=True)
 # posFig.savefig(f"./InterpolatedExpectedPositionsPlot_HscaleOn_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.png")
 
 
