@@ -69,10 +69,10 @@ def useKDTree(df1, df2, cols, maxDist:float=0.01,maxTimeSep:float=0.1,k:int=1):
 #     return cat1_id,cat2_id
 
 
-sector = 22
+sector = 29
 cam = 1
 ccd = 3
-cut = 8
+cut = 7
 
 
 interpRes = pd.read_csv(f"./InterpolatedQuerryResult_{sector}_{cam}_{ccd}_{cut}.csv")
@@ -204,7 +204,7 @@ for name in unqNames:
         plt.scatter(nameCut["Time"], nameCut["flux"], label=name)
         plt.legend()
 
-    if name == " Ruff " or name ==" Lincoln " or name ==" 1999 JE82 ":
+    if name == " Ruff " or name ==" Lincoln " or name ==" 1999 JE82 " or name == " Henry ":
         nameCut.to_csv(f"./{name}Matches.csv")
 
 

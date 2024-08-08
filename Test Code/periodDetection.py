@@ -120,8 +120,7 @@ def singleNameLSP(posDf, name):
     detect_period_ap(cut["mjd"],cut["flux"],plotting=True)
 
 
-
-matchesDF = load_matches(22,1,3,8)
+matchesDF = load_matches(29,1,3,7)
 
 lkPer, badCountlk = compute_periods_lk(matchesDF)
 

@@ -373,10 +373,10 @@ def plotHorizons(nameList: list[str], t_i:Time, t_f:Time| None = None,loc:str="5
 
     return fig
 
-sector = 22
+sector = 29
 cam = 1
 ccd = 3
-cut = 8
+cut = 7
 
 
 fname = f"../OzData/{sector}_{cam}_{ccd}_{cut}_wcs.fits"
@@ -424,13 +424,26 @@ for i, name in enumerate(unqNames):
     maxTime = underSampledPos["epoch"].max()
     deltaTime = maxTime-minTime
     # print(f"{name} is in view for {deltaTime}")
-    interpPoints = 24 # 12hr gaps, want 30min sampling
+    
+    #// TODO depends on sector how many point are wanted.
+    #* Seems to be sec 27 and 56 when it changes
+    # interpPoints = 24 # 12hr gaps, want 30min sampling
+    #12hr queries constant
+    if sector <27: 
+        interpPoints=24  #1/2hr ffi
+    elif sector>=27 and sector<56:
+        interpPoints = 72 #1/6hr (10 min) ffi
+    else:
+        interpPoints = 216  # 200 s ffi
+    
+
+
     interpTimes = np.linspace(minTime,maxTime, int(interpPoints*deltaTime))#linspace to sample
     #Ra and Dec samples
     interpRAs = np.interp(x=interpTimes, xp=underSampledPos["epoch"], fp=underSampledPos["RA"])
     interpDecs = np.interp(x=interpTimes, xp=underSampledPos["epoch"], fp=underSampledPos["Dec"])
     interpDf = pd.DataFrame({"RA":interpRAs, "Dec":interpDecs, "epoch":interpTimes, "QueriedPoint":np.zeros_like(interpRAs)}) #make into DF
-    
+
     #*concat with origonals, and then sorts and fills empty cols
     concatedDF = pd.concat([underSampledPos, interpDf])
     concatedDF.sort_values(by=['epoch'], inplace=True)
