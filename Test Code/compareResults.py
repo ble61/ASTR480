@@ -29,12 +29,12 @@ def useKDTree(df1, df2, cols, maxDist:float=0.01,maxTimeSep:float=0.1,k:int=1):
 
     df2.rename(columns={'Unnamed: 0Match':"IDMatch"}, inplace=True, errors="raise")
 
-    #TODO compare time at indices returned
+    #// TODO compare time at indices returned
     timeInds = df2.index[np.abs((df2["Time"]-df2["TimeMatch"]))<maxTimeSep]
 
     df2=df2.loc[timeInds]
 
-    #TODO take only nearest match for each point
+    #// TODO take only nearest match for each point
     smallDistInds = df2.index[df2["distToMatch"]<maxDist]
     
     df2= df2.loc[smallDistInds]
@@ -69,7 +69,7 @@ def useKDTree(df1, df2, cols, maxDist:float=0.01,maxTimeSep:float=0.1,k:int=1):
 #     return cat1_id,cat2_id
 
 
-sector = 29
+sector = 22
 cam = 1
 ccd = 3
 cut = 7

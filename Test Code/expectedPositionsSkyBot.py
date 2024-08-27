@@ -373,7 +373,7 @@ def plotHorizons(nameList: list[str], t_i:Time, t_f:Time| None = None,loc:str="5
 
     return fig
 
-sector = 29
+sector = 22
 cam = 1
 ccd = 3
 cut = 7
@@ -399,10 +399,12 @@ res, times = querySB(myTargetPos, magLim=magLim, numTimesteps=54, qRad=3.2)
 # posFig.savefig(f"./Testing Figures/posFig_{sector}_{cam}_{ccd}_{cut}.png")
 # posFig.savefig(f"./ExpectedPositionsPlot_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.png")
 
-# eleFig = plotHorizons(unqNames, times[0], plotAEI=True)
-# eleFig.savefig(f"./OrbitalElementsPlot_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.png")
-
 unqNames = list(pd.unique(res['Name']))
+
+
+eleFig = plotHorizons(unqNames, times[0], plotAEI=True)
+eleFig.savefig(f"./OrbitalElementsPlot_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.png")
+
 
 # distanceFig = plotHorizons(unqNames, times[0], t_f=times[-1], loc="500@-95", plotIRDel=True)
 # distanceFig.savefig(f"./Testing Figures/delRHPlot_{sector}_{cam}_{ccd}_{cut}.png")
@@ -436,6 +438,7 @@ for i, name in enumerate(unqNames):
     else:
         interpPoints = 216  # 200 s ffi
     
+    #! This is all wrong, the deltaT was in days not in query lenghth, so I was geting each hour, not each 1/2 hr etc. 
 
 
     interpTimes = np.linspace(minTime,maxTime, int(interpPoints*deltaTime))#linspace to sample

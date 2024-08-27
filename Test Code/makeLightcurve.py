@@ -8,7 +8,12 @@ from astropy import wcs
 from astropy.utils.data import download_file
 from astropy.io import fits
 
-# %matplotlib widget
+import warnings
+from astropy.utils.exceptions import AstropyWarning
+warnings.simplefilter('ignore', category=AstropyWarning)
+
+
+%matplotlib widget
 
 plt.rcParams.update({
     "font.size": 18,
@@ -33,18 +38,103 @@ def load_interpolations(sector, cam, ccd, cut, dirPath = "./"):
     interpDF.drop(columns="Unnamed: 0", inplace=True)
     return interpDF
 
-def load_fluxes(sector, cam, ccd, cut, dirPath = "../Ozdata/"):
+def load_fluxes(sector, cam, ccd, cut, dirPath = "../OzData/"):
     reduFlux = np.load(f"{dirPath}sector{sector}_cam{cam}_ccd{ccd}_cut{cut}_of16_ReducedFlux.npy")
     return reduFlux
 
-def load_times(sector, cam, ccd, cut, dirPath = "../Ozdata/"):
+def load_times(sector, cam, ccd, cut, dirPath = "../OzData/"):
     timesFromOz = np.load(f"{dirPath}sector{sector}_cam{cam}_ccd{ccd}_cut{cut}_of16_Times.npy")
     return timesFromOz
 
 def name_cut(df, name:str, colName:str="NameMatch"):
     "take a df and gives  only the values where the colName == name"
-    return df.loc[df.index[df[colName]==name]]
+    toReturn = df.loc[df.index[df[colName]==name]]
+    toReturn.reset_index(drop=True, inplace=True)
+    return toReturn
 
+def sum_fluxes(frames, ys, xs):
+    """Sums 3x3 box around all f,y,x, retuns list of fluxes in frame order"""
+
+    down = 1
+    up = 2
+    total = []
+
+    for f,y,x in zip(frames,ys,xs):   
+        #making sure everything is in bounds
+        ymin = y-down
+        ymax = y+up
+        xmin = x-down
+        xmax = x+up
+
+        if ymin < 0: ymin = 0
+        if ymax >= fluxBounds[1]: ymax = fluxBounds[1] -1
+        if xmin < 0: xmin = 0
+        if xmax >= fluxBounds[2]: xmax = fluxBounds[2]-1
+        total.append(np.sum(reducedFluxes[f,ymin:ymax,xmin:xmax]))
+
+    return total
+
+
+def lightcurve_from_name(name):
+    nameDf = name_cut(interpDF,name,"Name")
+    
+    #frameNums = [ np.argmin(np.abs(frameTimes -(time-timeOffset))) for time in nameDf["epoch"]]
+    frameNums = None
+    badIds = []
+
+    for i, time in enumerate(nameDf["epoch"]):
+        time = time-timeOffset
+        
+        thisFrame = np.argmin(np.abs(frameTimes -time))
+
+        if frameNums==None:
+            frameNums = [thisFrame] #puts first one in
+        elif frameNums[-1] == thisFrame:
+            oldTime = frameTimes[frameNums[-1]] - time
+            newTime = frameTimes[thisFrame] - time
+
+            #shorter dt gets taken if the go to the same frame
+
+            if np.abs(newTime)>=np.abs(oldTime): #New is longer (or ==) dt, so keep old one
+                badIds.append(i)
+            else:   #new dt is shorter, so use  new one
+                badIds.append((i-1))
+                frameNums[-1]=thisFrame 
+        else:
+            frameNums.append(thisFrame)
+    
+    
+    #remove bad rows from nameDF
+    nameDf.drop(index=badIds, inplace=True)
+    #add frames in
+    nameDf["Frames"] = frameNums
+    
+    targetWSC = fits.open(f"../OzData/{sector}_{cam}_{ccd}_{cut}_wcs.fits")[0]
+    w = wcs.WCS(targetWSC.header)
+    
+    interpCoords=SkyCoord(ra = nameDf["RA"], dec = nameDf["Dec"], unit="deg")
+
+    interpedX, interpedY  = w.all_world2pix(interpCoords.ra, interpCoords.dec,0)
+
+    interpedX = interpedX.round().astype(int)
+    interpedY = interpedY.round().astype(int)
+
+    nameDf["X"] = interpedX
+    nameDf["Y"] = interpedY
+
+
+    sumedFluxes = sum_fluxes(nameDf["Frames"], nameDf["Y"], nameDf["X"])
+
+    nameDf["Flux"] = sumedFluxes
+
+    return nameDf    
+
+def plot_lc_from_name(name):
+    nCut = totalLcDf.loc[totalLcDf.index[totalLcDf["Name"]==name]]
+    fig, ax = plt.subplots(figsize = (8,6))
+    ax.scatter(nCut["epoch"]-timeOffset, nCut["Flux"])
+    ax.set_ylim(-200,200)
+    
 
 
 #*Global variables
@@ -53,10 +143,28 @@ def name_cut(df, name:str, colName:str="NameMatch"):
 sector = 22
 cam = 1
 ccd = 3
-cut = 8
+cut = 7
 
 reducedFluxes = load_fluxes(sector, cam, ccd, cut)
+
+fluxBounds = reducedFluxes.shape
+
 frameTimes = load_times(sector, cam, ccd, cut)
 
+interpDF = load_interpolations(sector, cam, ccd, cut)
+
+extendedDfList = []
+
+for name in np.unique(interpDF["Name"]):
+    lcRes = lightcurve_from_name(name)
+    extendedDfList.append(lcRes)   
+    #?Plotting?
+
+totalLcDf = pd.concat(extendedDfList)
+totalLcDf.reset_index(inplace=True, drop=True)
+plot_lc_from_name(" Ruff ")
+
+
+totalLcDf.to_csv(f"Interps_with_lc_{sector}_{cam}_{ccd}_{cut}.csv")
 
 
