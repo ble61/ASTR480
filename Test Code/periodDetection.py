@@ -45,7 +45,7 @@ def detect_period_ap(times, fluxes, plotting = False):
         nyquistP = 400*u.s   # 200 s ffi
     
 
-    minFreq = 1/(2*(times.max()-times.min())*u.day).to(u.s)
+    minFreq = 1/(0.1*(times.max()-times.min())*u.day).to(u.s)
     maxFreq = 1/nyquistP
 
     lsper = lsp((u.Quantity(times, u.day)).to(u.s), fluxes)
@@ -65,7 +65,7 @@ def detect_period_ap(times, fluxes, plotting = False):
         ax[0].set_yscale("log")
         ax[0].set(xlabel="Log Frequency", ylabel="Power")
         ax[0].plot(freqs, powers, c="k", label="Periodogram")
-        ax[0].scatter(bestFreq,bestPow, c="gold",marker="*", s=100, label=f"Best Frequency = {bestFreq.round(2)} \nFalse Alarm Probability = {f_a_prob.round(3)}")
+        ax[0].scatter(bestFreq,bestPow, c="gold",marker="*", s=100, label=f"Best Frequency = {bestFreq.round(7)} \nFalse Alarm Probability = {f_a_prob.round(3)}")
         ax[0].legend()
 
         ax[1].set(xlabel="Time [MJD]", ylabel="Flux")
@@ -139,9 +139,9 @@ def compute_periods_ap(posDF):
         flux = nameDf["Flux"].values
 
         period_ap, f_a_Prob, theta = detect_period_ap(time, flux)
-        periodList_ap.append([name, period_ap, period_ap/(60*60*24), f_a_Prob, theta])
+        periodList_ap.append([name, period_ap, period_ap/(60*60), period_ap/(60*60*24), f_a_Prob, theta])
 
-    apPeriods = pd.DataFrame(periodList_ap, columns=["Name", "Best Period", "Best Period [Day]",  "False Alarm Probability", "Model Parameters"])
+    apPeriods = pd.DataFrame(periodList_ap, columns=["Name", "Best Period [Seconds]", "Best Period [Hours]","Best Period [Days]",  "False Alarm Probability", "Model Parameters"])
 
     return apPeriods, badCount
 
@@ -158,6 +158,10 @@ cut = 7
 
 interpLcDF = load_interps(22,1,3,7)
 
+
+singleNameLSP(interpLcDF," Ruff ")
+
+
 # lkPer, badCountlk = compute_periods_lk(interpLcDF)
 
 apPer, badCountap = compute_periods_ap(interpLcDF)
@@ -172,7 +176,7 @@ fig, ax = plt.subplots()
 # ax.errorbar(lkPer.index, lkPer["Best Period"], fmt=".", c="tab:blue", capsize = 2, label="Lightkurve")
 
 #!Not error in period, but level of uncertanty due to f_a_Prob
-ax.errorbar(apPer.index, apPer["Best Period [Day]"], apPer["False Alarm Probability"]*10, fmt=".",c="tab:orange", capsize=2, label="Astropy")
+ax.errorbar(apPer.index, apPer["Best Period [Days]"], apPer["False Alarm Probability"]*10, fmt=".",c="tab:orange", capsize=2, label="Astropy")
 
 
 ax.set_ylabel("Period [days]")
@@ -181,25 +185,28 @@ ax.legend()
 
 
 # maxPlk = lkPer.loc[lkPer["Best Period"].idxmax()]
-maxPap = apPer.loc[apPer["Best Period"].idxmax()]
+maxPap = apPer.loc[apPer["Best Period [Seconds]"].idxmax()]
 # print(maxPlk)
 print("")
 print(maxPap)
 
 
-singleNameLSP(interpLcDF,maxPap["Name"])
+# singleNameLSP(interpLcDF,maxPap["Name"])
 
 
 
 # minPlk = lkPer.loc[lkPer["Best Period"].idxmin()]
-minPap = apPer.loc[apPer["Best Period"].idxmin()]
+minPap = apPer.loc[apPer["Best Period [Seconds]"].idxmin()]
 print("")
 # print(minPlk)
 print("")
 print(minPap)
 
 
-singleNameLSP(interpLcDF,maxPap["Name"])
+# singleNameLSP(interpLcDF,minPap["Name"])
+
+
+singleNameLSP(interpLcDF," Ruff ")
 
 
 

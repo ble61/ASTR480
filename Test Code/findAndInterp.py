@@ -202,7 +202,7 @@ def find_asteroids(sector,cam,ccd,cut):
 
     for name in unqNames:
         nCut = name_cut(res, name, colName="Name")
-        avgMv = np.mean(nCut["Mv"])
+        avgMv = np.mean(nCut["Mv"]).round(3)
         num = nCut.at[0,"Num"]
         astrClass = nCut.at[0,"Class"]  
 
