@@ -1,4 +1,4 @@
-\documentclass[12pt]{article}
+\documentclass[12pt]{article} 
 
 \usepackage{natbib,hyperref,graphicx}
 \usepackage[separate-uncertainty=true,multi-part-units=single]{siunitx}
@@ -189,6 +189,9 @@ There seems to be a systematic offset between the fluxes, with the interpolated 
 Adjusting aperture to sum the fluxes over to the ``centre of mass'' of the asteroid in each frame does not alleviate this problem. 
 
 %Periods and amplitueds for everything detected
+
+A widely used technique in determining the periods of astronomical data is the Lomb-Scargle periodogram \citep[\citet{Lomb1976,Scargle1982}, but see][for a review]{VanderPlas2018}
+
 The next part of my analysis has to do with determining the periods and amplitudes of each asteroid's light curve.
 For this there are a few methods I can try; using the \texttt{Lightkurve} \citep{Lightkurve2018} package built for period analysis of TESS (and Kepler) data of variable stars or peel back a layer of abstraction and use the Lomb-Scargle periodogram as implemented by \texttt{Astropy}\cite{Astropy2022}. 
 Some trialling of both methods is needed, as preliminary testing reveals of interesting similarities and differences between the packages. 

@@ -29,6 +29,8 @@ plt.rcParams.update({
 
 
 
+timeOffset = 2400000.5
+
 def _Skybotquery(ra, dec, times, radius=10/60, location='C57', cache=False):
     """Returns a list of asteroids/comets given a position and time.
     This function relies on The Virtual Observatory Sky Body Tracker (SkyBot)
@@ -147,6 +149,12 @@ def querySB(targetPos: list, qRad: float = 10.0, qLoc: str = "C57", numTimesteps
 
     brightResult = result.loc[result["Mv"] <= magLim].reset_index(drop=True)
 
+    brightResult["Name"] = [name.strip() for name in brightResult["Name"]]
+
+    brightResult["MJD"] = brightResult["epoch"]-timeOffset
+
+    brightResult.drop(columns="epoch", inplace=True)
+
     coords = SkyCoord(
         brightResult["RA"], brightResult["Dec"], unit=(u.hourangle, u.deg))
     brightResult["RA"] = coords.ra.deg
@@ -241,22 +249,32 @@ def interplolation_of_pos(posDf, sector):
     unqNames = np.unique(posDf["Name"])
     dfsList = []
 
+
+    frameTimes = np.load(f"../OzData/sector{sector}_cam{cam}_ccd{ccd}_cut{cut}_of16_Times.npy")
+
     for name in unqNames:
         
         underSampledPos = name_cut(posDf, name, colName="Name")
 
-        underSampledPos["QueriedPoint"] = np.ones_like(underSampledPos["epoch"])
-        minTime = underSampledPos["epoch"].min()
-        maxTime = underSampledPos["epoch"].max()
+        underSampledPos["QueriedPoint"] = np.ones_like(underSampledPos["MJD"])
+        minTime = underSampledPos["MJD"].min()
+        maxTime = underSampledPos["MJD"].max()
         deltaTime = maxTime-minTime
+
+        #TODO interp times at frame times.
         interpTimes = np.linspace(minTime,maxTime, int(interpPoints*deltaTime))#linspace to sample
         #Ra and Dec samples
-        interpRAs = np.interp(x=interpTimes, xp=underSampledPos["epoch"], fp=underSampledPos["RA"])
-        interpDecs = np.interp(x=interpTimes, xp=underSampledPos["epoch"], fp=underSampledPos["Dec"])
-        interpDf = pd.DataFrame({"RA":interpRAs, "Dec":interpDecs, "epoch":interpTimes, "QueriedPoint":np.zeros_like(interpRAs)}) #make into DF
+
+        frameIDs = np.where((frameTimes>=minTime) & (frameTimes<=maxTime))[0]
+
+        interpTimes = frameTimes[frameIDs]
+
+        interpRAs = np.interp(x=interpTimes, xp=underSampledPos["MJD"], fp=underSampledPos["RA"])
+        interpDecs = np.interp(x=interpTimes, xp=underSampledPos["MJD"], fp=underSampledPos["Dec"])
+        interpDf = pd.DataFrame({"RA":interpRAs, "Dec":interpDecs, "MJD":interpTimes, "QueriedPoint":np.zeros_like(interpRAs), "FrameIDs":frameIDs.astype(int)}) #make into DF
 
         concatedDF = pd.concat([underSampledPos, interpDf])
-        concatedDF.sort_values(by=['epoch'], inplace=True)
+        concatedDF.sort_values(by=['MJD'], inplace=True)
         concatedDF.reset_index(drop=True, inplace=True)
         concatedDF.ffill(inplace=True) #foward fill mag etc
         

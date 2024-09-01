@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.26)  27 AUG 2024 17:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.26)  30 AUG 2024 15:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -287,7 +287,6 @@ LaTeX Font Info:    ... okay on input line 33.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 33.
 LaTeX Font Info:    ... okay on input line 33.
 Package hyperref Info: Link coloring OFF on input line 33.
- (./FinalReportDraft.out) (./FinalReportDraft.out)
 \@outlinefile=\write3
 \openout3 = `FinalReportDraft.out'.
 
@@ -352,52 +351,182 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <14.4> on input line 42.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 42.
+
+Package natbib Warning: Citation `Ricker2014' on page 1 undefined on input line 71.
+
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <12> on input line 72.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 72.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 72.
+
+Package natbib Warning: Citation `Pal2018' on page 1 undefined on input line 84.
+
+
+Package natbib Warning: Citation `Pal2020' on page 1 undefined on input line 84.
+
+
+Package natbib Warning: Citation `Pal2020' on page 1 undefined on input line 85.
+
+
+Package natbib Warning: Citation `Ridden-Harper2021' on page 1 undefined on input line 89.
+
 [1
 
 {/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+
+Package natbib Warning: Citation `Weidenschilling1981' on page 2 undefined on input line 106.
+
+
+Package natbib Warning: Citation `Harris1994' on page 2 undefined on input line 106.
+
+
+Package natbib Warning: Citation `Bannister2019' on page 2 undefined on input line 118.
+
+
+Package natbib Warning: Citation `Fitzsimmons2017' on page 2 undefined on input line 119.
+
+
+Package natbib Warning: Citation `Meech2017' on page 2 undefined on input line 119.
+
+
+Package natbib Warning: Citation `Bannister2017' on page 2 undefined on input line 119.
+
+
+Package natbib Warning: Citation `Belton2018' on page 2 undefined on input line 121.
+
+
+Package natbib Warning: Citation `Drahus2018' on page 2 undefined on input line 121.
+
+
+Package natbib Warning: Citation `Fraser2018' on page 2 undefined on input line 121.
+
+
+Package natbib Warning: Citation `McNeill2018' on page 2 undefined on input line 122.
+
+
+Package natbib Warning: Citation `Belton2018' on page 2 undefined on input line 122.
+
+
+Package natbib Warning: Citation `Meech2017' on page 2 undefined on input line 123.
+
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 134.
+[2]
 
-Overfull \vbox (0.12167pt too high) has occurred while \output is active []
+Package natbib Warning: Citation `Pal2018' on page 3 undefined on input line 148.
 
- [2] [3]
-<../Test Code/Testing Figures/interpPos_22_2_3_4.pdf, id=153, 722.7pt x 578.16pt>
+
+Package natbib Warning: Citation `Pal2020' on page 3 undefined on input line 148.
+
+
+LaTeX Warning: Reference `Fig:interpPos' on page 3 undefined on input line 152.
+
+
+LaTeX Warning: Reference `Fig:interpPos' on page 3 undefined on input line 154.
+
+
+Package natbib Warning: Citation `Maneewongvatana1999' on page 3 undefined on input line 169.
+
+
+Package natbib Warning: Citation `2020SciPy-NMeth' on page 3 undefined on input line 169.
+
+
+LaTeX Warning: Reference `Fig:DifFlux' on page 3 undefined on input line 185.
+
+[3]
+
+Package natbib Warning: Citation `Lomb1976' on page 4 undefined on input line 193.
+
+
+Package natbib Warning: Citation `Scargle1982' on page 4 undefined on input line 193.
+
+
+Package natbib Warning: Citation `VanderPlas2018' on page 4 undefined on input line 193.
+
+
+Package natbib Warning: Citation `Lightkurve2018' on page 4 undefined on input line 196.
+
+
+Package natbib Warning: Citation `Astropy2022' on page 4 undefined on input line 196.
+
+<../Test Code/Testing Figures/interpPos_22_2_3_4.pdf, id=43, 722.7pt x 578.16pt>
 File: ../Test Code/Testing Figures/interpPos_22_2_3_4.pdf Graphic file (type pdf)
 <use ../Test Code/Testing Figures/interpPos_22_2_3_4.pdf>
-Package pdftex.def Info: ../Test Code/Testing Figures/interpPos_22_2_3_4.pdf  used on input line 214.
+Package pdftex.def Info: ../Test Code/Testing Figures/interpPos_22_2_3_4.pdf  used on input line 217.
 (pdftex.def)             Requested size: 486.25761pt x 389.00607pt.
-<../Test Code/Testing Figures/differentFluxes Ruff .pdf, id=154, 867.24pt x 433.62pt>
+<../Test Code/Testing Figures/differentFluxes Ruff .pdf, id=44, 867.24pt x 433.62pt>
 File: ../Test Code/Testing Figures/differentFluxes Ruff .pdf Graphic file (type pdf)
 <use ../Test Code/Testing Figures/differentFluxes Ruff .pdf>
-Package pdftex.def Info: ../Test Code/Testing Figures/differentFluxes Ruff .pdf  used on input line 227.
+Package pdftex.def Info: ../Test Code/Testing Figures/differentFluxes Ruff .pdf  used on input line 230.
 (pdftex.def)             Requested size: 486.25761pt x 243.1299pt.
- [4] [5 <../Test Code/Testing Figures/interpPos_22_2_3_4.pdf>] (./FinalReportDraft.bbl [6 <../Test Code/Testing Figures/differentFluxes Ruff .pdf>]) [7] (./FinalReportDraft.aux)
+[4] [5 <../Test Code/Testing Figures/interpPos_22_2_3_4.pdf>] (./FinalReportDraft.bbl [6 <../Test Code/Testing Figures/differentFluxes Ruff .pdf>]
+./FinalReportDraft.bbl:38: Misplaced alignment tab character &.
+l.38 ...N~R, Lomb \harvardand\ R. N  1976 {\em Ap&
+                                                  SS} {\bf 39},~447--462.
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+./FinalReportDraft.bbl:39: Misplaced alignment tab character &.
+<argument> ...://ui.adsabs.harvard.edu/abs/1976Ap&
+                                                  SS..39..447L/abstract
+l.39 ...vard.edu/abs/1976Ap&SS..39..447L/abstract}
+                                                  
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+[7])
+
+Package natbib Warning: There were undefined citations.
+
+[8] (./FinalReportDraft.aux
+
+Package natbib Warning: Citation(s) may have changed.
+(natbib)                Rerun to get citations correct.
+
+)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
-Package rerunfilecheck Info: File `FinalReportDraft.out' has not changed.
-(rerunfilecheck)             Checksum: 50487ECD5CD807472A0760BF62C563AE;1466.
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `FinalReportDraft.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `FinalReportDraft.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  50487ECD5CD807472A0760BF62C563AE;1466.
  ) 
 Here is how much of TeX's memory you used:
- 13432 strings out of 474137
- 269640 string characters out of 5744488
- 1940187 words of memory out of 5000000
- 35602 multiletter control sequences out of 15000+600000
+ 13425 strings out of 474137
+ 269550 string characters out of 5744488
+ 1938187 words of memory out of 5000000
+ 35595 multiletter control sequences out of 15000+600000
  565054 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,7n,83p,908b,1024s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,7n,83p,908b,1053s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on FinalReportDraft.pdf (7 pages, 290702 bytes).
+Output written on FinalReportDraft.pdf (8 pages, 289024 bytes).
 PDF statistics:
- 367 PDF objects out of 1000 (max. 8388607)
- 224 compressed objects within 3 object streams
- 46 named destinations out of 1000 (max. 500000)
- 115 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 285 PDF objects out of 1000 (max. 8388607)
+ 142 compressed objects within 2 object streams
+ 50 named destinations out of 1000 (max. 500000)
+ 11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

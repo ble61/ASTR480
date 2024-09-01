@@ -1,16 +1,16 @@
 # Fdb version 4
-["bibtex FinalReportDraft"] 1724735700.24387 "FinalReportDraft.aux" "FinalReportDraft.bbl" "FinalReportDraft" 1724735752.37191 0
-  "./bibfile.bib" 1724730733.53521 42593 17016735ce371b9ed84e81781d9835a6 ""
+["bibtex FinalReportDraft"] 0 "FinalReportDraft.aux" "FinalReportDraft.bbl" "FinalReportDraft" 0 -1
+  "./bibfile.bib" 1724988058.9262 46984 b2a1fd9c43a868bfa1bb49b6f3a38ded ""
   "./jphysicsB.bst" 1724730686.67981 24427 1fc04a21f6be5ff35abed674a3850319 ""
-  "FinalReportDraft.aux" 1724735752.1825 4456 e572e221489feeabe58e8434121a2e89 "pdflatex"
+  "FinalReportDraft.aux" 1724988059.56421 4675 9ac769a7f10d27d8c96dfbd479667ffc "pdflatex"
   (generated)
   "FinalReportDraft.bbl"
   "FinalReportDraft.blg"
   (rewritten before read)
-["pdflatex"] 1724735751.77557 "/home/users/ble61/Documents/ASTR480/FinalReport/FinalReportDraft.tex" "FinalReportDraft.pdf" "FinalReportDraft" 1724735752.37203 0
+["pdflatex"] 1724988059.13065 "/home/users/ble61/Documents/ASTR480/FinalReport/FinalReportDraft.tex" "FinalReportDraft.pdf" "FinalReportDraft" 1724988059.79395 2
   "../Test Code/Testing Figures/differentFluxes Ruff .pdf" 1721860057.87018 21314 f63c50c014a1e1ded891213c4cd69fff ""
   "../Test Code/Testing Figures/interpPos_22_2_3_4.pdf" 1721355572.47989 86018 eead1476e3a3ef16188b81bff29e8f8c ""
-  "/home/users/ble61/Documents/ASTR480/FinalReport/FinalReportDraft.tex" 1724735751.5825 15864 b0877e8be4b6d20ce74651f0198ce3fc ""
+  "/home/users/ble61/Documents/ASTR480/FinalReport/FinalReportDraft.tex" 1724988028.99794 16047 1259e86dfbef8b46e511761b551dd887 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1136768653 1328 c834bbb027764024c09d3d2bf908b5f0 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ""
@@ -100,10 +100,10 @@
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1708989307.99892 5472569 99e72973af7bd41132687409b8c9c95e ""
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1708921832 8220693 5c9edbd2a6c959e4a5aad3bc8493cf9a ""
   "/usr/local/texlive/2023/texmf.cnf" 1708921747.39568 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "FinalReportDraft.aux" 1724735752.1825 4456 e572e221489feeabe58e8434121a2e89 "pdflatex"
-  "FinalReportDraft.bbl" 1724735700.38403 6094 e2b8a3b1b512e87d15e438951f09432b "bibtex FinalReportDraft"
-  "FinalReportDraft.out" 1724735752.1835 1466 50487ecd5cd807472a0760bf62c563ae "pdflatex"
-  "FinalReportDraft.tex" 1724735751.5825 15864 b0877e8be4b6d20ce74651f0198ce3fc ""
+  "FinalReportDraft.aux" 1724988059.56421 4675 9ac769a7f10d27d8c96dfbd479667ffc "pdflatex"
+  "FinalReportDraft.bbl" 1724987995.02365 6719 1e6f60fe66a616f981183948f41098ec "bibtex FinalReportDraft"
+  "FinalReportDraft.out" 1724988059.56521 1466 50487ecd5cd807472a0760bf62c563ae "pdflatex"
+  "FinalReportDraft.tex" 1724988028.99794 16047 1259e86dfbef8b46e511761b551dd887 ""
   (generated)
   "FinalReportDraft.aux"
   "FinalReportDraft.log"

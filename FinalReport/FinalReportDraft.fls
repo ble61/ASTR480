@@ -118,14 +118,8 @@ INPUT ./FinalReportDraft.aux
 INPUT ./FinalReportDraft.aux
 INPUT FinalReportDraft.aux
 OUTPUT FinalReportDraft.aux
-INPUT ./FinalReportDraft.out
-INPUT ./FinalReportDraft.out
-INPUT FinalReportDraft.out
-INPUT FinalReportDraft.out
-OUTPUT FinalReportDraft.pdf
-INPUT ./FinalReportDraft.out
-INPUT ./FinalReportDraft.out
 OUTPUT FinalReportDraft.out
+OUTPUT FinalReportDraft.pdf
 INPUT /usr/local/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT /usr/local/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT /usr/local/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -147,6 +141,7 @@ INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
@@ -157,7 +152,6 @@ INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm
 INPUT /usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map
-INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT ../Test Code/Testing Figures/interpPos_22_2_3_4.pdf
 INPUT ../Test Code/Testing Figures/interpPos_22_2_3_4.pdf
 INPUT ../Test Code/Testing Figures/interpPos_22_2_3_4.pdf

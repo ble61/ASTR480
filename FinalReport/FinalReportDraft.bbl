@@ -34,6 +34,10 @@ Harris A~W  1994 {\em Icarus} {\bf 107},~209--211.
 \harvarditem{{Lightkurve Collaboration} et~al.}{2018}{Lightkurve2018}
 {Lightkurve Collaboration}, {Cardoso} J~V~d~M, {Hedges} C, {Gully-Santiago} M, {Saunders} N, {Cody} A~M, {Barclay} T, {Hall} O, {Sagear} S, {Turtelboom} E, {Zhang} J, {Tzanidakis} A, {Mighell} K, {Coughlin} J, {Bell} K, {Berta-Thompson} Z, {Williams} P, {Dotson} J \harvardand\ {Barentsen} G  2018 `{Lightkurve: Kepler and TESS time series analysis in Python}' Astrophysics Source Code Library.
 
+\harvarditem{Lomb et~al.}{1976}{Lomb1976}
+Lomb N~R, Lomb \harvardand\ R. N  1976 {\em Ap&SS} {\bf 39},~447--462.
+\newline\harvardurl{https://ui.adsabs.harvard.edu/abs/1976Ap&SS..39..447L/abstract}
+
 \harvarditem{Maneewongvatana \harvardand\ Mount}{1999}{Maneewongvatana1999}
 Maneewongvatana S \harvardand\ Mount D~M  1999 {\em arXiv} p.~cs/9901013.
 \newline\harvardurl{https://ui.adsabs.harvard.edu/abs/1999cs........1013M/abstract}
@@ -59,6 +63,14 @@ Ricker G~R, Winn J~N, Vanderspek R, Latham D~W, Bakos G~{\'A}, Bean J~L, Berta-T
 
 \harvarditem{{Ridden-Harper} et~al.}{2021}{Ridden-Harper2021}
 {Ridden-Harper} R, {Rest} A, {Hounsell} R, {M{\"u}ller-Bravo} T~E, {Wang} Q \harvardand\ {Villar} V~A  2021 {\em arXiv e-prints} p.~arXiv:2111.15006.
+
+\harvarditem{Scargle et~al.}{1982}{Scargle1982}
+Scargle J~D, Scargle \harvardand\ D. J  1982 {\em ApJ} {\bf 263},~835--853.
+\newline\harvardurl{https://ui.adsabs.harvard.edu/abs/1982ApJ...263..835S/abstract}
+
+\harvarditem{VanderPlas}{2018}{VanderPlas2018}
+VanderPlas J~T  2018 {\em The Astrophysical Journal Supplement Series} {\bf 236},~16.
+\newline\harvardurl{https://ui.adsabs.harvard.edu/abs/2018ApJS..236...16V/abstract}
 
 \harvarditem{Virtanen et~al.}{2020}{2020SciPy-NMeth}
 Virtanen P, Gommers R, Oliphant T~E, Haberland M, Reddy T, Cournapeau D, Burovski E, Peterson P, Weckesser W, Bright J, {van der Walt} S~J, Brett M, Wilson J, Millman K~J, Mayorov N, Nelson A~R~J, Jones E, Kern R, Larson E, Carey C~J, Polat {\.I}, Feng Y, Moore E~W, {VanderPlas} J, Laxalde D, Perktold J, Cimrman R, Henriksen I, Quintero E~A, Harris C~R, Archibald A~M, Ribeiro A~H, Pedregosa F, {van Mulbregt} P \harvardand\ {SciPy 1.0 Contributors}  2020 {\em Nature Methods} {\bf 17},~261--272.

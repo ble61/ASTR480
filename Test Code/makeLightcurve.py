@@ -61,6 +61,9 @@ def sum_fluxes(frames, ys, xs):
     total = []
 
     for f,y,x in zip(frames,ys,xs):   
+        
+        if int(f) != f: print("FUCK")
+        
         #making sure everything is in bounds
         ymin = y-down
         ymax = y+up
@@ -71,46 +74,43 @@ def sum_fluxes(frames, ys, xs):
         if ymax >= fluxBounds[1]: ymax = fluxBounds[1] -1
         if xmin < 0: xmin = 0
         if xmax >= fluxBounds[2]: xmax = fluxBounds[2]-1
-        total.append(np.sum(reducedFluxes[f,ymin:ymax,xmin:xmax]))
+        total.append(np.sum(reducedFluxes[int(f),ymin:ymax,xmin:xmax]))
 
     return total
 
 
 def lightcurve_from_name(name):
     nameDf = name_cut(interpDF,name,"Name")
-    
-    #frameNums = [ np.argmin(np.abs(frameTimes -(time-timeOffset))) for time in nameDf["epoch"]]
-    frameNums = []
+    frameNums = [] #*sidesteped by keeping frame ID in from interpolation
     badIds = []
 
-    for i, time in enumerate(nameDf["epoch"]):
-        time = time-timeOffset
+
+        # for i, time in enumerate(nameDf["MJD"]):
+        #     # time = time-timeOffset
+
+        #     thisFrame = np.argmin(np.abs(frameTimes -time))
+        #     frameNums.append(thisFrame)
+
+        #     if ((time - frameTimes.min()) < 0) or ((time - frameTimes.max())>0):
+                
+        #         badIds.append(i) # makes sure they are in the right times
+        #         continue
+
+        #     try:
+        #         lastFrame = frameNums[-2]
+        #     except:
+        #         lastFrame = None
+
+        #     if lastFrame == thisFrame: #2nd to last frame, as have added this frame already
+        #         oldTime = frameTimes[frameNums[-1]] - time
+        #         newTime = frameTimes[thisFrame] - time
+        #         #shorter dt gets taken if the go to the same frame
+
+        #         if np.abs(newTime)>=np.abs(oldTime): #New is longer (or ==) dt, so keep old one
+        #             badIds.append(i)
+        #         else:   #new dt is shorter, so use  new one
+        #             badIds.append((i-1))
         
-
-
-        thisFrame = np.argmin(np.abs(frameTimes -time))
-        frameNums.append(thisFrame)
-
-        if ((time - frameTimes.min()) < 0) or ((time - frameTimes.max())>0):
-            
-            badIds.append(i) # makes sure they are in the right times
-            continue
-
-        try:
-            lastFrame = frameNums[-2]
-        except:
-            lastFrame = None
-
-        if lastFrame == thisFrame: #2nd to last frame, as have added this frame already
-            oldTime = frameTimes[frameNums[-1]] - time
-            newTime = frameTimes[thisFrame] - time
-            #shorter dt gets taken if the go to the same frame
-
-            if np.abs(newTime)>=np.abs(oldTime): #New is longer (or ==) dt, so keep old one
-                badIds.append(i)
-            else:   #new dt is shorter, so use  new one
-                badIds.append((i-1))
-    
     targetWSC = fits.open(f"../OzData/{sector}_{cam}_{ccd}_{cut}_wcs.fits")[0]
     w = wcs.WCS(targetWSC.header)
     
@@ -125,10 +125,10 @@ def lightcurve_from_name(name):
     #add X, Y, Fs in
     nameDf["X"] = interpedX
     nameDf["Y"] = interpedY
-    nameDf["Frames"] = frameNums
+    # nameDf["Frames"] = frameNums
 
     #takes the flux sums, and 
-    sumedFluxes = sum_fluxes(nameDf["Frames"], nameDf["Y"], nameDf["X"])
+    sumedFluxes = sum_fluxes(nameDf["FrameIDs"], nameDf["Y"], nameDf["X"])
     nameDf["Flux"] = sumedFluxes
 
     badIds+= (np.where((interpedX<0) | (interpedX>= fluxBounds[2])| (interpedY<0) | (interpedY>= fluxBounds[1]))[0].tolist()) #! ugly af, but takes all out of bounds values in X or Y, and gets them into the badIDs
@@ -146,7 +146,7 @@ def lightcurve_from_name(name):
 def plot_lc_from_name(name):
     nCut = name_cut(totalLcDf,name=name, colName="Name")
     fig, ax = plt.subplots(1,1,sharex=True,figsize = (8,6))
-    ax.scatter(nCut["epoch"]-timeOffset, nCut["Flux"])
+    ax.scatter(nCut["MJD"], nCut["Flux"])
     # ax.set_ylim(-200,200)
     
 
@@ -178,7 +178,7 @@ totalLcDf = pd.concat(extendedDfList)
 totalLcDf.reset_index(inplace=True, drop=True)
 totalLcDf.to_csv(f"Interps_with_lc_{sector}_{cam}_{ccd}_{cut}.csv")
 
-plot_lc_from_name(" Ruff ")
+plot_lc_from_name("Ruff")
 
 
 
