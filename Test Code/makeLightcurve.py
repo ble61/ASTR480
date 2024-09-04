@@ -8,6 +8,11 @@ from astropy import wcs
 from astropy.utils.data import download_file
 from astropy.io import fits
 from astropy.stats import sigma_clip
+from scipy import ndimage
+import numpy.typing as npt
+import matplotlib.colors as mplc
+import matplotlib.cm as mpcm
+import itertools
 
 import warnings
 from astropy.utils.exceptions import AstropyWarning
@@ -58,11 +63,12 @@ def sum_fluxes(frames, ys, xs):
 
     down = 1
     up = 2
+    checkUp = 4
+    checkDown = 3
     total = []
+    comTotal = []
 
     for f,y,x in zip(frames,ys,xs):   
-        
-        if int(f) != f: print("FUCK")
         
         #making sure everything is in bounds
         ymin = y-down
@@ -76,7 +82,20 @@ def sum_fluxes(frames, ys, xs):
         if xmax >= fluxBounds[2]: xmax = fluxBounds[2]-1
         total.append(np.sum(reducedFluxes[int(f),ymin:ymax,xmin:xmax]))
 
-    return total
+        ymin = y-checkDown
+        ymax = y+checkUp
+        xmin = x-checkDown
+        xmax = x+checkUp
+
+        if ymin < 0: ymin = 0
+        if ymax >= fluxBounds[1]: ymax = fluxBounds[1] -1
+        if xmin < 0: xmin = 0
+        if xmax >= fluxBounds[2]: xmax = fluxBounds[2]-1
+
+        comTotal.append(np.sum(reducedFluxes[int(f),ymin:ymax,xmin:xmax]))
+        
+
+    return total, comTotal
 
 
 def lightcurve_from_name(name):
@@ -118,6 +137,7 @@ def lightcurve_from_name(name):
 
     interpedX, interpedY  = w.all_world2pix(interpCoords.ra, interpCoords.dec,0)
 
+    #rounds to nearest whole number, which returns #.0 as a float. then int converts. if just int masked, it floors the number, not rounds it.
     interpedX = interpedX.round().astype(int)
     interpedY = interpedY.round().astype(int)
     
@@ -128,17 +148,20 @@ def lightcurve_from_name(name):
     # nameDf["Frames"] = frameNums
 
     #takes the flux sums, and 
-    sumedFluxes = sum_fluxes(nameDf["FrameIDs"], nameDf["Y"], nameDf["X"])
+    sumedFluxes, comFluxes = sum_fluxes(nameDf["FrameIDs"], nameDf["Y"], nameDf["X"])
     nameDf["Flux"] = sumedFluxes
+    nameDf["COM Flux"] = comFluxes
 
     badIds+= (np.where((interpedX<0) | (interpedX>= fluxBounds[2])| (interpedY<0) | (interpedY>= fluxBounds[1]))[0].tolist()) #! ugly af, but takes all out of bounds values in X or Y, and gets them into the badIDs
 
-    badIds += np.nonzero( sigma_clip(sumedFluxes, masked=True, maxiters=5, sigma = 3).mask)[0].tolist() #! also ugly takes all sigma clipped values and gets them into the badIDs
+    # badIds += np.nonzero( sigma_clip(sumedFluxes, masked=True, maxiters=5, sigma = 3).mask)[0].tolist() #! also ugly takes all sigma clipped values and gets them into the badIDs
+
+    badIds += np.nonzero( sigma_clip(comFluxes, masked=True, maxiters=5, sigma = 3).mask)[0].tolist()
 
 
     badIds = np.unique(badIds) #takes only the unique bads, as to not remove any twice (shouldn't matter, as no reindexing)
 
-    #remove bad rows from nameDF, when X, Y, F are out of bounds, or F is repeat, or values are sigma clipped
+    #remove bad rows from nameDF, when X, Y, F are out of bounds, or F is repeat, or Flux values are sigma clipped
     nameDf.drop(index=badIds, inplace=True)
 
     return nameDf    
@@ -147,8 +170,158 @@ def plot_lc_from_name(name):
     nCut = name_cut(totalLcDf,name=name, colName="Name")
     fig, ax = plt.subplots(1,1,sharex=True,figsize = (8,6))
     ax.scatter(nCut["MJD"], nCut["Flux"])
+    ax.scatter(nCut["MJD"], nCut["COM Flux"])
     # ax.set_ylim(-200,200)
     
+def plotExpectedPos(posDf: pd.DataFrame, timeList: npt.ArrayLike, targetPos: list, magLim: float = 20.0, scaleAlpha: bool = False, minLen: int = 0, saving=False) -> plt.Figure:
+    """
+    Takes the output of a query to SkyBot, sets up a WCS, and plots the objects position, coloured by time, in Ra/Dec and ecLon/ecLat space. 
+
+    Inputs
+        posDf: DataFrame
+            The positions of each object with the associated time. Should have structure of output of querySB  
+        timeList: arrayLike of Times
+            astropy.time array like of the times of queries, also in 'epoch' collumn in posDf, but makes sure that the whole queried time range is acounted for, instead of maybe nothing was found at one time.
+        targetPos: list of len=3, [float, float, Time]
+            list of initial ra (float), dec (float) and time (astropy.Time value), the center point of the query and the first time of observations 
+
+        magLim: float
+            Limiting magnitude of the query, default 20.0 
+        scaleAlpha: bool
+            If alpha of the symbols should be scaled to the average brigtness of the object
+        minLen: int
+            Minimum number of hits on each object for it to be plotted, default 0
+        saving: bool
+            If saving the figure is required, default False
+    Output
+        fig: Figure
+            The figure of the objects position, coloured by time, in Ra/Dec and ecLon/ecLat space. Faint grey lines connect the points to guide the eye.
+    """
+
+    ra_i, dec_i, t_i = targetPos  # gets _i values from the input list
+
+    w = wcs.WCS(naxis=2)  # ? sets up blank WCS
+
+    # setting FITS keywords #!guessing what they mean
+    w.wcs.crpix = [0, 0]
+    w.wcs.crval = [posDf["RA"].min(), posDf["Dec"].min()]
+    w.wcs.cdelt = np.array([-0.066667, 0.066667])
+    w.wcs.mjdref = [posDf["MJD"].mean(), 0]
+
+    # proj. things #! I don't understand
+    w.wcs.ctype = ["RA---AIR", "DEC--AIR"]
+    w.wcs.set_pv([(2, 1, 45.0)])
+
+    # Set up figure with WCS
+    # fig = plt.figure(figsize=(12, 12))
+    fig = plt.figure(figsize=(10,8))
+    ax = fig.add_subplot(111, projection=w)
+    ax.grid(color='black', ls='solid')
+    ax.set_xlabel("RA")
+    ax.coords[0].set_format_unit(u.deg)
+    ax.set_ylabel("DEC")
+
+    # Set up overlay coords
+    overlay = ax.get_coords_overlay('geocentrictrueecliptic')
+    overlay.grid(color='black', ls='dotted')
+    overlay[0].set_axislabel('ecLon')
+    overlay[1].set_axislabel('ecLat')
+
+    cmap = "plasma"
+    # The delta T of the data, and makes a norm for a cmap
+    cnorm = mplc.Normalize(np.min(timeList), np.max(timeList))
+    markers = itertools.cycle((".", "x", "^", "*", "D", "+", "v", "o", "<", ">", "H", "1", "2",
+                              "3", "4", "8", "X", "p", "d", "s", "P", "h"))  # lots of symbols so they aren't repeated much
+
+    unqNames = pd.unique(posDf["Name"])
+    badNames = []  # stops index problem later
+    if scaleAlpha:
+        # setup for possible alpha scaling
+        scaleMult = 0.90  # changes how small alpha can get
+        brightest = posDf["Mv"].min()  # * Mag. scale is backwards...
+        deltaMag = magLim-brightest
+
+        
+        hs = {}
+
+        for name in unqNames:
+            try:
+                horizQ =Horizons(id = name, epochs = t_i.jd, location= "500@10")
+                hs[name]=float(horizQ.elements()['H'])
+            except Exception as e:
+                print(f"Name= {name} didn't work, error {str(e)}")#some names aren't in jpl?
+                badNames.append(name)
+
+        hsList = list(hs.values())
+        # when alpha scale is by H
+        brightest = np.min(hsList)
+        deltaMag = np.max(hsList)-brightest
+
+        scaleStr = f"Alpha Scaling by $H$:\n$H$ = {brightest}, $\\alpha$ = 1\n$H$= {deltaMag+brightest}, $\\alpha$ = {round((1-scaleMult),1)}"
+
+    for i, name in enumerate(unqNames):  # does each name seperatly
+        if name in badNames:
+            continue
+        nameIDs = posDf.index[posDf["Name"] == name]
+
+        coords = SkyCoord(posDf.loc[nameIDs]["RA"],
+                          posDf.loc[nameIDs]["Dec"], unit=(u.deg, u.deg))
+        pixels = coords.to_pixel(w)
+
+        # scales each objects alpha
+
+        if scaleAlpha:
+            avgMag = posDf.loc[nameIDs]["Mv"].mean()
+            avgMag = hs[name]
+            # scales the alpha of plotting to the brightness of the object, to give some idea of what might be detected
+            alpha = (1-scaleMult*((avgMag-brightest)/deltaMag))
+        else:
+            alpha = 1
+
+        # plotting
+        if len(nameIDs) > minLen:
+            # plots line to help eye track objects
+            ax.plot(pixels[0], pixels[1], c="grey", alpha=0.3)
+            # scatters the pixel coords on wsc set axis, uses different symbol for each, with cmap scaled by the time in the sector.
+            ax.scatter(pixels[0], pixels[1], marker=next(markers),s=5, c=(
+                posDf.loc[nameIDs]["MJD"]), cmap=cmap, norm=cnorm, label=name, alpha=alpha)
+    clb = fig.colorbar(mpcm.ScalarMappable(
+        norm=cnorm, cmap=cmap), ax=ax, pad=0.1)
+    clb.ax.set_title("Time in MJD", fontsize=16, y=1.03)
+    clb.ax.ticklabel_format(useOffset=False)
+    centerPix = SkyCoord(ra_i, dec_i, unit=(u.deg, u.deg)).to_pixel(w)  # center of seach area in pixels
+    ax.scatter(centerPix[0], centerPix[1], marker="+",
+               s=100, c="g")  # center marker
+    
+    #*BOX to check 3.2 deg 
+    corners = np.array([[ra_i+1.6, dec_i+1.6],[ra_i-1.6, dec_i+1.6],[ra_i-1.6, dec_i-1.6],[ra_i+1.6, dec_i-1.6],[ra_i+1.6, dec_i+1.6]])
+
+    cornersPix =  SkyCoord(corners, unit=(u.deg, u.deg)).to_pixel(w) 
+
+    ax.plot(cornersPix[0], cornersPix[1])
+
+
+    if scaleAlpha: ax.text(-25, 3, s=scaleStr, fontsize=12)
+
+    fig.tight_layout()
+
+    if saving: fig.savefig(f"./Testing Figures/interpPos_{sector}_{cam}_{ccd}_{cut}.png") #!CHECK
+    return fig #retunrs instead of saves, #? is this useful?
+    # fig.savefig(f"./ecCoordsandAlphascaled_ra{ra_i}_dec{dec_i}_t{t_i.mjd}_Mv{magLim}.png") #!CHECK
+
+def setupQuery(sector,cam,ccd,cut,dirPath="../OzData/"):
+
+    fname = f"{dirPath}{sector}_{cam}_{ccd}_{cut}_wcs.fits"
+
+    targetWSC = fits.open(fname)[0]
+
+    targetRa_i = targetWSC.header["CRVAL1"]
+    targetDec_i = targetWSC.header["CRVAL2"]
+    targetTime_i = Time(targetWSC.header["DATE-OBS"])
+
+    myTargetPos = [targetRa_i, targetDec_i, targetTime_i]
+
+    return myTargetPos
 
 
 #*Global variables
@@ -167,19 +340,179 @@ frameTimes = load_times(sector, cam, ccd, cut)
 
 interpDF = load_interpolations(sector, cam, ccd, cut)
 
+unqNames = np.unique(interpDF["Name"])
+print(len(unqNames))
+
 extendedDfList = []
 
 for name in np.unique(interpDF["Name"]):
     lcRes = lightcurve_from_name(name)
     extendedDfList.append(lcRes)   
 
+print(len(extendedDfList))
 
 totalLcDf = pd.concat(extendedDfList)
 totalLcDf.reset_index(inplace=True, drop=True)
+
+namesAfter =np.unique(totalLcDf["Name"])
+
+print(len(namesAfter))
+
+namesDroped = np.setdiff1d(unqNames, namesAfter) 
+
+# print(namesDroped)
+
+plotExpectedPos(totalLcDf,frameTimes,setupQuery(sector,cam,ccd,cut))
+
+kill
 totalLcDf.to_csv(f"Interps_with_lc_{sector}_{cam}_{ccd}_{cut}.csv")
 
-plot_lc_from_name("Ruff")
 
 
 
 
+
+
+plot_lc_from_name("Bernoulli")
+
+
+#* sawtooth trials
+trialCut = name_cut(totalLcDf,"Bernoulli", colName="Name")
+
+timeCut = trialCut.loc[np.where((trialCut["MJD"]>=58900.58) & (trialCut["MJD"]<=58901.11))]
+
+timeCut.reset_index(drop=True, inplace=True)
+
+fig, ax = plt.subplots(figsize=(8,6))
+
+ax.scatter(timeCut["MJD"], timeCut["Flux"], label = "Flux from interpolated position")
+ax.set(xlabel="Time [MJD]", ylabel="Flux",ylim=(100,280))
+
+fig2, ax2 = plt.subplots(5,5, figsize =(15,15))
+
+ax2 = np.ravel(ax2)
+
+numPx = 6
+
+targetWSC = fits.open(f"../OzData/{sector}_{cam}_{ccd}_{cut}_wcs.fits")[0]
+w = wcs.WCS(targetWSC.header)
+
+
+comSums = []
+
+for pointID in range(timeCut.index.max()+1):
+
+    f = timeCut.at[pointID,"FrameIDs"]
+    y =timeCut.at[pointID,"Y"]
+    x =timeCut.at[pointID,"X"]
+
+    interpCoords=SkyCoord(ra = timeCut.at[pointID,"RA"], dec = timeCut.at[pointID,"Dec"], unit="deg")
+
+    floX, floY  = w.all_world2pix(interpCoords.ra, interpCoords.dec,0)
+
+    redFluxCut = reducedFluxes[int(f),y-numPx:y+numPx,x-numPx:x+numPx]
+
+    ax2[pointID].scatter(x,y, marker="x",s=10, c="tab:red", label=f"{f}, {x},{y}")
+    ax2[pointID].scatter(floX,floY, marker="d",s=10, c="tab:purple", label=f"float coord")
+    ax2[pointID].imshow(redFluxCut, extent =[x-numPx,x+numPx,y+numPx,y-numPx], vmin=np.percentile(redFluxCut, 3), vmax=np.percentile(redFluxCut,97))
+
+
+    ax2[pointID].scatter(x+0.5,y+0.5, marker="o",s=5, c="k", label=f"{x+0.5},{y+0.5}")
+    ax2[pointID].plot([x-1,x+2,x+2,x-1,x-1],[y-1,y-1,y+2,y+2,y-1], c="k", linestyle = "-.",label=f"Sum Box, F={round(timeCut.at[pointID,'Flux'],1)}") 
+
+    #4x4 box,
+    checkUp = 4
+    checkDown = 3
+    checkBox=reducedFluxes[int(f),y-checkDown:y+checkUp,x-checkDown:x+checkUp]
+    ax2[pointID].plot([x-checkDown,x+checkUp,x+checkUp,x-checkDown,x-checkDown],[y-checkDown,y-checkDown,y+checkUp,y+checkUp,y-checkDown], c="tab:green", linestyle =":")
+
+    com = ndimage.center_of_mass(checkBox)
+    ax2[pointID].scatter(x-checkDown+com[1], y-checkDown+com[0],marker = "s", s=10,c="tab:green", label="COM")
+
+    comX = int(x-checkDown+round(com[1]))
+    comY = int(y-checkDown+round(com[0]))
+    comSum = np.sum(reducedFluxes[int(f), comY-1:comY+2, comX-1:comX+2])
+    comSums.append(comSum)
+    ax2[pointID].scatter(comX+0.5,comY+0.5, label="COM sum centre",c="tab:orange",s=10)
+    ax2[pointID].plot([comX-1,comX+2,comX+2,comX-1,comX-1],[comY-1,comY-1,comY+2,comY+2,comY-1], c="tab:orange",linestyle=":", label=f"COM sum box F={round(comSum,1)}")
+    # ax2[pointID].legend(fontsize=5)
+
+
+ax2 = np.reshape(ax2,(5,5))
+
+ax.scatter(timeCut["MJD"],comSums, marker="d",label="Flux from Centre of Mass")
+ax.legend()
+
+
+numPx = 6
+pointID = 24
+
+fig, ax3 = plt.subplots(figsize=(8,8))
+f = timeCut.at[pointID,"FrameIDs"]
+y =timeCut.at[pointID,"Y"]
+x =timeCut.at[pointID,"X"]
+
+interpCoords=SkyCoord(ra = timeCut.at[pointID,"RA"], dec = timeCut.at[pointID,"Dec"], unit="deg")
+
+floX, floY  = w.all_world2pix(interpCoords.ra, interpCoords.dec,0)
+
+redFluxCut = reducedFluxes[int(f),y-numPx:y+numPx,x-numPx:x+numPx]
+
+
+
+#4x4 box,
+checkUp = 4
+checkDown = 3
+checkBox=reducedFluxes[int(f),y-checkDown:y+checkUp,x-checkDown:x+checkUp]
+
+
+com = ndimage.center_of_mass(checkBox)
+comX = int(x-checkDown+round(com[1]))
+comY = int(y-checkDown+round(com[0]))
+comSum = np.sum(reducedFluxes[int(f), comY-1:comY+2, comX-1:comX+2])
+
+ax3.imshow(redFluxCut, extent =[x-numPx,x+numPx,y+numPx,y-numPx], vmin=np.percentile(redFluxCut, 3), vmax=np.percentile(redFluxCut,97))
+ax3.scatter(floX,floY, marker="d", c="tab:purple", label=f"Float Coord")
+ax3.scatter(x,y, marker="x", c="tab:red", label=f"Int Coord")
+ax3.scatter(x+0.5,y+0.5, marker="o", c="k", label=f"{x+0.5},{y+0.5} \n Box centre")
+
+ax3.scatter(x-checkDown+com[1], y-checkDown+com[0],c="tab:green", marker ="s", label="COM (float)")
+
+ 
+ax3.scatter(comX+0.5,comY+0.5, label="COM sum centre",c="tab:orange")
+
+ax3.plot([x-checkDown,x+checkUp,x+checkUp,x-checkDown,x-checkDown],[y-checkDown,y-checkDown,y+checkUp,y+checkUp,y-checkDown], c="tab:green", linestyle =":", label=f"COM check box")
+#!what it is, when TOP left origin
+ax3.plot([x-1,x+2,x+2,x-1,x-1],[y-1,y-1,y+2,y+2,y-1], c="k", linestyle ="-.", label=f"Sum +2,-1 box \n F= {round(timeCut.at[pointID,'Flux'],1)}") 
+ax3.plot([comX-1,comX+2,comX+2,comX-1,comX-1],[comY-1,comY-1,comY+2,comY+2,comY-1], c="tab:orange",linestyle=":", label=f"COM sum box \n F={round(comSum,1)}")
+
+
+ax3.legend(fontsize=10)
+ax3.set(xlabel="X", ylabel="Y")
+
+
+
+
+
+
+# #! Origin is TOP LEFT, not bottom left!!!!!!
+# #! Shown bellow... 
+# fig4,ax4 = plt.subplots()
+
+# toShow = reducedFluxes[0,0:15,0:15]
+
+# ax4.imshow(toShow, extent =[0,15,15,0], vmin=np.percentile(toShow, 3), vmax=np.percentile(toShow,97)) 
+
+# x=3
+# y=3
+
+
+# ax4.scatter(x,y,c="k")
+# ax4.plot([x-1,x+2,x+2,x-1,x-1],[y-1,y-1,y+2,y+2,y-1], c="k")
+
+
+# fig5,ax5 = plt.subplots()
+
+# sumSlice = reducedFluxes[0,y-1:y+2,x-1:x+2]
+
+# ax5.imshow(sumSlice, extent = [x-1,x+2,y-1,y+2],vmin=np.percentile(toShow, 3), vmax=np.percentile(toShow,97), cmap="magma")

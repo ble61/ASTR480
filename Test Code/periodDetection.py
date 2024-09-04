@@ -31,7 +31,7 @@ def detect_period_lk(times, fluxes, fluxErrs):
 
     return period.value
 
-def detect_period_ap(times, fluxes, plotting = False):
+def detect_period_ap(times, fluxes, plotting = False, knownFreq = None):
     """
     Calculates the periodogram with astropy and returns the period at the max power.
     """
@@ -49,7 +49,7 @@ def detect_period_ap(times, fluxes, plotting = False):
     maxFreq = 1/nyquistP
 
     lsper = lsp((u.Quantity(times, u.day)).to(u.s), fluxes)
-    freqs, powers = lsper.autopower(samples_per_peak=5, minimum_frequency=minFreq, maximum_frequency=maxFreq)
+    freqs, powers = lsper.autopower(minimum_frequency=minFreq, maximum_frequency=maxFreq)
     bestPow = np.max(powers)
     bestFreq = freqs[np.argmax(powers)]
 
@@ -66,6 +66,11 @@ def detect_period_ap(times, fluxes, plotting = False):
         ax[0].set(xlabel="Log Frequency", ylabel="Power")
         ax[0].plot(freqs, powers, c="k", label="Periodogram")
         ax[0].scatter(bestFreq,bestPow, c="gold",marker="*", s=100, label=f"Best Frequency = {bestFreq.round(7)} \nFalse Alarm Probability = {f_a_prob.round(3)}")
+
+        if knownFreq is not None:
+            ax[0].axvline(knownFreq, linestyle=":", c="tab:blue")
+            ax[0].axvline(2*knownFreq, linestyle=":", c="tab:purple")
+
         ax[0].legend()
 
         ax[1].set(xlabel="Time [JD]", ylabel="Flux")
@@ -136,7 +141,7 @@ def compute_periods_ap(posDF):
             # print(f"{badCount}. not enough points (<={numObser}) for {name}")
             continue
         time = nameDf["MJD"].values
-        flux = nameDf["Flux"].values
+        flux = nameDf["COM Flux"].values
 
         period_ap, f_a_Prob, theta, maxPow = detect_period_ap(time, flux)
         periodList_ap.append([name, period_ap, period_ap/(60*60), period_ap/(60*60*24), f_a_Prob, theta, maxPow])
@@ -145,9 +150,9 @@ def compute_periods_ap(posDF):
 
     return apPeriods, badCount
 
-def singleNameLSP(posDf, name):
+def singleNameLSP(posDf, name, knownFreq=None):
     cut = name_cut(posDf,name, colName="Name")
-    detect_period_ap(cut["MJD"],cut["Flux"],plotting=True)
+    detect_period_ap(cut["MJD"],cut["COM Flux"],plotting=True, knownFreq=knownFreq)
 
 def model_from_params(theta:list, period:float, times, avgFlux:float):
     """
@@ -169,9 +174,28 @@ cut = 7
 
 interpLcDF = load_interps(22,1,3,7)
 
+unqNames = np.unique(interpLcDF["Name"])
+
 # lkPer, badCountlk = compute_periods_lk(interpLcDF)
 
 apPer, badCountap = compute_periods_ap(interpLcDF)
+
+
+#Combine with what we already have for each asteroid
+
+astrData = pd.read_csv(f"./asteroids_in_{sector}_{cam}_{ccd}_{cut}_properties.csv")
+
+astrData.drop(columns = ["Unnamed: 0"], inplace=True)
+
+allData = astrData.merge(apPer, how="outer", on="Name")
+
+allData.to_csv(f"asteroids_in_{sector}_{cam}_{ccd}_{cut}_with_Periods")
+
+
+
+
+
+
 
 
 # numPerlk = len(lkPer.index)
@@ -185,7 +209,7 @@ fig, ax = plt.subplots()
 #! Not error in period, but level of uncertanty due to f_a_Prob
 ax.errorbar(apPer.index, apPer["Best Period [Days]"], apPer["False Alarm Probability"]*10, fmt=".",c="tab:orange", capsize=2, label="All")
 
-bigPowLim = 0.1
+bigPowLim = 0.2
 
 bigPows = apPer.iloc[apPer.index[apPer["Max Power"] > bigPowLim]]
 
@@ -205,7 +229,7 @@ ax.legend()
 maxPap = apPer.loc[apPer["Best Period [Seconds]"].idxmax()]
 # print(maxPlk)
 print("")
-print(maxPap)
+#* print(maxPap)
 
 
 # singleNameLSP(interpLcDF,maxPap["Name"])
@@ -217,7 +241,7 @@ minPap = apPer.loc[apPer["Best Period [Seconds]"].idxmin()]
 print("")
 # print(minPlk)
 print("")
-print(minPap)
+#* print(minPap)
 
 
 # singleNameLSP(interpLcDF,minPap["Name"])
@@ -235,18 +259,26 @@ for i,name in enumerate(apPer["Name"]):
 
     if name in lcdb["Name"].values:
         foundP = apPer.at[i,"Best Period [Hours]"].value
+        falAlP = apPer.at[i, "False Alarm Probability"].value
         knownRow = lcdb.index[lcdb["Name"]==name]
         knownP = lcdb.at[knownRow.values[0], "Period [Hours]"]
-        inLCDBList.append([name, knownP, foundP])
+        
+        inLCDBList.append([name, knownP, foundP, falAlP])
 
-compedPs = pd.DataFrame(inLCDBList, columns=["Name", "Known Period", "Found Period"])
+compedPs = pd.DataFrame(inLCDBList, columns=["Name", "Known Period", "Found Period","False Alarm Probability"])
 
 print(compedPs)
 
 
 trialName = "Bernoulli"
 
-singleNameLSP(interpLcDF,trialName)
+try:
+    knownFreq = 1/(compedPs.at[compedPs.index[compedPs["Name"]==trialName].values[0],"Known Period"]*60*60)
+except:
+    knownFreq=None
+
+
+singleNameLSP(interpLcDF,trialName, knownFreq)
 
 trialCut = name_cut(interpLcDF, trialName, colName="Name")
 
@@ -260,9 +292,9 @@ times = np.linspace(trialCut["MJD"].min(), trialCut["MJD"].max(), 1000)
 
 fig, ax = plt.subplots(figsize = (8,5))
 
-ax.set(xlabel="Time [JD]", ylabel="Flux")
+ax.set(xlabel="Time [MJD]", ylabel="Flux")
 
-model = model_from_params(theta=theta, times=times, period=foundP/24, avgFlux=np.median(trialCut["Flux"]))
+model = model_from_params(theta=theta, times=times, period=foundP/24, avgFlux=np.median(trialCut["COM Flux"]))
 
 ax.plot(times, model,  linestyle= "--", c="k", label ="Model and found P")
 
@@ -271,12 +303,16 @@ ax.plot(times, np.sin(times*(2*np.pi/(knownP/24)))+np.mean(trialCut["Flux"]), li
 
 ax.scatter(trialCut["MJD"], trialCut["Flux"],c="tab:orange", marker = "d", s=10, label = "Light Curve")
 
+ax.scatter(trialCut["MJD"], trialCut["COM Flux"],c="tab:green", marker = "d", s=10, label = "COM Light Curve")
+
 ax.legend()
 
 
 
 
-downCut =trialCut.loc[trialCut.index[trialCut["MJD"]>58917]]
+downCut =trialCut.loc[trialCut.index[(trialCut["MJD"]>=58900.58) & (trialCut["MJD"]<=58901.11)]]
 
-detect_period_ap(downCut["MJD"], downCut["Flux"], plotting=True)
+detect_period_ap(downCut["MJD"], downCut["Flux"], plotting=True, knownFreq=knownFreq)
+
+detect_period_ap(downCut["MJD"], downCut["COM Flux"], plotting=True, knownFreq=knownFreq)
 

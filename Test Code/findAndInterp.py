@@ -61,7 +61,7 @@ def _Skybotquery(ra, dec, times, radius=10/60, location='C57', cache=False):
     url += '-mime=text&'
     url += '-ra={}&'.format(ra)
     url += '-dec={}&'.format(dec)
-    url += '-bd={}&'.format(radius)
+    url += '-rd={}&'.format(radius)
     url += '-loc={}&'.format(location)
     # TODO add more things here?
 
@@ -202,10 +202,10 @@ def get_properties_Horizons(asteroidsDf, time, loc:str="500@10")->pd.DataFrame:
 
 def find_asteroids(sector,cam,ccd,cut):
 
-    res, timeList = querySB(setupQuery(sector, cam, ccd, cut), numTimesteps=54, qRad=3.2)
+    res, timeList = querySB(setupQuery(sector, cam, ccd, cut), numTimesteps=54, qRad=3.05)
 
     unqNames = np.unique(res["Name"])
-
+    print(len(unqNames))
     propertiesList = []
 
     for name in unqNames:
@@ -224,7 +224,6 @@ def find_asteroids(sector,cam,ccd,cut):
     withEles.to_csv(f"{fname}.csv")
 
     return res
-
 
 
 def name_cut(df, name:str, colName:str="NameMatch"):
@@ -247,6 +246,7 @@ def interplolation_of_pos(posDf, sector):
     
 
     unqNames = np.unique(posDf["Name"])
+    print(len(unqNames))
     dfsList = []
 
 
@@ -261,13 +261,13 @@ def interplolation_of_pos(posDf, sector):
         maxTime = underSampledPos["MJD"].max()
         deltaTime = maxTime-minTime
 
-        #TODO interp times at frame times.
-        interpTimes = np.linspace(minTime,maxTime, int(interpPoints*deltaTime))#linspace to sample
-        #Ra and Dec samples
+        #// TODO interp times at frame times.
+        # interpTimes = np.linspace(minTime,maxTime, int(interpPoints*deltaTime))#linspace to sample
+        # #Ra and Dec samples
 
         frameIDs = np.where((frameTimes>=minTime) & (frameTimes<=maxTime))[0]
 
-        interpTimes = frameTimes[frameIDs]
+        interpTimes = frameTimes[frameIDs] #*gets IDs and times of frames all at once
 
         interpRAs = np.interp(x=interpTimes, xp=underSampledPos["MJD"], fp=underSampledPos["RA"])
         interpDecs = np.interp(x=interpTimes, xp=underSampledPos["MJD"], fp=underSampledPos["Dec"])
@@ -284,12 +284,21 @@ def interplolation_of_pos(posDf, sector):
         
         dfsList.append(concatedDF)
     
-    interpRes = pd.concat(dfsList) #puts evrything back together
+    # print(len(dfsList))
+    interpRes = pd.concat(dfsList) #?puts everything back together
     
+    
+    namesAfter =np.unique(interpRes["Name"])
+    # print(len(namesAfter))
+    namesDroped = np.setdiff1d(unqNames, namesAfter) #!names with only 1 point from query will be missed, as there is nothing to interpolate between.
+
+    # print(namesDroped)
+
     #final clean
     interpRes.reset_index(drop=True, inplace=True)
     interpRes.drop(columns=["Mv","Class"], inplace=True)
     
+
 
     return interpRes
 
@@ -307,3 +316,44 @@ interpDf.to_csv(f"{fname}.csv")
 #TODO 
 #//save out df of pos properties name:pos(t,x,y) from interpolations (name repeated)
 #//save out df of name:num:avgMag:a:e:i:H + other properties of asteroid ?known period? 1 row per name. Other file will add found Period, lc properties etc 
+
+
+unqNames = np.unique(interpDf["Name"])
+
+numNames = len(unqNames)
+
+# unqNames=["Bernoulli"]
+
+# for name in unqNames:
+#     # if np.random.rand()< 1/numNames:
+#     ids = interpDf.index[interpDf["Name"]==name]
+#     nameCut = interpDf.loc[ids]
+#     # timeStart = Time(nameCut["epoch"].min(), format="jd")
+#     # timeEnd = Time(nameCut["epoch"].max(), format="jd")
+    
+#     # horizQ = Horizons(id = name, epochs = {"start":str(tforHorz(timeStart)), "stop":str(tforHorz(timeEnd)), "step":"30m"}, location= "500@-95")
+#     rasActs = []
+#     decsActs = []
+#     for time in nameCut["MJD"]:
+#         try:
+#             horizQ = Horizons(id = name, epochs =time, location= "500@-95")
+#             eph = horizQ.ephemerides()
+#             rasAct = float(eph["RA"][0])
+#             decsAct = float(eph["DEC"][0])
+#             rasActs.append(rasAct)
+#             decsActs.append(decsAct)
+
+#         except Exception as e:
+#             print(e)
+
+#     rasInterp = nameCut["RA"]
+#     decsInterp = nameCut["Dec"]
+
+#     deltaRa = rasActs - rasInterp
+#     deltaDec = decsActs - decsInterp
+#     fig, ax = plt.subplots(1)
+#     ax.set_title(name)
+#     ax.set_xlabel("Delta RA")
+#     ax.set_ylabel("Delta Dec")
+#     ax.scatter(deltaRa, deltaDec, c=nameCut["MJD"], cmap="magma")
+

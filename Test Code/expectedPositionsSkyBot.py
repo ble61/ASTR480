@@ -402,8 +402,8 @@ res, times = querySB(myTargetPos, magLim=magLim, numTimesteps=54, qRad=3.2)
 unqNames = list(pd.unique(res['Name']))
 
 
-eleFig = plotHorizons(unqNames, times[0], plotAEI=True)
-eleFig.savefig(f"./OrbitalElementsPlot_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.png")
+# eleFig = plotHorizons(unqNames, times[0], plotAEI=True)
+# eleFig.savefig(f"./OrbitalElementsPlot_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.png")
 
 
 # distanceFig = plotHorizons(unqNames, times[0], t_f=times[-1], loc="500@-95", plotIRDel=True)
@@ -441,7 +441,9 @@ for i, name in enumerate(unqNames):
     #! This is all wrong, the deltaT was in days not in query lenghth, so I was geting each hour, not each 1/2 hr etc. 
 
 
-    interpTimes = np.linspace(minTime,maxTime, int(interpPoints*deltaTime))#linspace to sample
+    #interpTimes = np.linspace(minTime,maxTime, int(interpPoints*deltaTime))#linspace to sample #! just use times of frames from cut 
+
+
     #Ra and Dec samples
     interpRAs = np.interp(x=interpTimes, xp=underSampledPos["epoch"], fp=underSampledPos["RA"])
     interpDecs = np.interp(x=interpTimes, xp=underSampledPos["epoch"], fp=underSampledPos["Dec"])
