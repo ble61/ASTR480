@@ -1,48 +1,48 @@
-This is BibTeX, Version 0.99d
+This is BibTeX, Version 0.99d (TeX Live 2023)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: FinalReportDraft.aux
-Reallocating 'name_of_file' (item size: 1) to 10 items.
 The style file: jphysicsB.bst
-Reallocating 'name_of_file' (item size: 1) to 12 items.
 Database file #1: bibfile.bib
-You've used 21 entries,
+Warning--empty note in TESSELATE
+You've used 37 entries,
             2796 wiz_defined-function locations,
-            792 strings with 15520 characters,
-and the built_in function-call counts, 505238 in all, are:
-= -- 85665
-> -- 6924
+            913 strings with 30473 characters,
+and the built_in function-call counts, 1287454 in all, are:
+= -- 218244
+> -- 18442
 < -- 0
-+ -- 44413
-- -- 2262
-* -- 47128
-:= -- 94686
-add.period$ -- 21
-call.type$ -- 21
-change.case$ -- 274
-chr.to.int$ -- 21
-cite$ -- 21
-duplicate$ -- 343
-empty$ -- 652
-format.name$ -- 2331
-if$ -- 91002
++ -- 114009
+- -- 6066
+* -- 120854
+:= -- 240390
+add.period$ -- 37
+call.type$ -- 37
+change.case$ -- 483
+chr.to.int$ -- 37
+cite$ -- 38
+duplicate$ -- 586
+empty$ -- 1157
+format.name$ -- 6195
+if$ -- 231810
 int.to.chr$ -- 5
 int.to.str$ -- 0
-missing$ -- 20
-newline$ -- 81
-num.names$ -- 210
-pop$ -- 55
+missing$ -- 38
+newline$ -- 142
+num.names$ -- 370
+pop$ -- 112
 preamble$ -- 1
-purify$ -- 315
+purify$ -- 555
 quote$ -- 0
-skip$ -- 333
+skip$ -- 546
 stack$ -- 0
-substring$ -- 127295
-swap$ -- 91
-text.length$ -- 294
+substring$ -- 325286
+swap$ -- 135
+text.length$ -- 518
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 84
-warning$ -- 0
-while$ -- 441
+type$ -- 142
+warning$ -- 1
+while$ -- 778
 width$ -- 0
-write$ -- 249
+write$ -- 440
+(There was 1 warning)

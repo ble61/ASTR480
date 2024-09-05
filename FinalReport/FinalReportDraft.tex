@@ -7,11 +7,16 @@
 
 \usepackage[para]{footmisc}
 
+\usepackage[super]{nth}
+
+\usepackage{amsmath,amssymb}
 
 \DeclareSIUnit{\arcsec}{''}
-\DeclareSIUnit{\mag}{\text{mag}}
+\DeclareSIUnit{\au}{\rm{AU}}
+\DeclareSIUnit{\mag}{\rm{mag}}
 
 \usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
 \usepackage{newunicodechar}
 
 \DeclareRobustCommand{\okina}{%
@@ -55,7 +60,7 @@
 % \listoftables
 % \newpage
 %*}
-
+\newpage
 \pagenumbering{arabic}
 
 \section{Introduction}\label{Sec:Intro}
@@ -72,8 +77,9 @@ TESS is a large area, high cadence imaging, space telescope  \citep{Ricker2014}.
 TESS is tasked with observing one piece of sky for \qty{27}{\day} at a time (a sector), delivering \qtyproduct{96 x 24}{\degree} full frame images (FFIs) at regular intervals.
 These FFIs are built from stacked \qty{2}{\second} exposures, leveraging the short readout times of the 16 CCD cameras on-board.
 With the initial cadence for these full frame images set to \qty{30}{\minute}, the time resolution of TESS is unparalleled.
-A Nyquist frequency %TODO def, cite
-of \unit{\per\hour} is well sampled enough to characterise most variable stars, as well as find the orbital periods of exoplanets to a high precision.
+The highest frequency (shortest period) that can be found from time series data like this is at the Nyquist limit, twice the minimum time between images.  
+Due to the short cadence, the Nyquist frequency of TESS is quite high, \qty{1}{\per\hour}. 
+This is well sampled enough to characterise most variable stars, as well as find the orbital periods of exoplanets to a high precision.
 As the mission was extended, after TESS had already mapped the entire sky, the length of the FFIs has decreased to \qty{10}{\minute} and then later to \qty{200}{\second}.
 This decreased in the FFI exposure time comes with a complementary increase in the Nyquist frequency.
 This high time resolution and observation area does come at the cost of spatial resolution, as the pixels are each \qty{21}{\arcsec} square.
@@ -81,43 +87,68 @@ Of interest here is what such a high sampling rate can do for statistic on the a
 For bright asteroids the rotation periods should be able to be easily determined from this vast dataset.
 The shortest FFIs will be able to accurately determine the rotation periods of all but the fastest rotating asteroids, most of which will be too dim to see in the TESS data.
 
-There have been attempts before to find and classify the asteroids in TESS data before by \citet{Pal2018, Pal2020}.
-The first data release in \citet{Pal2020} catalogues nearly 10,000 asteroid light curves from the first year of TESS operation.
-%TODO the others
+There have been attempts before to find and classify the asteroids in TESS data before.
+\citet{Pal2018} proposes that TESS will be a good instrument for solar system object study, and simulate some detections down to \nth{20} visual magnitude, but that good photometry should only be expected to $V \lesssim 19$.  
+The first data release in \citet{Pal2020} catalogues nearly 10,000 asteroid light curves from the first year of TESS operation, and they report that they triple the number of asteroids with accurate rotation periods.
+\citet{McNeill2023} also analyse TESS cycle 1, and detect almost 38,000 objects.
+They determine reliable rotation periods for about 3,500 asteroids in this sample, and show lack of reliability for objects with periods less than \qty{3}{\hour}. 
+In the overlap from the data from \citet{Pal2020}, \citeauthor{McNeill2023} find good agreement between the two sets of periods and amplitudes. 
+\citet{Gowanlock2024} uses TESS photometry as well as  observations by the Zwicky Transient Facility \citep[ZTF, ][]{Bellm2018} to get a longer baseline on mutually observed objects while combining ground and space based observations. 
+There were not very many objects in both samples with known periods for comparison, with only 222 objects analysed, however they demonstrate that the technique is effective.  
 
-This work aims to extend these studies to more sectors, hence characterising more asteroids, and to use a different data reduction method.
-Reducing the data with the \texttt{TESSreduce} package \citep{Ridden-Harper2021} should increase the accuracy of the photometry due to the improved background subtraction process.
+This work aims to extend these studies to more sectors, hence characterising more asteroids.
+The aim is to get a volume complete set of asteroid lightcurves and periods, by analysis of the whole sky as seen by TESS using data from more than just the first year of TESS's operation.
+I also employ a different data reduction method, reducing the data with the \texttt{TESSreduce} package \citep{Ridden-Harper2021} should increase the accuracy of the photometry due to the improved background subtraction process.
 Because of the survey properties, TESS provides a self-consistent way to measure the properties of asteroids over the full sky.
-Another beneficial part of this work is that as part of a full sky transient survey using TESS, \texttt{TESSELLATE} (Ridden-Harper and Roxburgh et al., in prep), asteroids are transient objects that spike the brightness of a pixel for only a few frames.
+By using the higher cadence FFIs of later TESS sectors, the $P\leq\qty{3}{\hour}$ limit on the accurate periods \citep[as found by ][]{McNeill2023} should be lowered.  
+Another beneficial part of this work is that as part of a full sky transient survey using TESS, \texttt{TESSELLATE} \citep{TESSELATE}.
+Asteroids can spike the brightness of a pixel for only a few frames while it is passing by.
+This can confuse pipelines looking for  transients such as flare stars and supernova, as they can look very similar, having the brightness change in one pixel for a short time.
 The goal of finding all the asteroids will allow for the removal of these spikes from the transient pipeline, as well as to understand the asteroid population better.
-They can confuse pipelines looking for short time stellar transients such as flare stars and supernova.
-As such, a way of filtering them out is required, as well as this filtering will get the properties of the light curves, such as the rotation periods and amplitude variation of these small solar system bodies.
-A full sky, self-consistent catalogue of these properties is important for many reasons.
-The asteroid population statistics are useful in their own right, understanding the orbits of near earth objects is useful for planetary defence, and these bodies \dots
-
-
-
-
+By filtering the asteroid detections out, while also self consistently determining rotation properties of a large sample of the population, more science can be done with the one action. 
 
 
 \subsection{Asteroids}\label{SubSec:Asteroid}
 
 Asteroids are a key class of solar system objects.
-Understanding their rotation properties has long been of interest to astronomers \citep[e.g.][]{Weidenschilling1981,Harris1994}.
-%TODO asteroid elements
-
 The orbits of asteroids can be well characterised by only a few values. The semi-major axis, $a$, is the largest distance from the sun that the asteroid achieves on its elliptical orbit.
-Main belt asteroids have typical $a$s of \dots %TODO
+Main belt asteroids have typical $a$s of \qtyrange{2}{3.3}{\au} \citet{DeMeo2015}. 
+The bounds between the inner, middle and outer main belt at \qty{2.5}{\au} and \qty{2.82}{\au}, these separations are due to resonances with Jupiter (the 3:1 and 5:2 mean motion resonances mark the edges of middle main belt) and Saturn (the $\nu_6$ secular resonance cuts off the lowest $a$ edge of the inner belt) carving swathes where asteroids cannot be in stable orbits. 
 The eccentricity, $e$, of this orbit is the next parameter of interest. $e=0$ implies a perfectly circular orbit, $0<e<1$ are ellipses, $e=1$ give a parabolic orbit, and $e>1$ are unbound, hyperbolic orbits.
-Main belt asteroids have small $e$, in the range of \dots
-Comets have larger $e$, with some Oort cloud comets having $e\approx 1$.
-Interstellar objects (ISOs) have $e>1$ as they are unbound.
+Main belt asteroids have small $e$, in the range of \qtyrange{0}{0.35}{} \citep{DeMeo2015}
+Comets have larger $e$, with some long period comets having $e\approx 1$, but the typical range is \qtyrange{0.2}{0.7}{} \citep{Lewis2012}.
+Interstellar objects (ISOs) have $e>1$ as they are on unbound hyperbolic trajectories.
+The inclination, $i$, of asteroids is also a key orbital element, it is the angle relative to the ecliptic plane and in principle asteroids can span the whole range. 
+Main belt asteroids have typical inclinations of \qtyrange{0}{30}{\degree} \citep{DeMeo2015}, so the TESS cameras closer to the ecliptic plane are expected to have the most asteroids in their fields.
+
+%TODO Abs mag H, and how that is size.
+
+%TODO asteroid families
+Asteroids can be grouped into families based on clustering of the proper orbital elements and similarities in their colour or spectra \citep{Nesvorny2015}. 
+These families are named for their largest member.  
+
+Understanding the rotation properties of asteroids has long been of interest to astronomers \citep[e.g.][for early work into the limits of rotation period and the tumbling nature of some small bodies]{Weidenschilling1981,Harris1994}. 
+This is still at the forefront of research, with more lightcurves being published year-on-year \citep{Harris2015}. 
+This will only increase with more large survey telescopes coming online soon, such as the Legacy Survey of Space and Time \citep[LSST][]{LSST2019}, the number of new asteroids that are well characterised will increase by more than 2 orders of magnitude on the Sloan Digital Sky Survey \citep[SDSS][]{York2000} which had $\sim 88000$ objects \citet{Parker2008}. 
+LSST needs a dedicated pipeline for asteroid classification, the Solar System Notification Alert Processing System \citep[SNAPS][]{Trilling2023} has been developed using ZTF data and is can scale up handle volume of data coming from LSST.
+Work is being done to understand the biases of how  asymmetric shape high amplitude variations can lead to selection effects of such large sample of asteroids \citet{Levine2023}.
+For the smallest objects ingenious observation techniques are employed to measure rotation periods such as intentionally streaking the asteroid down a column of pixel on a detector, and making the lightcurve from the streak, as done by \citet{Bolin2023}. 
+
+Because of such a rich history of study, many asteroids have a known rotation period. 
+These are catalogued by \citet{Warner2009} %TODO updated in citation
+in the Light Curve Database (LCDB).
+%TODO fig of period vs diameter.   
+In the October \nth{1} 2023 release, the LCDB has nearly 9000 objects with periods determined to a quality code $U\geq 2-$, which is the minimum reliability recommended by \citeauthor{Warner2009} for statistical analysis.
+This includes data from \citet{Pal2020}.
+Comparing the periods I find of asteroids that are already in the LCDB is key to making sure my methods are reliable, and that the periods for asteroids for which no data exists can be trusted.
+
 
 \subsubsection*{Interstellar Objects}
 %Omuamu
 High amplitude variation has come to the forefront of questions about asteroid properties because of the first interstellar object, 1I/\omuamua \citep[see][for a review]{Bannister2019}.
 \omuamua was determined to be spectroscopically red \citep{Fitzsimmons2017, Meech2017}, and having a photometric colour in the neutral end of the solar system range \citep{Bannister2017}.
-1I was classed as asteroid due to lack of a coma, and no noticable activity %TODO cite, as opposed to 2I??
+1I was classed as asteroid due to lack of a coma, and no noticeable activity. 
+This contrasts the second ISO, 2I/Borisov, which had many cometary characteristics \citep[see ][for a review]{Dorofeeva2023}. %\\TODO cite, as opposed to 2I??
 \omuamua was measured to have a rotation period of \qty{8.67(0.34)}{\hour} \citep{Belton2018} and seemed to be tumbling \citep[e.g.][]{Drahus2018,Fraser2018}.
 Combing the tumbling with an elongation ratio of up to \qty{6(1)}{}:1 \citep{McNeill2018}, 1I is said to have a cigar shape \citep{Belton2018}.
 The peak to peak amplitude variation of this ISO was \qty{2.5}{\mag} \citep{Meech2017} over its double peaked light curve.
@@ -136,7 +167,7 @@ As TESS sectors are \qty{27}{\day} long, querying every \qty{12}{\hour} is manag
 These positions are still very sparsely spaced in time compared to the TESS data, so an interpolation is needed to bridge the gap.
 
 Knowing where the asteroids are is helpful for finding them in the archival TESS data, but knowing more about the individual asteroids is also useful for population statistics.
-  {JPL Horizons}\footnote{\href{https://ssd.jpl.nasa.gov/horizons/}{JPL Horizons: https://ssd.jpl.nasa.gov/horizons/}} was used to obtain the orbital elements of each asteroid, $a$, $e$, and $i$, as well as an absolute magnitude $H$, which is a good proxy for size (as discussed above). %TODO ref
+{JPL Horizons}\footnote{\href{https://ssd.jpl.nasa.gov/horizons/}{JPL Horizons: https://ssd.jpl.nasa.gov/horizons/}} was used to obtain the orbital elements of each asteroid, $a$, $e$, and $i$, as well as an absolute magnitude $H$, which is a good proxy for size (as discussed above). %TODO ref
 
 
 
@@ -145,7 +176,7 @@ Knowing where the asteroids are is helpful for finding them in the archival TESS
 
 
 With TESS data coming in $\frac12\unit{\hour}$ chunks, 24 interpolated points are needed between each API call.
-This interpolation should be accurate, as asteroids move at close to a TESS pixel per FFI on average \citep{Pal2018,Pal2020}, and checking against a higher frequency query to JPL Horizons confirmed this accuracy.
+This interpolation should be accurate, as asteroids move at close to a TESS pixel per FFI on average \citep{Pal2018}, and checking against a higher frequency query to JPL Horizons confirmed this accuracy.
 For the shorter FFIs, the asteroids will be move fewer pixels per frame, which could cause slight mismatches between the interpolation and the detections.
 Horizons was also used get properties of the individual asteroids, such as the absolute magnitude $H$.
 For the faster TESS data, more interpolated points are needed, but a smaller the change in position between each point.
@@ -189,6 +220,9 @@ There seems to be a systematic offset between the fluxes, with the interpolated 
 Adjusting aperture to sum the fluxes over to the ``centre of mass'' of the asteroid in each frame does not alleviate this problem.
 
 %TODO data cleaning explaination
+Following \citet{McNeill2023}, any fluxes more than $3\sigma$ from the mean value are sigma-clipped from the lightcurves. 
+ 
+
 
 \subsection*{Period detection}\label{SubSec:Periods}
 
@@ -197,18 +231,18 @@ Adjusting aperture to sum the fluxes over to the ``centre of mass'' of the aster
 The next part of my analysis has to do with determining the periods and amplitudes of each asteroid's light curve.
 
 A widely used technique in determining the periods of astronomical data is the Lomb-Scargle periodogram \citep[\citet{Lomb1976,Scargle1982}, but see][for a review]{VanderPlas2018}.
-This method can efficently take discrete timeseries data of which the observations are unevenly spaced and calculate the frequencies present in the sample.
-TESS should have rather evenly spaced data, as the FFIs are produced on a set candance, but sometimes data will be missing.
-For example it may have been sigma clipped due to a spike in brightness that is unphysical for an asteroid.
-The Lomb-Scargle periodogram deals with this uneven sampling much better than either a fast fourier transform or a direct least squares fit.
+This method can efficiently take discrete timeseries data of which the observations are unevenly spaced and calculate the frequencies present in the sample.
+TESS should have rather evenly spaced data, as the FFIs are produced on a set candence, but sometimes data will be missing.
+For example, it may have been sigma clipped due to a spike in brightness that is unphysical for an asteroid, or TESS sees the same asteroid in the same sector on either side of the day long mid-sector break it takes for data transfer.
+The Lomb-Scargle periodogram deals with this uneven sampling much better than either a fast Fourier transform or a direct least squares fit.
 
-There are a few different implementation of a Lomb-Scargle periodogram avalible in world of astronomy python packages.
+There are a few different implementations of a Lomb-Scargle periodogram available in world of astronomy python packages.
 I first tried using the \texttt{Lightkurve} \citep{Lightkurve2018} package built for period analysis of TESS (and Kepler) data of variable stars.
-\texttt{Lightkurve} was easy to use but didn't allow for fine tuning of the periodogram, or give any model of the curve it produced.
-Peeling back a layer of abstraction and useing the Lomb-Scargle periodogram as implemented by \texttt{Astropy}\citep{Astropy2022} was the next option.
+\texttt{Lightkurve} was easy to use but didn't allow for fine-tuning of the periodogram, or give any model of the curve it produced.
+Peeling back a layer of abstraction and using the Lomb-Scargle periodogram as implemented by \texttt{Astropy}\citep{Astropy2022} was the next option.
 There were interesting similarities and differences between the packages.
-\texttt{Lightkurve} is based on the \texttt{Astropy} methods, but dose not give all of the functionallity, instead opting to simplify the process.
-\texttt{Astropy} gives a statstic on how confident it is in the detected frequency is, the false alarm probability.
+\texttt{Lightkurve} is based on the \texttt{Astropy} methods, but does not give all the functionality, instead opting to simplify the process.
+\texttt{Astropy} gives a statistic on how confident it is in the detected frequency is, the false alarm probability.
 It also returns a model, in the form of
 
 \begin{equation}
@@ -218,6 +252,7 @@ It also returns a model, in the form of
 
 where the flux, $F$, is given in terms of time, $t$, the calculated frequency, f, and the model parameter $\vec{\theta} = [\theta_0, \theta_1,\theta_2]$.
 These parameters are useful in reconstructing the sinusoid without rerunning the periodogram.
+
 
 There will be differences in the period between the matched points and the interpolated points, not just because of the difference in average flux, but also from the larger number of points. This difference needs to be carefully thought through to understand what is the more likely period.
 

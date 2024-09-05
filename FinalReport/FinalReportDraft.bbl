@@ -1,79 +1,72 @@
 \begin{thebibliography}{xx}
 
 \harvarditem{{Astropy Collaboration} et~al.}{2022}{Astropy2022}
-{Astropy Collaboration}, Price-Whelan A~M, Lim P~L, Earl N, Starkman N, Bradley
-  L, Shupe D~L, Patil A~A, Corrales L, Brasseur C~E, Nöthe M, Donath A,
-  Tollerud E, Morris B~M, Ginsburg A, Vaher E, Weaver B~A, Tocknell J, Jamieson
-  W, van Kerkwijk M~H, Robitaille T~P, Merry B, Bachetti M, Günther H~M,
-  Aldcroft T~L, Alvarado-Montes J~A, Archibald A~M, Bódi A, Bapat S, Barentsen
-  G, Bazán J, Biswas M, Boquien M, Burke D~J, Cara D, Cara M, Conroy K~E,
-  Conseil S, Craig M~W, Cross R~M, Cruz K~L, D'Eugenio F, Dencheva N,
-  Devillepoix H~A~R, Dietrich J~P, Eigenbrot A~D, Erben T, Ferreira L,
-  Foreman-Mackey D, Fox R, Freij N, Garg S, Geda R, Glattly L, Gondhalekar Y,
-  Gordon K~D, Grant D, Greenfield P, Groener A~M, Guest S, Gurovich S, Handberg
-  R, Hart A, Hatfield-Dodds Z, Homeier D, Hosseinzadeh G, Jenness T, Jones C~K,
-  Joseph P, Kalmbach J~B, Karamehmetoglu E, Kałuszyński M, Kelley M~S~P, Kern
-  N, Kerzendorf W~E, Koch E~W, Kulumani S, Lee A, Ly C, Ma Z, MacBride C,
-  Maljaars J~M, Muna D, Murphy N~A, Norman H, O'Steen R, Oman K~A, Pacifici C,
-  Pascual S, Pascual-Granado J, Patil R~R, Perren G~I, Pickering T~E, Rastogi
-  T, Roulston B~R, Ryan D~F, Rykoff E~S, Sabater J, Sakurikar P, Salgado J,
-  Sanghi A, Saunders N, Savchenko V, Schwardt L, Seifert-Eckert M, Shih A~Y,
-  Jain A~S, Shukla G, Sick J, Simpson C, Singanamalla S, Singer L~P, Singhal J,
-  Sinha M, Sipőcz B~M, Spitler L~R, Stansby D, Streicher O, Šumak J, Swinbank
-  J~D, Taranu D~S, Tewary N, Tremblay G~R, de~Val-Borro M, Kooten S~J~V,
-  Vasović Z, Verma S, de~Miranda~Cardoso J~V, Williams P~K~G, Wilson T~J,
-  Winkel B, Wood-Vasey W~M, Xue R, Yoachim P, Zhang C, Zonca A \harvardand\
-  {Astropy Project Contributors}  2022 {\em ApJ} {\bf 935},~167.
+{Astropy Collaboration}, Price-Whelan A~M, Lim P~L, Earl N, Starkman N, Bradley L, Shupe D~L, Patil A~A, Corrales L, Brasseur C~E, Nöthe M, Donath A, Tollerud E, Morris B~M, Ginsburg A, Vaher E, Weaver B~A, Tocknell J, Jamieson W, van Kerkwijk M~H, Robitaille T~P, Merry B, Bachetti M, Günther H~M, Aldcroft T~L, Alvarado-Montes J~A, Archibald A~M, Bódi A, Bapat S, Barentsen G, Bazán J, Biswas M, Boquien M, Burke D~J, Cara D, Cara M, Conroy K~E, Conseil S, Craig M~W, Cross R~M, Cruz K~L, D'Eugenio F, Dencheva N, Devillepoix H~A~R, Dietrich J~P, Eigenbrot A~D, Erben T, Ferreira L, Foreman-Mackey D, Fox R, Freij N, Garg S, Geda R, Glattly L, Gondhalekar Y, Gordon K~D, Grant D, Greenfield P, Groener A~M, Guest S, Gurovich S, Handberg R, Hart A, Hatfield-Dodds Z, Homeier D, Hosseinzadeh G, Jenness T, Jones C~K, Joseph P, Kalmbach J~B, Karamehmetoglu E, Kałuszyński M, Kelley M~S~P, Kern N, Kerzendorf W~E, Koch E~W, Kulumani S, Lee A, Ly C, Ma Z, MacBride C, Maljaars J~M, Muna D, Murphy N~A, Norman H, O'Steen R, Oman K~A, Pacifici C, Pascual S, Pascual-Granado J, Patil R~R, Perren G~I, Pickering T~E, Rastogi T, Roulston B~R, Ryan D~F, Rykoff E~S, Sabater J, Sakurikar P, Salgado J, Sanghi A, Saunders N, Savchenko V, Schwardt L, Seifert-Eckert M, Shih A~Y, Jain A~S, Shukla G, Sick J, Simpson C, Singanamalla S, Singer L~P, Singhal J, Sinha M, Sipőcz B~M, Spitler L~R, Stansby D, Streicher O, Šumak J, Swinbank J~D, Taranu D~S, Tewary N, Tremblay G~R, de~Val-Borro M, Kooten S~J~V, Vasović Z, Verma S, de~Miranda~Cardoso J~V, Williams P~K~G, Wilson T~J, Winkel B, Wood-Vasey W~M, Xue R, Yoachim P, Zhang C, Zonca A \harvardand\ {Astropy Project Contributors}  2022 {\em ApJ} {\bf 935},~167.
 \newline\harvardurl{https://ui.adsabs.harvard.edu/abs/2022ApJ...935..167A/abstract}
 
 \harvarditem{Bannister et~al.}{2019}{Bannister2019}
-Bannister M~T, Bhandare A, Dybczyński P~A, Fitzsimmons A, Guilbert-Lepoutre A,
-  Jedicke R, Knight M~M, Meech K~J, McNeill A, Pfalzner S, Raymond S~N,
-  Snodgrass C, Trilling D~E \harvardand\ Ye Q  2019 {\em Nature Astronomy 2019
-  3:7} {\bf 3},~594--602.
+Bannister M~T, Bhandare A, Dybczyński P~A, Fitzsimmons A, Guilbert-Lepoutre A, Jedicke R, Knight M~M, Meech K~J, McNeill A, Pfalzner S, Raymond S~N, Snodgrass C, Trilling D~E \harvardand\ Ye Q  2019 {\em Nature Astronomy 2019 3:7} {\bf 3},~594--602.
 \newline\harvardurl{https://www.nature.com/articles/s41550-019-0816-x}
 
 \harvarditem{Bannister et~al.}{2017}{Bannister2017}
-Bannister M~T, Schwamb M~E, Fraser W~C, Marsset M, Fitzsimmons A, Benecchi S~D,
-  Lacerda P, Pike R~E, Kavelaars J~J, Smith A~B, Stewart S~O, Wang S~Y
-  \harvardand\ Lehner M~J  2017 {\em The Astrophysical Journal Letters} {\bf
-  851},~L38.
+Bannister M~T, Schwamb M~E, Fraser W~C, Marsset M, Fitzsimmons A, Benecchi S~D, Lacerda P, Pike R~E, Kavelaars J~J, Smith A~B, Stewart S~O, Wang S~Y \harvardand\ Lehner M~J  2017 {\em The Astrophysical Journal Letters} {\bf 851},~L38.
 \newline\harvardurl{https://iopscience.iop.org/article/10.3847/2041-8213/aaa07c}
 
+\harvarditem{Bellm et~al.}{2018}{Bellm2018}
+Bellm E~C, Kulkarni S~R, Graham M~J, Dekany R, Smith R~M, Riddle R, Masci F~J, Helou G, Prince T~A, Adams S~M, Barbarino C, Barlow T, Bauer J, Beck R, Belicki J, Biswas R, Blagorodnova N, Bodewits D, Bolin B, Brinnel V, Brooke T, Bue B, Bulla M, Burruss R, Cenko S~B, Chang C~K, Connolly A, Coughlin M, Cromer J, Cunningham V, De K, Delacroix A, Desai V, Duev D~A, Eadie G, Farnham T~L, Feeney M, Feindt U, Flynn D, Franckowiak A, Frederick S, Fremling C, Gal-Yam A, Gezari S, Giomi M, Goldstein D~A, Golkhou V~Z, Goobar A, Groom S, Hacopians E, Hale D, Henning J, Ho A~Y, Hover D, Howell J, Hung T, Huppenkothen D, Imel D, Ip W~H, Željko Ivezić, Jackson E, Jones L, Juric M, Kasliwal M~M, Kaspi S, Kaye S, Kelley M~S, Kowalski M, Kramer E, Kupfer T, Landry W, Laher R~R, Lee C~D, Lin H~W, Lin Z~Y, Lunnan R, Giomi M, Mahabal A, Mao P, Miller A~A, Monkewitz S, Murphy P, Ngeow C~C, Nordin J, Nugent P, Ofek E, Patterson M~T, Penprase B, Porter M, Rauch L, Rebbapragada U, Reiley D, Rigault M, Rodriguez H, van Roestel J, Rusholme B, van Santen J, Schulze S, Shupe D~L, Singer L~P, Soumagnac M~T, Stein R, Surace J, Sollerman J, Szkody P, Taddia F, Terek S, Sistine A~V, van Velzen S, Vestrand W~T, Walters R, Ward C, Ye Q~Z, Yu P~C, Yan L \harvardand\ Zolkower J  2018 {\em Publications of the Astronomical Society of the Pacific} {\bf 131},~018002.
+\newline\harvardurl{https://iopscience.iop.org/article/10.1088/1538-3873/aaecbe https://iopscience.iop.org/article/10.1088/1538-3873/aaecbe/meta}
+
 \harvarditem{Belton et~al.}{2018}{Belton2018}
-Belton M~J~S, Hainaut O~R, Meech K~J, Mueller B~E~A, Kleyna J~T, Weaver H~A,
-  Buie M~W, Drahus M, Guzik P, Wainscoat R~J, Waniak W, Handzlik B, Kurowski S,
-  Xu S, Sheppard S~S, Micheli M, Ebeling H \harvardand\ Keane J~V  2018 {\em
-  The Astrophysical Journal Letters} {\bf 856},~L21.
+Belton M~J~S, Hainaut O~R, Meech K~J, Mueller B~E~A, Kleyna J~T, Weaver H~A, Buie M~W, Drahus M, Guzik P, Wainscoat R~J, Waniak W, Handzlik B, Kurowski S, Xu S, Sheppard S~S, Micheli M, Ebeling H \harvardand\ Keane J~V  2018 {\em The Astrophysical Journal Letters} {\bf 856},~L21.
 \newline\harvardurl{https://ui.adsabs.harvard.edu/abs/2018ApJ...856L..21B/abstract}
 
+\harvarditem{Bolin et~al.}{2023}{Bolin2023}
+Bolin B~T, Ghosal M \harvardand\ Jedicke R  2023 {\em Monthly Notices of the Royal Astronomical Society} {\bf 527},~1633--1637.
+\newline\harvardurl{https://dx.doi.org/10.1093/mnras/stad3227}
+
+\harvarditem{DeMeo et~al.}{2015}{DeMeo2015}
+DeMeo F~E, Alexander C~M, Walsh K~J, Chapman C~R \harvardand\ Binzel R~P  2015 University of Arizona Press pp.~13--41.
+
+\harvarditem{Dorofeeva et~al.}{2023}{Dorofeeva2023}
+Dorofeeva V~A, Borisov G~V \harvardand\ Shustov B~M  2023 {\em Solar System Research} {\bf 57},~76--84.
+\newline\harvardurl{https://link.springer.com/article/10.1134/S0038094623010021}
+
 \harvarditem{Drahus et~al.}{2018}{Drahus2018}
-Drahus M, Guzik P, Waniak W, Handzlik B, Kurowski S, Xu S, Drahus M, Guzik P,
-  Waniak W, Handzlik B, Kurowski S \harvardand\ Xu S  2018 {\em NatAs} {\bf
-  2},~407--412.
+Drahus M, Guzik P, Waniak W, Handzlik B, Kurowski S, Xu S, Drahus M, Guzik P, Waniak W, Handzlik B, Kurowski S \harvardand\ Xu S  2018 {\em NatAs} {\bf 2},~407--412.
 \newline\harvardurl{https://ui.adsabs.harvard.edu/abs/2018NatAs...2..407D/abstract}
 
 \harvarditem{Fitzsimmons et~al.}{2017}{Fitzsimmons2017}
-Fitzsimmons A, Snodgrass C, Rozitis B, Yang B, Hyland M, Seccull T, Bannister
-  M~T, Fraser W~C, Jedicke R \harvardand\ Lacerda P  2017 {\em Nature
-  Astronomy} {\bf 2},~133--137.
+Fitzsimmons A, Snodgrass C, Rozitis B, Yang B, Hyland M, Seccull T, Bannister M~T, Fraser W~C, Jedicke R \harvardand\ Lacerda P  2017 {\em Nature Astronomy} {\bf 2},~133--137.
 \newline\harvardurl{https://www.nature.com/articles/s41550-017-0361-4}
 
 \harvarditem{Fraser et~al.}{2018}{Fraser2018}
-Fraser W~C, Pravec P, Fitzsimmons A, Lacerda P, Bannister M~T, Snodgrass C
-  \harvardand\ Smolić I  2018 {\em Nature Astronomy} {\bf 2},~383--386.
+Fraser W~C, Pravec P, Fitzsimmons A, Lacerda P, Bannister M~T, Snodgrass C \harvardand\ Smolić I  2018 {\em Nature Astronomy} {\bf 2},~383--386.
 \newline\harvardurl{https://ui.adsabs.harvard.edu/abs/2018NatAs...2..383F/abstract}
+
+\harvarditem{Gowanlock et~al.}{2024}{Gowanlock2024}
+Gowanlock M, Trilling D~E, McNeill A, Kramer D \harvardand\ Chernyavskaya M  2024.
+\newline\harvardurl{http://arxiv.org/abs/2408.04096}
 
 \harvarditem{Harris}{1994}{Harris1994}
 Harris A~W  1994 {\em Icarus} {\bf 107},~209--211.
 
+\harvarditem{Harris}{2015}{Harris2015}
+Harris A~W  2015 {\em MPBu} {\bf 42},~10--11.
+\newline\harvardurl{https://ui.adsabs.harvard.edu/abs/2015MPBu...42...10H/abstract}
+
+\harvarditem{Ivezi{\'{c}} et~al.}{2019}{LSST2019}
+Ivezi{\'{c}} {\u{Z}}, Kahn S~M, Tyson J~A, Abel B, Acosta E, Allsman R, Alonso D, AlSayyad Y, Anderson S~F, Andrew J, Angel J~R~P, Angeli G~Z, Ansari R, Antilogus P, Araujo C, Armstrong R, Arndt K~T, Astier P, Éric Aubourg, Auza N, Axelrod T~S, Bard D~J, Barr J~D, Barrau A, Bartlett J~G, Bauer A~E, Bauman B~J, Baumont S, Bechtol E, Bechtol K, Becker A~C, Becla J, Beldica C, Bellavia S, Bianco F~B, Biswas R, Blanc G, Blazek J, Blandford R~D, Bloom J~S, Bogart J, Bond T~W, Booth M~T, Borgland A~W, Borne K, Bosch J~F, Boutigny D, Brackett C~A, Bradshaw A, Brandt W~N, Brown M~E, Bullock J~S, Burchat P, Burke D~L, Cagnoli G, Calabrese D, Callahan S, Callen A~L, Carlin J~L, Carlson E~L, Chandrasekharan S, Charles-Emerson G, Chesley S, Cheu E~C, Chiang H~F, Chiang J, Chirino C, Chow D, Ciardi D~R, Claver C~F, Cohen-Tanugi J, Cockrum J~J, Coles R, Connolly A~J, Cook K~H, Cooray A, Covey K~R, Cribbs C, Cui W, Cutri R, Daly P~N, Daniel S~F, Daruich F, Daubard G, Daues G, Dawson W, Delgado F, Dellapenna A, de~Peyster R, de~Val-Borro M, Digel S~W, Doherty P, Dubois R, Dubois-Felsmann G~P, Durech J, Economou F, Eifler T, Eracleous M, Emmons B~L, Neto A~F, Ferguson H, Figueroa E, Fisher-Levine M, Focke W, Foss M~D, Frank J, Freemon M~D, Gangler E, Gawiser E, Geary J~C, Gee P, Geha M, Gessner C~J~B, Gibson R~R, Gilmore D~K, Glanzman T, Glick W, Goldina T, Goldstein D~A, Goodenow I, Graham M~L, Gressler W~J, Gris P, Guy L~P, Guyonnet A, Haller G, Harris R, Hascall P~A, Haupt J, Hernandez F, Herrmann S, Hileman E, Hoblitt J, Hodgson J~A, Hogan C, Howard J~D, Huang D, Huffer M~E, Ingraham P, Innes W~R, Jacoby S~H, Jain B, Jammes F, Jee M~J, Jenness T, Jernigan G, Jevremović D, Johns K, Johnson A~S, Johnson M~W~G, Jones R~L, Juramy-Gilles C, Jurić M, Kalirai J~S, Kallivayalil N~J, Kalmbach B, Kantor J~P, Karst P, Kasliwal M~M, Kelly H, Kessler R, Kinnison V, Kirkby D, Knox L, Kotov I~V, Krabbendam V~L, Krughoff K~S, Kubánek P, Kuczewski J, Kulkarni S, Ku J, Kurita N~R, Lage C~S, Lambert R, Lange T, Langton J~B, Guillou L~L, Levine D, Liang M, Lim K~T, Lintott C~J, Long K~E, Lopez M, Lotz P~J, Lupton R~H, Lust N~B, MacArthur L~A, Mahabal A, Mandelbaum R, Markiewicz T~W, Marsh D~S, Marshall P~J, Marshall S, May M, McKercher R, McQueen M, Meyers J, Migliore M, Miller M, Mills D~J, Miraval C, Moeyens J, Moolekamp F~E, Monet D~G, Moniez M, Monkewitz S, Montgomery C, Morrison C~B, Mueller F, Muller G~P, Arancibia F~M, Neill D~R, Newbry S~P, Nief J~Y, Nomerotski A, Nordby M, O'Connor P, Oliver J, Olivier S~S, Olsen K, O'Mullane W, Ortiz S, Osier S, Owen R~E, Pain R, Palecek P~E, Parejko J~K, Parsons J~B, Pease N~M, Peterson J~M, Peterson J~R, Petravick D~L, Petrick M~E~L, Petry C~E, Pierfederici F, Pietrowicz S, Pike R, Pinto P~A, Plante R, Plate S, Plutchak J~P, Price P~A, Prouza M, Radeka V, Rajagopal J, Rasmussen A~P, Regnault N, Reil K~A, Reiss D~J, Reuter M~A, Ridgway S~T, Riot V~J, Ritz S, Robinson S, Roby W, Roodman A, Rosing W, Roucelle C, Rumore M~R, Russo S, Saha A, Sassolas B, Schalk T~L, Schellart P, Schindler R~H, Schmidt S, Schneider D~P, Schneider M~D, Schoening W, Schumacher G, Schwamb M~E, Sebag J, Selvy B, Sembroski G~H, Seppala L~G, Serio A, Serrano E, Shaw R~A, Shipsey I, Sick J, Silvestri N, Slater C~T, Smith J~A, Smith R~C, Sobhani S, Soldahl C, Storrie-Lombardi L, Stover E, Strauss M~A, Street R~A, Stubbs C~W, Sullivan I~S, Sweeney D, Swinbank J~D, Szalay A, Takacs P, Tether S~A, Thaler J~J, Thayer J~G, Thomas S, Thornton A~J, Thukral V, Tice J, Trilling D~E, Turri M, Berg R~V, Berk D~V, Vetter K, Virieux F, Vucina T, Wahl W, Walkowicz L, Walsh B, Walter C~W, Wang D~L, Wang S~Y, Warner M, Wiecha O, Willman B, Winters S~E, Wittman D, Wolff S~C, Wood-Vasey W~M, Wu X, Xin B, Yoachim P \harvardand\ Zhan H  2019 {\em The Astrophysical Journal} {\bf 873},~111.
+\newline\harvardurl{https://ui.adsabs.harvard.edu/abs/2019ApJ...873..111I/abstract}
+
+\harvarditem{Levine \harvardand\ Jedicke}{2023}{Levine2023}
+Levine W~G \harvardand\ Jedicke R  2023 {\em Icarus} {\bf 396},~115501.
+
+\harvarditem{Lewis}{2012}{Lewis2012}
+Lewis J  2012 Academic Press pp.~278--302.
+\newline\harvardurl{https://books.google.co.nz/books?id=35uwarLgVLsC}
+
 \harvarditem{{Lightkurve Collaboration} et~al.}{2018}{Lightkurve2018}
-{Lightkurve Collaboration}, {Cardoso} J~V~d~M, {Hedges} C, {Gully-Santiago} M,
-  {Saunders} N, {Cody} A~M, {Barclay} T, {Hall} O, {Sagear} S, {Turtelboom} E,
-  {Zhang} J, {Tzanidakis} A, {Mighell} K, {Coughlin} J, {Bell} K,
-  {Berta-Thompson} Z, {Williams} P, {Dotson} J \harvardand\ {Barentsen} G  2018
-  `{Lightkurve: Kepler and TESS time series analysis in Python}' Astrophysics
-  Source Code Library.
+{Lightkurve Collaboration}, {Cardoso} J~V~d~M, {Hedges} C, {Gully-Santiago} M, {Saunders} N, {Cody} A~M, {Barclay} T, {Hall} O, {Sagear} S, {Turtelboom} E, {Zhang} J, {Tzanidakis} A, {Mighell} K, {Coughlin} J, {Bell} K, {Berta-Thompson} Z, {Williams} P, {Dotson} J \harvardand\ {Barentsen} G  2018 `{Lightkurve: Kepler and TESS time series analysis in Python}' Astrophysics Source Code Library.
 
 \harvarditem{Lomb et~al.}{1976}{Lomb1976}
 Lomb N~R, Lomb \harvardand\ R. N  1976 {\em Ap\&SS} {\bf 39},~447--462.
@@ -83,65 +76,67 @@ Lomb N~R, Lomb \harvardand\ R. N  1976 {\em Ap\&SS} {\bf 39},~447--462.
 Maneewongvatana S \harvardand\ Mount D~M  1999 {\em arXiv} p.~cs/9901013.
 \newline\harvardurl{https://ui.adsabs.harvard.edu/abs/1999cs........1013M/abstract}
 
+\harvarditem{McNeill et~al.}{2023}{McNeill2023}
+McNeill A, Gowanlock M, Mommert M, Trilling D~E, Llama J \harvardand\ Paddock N  2023 {\em The Astronomical Journal} {\bf 166},~152.
+\newline\harvardurl{https://iopscience.iop.org/article/10.3847/1538-3881/acf194 https://iopscience.iop.org/article/10.3847/1538-3881/acf194/meta}
+
 \harvarditem{McNeill et~al.}{2018}{McNeill2018}
-McNeill A, Trilling D~E \harvardand\ Mommert M  2018 {\em The Astrophysical
-  Journal Letters} {\bf 857},~L1.
+McNeill A, Trilling D~E \harvardand\ Mommert M  2018 {\em The Astrophysical Journal Letters} {\bf 857},~L1.
 \newline\harvardurl{https://ui.adsabs.harvard.edu/abs/2018ApJ...857L...1M/abstract}
 
 \harvarditem{Meech et~al.}{2017}{Meech2017}
-Meech K~J, Weryk R, Micheli M, Kleyna J~T, Hainaut O~R, Jedicke R, Wainscoat
-  R~J, Chambers K~C, Keane J~V, Petric A, Denneau L, Magnier E, Berger T, Huber
-  M~E, Flewelling H, Waters C, Schunova-Lilly E \harvardand\ Chastel S  2017
-  {\em Nature} {\bf 552},~378--381.
+Meech K~J, Weryk R, Micheli M, Kleyna J~T, Hainaut O~R, Jedicke R, Wainscoat R~J, Chambers K~C, Keane J~V, Petric A, Denneau L, Magnier E, Berger T, Huber M~E, Flewelling H, Waters C, Schunova-Lilly E \harvardand\ Chastel S  2017 {\em Nature} {\bf 552},~378--381.
 \newline\harvardurl{https://www.nature.com/articles/nature25020}
 
+\harvarditem{Nesvorný et~al.}{2015}{Nesvorny2015}
+Nesvorný D, Brož M \harvardand\ Carruba V  2015 University of Arizona Press pp.~297--321.
+\newline\harvardurl{https://ui.adsabs.harvard.edu/abs/2015aste.book..297N/abstract}
+
+\harvarditem{Parker et~al.}{2008}{Parker2008}
+Parker A, Ivezi{\'{c}} {\u{Z}}, Jurić M, Lupton R, Sekora M~D \harvardand\ Kowalski A  2008 {\em Icarus} {\bf 198},~138--155.
+
 \harvarditem{Pál et~al.}{2018}{Pal2018}
-Pál A, Molnár L \harvardand\ Kiss C  2018 {\em Publications of the
-  Astronomical Society of the Pacific} {\bf 130},~114503.
+Pál A, Molnár L \harvardand\ Kiss C  2018 {\em Publications of the Astronomical Society of the Pacific} {\bf 130},~114503.
 \newline\harvardurl{https://iopscience.iop.org/article/10.1088/1538-3873/aae2aa}
 
 \harvarditem{Pál et~al.}{2020}{Pal2020}
-Pál A, Szakáts R, Kiss C, Bódi A, Bognár Z, Kalup C, Kiss L~L, Marton G,
-  Molnár L, Plachy E, Sárneczky K, Szabó G~M \harvardand\ Szabó R  2020
-  {\em The Astrophysical Journal Supplement Series} {\bf 247},~26.
+Pál A, Szakáts R, Kiss C, Bódi A, Bognár Z, Kalup C, Kiss L~L, Marton G, Molnár L, Plachy E, Sárneczky K, Szabó G~M \harvardand\ Szabó R  2020 {\em The Astrophysical Journal Supplement Series} {\bf 247},~26.
 \newline\harvardurl{https://iopscience.iop.org/article/10.3847/1538-4365/ab64f0}
 
 \harvarditem{Ricker et~al.}{2014}{Ricker2014}
-Ricker G~R, Winn J~N, Vanderspek R, Latham D~W, Bakos G~{\'A}, Bean J~L,
-  Berta-Thompson Z~K, Brown T~M, Buchhave L, Butler N~R, Butler R~P, Chaplin
-  W~J, Charbonneau D, Christensen-Dalsgaard J, Clampin M, Deming D, Doty J, Lee
-  N~D, Dressing C, Dunham E~W, Endl M, Fressin F, Ge J, Henning T, Holman M~J,
-  Howard A~W, Ida S, Jenkins J~M, Jernigan G, Johnson J~A, Kaltenegger L, Kawai
-  N, Kjeldsen H, Laughlin G, Levine A~M, Lin D, Lissauer J~J, MacQueen P, Marcy
-  G, McCullough P~R, Morton T~D, Narita N, Paegert M, Palle E, Pepe F, Pepper
-  J, Quirrenbach A, Rinehart S~A, Sasselov D, Sato B, Seager S, Sozzetti A,
-  Stassun K~G, Sullivan P, Szentgyorgyi A, Torres G, Udry S \harvardand\
-  Villasenor J  2014 {\em Journal of Astronomical Telescopes, Instruments, and
-  Systems} {\bf 1},~014003.
+Ricker G~R, Winn J~N, Vanderspek R, Latham D~W, Bakos G~{\'A}, Bean J~L, Berta-Thompson Z~K, Brown T~M, Buchhave L, Butler N~R, Butler R~P, Chaplin W~J, Charbonneau D, Christensen-Dalsgaard J, Clampin M, Deming D, Doty J, Lee N~D, Dressing C, Dunham E~W, Endl M, Fressin F, Ge J, Henning T, Holman M~J, Howard A~W, Ida S, Jenkins J~M, Jernigan G, Johnson J~A, Kaltenegger L, Kawai N, Kjeldsen H, Laughlin G, Levine A~M, Lin D, Lissauer J~J, MacQueen P, Marcy G, McCullough P~R, Morton T~D, Narita N, Paegert M, Palle E, Pepe F, Pepper J, Quirrenbach A, Rinehart S~A, Sasselov D, Sato B, Seager S, Sozzetti A, Stassun K~G, Sullivan P, Szentgyorgyi A, Torres G, Udry S \harvardand\ Villasenor J  2014 {\em Journal of Astronomical Telescopes, Instruments, and Systems} {\bf 1},~014003.
 
 \harvarditem{{Ridden-Harper} et~al.}{2021}{Ridden-Harper2021}
-{Ridden-Harper} R, {Rest} A, {Hounsell} R, {M{\"u}ller-Bravo} T~E, {Wang} Q
-  \harvardand\ {Villar} V~A  2021 {\em arXiv e-prints} p.~arXiv:2111.15006.
+{Ridden-Harper} R, {Rest} A, {Hounsell} R, {M{\"u}ller-Bravo} T~E, {Wang} Q \harvardand\ {Villar} V~A  2021 {\em arXiv e-prints} p.~arXiv:2111.15006.
+
+\harvarditem{Ridden-Harper \harvardand\ Roxburgh}{In Prep.}{TESSELATE}
+Ridden-Harper R \harvardand\ Roxburgh H  In Prep. {TESSELATE}.
+\newline\harvardurl{https://github.com/CheerfulUser/TESSELLATE}
 
 \harvarditem{Scargle et~al.}{1982}{Scargle1982}
 Scargle J~D, Scargle \harvardand\ D. J  1982 {\em ApJ} {\bf 263},~835--853.
 \newline\harvardurl{https://ui.adsabs.harvard.edu/abs/1982ApJ...263..835S/abstract}
 
+\harvarditem{Trilling et~al.}{2023}{Trilling2023}
+Trilling D~E, Gowanlock M, Kramer D, McNeill A, Donnelly B, Butler N \harvardand\ Kececioglu J  2023 {\em The Astronomical Journal} {\bf 165},~111.
+\newline\harvardurl{https://ui.adsabs.harvard.edu/abs/2023AJ....165..111T/abstract}
+
 \harvarditem{VanderPlas}{2018}{VanderPlas2018}
-VanderPlas J~T  2018 {\em The Astrophysical Journal Supplement Series} {\bf
-  236},~16.
+VanderPlas J~T  2018 {\em The Astrophysical Journal Supplement Series} {\bf 236},~16.
 \newline\harvardurl{https://ui.adsabs.harvard.edu/abs/2018ApJS..236...16V/abstract}
 
 \harvarditem{Virtanen et~al.}{2020}{2020SciPy-NMeth}
-Virtanen P, Gommers R, Oliphant T~E, Haberland M, Reddy T, Cournapeau D,
-  Burovski E, Peterson P, Weckesser W, Bright J, {van der Walt} S~J, Brett M,
-  Wilson J, Millman K~J, Mayorov N, Nelson A~R~J, Jones E, Kern R, Larson E,
-  Carey C~J, Polat {\.I}, Feng Y, Moore E~W, {VanderPlas} J, Laxalde D,
-  Perktold J, Cimrman R, Henriksen I, Quintero E~A, Harris C~R, Archibald A~M,
-  Ribeiro A~H, Pedregosa F, {van Mulbregt} P \harvardand\ {SciPy 1.0
-  Contributors}  2020 {\em Nature Methods} {\bf 17},~261--272.
+Virtanen P, Gommers R, Oliphant T~E, Haberland M, Reddy T, Cournapeau D, Burovski E, Peterson P, Weckesser W, Bright J, {van der Walt} S~J, Brett M, Wilson J, Millman K~J, Mayorov N, Nelson A~R~J, Jones E, Kern R, Larson E, Carey C~J, Polat {\.I}, Feng Y, Moore E~W, {VanderPlas} J, Laxalde D, Perktold J, Cimrman R, Henriksen I, Quintero E~A, Harris C~R, Archibald A~M, Ribeiro A~H, Pedregosa F, {van Mulbregt} P \harvardand\ {SciPy 1.0 Contributors}  2020 {\em Nature Methods} {\bf 17},~261--272.
+
+\harvarditem{Warner et~al.}{2009}{Warner2009}
+Warner B~D, Harris A~W \harvardand\ Pravec P  2009 {\em Icar} {\bf 202},~134--146.
+\newline\harvardurl{https://ui.adsabs.harvard.edu/abs/2009Icar..202..134W/abstract , http://www.MinorPlanet.info/php/lcdb.php}
 
 \harvarditem{Weidenschilling}{1981}{Weidenschilling1981}
 Weidenschilling S~J  1981 {\em Icarus} {\bf 46},~124--126.
+
+\harvarditem{York et~al.}{2000}{York2000}
+York D~G, Adelman J, John E.~Anderson J, Anderson S~F, Annis J, Bahcall N~A, Bakken J~A, Barkhouser R, Bastian S, Berman E, Boroski W~N, Bracker S, Briegel C, Briggs J~W, Brinkmann J, Brunner R, Burles S, Carey L, Carr M~A, Castander F~J, Chen B, Colestock P~L, Connolly A~J, Crocker J~H, Csabai I, Czarapata P~C, Davis J~E, Doi M, Dombeck T, Eisenstein D, Ellman N, Elms B~R, Evans M~L, Fan X, Federwitz G~R, Fiscelli L, Friedman S, Frieman J~A, Fukugita M, Gillespie B, Gunn J~E, Gurbani V~K, de~Haas E, Haldeman M, Harris F~H, Hayes J, Heckman T~M, Hennessy G~S, Hindsley R~B, Holm S, Holmgren D~J, hao Huang C, Hull C, Husby D, Ichikawa S~I, Ichikawa T, Ivezi{\'{c}} {\u{Z}}, Kent S, Kim R~S~J, Kinney E, Klaene M, Kleinman A~N, Kleinman S, Knapp G~R, Korienek J, Kron R~G, Kunszt P~Z, Lamb D~Q, Lee B, Leger R~F, Limmongkol S, Lindenmeyer C, Long D~C, Loomis C, Loveday J, Lucinio R, Lupton R~H, MacKinnon B, Mannery E~J, Mantsch P~M, Margon B, McGehee P, McKay T~A, Meiksin A, Merelli A, Monet D~G, Munn J~A, Narayanan V~K, Nash T, Neilsen E, Neswold R, Newberg H~J, Nichol R~C, Nicinski T, Nonino M, Okada N, Okamura S, Ostriker J~P, Owen R, Pauls A~G, Peoples J, Peterson R~L, Petravick D, Pier J~R, Pope A, Pordes R, Prosapio A, Rechenmacher R, Quinn T~R, Richards G~T, Richmond M~W, Rivetta C~H, Rockosi C~M, Ruthmansdorfer K, Sandford D, Schlegel D~J, Schneider D~P, Sekiguchi M, Sergey G, Shimasaku K, Siegmund W~A, Smee S, Smith J~A, Snedden S, Stone R, Stoughton C, Strauss M~A, Stubbs C, SubbaRao M, Szalay A~S, Szapudi I, Szokoly G~P, Thakar A~R, Tremonti C, Tucker D~L, Uomoto A, Berk D~V, Vogeley M~S, Waddell P, i~Wang S, Watanabe M, Weinberg D~H, Yanny B \harvardand\ Yasuda N  2000 {\em The Astronomical Journal} {\bf 120},~1579--1587.
+\newline\harvardurl{https://iopscience.iop.org/article/10.1086/301513 https://iopscience.iop.org/article/10.1086/301513/meta}
 
 \end{thebibliography}
