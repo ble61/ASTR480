@@ -204,7 +204,58 @@ def find_asteroids(sector,cam,ccd,cut):
 
     res, timeList = querySB(setupQuery(sector, cam, ccd, cut), numTimesteps=54, qRad=3.05)
 
-    unqNames = np.unique(res["Name"])
+    print(len(np.unique(res["Name"])))
+
+    targetWSC = fits.open(f"../OzData/{sector}_{cam}_{ccd}_{cut}_wcs.fits")[0]
+    w = wcs.WCS(targetWSC.header)
+    
+    coords=SkyCoord(ra = res["RA"], dec = res["Dec"], unit="deg")
+
+    xCoord, yCoord  = w.all_world2pix(coords.ra, coords.dec,0)
+
+    #rounds to nearest whole number, which returns #.0 as a float. then int converts. if just int masked, it floors the number, not rounds it.
+    xCoord = xCoord.round().astype(int)
+    yCoord = yCoord.round().astype(int)
+    
+
+    #add X, Y, Fs in
+    res["X"] = xCoord
+    res["Y"] = yCoord
+
+    fluxBounds = 513
+
+    badIds = []
+    badIds+= (np.where((xCoord<-1) | (xCoord>= fluxBounds)| (yCoord<-1) | (yCoord>= fluxBounds))[0].tolist()) #! ugly af, but takes all out of bounds values in X or Y, and gets them into the badIDs
+    #give extra space for interploations to work with
+    res.drop(index=badIds, inplace=True)
+
+    interpRes = interplolation_of_pos(res, sector)
+
+    interpRes.drop(columns=["X", "Y"], inplace=True)
+
+    coords=SkyCoord(ra = interpRes["RA"], dec = interpRes["Dec"], unit="deg")
+
+    xCoord, yCoord  = w.all_world2pix(coords.ra, coords.dec,0)
+
+    #rounds to nearest whole number, which returns #.0 as a float. then int converts. if just int masked, it floors the number, not rounds it.
+    xCoord = xCoord.round().astype(int)
+    yCoord = yCoord.round().astype(int)
+    
+
+    #add X, Y, Fs in
+    interpRes["X"] = xCoord
+    interpRes["Y"] = yCoord
+
+    fluxBounds = 512
+
+    badIds = []
+    badIds+= (np.where((xCoord<0) | (xCoord>= fluxBounds)| (yCoord<0) | (yCoord>= fluxBounds))[0].tolist()) #! ugly af, but takes all out of bounds values in X or Y, and gets them into the badIDs
+    #give extra space for interploations to work with
+    interpRes.drop(index=badIds, inplace=True)
+
+
+
+    unqNames = np.unique(interpRes["Name"])
     print(len(unqNames))
     propertiesList = []
 
@@ -223,7 +274,11 @@ def find_asteroids(sector,cam,ccd,cut):
     fname = f"asteroids_in_{sector}_{cam}_{ccd}_{cut}_properties"
     withEles.to_csv(f"{fname}.csv")
 
-    return res
+
+
+
+
+    return interpRes
 
 
 def name_cut(df, name:str, colName:str="NameMatch"):
@@ -309,18 +364,19 @@ ccd =3
 cut = 7
 
 resDf = find_asteroids(sector,cam,ccd,cut)
-interpDf = interplolation_of_pos(resDf,sector)
+# interpDf = interplolation_of_pos(resDf,sector) Interp now done inside of the finding, so lower horizons queries
 fname = f"InterpolatedQuerryResult_{sector}_{cam}_{ccd}_{cut}"
-interpDf.to_csv(f"{fname}.csv")
+resDf.to_csv(f"{fname}.csv")
 
 #TODO 
 #//save out df of pos properties name:pos(t,x,y) from interpolations (name repeated)
 #//save out df of name:num:avgMag:a:e:i:H + other properties of asteroid ?known period? 1 row per name. Other file will add found Period, lc properties etc 
 
 
-unqNames = np.unique(interpDf["Name"])
+unqNames = np.unique(resDf["Name"])
 
 numNames = len(unqNames)
+
 
 # unqNames=["Bernoulli"]
 

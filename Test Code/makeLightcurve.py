@@ -13,13 +13,17 @@ import numpy.typing as npt
 import matplotlib.colors as mplc
 import matplotlib.cm as mpcm
 import itertools
+from photutils.aperture import CircularAperture
+from photutils.aperture import aperture_photometry
+from astropy.stats import SigmaClip as astroSC
+from photutils.background import Background2D, MedianBackground
 
 import warnings
 from astropy.utils.exceptions import AstropyWarning
 warnings.simplefilter('ignore', category=AstropyWarning)
+warnings.simplefilter('ignore', category=RuntimeWarning)
 
-
-%matplotlib widget
+# %matplotlib widget
 
 plt.rcParams.update({
     "font.size": 18,
@@ -92,6 +96,39 @@ def sum_fluxes(frames, ys, xs):
         if xmin < 0: xmin = 0
         if xmax >= fluxBounds[2]: xmax = fluxBounds[2]-1
 
+
+        #???? comTotal.append(np.sum(reducedFluxes[int(f),ymin:ymax,xmin:xmax]))
+        
+
+        com = ndimage.center_of_mass(reducedFluxes[int(f),ymin:ymax,xmin:xmax])
+        comX = x-checkDown+com[1]
+        comY = y-checkDown+com[0]
+        
+        try:
+            comX = int(round(comX))
+            comY = int(round(comY))
+        except:
+            comTotal.append(np.nan)
+            continue
+        
+        photTable = aperture_photometry(reducedFluxes[int(f),:,:],CircularAperture((comX,comY), r=1.5))
+
+        comAppFlux = photTable["aperture_sum"][0]
+        comTotal.append(comAppFlux)
+        continue
+
+
+
+        ymin = comY-down
+        ymax = comY+up
+        xmin = comX-down
+        xmax = comX+up
+
+        if ymin < 0: ymin = 0
+        if ymax >= fluxBounds[1]: ymax = fluxBounds[1] -1
+        if xmin < 0: xmin = 0
+        if xmax >= fluxBounds[2]: xmax = fluxBounds[2]-1
+
         comTotal.append(np.sum(reducedFluxes[int(f),ymin:ymax,xmin:xmax]))
         
 
@@ -156,7 +193,7 @@ def lightcurve_from_name(name):
 
     # badIds += np.nonzero( sigma_clip(sumedFluxes, masked=True, maxiters=5, sigma = 3).mask)[0].tolist() #! also ugly takes all sigma clipped values and gets them into the badIDs
 
-    badIds += np.nonzero( sigma_clip(comFluxes, masked=True, maxiters=5, sigma = 3).mask)[0].tolist()
+    badIds += np.nonzero( sigma_clip(comFluxes, masked=True, maxiters=5, sigma = 3).mask)[0].tolist() #sigma clip gets rid of nans
 
 
     badIds = np.unique(badIds) #takes only the unique bads, as to not remove any twice (shouldn't matter, as no reindexing)
@@ -293,12 +330,12 @@ def plotExpectedPos(posDf: pd.DataFrame, timeList: npt.ArrayLike, targetPos: lis
     ax.scatter(centerPix[0], centerPix[1], marker="+",
                s=100, c="g")  # center marker
     
-    #*BOX to check 3.2 deg 
-    corners = np.array([[ra_i+1.6, dec_i+1.6],[ra_i-1.6, dec_i+1.6],[ra_i-1.6, dec_i-1.6],[ra_i+1.6, dec_i-1.6],[ra_i+1.6, dec_i+1.6]])
+    #*BOX to check
+    # corners = np.array([[ra_i+1.6, dec_i+1.6],[ra_i-1.6, dec_i+1.6],[ra_i-1.6, dec_i-1.6],[ra_i+1.6, dec_i-1.6],[ra_i+1.6, dec_i+1.6]])
 
-    cornersPix =  SkyCoord(corners, unit=(u.deg, u.deg)).to_pixel(w) 
+    # cornersPix =  SkyCoord(corners, unit=(u.deg, u.deg)).to_pixel(w) 
 
-    ax.plot(cornersPix[0], cornersPix[1])
+    # ax.plot(cornersPix[0], cornersPix[1])
 
 
     if scaleAlpha: ax.text(-25, 3, s=scaleStr, fontsize=12)
@@ -362,17 +399,96 @@ namesDroped = np.setdiff1d(unqNames, namesAfter)
 
 # print(namesDroped)
 
-plotExpectedPos(totalLcDf,frameTimes,setupQuery(sector,cam,ccd,cut))
+# plotExpectedPos(totalLcDf,frameTimes,setupQuery(sector,cam,ccd,cut))
 
-kill
+
 totalLcDf.to_csv(f"Interps_with_lc_{sector}_{cam}_{ccd}_{cut}.csv")
 
 
+fig, ax = plt.subplots(figsize=(12,6))
+
+count = 0
+
+medBkgs = []
+
+for i in np.random.randint(0,fluxBounds[0], size=100):
+
+    sc = astroSC(sigma=3.0)
+    bkg_estimator = MedianBackground()
+    try:
+        bkg = Background2D(reducedFluxes[i,:,:], (50, 50), filter_size=(3, 3),
+                   sigma_clip=sigma_clip, bkg_estimator=bkg_estimator)
+    except:
+        continue
+    medBkgs.append(bkg.background_median)
+
+
+bkgLim = np.mean(medBkgs)
+
+meanFluxes = []
+stdFluxes = []
+
+for i,name in enumerate(namesAfter):
+    nCut = name_cut(totalLcDf,name,"Name")
+    cflux = nCut["COM Flux"] 
+    mean = np.mean(cflux)
+    meanFluxes.append(mean)
+    
+    sdev = np.std(cflux)
+    stdFluxes.append(sdev)
+
+    if mean - sdev >= bkgLim :
+        count+=1
+        ax.errorbar(i,mean,sdev, markersize=10, capsize=3)
+
+astrData = pd.read_csv(f"./asteroids_in_{sector}_{cam}_{ccd}_{cut}_properties.csv")
+
+astrData.drop(columns = ["Unnamed: 0"], inplace=True)
+
+astrData["Mean COM Flux"] = meanFluxes
+astrData["STD COM Flux"] = stdFluxes
 
 
 
 
+fig2, ax2 = plt.subplots()
 
+magMeans = astrData["Mv(mean)"].values
+
+histRange = (13,20)
+histBins = 14
+
+vMagHist = np.histogram(magMeans, range=histRange, bins=histBins)
+
+overBkgData = np.where((astrData["Mean COM Flux"]-astrData["STD COM Flux"])>=bkgLim)[0]
+
+ax2.set(xlabel="Mean V mag", ylabel="Fraction recovered")
+#* Note recovered is when mean-std > bkg, 84% of data above noise floor
+#* recoverd is 1 when no points in bin anyway. 
+passedBkgLim = np.where((astrData["Mean COM Flux"]-astrData["STD COM Flux"])>=bkgLim, True, False)
+
+astrData["Over Background Limit"] = passedBkgLim
+
+overBkgMags = magMeans[passedBkgLim]
+
+overBkgHist = np.histogram(overBkgMags, range=histRange, bins=histBins)
+
+normedHist = overBkgHist[0]/vMagHist[0]
+
+
+#*Here 0/0 = 1, as we aren't losing the asteroids to the mag cut if there aren't any in the bin to beging with
+for i, val in enumerate(normedHist):
+    if str(val) =="nan": 
+        normedHist[i] = 1
+
+ax2.stairs(normedHist, vMagHist[1])
+
+
+astrData.to_csv(f"./asteroids_in_{sector}_{cam}_{ccd}_{cut}_properties.csv")
+
+print(count)
+
+kill
 plot_lc_from_name("Bernoulli")
 
 
@@ -399,6 +515,7 @@ w = wcs.WCS(targetWSC.header)
 
 
 comSums = []
+comApSums = []
 
 for pointID in range(timeCut.index.max()+1):
 
@@ -429,6 +546,20 @@ for pointID in range(timeCut.index.max()+1):
     com = ndimage.center_of_mass(checkBox)
     ax2[pointID].scatter(x-checkDown+com[1], y-checkDown+com[0],marker = "s", s=10,c="tab:green", label="COM")
 
+    comX = x-checkDown+com[1]
+    comY = y-checkDown+com[0]
+
+
+    #Photutils appeture
+
+    # CircularAperture((comX,comY), r=1.5)  
+
+    photTable = aperture_photometry(reducedFluxes[int(f),:,:],CircularAperture((comX,comY), r=1.5))
+
+    comApFlux = photTable["aperture_sum"][0]
+    comApSums.append(comApFlux)
+
+
     comX = int(x-checkDown+round(com[1]))
     comY = int(y-checkDown+round(com[0]))
     comSum = np.sum(reducedFluxes[int(f), comY-1:comY+2, comX-1:comX+2])
@@ -441,6 +572,7 @@ for pointID in range(timeCut.index.max()+1):
 ax2 = np.reshape(ax2,(5,5))
 
 ax.scatter(timeCut["MJD"],comSums, marker="d",label="Flux from Centre of Mass")
+ax.scatter(timeCut["MJD"],comApSums, marker="s",label="Aperture flux from Centre of Mass")
 ax.legend()
 
 

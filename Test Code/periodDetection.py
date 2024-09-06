@@ -6,7 +6,7 @@ import lightkurve as lk
 import astropy.units as u
 from astropy.timeseries import LombScargle as lsp
 
-%matplotlib widget 
+# %matplotlib widget 
 
 plt.rcParams.update({
     "font.size": 18,
@@ -102,7 +102,7 @@ def name_cut(df, name:str, colName:str="NameMatch"):
     toReturn.reset_index(drop=True, inplace=True)
     return toReturn
 
-numObser = 3 #*any less and NaNs come up, or it completely breaks
+numObser = 3 #*any less than 3 and NaNs come up, or it completely breaks
 #TODO, what should it be for a reliable P
 
 def compute_periods_lk(posDF):
@@ -128,15 +128,16 @@ def compute_periods_lk(posDF):
     return lkPeriods, badCount
 
 def compute_periods_ap(posDF):
-    unqNames = pd.unique(interpLcDF["Name"])
+    unqNames = pd.unique(posDF["Name"])
     periodList_ap = []
     badCount = 0
 
     for name in unqNames:
-        nameDf = name_cut(interpLcDF, name, colName="Name")
+        nameDf = name_cut(posDF, name, colName="Name")
         
+        nameProperties = name_cut(astrData, name, colName="Name")
         
-        if nameDf.shape[0]<=numObser:
+        if nameDf.shape[0]<=numObser or nameProperties["Over Background Limit"][0] ==False:
             badCount+=1
             # print(f"{badCount}. not enough points (<={numObser}) for {name}")
             continue
@@ -174,6 +175,11 @@ cut = 7
 
 interpLcDF = load_interps(22,1,3,7)
 
+astrData = pd.read_csv(f"./asteroids_in_{sector}_{cam}_{ccd}_{cut}_properties.csv")
+
+astrData.drop(columns = ["Unnamed: 0"], inplace=True)
+
+
 unqNames = np.unique(interpLcDF["Name"])
 
 # lkPer, badCountlk = compute_periods_lk(interpLcDF)
@@ -183,18 +189,11 @@ apPer, badCountap = compute_periods_ap(interpLcDF)
 
 #Combine with what we already have for each asteroid
 
-astrData = pd.read_csv(f"./asteroids_in_{sector}_{cam}_{ccd}_{cut}_properties.csv")
 
-astrData.drop(columns = ["Unnamed: 0"], inplace=True)
 
 allData = astrData.merge(apPer, how="outer", on="Name")
 
-allData.to_csv(f"asteroids_in_{sector}_{cam}_{ccd}_{cut}_with_Periods")
-
-
-
-
-
+allData.to_csv(f"asteroids_in_{sector}_{cam}_{ccd}_{cut}_with_Periods.csv")
 
 
 
@@ -218,7 +217,7 @@ bigPows = apPer.iloc[apPer.index[apPer["Max Power"] > bigPowLim]]
 ids = bigPows.index.values
 peri = bigPows["Best Period [Days]"].values
 falAP = bigPows["False Alarm Probability"].values*10
-ax.errorbar(ids, peri, falAP, fmt=".",c="tab:blue", capsize=2, label="All")
+ax.errorbar(ids, peri, falAP, fmt=".",c="tab:blue", capsize=2, label=f"Max Power >{bigPowLim}")
 
 ax.set_ylabel("Period [days]")
 ax.set_xlabel("Index")
@@ -233,6 +232,13 @@ print("")
 
 
 # singleNameLSP(interpLcDF,maxPap["Name"])
+
+
+fig2, ax2 = plt.subplots()
+
+ax2.scatter(allData["Mean COM Flux"], allData["False Alarm Probability"])
+
+ax2.set(xlim=(-10,10))
 
 
 
@@ -270,7 +276,7 @@ compedPs = pd.DataFrame(inLCDBList, columns=["Name", "Known Period", "Found Peri
 print(compedPs)
 
 
-trialName = "Bernoulli"
+trialName = "Lincoln"
 
 try:
     knownFreq = 1/(compedPs.at[compedPs.index[compedPs["Name"]==trialName].values[0],"Known Period"]*60*60)
@@ -301,7 +307,7 @@ ax.plot(times, model,  linestyle= "--", c="k", label ="Model and found P")
 
 ax.plot(times, np.sin(times*(2*np.pi/(knownP/24)))+np.mean(trialCut["Flux"]), linestyle= "-.", label = "Known P")  
 
-ax.scatter(trialCut["MJD"], trialCut["Flux"],c="tab:orange", marker = "d", s=10, label = "Light Curve")
+ax.scatter(trialCut["MJD"], trialCut["Flux"],c="tab:orange", marker = "o", s=10, label = "Light Curve")
 
 ax.scatter(trialCut["MJD"], trialCut["COM Flux"],c="tab:green", marker = "d", s=10, label = "COM Light Curve")
 
@@ -310,9 +316,11 @@ ax.legend()
 
 
 
-downCut =trialCut.loc[trialCut.index[(trialCut["MJD"]>=58900.58) & (trialCut["MJD"]<=58901.11)]]
+#* to get just a few periods of the named asteroid. sensitive to what times you cut
 
-detect_period_ap(downCut["MJD"], downCut["Flux"], plotting=True, knownFreq=knownFreq)
+# downCut =trialCut.loc[trialCut.index[(trialCut["MJD"]>=58907.58) & (trialCut["MJD"]<=58908.11)]]
 
-detect_period_ap(downCut["MJD"], downCut["COM Flux"], plotting=True, knownFreq=knownFreq)
+# detect_period_ap(downCut["MJD"], downCut["Flux"], plotting=True, knownFreq=knownFreq)
+
+# detect_period_ap(downCut["MJD"], downCut["COM Flux"], plotting=True, knownFreq=knownFreq)
 

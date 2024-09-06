@@ -121,9 +121,17 @@ Scargle J~D, Scargle \harvardand\ D. J  1982 {\em ApJ} {\bf 263},~835--853.
 Trilling D~E, Gowanlock M, Kramer D, McNeill A, Donnelly B, Butler N \harvardand\ Kececioglu J  2023 {\em The Astronomical Journal} {\bf 165},~111.
 \newline\harvardurl{https://ui.adsabs.harvard.edu/abs/2023AJ....165..111T/abstract}
 
+\harvarditem{VanderPlas et~al.}{2012}{Vanderplas2012}
+VanderPlas J, Connolly A~J, Ivezi{\'{c}} {\u{Z}} \harvardand\ Gray A  2012 {\em Proceedings - 2012 Conference on Intelligent Data Understanding, CIDU 2012} pp.~47--54.
+\newline\harvardurl{https://ui.adsabs.harvard.edu/abs/2012cidu.conf...47V/abstract}
+
 \harvarditem{VanderPlas}{2018}{VanderPlas2018}
 VanderPlas J~T  2018 {\em The Astrophysical Journal Supplement Series} {\bf 236},~16.
 \newline\harvardurl{https://ui.adsabs.harvard.edu/abs/2018ApJS..236...16V/abstract}
+
+\harvarditem{VanderPlas \harvardand\ Ivezi{\'{c}}}{2015}{Vanderplas2015}
+VanderPlas J~T \harvardand\ Ivezi{\'{c}} {\u{Z}}  2015 {\em Astrophysical Journal} {\bf 812},~18.
+\newline\harvardurl{https://ui.adsabs.harvard.edu/abs/2015ApJ...812...18V/abstract}
 
 \harvarditem{Virtanen et~al.}{2020}{2020SciPy-NMeth}
 Virtanen P, Gommers R, Oliphant T~E, Haberland M, Reddy T, Cournapeau D, Burovski E, Peterson P, Weckesser W, Bright J, {van der Walt} S~J, Brett M, Wilson J, Millman K~J, Mayorov N, Nelson A~R~J, Jones E, Kern R, Larson E, Carey C~J, Polat {\.I}, Feng Y, Moore E~W, {VanderPlas} J, Laxalde D, Perktold J, Cimrman R, Henriksen I, Quintero E~A, Harris C~R, Archibald A~M, Ribeiro A~H, Pedregosa F, {van Mulbregt} P \harvardand\ {SciPy 1.0 Contributors}  2020 {\em Nature Methods} {\bf 17},~261--272.

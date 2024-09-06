@@ -127,6 +127,8 @@ Main belt asteroids have typical inclinations of \qtyrange{0}{30}{\degree} \cite
 Asteroids can be grouped into families based on clustering of the proper orbital elements and similarities in their colour or spectra \citep{Nesvorny2015}. 
 These families are named for their largest member.  
 
+%TODO YORP spin up
+
 Understanding the rotation properties of asteroids has long been of interest to astronomers \citep[e.g.][for early work into the limits of rotation period and the tumbling nature of some small bodies]{Weidenschilling1981,Harris1994}. 
 This is still at the forefront of research, with more lightcurves being published year-on-year \citep{Harris2015}. 
 This will only increase with more large survey telescopes coming online soon, such as the Legacy Survey of Space and Time \citep[LSST][]{LSST2019}, the number of new asteroids that are well characterised will increase by more than 2 orders of magnitude on the Sloan Digital Sky Survey \citep[SDSS][]{York2000} which had $\sim 88000$ objects \citet{Parker2008}. 
@@ -224,7 +226,7 @@ Following \citet{McNeill2023}, any fluxes more than $3\sigma$ from the mean valu
  
 
 
-\subsection*{Period detection}\label{SubSec:Periods}
+\subsection{Period detection}\label{SubSec:Periods}
 
 %Periods and amplitueds for everything detected
 
@@ -239,7 +241,7 @@ The Lomb-Scargle periodogram deals with this uneven sampling much better than ei
 There are a few different implementations of a Lomb-Scargle periodogram available in world of astronomy python packages.
 I first tried using the \texttt{Lightkurve} \citep{Lightkurve2018} package built for period analysis of TESS (and Kepler) data of variable stars.
 \texttt{Lightkurve} was easy to use but didn't allow for fine-tuning of the periodogram, or give any model of the curve it produced.
-Peeling back a layer of abstraction and using the Lomb-Scargle periodogram as implemented by \texttt{Astropy}\citep{Astropy2022} was the next option.
+The next option was peeling back a layer of abstraction and using the Lomb-Scargle periodogram as implemented by \texttt{Astropy}\citep[\citet{Astropy2022} but see][for the implementation]{Vanderplas2012,Vanderplas2015}. 
 There were interesting similarities and differences between the packages.
 \texttt{Lightkurve} is based on the \texttt{Astropy} methods, but does not give all the functionality, instead opting to simplify the process.
 \texttt{Astropy} gives a statistic on how confident it is in the detected frequency is, the false alarm probability.

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.26)  5 SEP 2024 17:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.26)  6 SEP 2024 18:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -433,15 +433,15 @@ LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 10
  (/usr/local/texlive/2023/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 ) [1] [2] [3] [4]
-<../Test Code/Testing Figures/interpPos_22_2_3_4.pdf, id=241, 722.7pt x 578.16pt>
+<../Test Code/Testing Figures/interpPos_22_2_3_4.pdf, id=248, 722.7pt x 578.16pt>
 File: ../Test Code/Testing Figures/interpPos_22_2_3_4.pdf Graphic file (type pdf)
 <use ../Test Code/Testing Figures/interpPos_22_2_3_4.pdf>
-Package pdftex.def Info: ../Test Code/Testing Figures/interpPos_22_2_3_4.pdf  used on input line 276.
+Package pdftex.def Info: ../Test Code/Testing Figures/interpPos_22_2_3_4.pdf  used on input line 278.
 (pdftex.def)             Requested size: 486.25761pt x 389.00607pt.
-<../Test Code/Testing Figures/differentFluxes Ruff .pdf, id=242, 867.24pt x 433.62pt>
+<../Test Code/Testing Figures/differentFluxes Ruff .pdf, id=249, 867.24pt x 433.62pt>
 File: ../Test Code/Testing Figures/differentFluxes Ruff .pdf Graphic file (type pdf)
 <use ../Test Code/Testing Figures/differentFluxes Ruff .pdf>
-Package pdftex.def Info: ../Test Code/Testing Figures/differentFluxes Ruff .pdf  used on input line 289.
+Package pdftex.def Info: ../Test Code/Testing Figures/differentFluxes Ruff .pdf  used on input line 291.
 (pdftex.def)             Requested size: 486.25761pt x 243.1299pt.
  [5] [6 <../Test Code/Testing Figures/interpPos_22_2_3_4.pdf>] (./FinalReportDraft.bbl [7 <../Test Code/Testing Figures/differentFluxes Ruff .pdf>]
 Overfull \hbox (78.1715pt too wide) in paragraph at lines 16--18
@@ -454,12 +454,12 @@ Overfull \hbox (78.72647pt too wide) in paragraph at lines 80--82
  []
 
 [10]
-Underfull \hbox (badness 10000) in paragraph at lines 132--134
+Underfull \hbox (badness 10000) in paragraph at lines 140--142
 \T1/cmr/bx/n/10.95 URL: \T1/cmr/m/it/10.95 https://ui.adsabs.harvard.edu/abs/2009Icar..202..134W/abstract ,
  []
 
 
-Overfull \hbox (64.28554pt too wide) in paragraph at lines 139--141
+Overfull \hbox (64.28554pt too wide) in paragraph at lines 147--149
 \T1/cmr/bx/n/10.95 URL: \T1/cmr/m/it/10.95 https://iopscience.iop.org/article/10.1086/301513 https://iopscience.iop.org/article/10.1086/301513/meta 
  []
 
@@ -469,21 +469,21 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `FinalReportDraft.out' has not changed.
-(rerunfilecheck)             Checksum: A86FC19DD46A9969AD799019AB34CCFD;1400.
+(rerunfilecheck)             Checksum: BA6FC7B3DE22E3864D82CF899CDDE853;1541.
  ) 
 Here is how much of TeX's memory you used:
- 14934 strings out of 474137
- 287990 string characters out of 5744488
+ 14943 strings out of 474137
+ 288180 string characters out of 5744488
  1939187 words of memory out of 5000000
- 37027 multiletter control sequences out of 15000+600000
+ 37034 multiletter control sequences out of 15000+600000
  577587 words of font info for 84 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,7n,83p,3951b,1075s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfti1440.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfti2074.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on FinalReportDraft.pdf (12 pages, 499129 bytes).
+Output written on FinalReportDraft.pdf (12 pages, 499959 bytes).
 PDF statistics:
- 505 PDF objects out of 1000 (max. 8388607)
- 340 compressed objects within 4 object streams
- 72 named destinations out of 1000 (max. 500000)
- 115 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 516 PDF objects out of 1000 (max. 8388607)
+ 351 compressed objects within 4 object streams
+ 74 named destinations out of 1000 (max. 500000)
+ 123 words of extra memory for PDF output out of 10000 (max. 10000000)
 
