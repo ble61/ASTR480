@@ -23,6 +23,8 @@ plt.rcParams.update({
 
 def detect_period_lk(times, fluxes, fluxErrs):
     """
+    DEPRICATED
+    
     Calculates the periodogram using LightKurve and returns the period at the max power.
     """
     lc =lk.LightCurve(data=None, time=times, flux=fluxes, flux_err=fluxErrs)
@@ -47,6 +49,8 @@ def detect_period_ap(times, fluxes, plotting = False, knownFreq = None):
     
 
     minFreq = 1/(2*(times.max()-times.min())*u.day).to(u.s)
+    # minFreq = 1e-5/u.s
+
     maxFreq = 1/nyquistP
 
     lsper = lsp((u.Quantity(times, u.day)).to(u.s), fluxes)
@@ -108,7 +112,7 @@ numObser = 3 #*any less than 3 and NaNs come up, or it completely breaks
 #TODO, what should it be for a reliable P
 
 def compute_periods_lk(posDF):
-
+    """DEPRECATED"""
     unqNames = pd.unique(posDF["Name"]) #!name col better
     periodList_lk = []
     badCount = 0
@@ -236,14 +240,6 @@ print("")
 # singleNameLSP(interpLcDF,maxPap["Name"])
 
 
-fig2, ax2 = plt.subplots()
-
-ax2.scatter(allData["Mean COM Flux"], allData["False Alarm Probability"])
-
-ax2.set(xlim=(-10,10))
-
-
-
 # minPlk = lkPer.loc[lkPer["Best Period"].idxmin()]
 minPap = apPer.loc[apPer["Best Period [Seconds]"].idxmin()]
 print("")
@@ -278,7 +274,7 @@ compedPs = pd.DataFrame(inLCDBList, columns=["Name", "Known Period", "Found Peri
 print(compedPs)
 
 
-trialName = "Bernoulli"
+trialName = "Ruff"
 
 try:
     knownFreq = 1/(compedPs.at[compedPs.index[compedPs["Name"]==trialName].values[0],"Known Period"]*60*60)
@@ -321,23 +317,38 @@ matchCut = name_cut(matchesDf, trialName)
 ax.scatter(matchCut["Time"],matchCut["flux"], label="Matched Flux",c="Pink", marker="^")
 
 
-ax.set_ylim(100,800)
+# ax.set_ylim(100,800)
 ax.legend()
 
 
 
 fig2, ax2 = plt.subplots(figsize = (8,6))
 
-magsCSV = pd.read_csv(f"MPC_{trialName}_mags.csv")
+
 
 tessZP = 20.44 #* From Clarinda
+tessZP = 20.6 #* From Clarinda
+
 
 comMags = tessZP - 2.5*np.log10(trialCut["COM Flux"]) #????
 
-ax2.scatter(trialCut["MJD"], comMags, label = "Mag from COM Flux")
-ax2.scatter(magsCSV["Date"], magsCSV["Mag"], label= "MPC mags (G band)")
 
-ax2.set(xlabel="Time [MJD]", ylabel="Mag [?TESS/G?]", ylim=(14.4,15.3))
+detectMags = tessZP - 2.5*np.log10(matchCut["flux"]) 
+
+
+ax2.scatter(trialCut["MJD"], comMags, label = "Mag from COM Flux")
+
+
+
+ax2.scatter(matchCut["Time"], detectMags, label = "Mag from detections flux")
+
+try:
+    magsCSV = pd.read_csv(f"MPC_{trialName}_mags.csv")
+    ax2.scatter(magsCSV["Date"], magsCSV["Mag"]-0.486, label= "MPC mags (G band)")
+except:
+    print(f"MPC mags not avalible for {trialName}")
+
+ax2.set(xlabel="Time [MJD]", ylabel="Mag [T?]")
 ax2.invert_yaxis()
 ax2.legend()
 
@@ -346,7 +357,7 @@ ax2.legend()
 
 #* to get just a few periods of the named asteroid. sensitive to what times you cut
 
-# downCut =trialCut.loc[trialCut.index[(trialCut["MJD"]>=58907.58) & (trialCut["MJD"]<=58908.11)]]
+# downCut =trialCut.loc[trialCut.index[(trialCut["MJD"]>=58900.58) & (trialCut["MJD"]<=58901.11)]]
 
 # detect_period_ap(downCut["MJD"], downCut["Flux"], plotting=True, knownFreq=knownFreq)
 

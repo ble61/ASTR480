@@ -1,10 +1,5 @@
 import numpy as np
-import matplotlib.pyplot as plt
-import numpy as np
 import numpy.typing as npt
-import matplotlib.pyplot as plt
-import matplotlib.colors as mplc
-import matplotlib.cm as mpcm
 import pandas as pd
 from astropy.coordinates import SkyCoord
 from astropy.time import Time
@@ -13,23 +8,9 @@ from astropy import wcs
 from astropy.utils.data import download_file
 from astropy.io import fits
 from astroquery.jplhorizons import Horizons
-import itertools
 from tqdm import tqdm
-from scipy.spatial import KDTree
 
 
-plt.rcParams.update({
-    "font.size": 18,
-    "font.family": "serif",
-    "figure.autolayout": True,
-    "axes.grid": False,
-    # "xtick.minor.visible": True,
-    # "ytick.minor.visible": True,
-})
-
-
-
-timeOffset = 2400000.5
 
 def _Skybotquery(ra, dec, times, radius=10/60, location='C57', cache=False):
     """Returns a list of asteroids/comets given a position and time.
@@ -91,9 +72,9 @@ def _Skybotquery(ra, dec, times, radius=10/60, location='C57', cache=False):
     return df
 
 
-def setupQuery(sector,cam,ccd,cut,dirPath="../OzData/"):
+def _setupQuery(dirPath="../OzData/"):
 
-    fname = f"{dirPath}{sector}_{cam}_{ccd}_{cut}_wcs.fits"
+    fname = f"{dirPath}wcs.fits"
 
     targetWSC = fits.open(fname)[0]
 
@@ -105,7 +86,7 @@ def setupQuery(sector,cam,ccd,cut,dirPath="../OzData/"):
 
     return myTargetPos
 
-def querySB(targetPos: list, qRad: float = 10.0, qLoc: str = "C57", numTimesteps: int = 27, magLim: float = 20.0) -> tuple[pd.DataFrame, npt.ArrayLike]:
+def _querySB(targetPos: list, qRad: float = 10.0, qLoc: str = "C57", numTimesteps: int = 27, magLim: float = 20.0) -> tuple[pd.DataFrame, npt.ArrayLike]:
     """
     Queries SkyBot in a box of width qRad after making a list of the times to query at. returns this timelist after the query has been made and down selected to just the objects brighter than magLim
 
@@ -150,7 +131,8 @@ def querySB(targetPos: list, qRad: float = 10.0, qLoc: str = "C57", numTimesteps
     brightResult = result.loc[result["Mv"] <= magLim].reset_index(drop=True)
 
     brightResult["Name"] = [name.strip() for name in brightResult["Name"]]
-
+    
+    timeOffset = 2400000.5
     brightResult["MJD"] = brightResult["epoch"]-timeOffset
 
     brightResult.drop(columns="epoch", inplace=True)
@@ -163,7 +145,7 @@ def querySB(targetPos: list, qRad: float = 10.0, qLoc: str = "C57", numTimesteps
     return brightResult, timeList
 
 
-def get_properties_Horizons(asteroidsDf, time, loc:str="500@10")->pd.DataFrame:
+def _get_properties_Horizons(asteroidsDf, time, loc:str="500@10")->pd.DataFrame:
     
     eleList = []
 
@@ -200,13 +182,14 @@ def get_properties_Horizons(asteroidsDf, time, loc:str="500@10")->pd.DataFrame:
 
     return astrDfwEle
 
-def find_asteroids(sector,cam,ccd,cut):
 
-    res, timeList = querySB(setupQuery(sector, cam, ccd, cut), numTimesteps=54, qRad=3.05)
+def _find_asteroids(sector,cam,ccd,cut,basePath):
 
-    print(len(np.unique(res["Name"])))
+    res, timeList = _querySB(_setupQuery(basePath), numTimesteps=54, qRad=3.05)
 
-    targetWSC = fits.open(f"../OzData/{sector}_{cam}_{ccd}_{cut}_wcs.fits")[0]
+    wcsFname = f"{basePath}wcs.fits"
+
+    targetWSC = fits.open(wcsFname)[0]
     w = wcs.WCS(targetWSC.header)
     
     coords=SkyCoord(ra = res["RA"], dec = res["Dec"], unit="deg")
@@ -216,51 +199,35 @@ def find_asteroids(sector,cam,ccd,cut):
     #rounds to nearest whole number, which returns #.0 as a float. then int converts. if just int masked, it floors the number, not rounds it.
     xCoord = xCoord.round().astype(int)
     yCoord = yCoord.round().astype(int)
-    
-
     #add X, Y, Fs in
     res["X"] = xCoord
     res["Y"] = yCoord
-
-    fluxBounds = 513
-
+    fluxBounds = 513 #    #give extra space for interploations to work with
     badIds = []
-    badIds+= (np.where((xCoord<-1) | (xCoord>= fluxBounds)| (yCoord<-1) | (yCoord>= fluxBounds))[0].tolist()) #! ugly af, but takes all out of bounds values in X or Y, and gets them into the badIDs
-    #give extra space for interploations to work with
+    badIds+= (np.where((xCoord<-1) | (xCoord>= fluxBounds)| (yCoord<-1) | (yCoord>= fluxBounds))[0].tolist()) #! ugly but takes all out of bounds values in X or Y, and gets them into the badIDs
+    #give extra space for interploations to work with -1 instead of 0
     res.drop(index=badIds, inplace=True)
 
-    interpRes = interplolation_of_pos(res, sector)
-
+    interpRes = _interplolation_of_pos(res,sector,cam,ccd,cut)
     interpRes.drop(columns=["X", "Y"], inplace=True)
 
+    #* Same filter as above, but for interpolations only in the bounds of the cut
     coords=SkyCoord(ra = interpRes["RA"], dec = interpRes["Dec"], unit="deg")
-
     xCoord, yCoord  = w.all_world2pix(coords.ra, coords.dec,0)
-
-    #rounds to nearest whole number, which returns #.0 as a float. then int converts. if just int masked, it floors the number, not rounds it.
     xCoord = xCoord.round().astype(int)
     yCoord = yCoord.round().astype(int)
-    
-
-    #add X, Y, Fs in
     interpRes["X"] = xCoord
     interpRes["Y"] = yCoord
-
-    fluxBounds = 512
-
+    fluxBounds = 512 #more stringent now
     badIds = []
     badIds+= (np.where((xCoord<0) | (xCoord>= fluxBounds)| (yCoord<0) | (yCoord>= fluxBounds))[0].tolist()) #! ugly af, but takes all out of bounds values in X or Y, and gets them into the badIDs
-    #give extra space for interploations to work with
     interpRes.drop(index=badIds, inplace=True)
 
-
-
     unqNames = np.unique(interpRes["Name"])
-    print(len(unqNames))
     propertiesList = []
 
     for name in unqNames:
-        nCut = name_cut(res, name, colName="Name")
+        nCut = _name_cut(res, name, colName="Name")
         numPoints = len(nCut.index)
         avgMv = np.mean(nCut["Mv"]).round(3)
         num = nCut.at[0,"Num"]
@@ -270,23 +237,19 @@ def find_asteroids(sector,cam,ccd,cut):
 
     asteroidPropertiesDf = pd.DataFrame(propertiesList,columns=["Num","Name","Mv(mean)","Class", "Number of Points"])
 
-    withEles = get_properties_Horizons(asteroidPropertiesDf, timeList[0])
+    withEles = _get_properties_Horizons(asteroidPropertiesDf, timeList[0])
 
-    fname = f"asteroids_in_{sector}_{cam}_{ccd}_{cut}_properties"
-    withEles.to_csv(f"{fname}.csv")
-
-
-    return interpRes
+    return interpRes, withEles
 
 
-def name_cut(df, name:str, colName:str="NameMatch"):
+def _name_cut(df, name:str, colName:str="Name"):
     "take a df and gives  only the values where the colName == name"
     toReturn = df.loc[df.index[df[colName]==name]]
     toReturn.reset_index(drop=True, inplace=True)
     return toReturn
 
 
-def interplolation_of_pos(posDf, sector):
+def _interplolation_of_pos(posDf,sector,cam,ccd,cut, basePath):
     
     #* Seems to be sec 27 and 56 when it changes
     #12hr queries constant
@@ -303,21 +266,17 @@ def interplolation_of_pos(posDf, sector):
     dfsList = []
 
 
-    frameTimes = np.load(f"../OzData/sector{sector}_cam{cam}_ccd{ccd}_cut{cut}_of16_Times.npy")
+    frameTimes = np.load(f"{basePath}/sector{sector}_cam{cam}_ccd{ccd}_cut{cut}_of16_Times.npy")
 
     for name in unqNames:
         
-        underSampledPos = name_cut(posDf, name, colName="Name")
+        underSampledPos = _name_cut(posDf, name, colName="Name")
 
         underSampledPos["QueriedPoint"] = np.ones_like(underSampledPos["MJD"])
         minTime = underSampledPos["MJD"].min()
         maxTime = underSampledPos["MJD"].max()
-        deltaTime = maxTime-minTime
 
-        #// TODO interp times at frame times.
-        # interpTimes = np.linspace(minTime,maxTime, int(interpPoints*deltaTime))#linspace to sample
         # #Ra and Dec samples
-
         frameIDs = np.where((frameTimes>=minTime) & (frameTimes<=maxTime))[0]
 
         interpTimes = frameTimes[frameIDs] #*gets IDs and times of frames all at once
@@ -331,19 +290,18 @@ def interplolation_of_pos(posDf, sector):
         concatedDF.reset_index(drop=True, inplace=True)
         concatedDF.ffill(inplace=True) #foward fill mag etc
         
-        #\\TODO remove origonal points...
+        #remove origonal points
         concatedDF.drop(concatedDF[concatedDF["QueriedPoint"] ==1].index, inplace=True)
         concatedDF.drop(columns=["QueriedPoint"], inplace=True)
         
         dfsList.append(concatedDF)
     
-    # print(len(dfsList))
-    interpRes = pd.concat(dfsList) #?puts everything back together
+    interpRes = pd.concat(dfsList) #puts everything back together
     
-    
-    namesAfter =np.unique(interpRes["Name"])
-    # print(len(namesAfter))
-    namesDroped = np.setdiff1d(unqNames, namesAfter) #!names with only 1 point from query will be missed, as there is nothing to interpolate between.
+    # Check number of names after
+    # namesAfter =np.unique(interpRes["Name"])
+
+    # namesDroped = np.setdiff1d(unqNames, namesAfter) #!names with only 1 point from query will be missed, as there is nothing to interpolate between.
 
     # print(namesDroped)
 
@@ -351,63 +309,14 @@ def interplolation_of_pos(posDf, sector):
     interpRes.reset_index(drop=True, inplace=True)
     interpRes.drop(columns=["Class"], inplace=True)
     
-
-
     return interpRes
 
 
-sector = 22
-cam = 1
-ccd =3
-cut = 7
-
-resDf = find_asteroids(sector,cam,ccd,cut)
-# interpDf = interplolation_of_pos(resDf,sector) Interp now done inside of the finding, so lower horizons queries
-fname = f"InterpolatedQuerryResult_{sector}_{cam}_{ccd}_{cut}"
-resDf.to_csv(f"{fname}.csv")
-
-#TODO 
-#//save out df of pos properties name:pos(t,x,y) from interpolations (name repeated)
-#//save out df of name:num:avgMag:a:e:i:H + other properties of asteroid ?known period? 1 row per name. Other file will add found Period, lc properties etc 
-
-
-unqNames = np.unique(resDf["Name"])
-
-numNames = len(unqNames)
-
-
-# unqNames=["Bernoulli"]
-
-# for name in unqNames:
-#     # if np.random.rand()< 1/numNames:
-#     ids = interpDf.index[interpDf["Name"]==name]
-#     nameCut = interpDf.loc[ids]
-#     # timeStart = Time(nameCut["epoch"].min(), format="jd")
-#     # timeEnd = Time(nameCut["epoch"].max(), format="jd")
+def make_asteroid_cat(sector,cam,ccd,cut):
+    basePath = f"./TESSdata/Sector{sector}/Cam{cam}/Ccd{ccd}/Cut{cut}of16/" 
     
-#     # horizQ = Horizons(id = name, epochs = {"start":str(tforHorz(timeStart)), "stop":str(tforHorz(timeEnd)), "step":"30m"}, location= "500@-95")
-#     rasActs = []
-#     decsActs = []
-#     for time in nameCut["MJD"]:
-#         try:
-#             horizQ = Horizons(id = name, epochs =time, location= "500@-95")
-#             eph = horizQ.ephemerides()
-#             rasAct = float(eph["RA"][0])
-#             decsAct = float(eph["DEC"][0])
-#             rasActs.append(rasAct)
-#             decsActs.append(decsAct)
+    res, props= _find_asteroids(sector,cam,ccd,cut, basePath)
 
-#         except Exception as e:
-#             print(e)
+    res.to_csv(f"{basePath}asteroid_interpolated_positions.csv")
 
-#     rasInterp = nameCut["RA"]
-#     decsInterp = nameCut["Dec"]
-
-#     deltaRa = rasActs - rasInterp
-#     deltaDec = decsActs - decsInterp
-#     fig, ax = plt.subplots(1)
-#     ax.set_title(name)
-#     ax.set_xlabel("Delta RA")
-#     ax.set_ylabel("Delta Dec")
-#     ax.scatter(deltaRa, deltaDec, c=nameCut["MJD"], cmap="magma")
-
+    props.to_csv(f"{basePath}asteroid_properties_cat.csv")

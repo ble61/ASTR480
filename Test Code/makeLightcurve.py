@@ -465,6 +465,8 @@ bkgLim = np.mean(medBkgs)
 meanFluxes = []
 stdFluxes = []
 
+numObser = 3
+
 for i,name in enumerate(namesAfter):
     nCut = name_cut(totalLcDf,name,"Name")
     cflux = nCut["COM Flux"] 
@@ -474,7 +476,7 @@ for i,name in enumerate(namesAfter):
     sdev = np.std(cflux)
     stdFluxes.append(sdev)
 
-    if mean - sdev >= bkgLim :
+    if mean - sdev >= bkgLim and len(nCut.index)>=numObser:
         count+=1
         ax.errorbar(i,mean,sdev, markersize=10, capsize=3)
 
