@@ -5,9 +5,9 @@ Currently faking random data.
 
 B Leicester 26/4/24
 
-Last edited 26/4/24
+Last edited 9/9/24
 '''
-
+ 
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -27,12 +27,16 @@ def useKDTree(df1, df2, cols, maxDist:float=0.01,maxTimeSep:float=0.1,k:int=1):
     for c in fts:
         df2[f"{c}Match"]= df1[c].values[indices]
 
+
     df2.rename(columns={'Unnamed: 0Match':"IDMatch"}, inplace=True, errors="raise")
 
     #// TODO compare time at indices returned
     timeInds = df2.index[np.abs((df2["Time"]-df2["TimeMatch"]))<maxTimeSep]
 
+
     df2=df2.loc[timeInds]
+
+
 
     #// TODO take only nearest match for each point
     smallDistInds = df2.index[df2["distToMatch"]<maxDist]
@@ -110,15 +114,15 @@ indexsOfInterest = detectedSourcesAll.index[(detectedSourcesAll["Type"] == "0") 
 
 detectedSources = detectedSourcesAll.loc[indexsOfInterest]
 
-detectedSources["jd"] = detectedSources["mjd"] +2400000.5
+# detectedSources["jd"] = detectedSources["mjd"] +2400000.5
 detectedSources.reset_index(drop=True, inplace=True)
 
 colsToUse = ["RA", "Dec"]
 
-interpRes.rename(columns={"epoch":"Time"}, inplace=True)
+interpRes.rename(columns={"MJD":"Time"}, inplace=True)
 
 
-detectedSources.rename(columns={"ra":"RA", "dec":"Dec", "jd":"Time"}, inplace=True)
+detectedSources.rename(columns={"ra":"RA", "dec":"Dec", "mjd":"Time"}, inplace=True)
 
 matches = useKDTree(df1=interpRes.copy(deep=True), df2=detectedSources.copy(deep=True), cols=colsToUse, maxDist=21/3600, maxTimeSep=0.025)
 
@@ -150,17 +154,19 @@ matches.to_csv(f"./{sector}_{cam}_{ccd}_{cut}_InterpAndDetect_Matches.csv")
 
 unqNames = pd.unique(interpRes["Name"])
 
-obsForDetect=40 #number of observations needed to count a detection
+obsForDetect=3 #number of observations needed to count a detection
 
 
 interpedMv = []
 foundMv = []
 
+astrData = pd.read_csv(f"./asteroids_in_{sector}_{cam}_{ccd}_{cut}_properties.csv")
 
 for name in unqNames:
     indexs= interpRes.index[interpRes["Name"]==name]
     cutItrpDf = interpRes.loc[indexs]
-    avgItrpMv = cutItrpDf["Mv"].mean()
+    avgItrpMv = astrData.loc[astrData.index[astrData["Name"]==name]]["Mv(mean)"]
+    
     interpedMv.append(avgItrpMv) 
 
     resIds = matches.index[matches['NameMatch']==name]
@@ -179,7 +185,7 @@ for name in unqNames:
 
 maxMv = np.ceil(np.max(interpedMv))
 minMv = np.floor(np.min(interpedMv))
-binSize = 0.25
+binSize = 0.5
 nBins = int((maxMv-minMv)//binSize)
 
 
@@ -191,7 +197,15 @@ print(f"The number of matched detections with >= {obsForDetect} observations is 
 
 completenessMvHist = foundMvHist/interpMvHist
 
-plt.stairs(completenessMvHist, itrpBins)
+for i, val in enumerate(completenessMvHist): #*0/0=1
+        if str(val) =="nan": 
+            completenessMvHist[i] = 1
+
+fig,ax = plt.subplots()
+
+ax.stairs(completenessMvHist, itrpBins)
+
+ax.set(xlabel="Mean V Mag", ylabel="Fraction With Matches")
 
 
 
@@ -199,12 +213,12 @@ for name in unqNames:
     nameIDs = matches.index[matches["NameMatch"]==name]
     nameCut = matches.loc[nameIDs]
     
-    if len(nameIDs)> obsForDetect:
-        plt.figure()
-        plt.scatter(nameCut["Time"], nameCut["flux"], label=name)
-        plt.legend()
+    # if len(nameIDs)> obsForDetect:
+    #     plt.figure()
+    #     plt.scatter(nameCut["Time"], nameCut["flux"], label=name)
+    #     plt.legend()
 
-    if name == " Ruff " or name ==" Lincoln " or name ==" 1999 JE82 " or name == " Henry ":
+    if name == "Ruff" or name =="Lincoln" or name =="1999 JE82" or name == "Henry" or name == "Bernoulli":
         nameCut.to_csv(f"./{name}Matches.csv")
 
 

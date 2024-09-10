@@ -275,9 +275,6 @@ def find_asteroids(sector,cam,ccd,cut):
     withEles.to_csv(f"{fname}.csv")
 
 
-
-
-
     return interpRes
 
 
@@ -351,7 +348,7 @@ def interplolation_of_pos(posDf, sector):
 
     #final clean
     interpRes.reset_index(drop=True, inplace=True)
-    interpRes.drop(columns=["Mv","Class"], inplace=True)
+    interpRes.drop(columns=["Class"], inplace=True)
     
 
 

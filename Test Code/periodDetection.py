@@ -6,7 +6,8 @@ import lightkurve as lk
 import astropy.units as u
 from astropy.timeseries import LombScargle as lsp
 
-# %matplotlib widget 
+%matplotlib widget 
+
 
 plt.rcParams.update({
     "font.size": 18,
@@ -68,12 +69,13 @@ def detect_period_ap(times, fluxes, plotting = False, knownFreq = None):
         ax[0].scatter(bestFreq,bestPow, c="gold",marker="*", s=100, label=f"Best Frequency = {bestFreq.round(7)} \nFalse Alarm Probability = {f_a_prob.round(3)}")
 
         if knownFreq is not None:
-            ax[0].axvline(knownFreq, linestyle=":", c="tab:blue")
-            ax[0].axvline(2*knownFreq, linestyle=":", c="tab:purple")
+            ax[0].axvline(knownFreq, linestyle=":", c="tab:blue", label = f"Known F={knownFreq.round(7)}")
+            ax[0].axvline(2*knownFreq, linestyle=":", c="tab:purple", label = f"Known F alias (2*)")
+            ax[0].axvline(0.5*knownFreq, linestyle=":", c="tab:red", label = f"Known F alias (0.5*)")
 
-        ax[0].legend()
-
-        ax[1].set(xlabel="Time [JD]", ylabel="Flux")
+        ax[0].legend(fontsize=10)
+        meanFlux = np.mean(fluxes)
+        ax[1].set(xlabel="Time [JD]", ylabel="Flux")#, ylim=(meanFlux-100, meanFlux+100))
         ax[1].scatter(times, fluxes, label = "Light curve", c="tab:orange", marker = "d", s=10)
         ax[1].plot(t_fit.to(u.day),y_fit, ls="--", c="k", label="Model")
 
@@ -137,7 +139,7 @@ def compute_periods_ap(posDF):
         
         nameProperties = name_cut(astrData, name, colName="Name")
         
-        if nameDf.shape[0]<=numObser or nameProperties["Over Background Limit"][0] ==False:
+        if nameDf.shape[0]<=numObser:# or nameProperties["Over Background Limit"][0] ==False:
             badCount+=1
             # print(f"{badCount}. not enough points (<={numObser}) for {name}")
             continue
@@ -276,7 +278,7 @@ compedPs = pd.DataFrame(inLCDBList, columns=["Name", "Known Period", "Found Peri
 print(compedPs)
 
 
-trialName = "Lincoln"
+trialName = "Bernoulli"
 
 try:
     knownFreq = 1/(compedPs.at[compedPs.index[compedPs["Name"]==trialName].values[0],"Known Period"]*60*60)
@@ -307,11 +309,37 @@ ax.plot(times, model,  linestyle= "--", c="k", label ="Model and found P")
 
 ax.plot(times, np.sin(times*(2*np.pi/(knownP/24)))+np.mean(trialCut["Flux"]), linestyle= "-.", label = "Known P")  
 
-ax.scatter(trialCut["MJD"], trialCut["Flux"],c="tab:orange", marker = "o", s=10, label = "Light Curve")
+ax.scatter(trialCut["MJD"], trialCut["Flux"],c="tab:blue", marker = "o", s=10, label = "Light Curve")
 
-ax.scatter(trialCut["MJD"], trialCut["COM Flux"],c="tab:green", marker = "d", s=10, label = "COM Light Curve")
+ax.scatter(trialCut["MJD"], trialCut["COM Flux"],c="tab:orange", marker = "d", s=10, label = "COM Light Curve")
 
+
+matchesDf = load_matches(sector,cam, ccd, cut)
+
+matchCut = name_cut(matchesDf, trialName)
+
+ax.scatter(matchCut["Time"],matchCut["flux"], label="Matched Flux",c="Pink", marker="^")
+
+
+ax.set_ylim(100,800)
 ax.legend()
+
+
+
+fig2, ax2 = plt.subplots(figsize = (8,6))
+
+magsCSV = pd.read_csv(f"MPC_{trialName}_mags.csv")
+
+tessZP = 20.44 #* From Clarinda
+
+comMags = tessZP - 2.5*np.log10(trialCut["COM Flux"]) #????
+
+ax2.scatter(trialCut["MJD"], comMags, label = "Mag from COM Flux")
+ax2.scatter(magsCSV["Date"], magsCSV["Mag"], label= "MPC mags (G band)")
+
+ax2.set(xlabel="Time [MJD]", ylabel="Mag [?TESS/G?]", ylim=(14.4,15.3))
+ax2.invert_yaxis()
+ax2.legend()
 
 
 

@@ -417,7 +417,7 @@ unqNames = list(pd.unique(res['Name']))
 #* interpolating data. needed so am no doing so many API querries.
 
 dfsList = []
-
+ 
 for i, name in enumerate(unqNames):
     indexs= res.index[res["Name"]==name]
     underSampledPos = res.loc[indexs]
@@ -442,7 +442,7 @@ for i, name in enumerate(unqNames):
 
 
     #interpTimes = np.linspace(minTime,maxTime, int(interpPoints*deltaTime))#linspace to sample #! just use times of frames from cut 
-
+    interpTimes = np.load(f"../OzData/sector{sector}_cam{cam}_ccd{ccd}_cut{cut}_of16_Times.npy")
 
     #Ra and Dec samples
     interpRAs = np.interp(x=interpTimes, xp=underSampledPos["epoch"], fp=underSampledPos["RA"])
@@ -464,7 +464,7 @@ for i, name in enumerate(unqNames):
 interpRes = pd.concat(dfsList) #puts evrything back together
 interpRes.reset_index(drop=True, inplace=True)
 # # interpRes.to_csv(f"./InterpolatedQuerryResult_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.csv")
-interpRes.to_csv(f"./InterpolatedQuerryResult_{sector}_{cam}_{ccd}_{cut}.csv")
+# interpRes.to_csv(f"./InterpolatedQuerryResult_{sector}_{cam}_{ccd}_{cut}.csv")
 
 # posFig = plotExpectedPos(interpRes, times, myTargetPos, magLim=magLim, scaleAlpha=True, saving=True)
 # posFig.savefig(f"./InterpolatedExpectedPositionsPlot_HscaleOn_ra{myTargetPos[0]}_dec{myTargetPos[1]}_t{myTargetPos[2].mjd}_Mv{magLim}.png")

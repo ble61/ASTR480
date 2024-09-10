@@ -23,7 +23,7 @@ from astropy.utils.exceptions import AstropyWarning
 warnings.simplefilter('ignore', category=AstropyWarning)
 warnings.simplefilter('ignore', category=RuntimeWarning)
 
-# %matplotlib widget
+%matplotlib widget
 
 plt.rcParams.update({
     "font.size": 18,
@@ -116,8 +116,6 @@ def sum_fluxes(frames, ys, xs):
         comAppFlux = photTable["aperture_sum"][0]
         comTotal.append(comAppFlux)
         continue
-
-
 
         ymin = comY-down
         ymax = comY+up
@@ -361,6 +359,45 @@ def setupQuery(sector,cam,ccd,cut,dirPath="../OzData/"):
     return myTargetPos
 
 
+def recoveredHist(astrProperties, bkgLim):
+    """Takes the mean and deviation of the fluxes, and compares to a background Limit. A histogram of those greater than the limit is made. If no asteroid is in a mag bin, then 'all' are recovered (i.e. 0/0=1 here)"""
+    
+    fig, ax = plt.subplots()
+
+    magMeans = astrProperties["Mv(mean)"].values
+
+    histRange = (13,20)
+    histBins = 14
+
+    vMagHist = np.histogram(magMeans, range=histRange, bins=histBins)
+
+    overBkgData = np.where((astrProperties["Mean COM Flux"]-astrProperties["STD COM Flux"])>=bkgLim)[0]
+
+    ax.set(xlabel="Mean V mag", ylabel="Fraction recovered")
+    #* Note recovered is when mean-std > bkg, 84% of data above noise floor
+    #* recoverd is 1 when no points in bin anyway. 
+    passedBkgLim = np.where((astrProperties["Mean COM Flux"]-astrProperties["STD COM Flux"])>=bkgLim, True, False)
+
+    # astrProperties["Over Background Limit"] = passedBkgLim
+
+    overBkgMags = magMeans[passedBkgLim]
+
+    overBkgHist = np.histogram(overBkgMags, range=histRange, bins=histBins)
+
+    normedHist = overBkgHist[0]/vMagHist[0]
+
+    #*Here 0/0 = 1, as we aren't losing the asteroids to the mag cut if there aren't any in the bin to beging with
+    for i, val in enumerate(normedHist):
+        if str(val) =="nan": 
+            normedHist[i] = 1
+
+    ax.stairs(normedHist, vMagHist[1])
+
+    return passedBkgLim
+
+
+
+
 #*Global variables
 #TODO take these from an input
 
@@ -399,7 +436,7 @@ namesDroped = np.setdiff1d(unqNames, namesAfter)
 
 # print(namesDroped)
 
-# plotExpectedPos(totalLcDf,frameTimes,setupQuery(sector,cam,ccd,cut))
+plotExpectedPos(totalLcDf,frameTimes,setupQuery(sector,cam,ccd,cut))
 
 
 totalLcDf.to_csv(f"Interps_with_lc_{sector}_{cam}_{ccd}_{cut}.csv")
@@ -448,47 +485,13 @@ astrData.drop(columns = ["Unnamed: 0"], inplace=True)
 astrData["Mean COM Flux"] = meanFluxes
 astrData["STD COM Flux"] = stdFluxes
 
-
-
-
-fig2, ax2 = plt.subplots()
-
-magMeans = astrData["Mv(mean)"].values
-
-histRange = (13,20)
-histBins = 14
-
-vMagHist = np.histogram(magMeans, range=histRange, bins=histBins)
-
-overBkgData = np.where((astrData["Mean COM Flux"]-astrData["STD COM Flux"])>=bkgLim)[0]
-
-ax2.set(xlabel="Mean V mag", ylabel="Fraction recovered")
-#* Note recovered is when mean-std > bkg, 84% of data above noise floor
-#* recoverd is 1 when no points in bin anyway. 
-passedBkgLim = np.where((astrData["Mean COM Flux"]-astrData["STD COM Flux"])>=bkgLim, True, False)
-
-astrData["Over Background Limit"] = passedBkgLim
-
-overBkgMags = magMeans[passedBkgLim]
-
-overBkgHist = np.histogram(overBkgMags, range=histRange, bins=histBins)
-
-normedHist = overBkgHist[0]/vMagHist[0]
-
-
-#*Here 0/0 = 1, as we aren't losing the asteroids to the mag cut if there aren't any in the bin to beging with
-for i, val in enumerate(normedHist):
-    if str(val) =="nan": 
-        normedHist[i] = 1
-
-ax2.stairs(normedHist, vMagHist[1])
+astrData["Over Background Limit"] = recoveredHist(astrData, bkgLim)
 
 
 astrData.to_csv(f"./asteroids_in_{sector}_{cam}_{ccd}_{cut}_properties.csv")
 
 print(count)
 
-kill
 plot_lc_from_name("Bernoulli")
 
 
@@ -552,9 +555,9 @@ for pointID in range(timeCut.index.max()+1):
 
     #Photutils appeture
 
-    # CircularAperture((comX,comY), r=1.5)  
+    thisAp = CircularAperture((comX,comY), r=1.5)  
 
-    photTable = aperture_photometry(reducedFluxes[int(f),:,:],CircularAperture((comX,comY), r=1.5))
+    photTable = aperture_photometry(reducedFluxes[int(f),:,:],thisAp)
 
     comApFlux = photTable["aperture_sum"][0]
     comApSums.append(comApFlux)
@@ -603,6 +606,13 @@ comX = int(x-checkDown+round(com[1]))
 comY = int(y-checkDown+round(com[0]))
 comSum = np.sum(reducedFluxes[int(f), comY-1:comY+2, comX-1:comX+2])
 
+
+thisAp = CircularAperture((x-checkDown+com[1],y-checkDown+com[0]), r=1.5)  
+
+photTable = aperture_photometry(reducedFluxes[int(f),:,:],thisAp)
+
+comApFlux = photTable["aperture_sum"][0]
+
 ax3.imshow(redFluxCut, extent =[x-numPx,x+numPx,y+numPx,y-numPx], vmin=np.percentile(redFluxCut, 3), vmax=np.percentile(redFluxCut,97))
 ax3.scatter(floX,floY, marker="d", c="tab:purple", label=f"Float Coord")
 ax3.scatter(x,y, marker="x", c="tab:red", label=f"Int Coord")
@@ -617,7 +627,7 @@ ax3.plot([x-checkDown,x+checkUp,x+checkUp,x-checkDown,x-checkDown],[y-checkDown,
 #!what it is, when TOP left origin
 ax3.plot([x-1,x+2,x+2,x-1,x-1],[y-1,y-1,y+2,y+2,y-1], c="k", linestyle ="-.", label=f"Sum +2,-1 box \n F= {round(timeCut.at[pointID,'Flux'],1)}") 
 ax3.plot([comX-1,comX+2,comX+2,comX-1,comX-1],[comY-1,comY-1,comY+2,comY+2,comY-1], c="tab:orange",linestyle=":", label=f"COM sum box \n F={round(comSum,1)}")
-
+thisAp.plot(ax = ax3, color = "tab:Green", label = f"Aperture F= {round(comApFlux,1)}")
 
 ax3.legend(fontsize=10)
 ax3.set(xlabel="X", ylabel="Y")
