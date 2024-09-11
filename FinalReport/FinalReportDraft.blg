@@ -1,12 +1,14 @@
-This is BibTeX, Version 0.99d (TeX Live 2023)
+This is BibTeX, Version 0.99d
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: FinalReportDraft.aux
+Reallocating 'name_of_file' (item size: 1) to 10 items.
 The style file: jphysicsB.bst
+Reallocating 'name_of_file' (item size: 1) to 12 items.
 Database file #1: bibfile.bib
-Warning--empty note in TESSELATE
+Warning--empty note in TESSELLATE
 You've used 39 entries,
             2796 wiz_defined-function locations,
-            929 strings with 31030 characters,
+            929 strings with 31033 characters,
 and the built_in function-call counts, 1299403 in all, are:
 = -- 220252
 > -- 18564
