@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1A00.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Product_Document xmlns="http://pds.nasa.gov/pds4/pds/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1A00.xsd">
+  <Identification_Area>
+    <logical_identifier>urn:nasa:pds:neowise_diameters_albedos:document:changelog</logical_identifier>
+    <version_id>2.0</version_id>
+    <title>Dataset change log between V1 and V2</title>
+    <information_model_version>1.10.0.0</information_model_version>
+    <product_class>Product_Document</product_class>
+    <Citation_Information>
+      <author_list>Mainzer, A., Bauer, J., Cutri, R., Grav, T., Kramer, E., Masiero, J., Sonnett, S.,
+and Wright, E.</author_list>
+      <publication_year>2019</publication_year>
+      <description>Details of changes between Version 1 and Version 2 of the NEOWISE diameters and
+albedos archive</description>
+    </Citation_Information>
+  </Identification_Area>
+  <Document>
+    <document_name>Dataset change log between V1 and V2</document_name>
+    <author_list>Mainzer, A.;Bauer, J.;Cutri, R.;Grav, T.;Kramer, E.;Masiero, J.;Sonnett, S.; Wright,
+E.</author_list>
+    <publication_date>2019</publication_date>
+    <Document_Edition>
+      <edition_name>TEXT</edition_name>
+      <language>English</language>
+      <files>1</files>
+      <Document_File>
+        <file_name>changelog.txt</file_name>
+        <document_standard_id>7-Bit ASCII Text</document_standard_id>
+      </Document_File>
+    </Document_Edition>
+  </Document>
+</Product_Document>
+

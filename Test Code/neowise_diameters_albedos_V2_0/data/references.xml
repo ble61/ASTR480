@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1A00.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Product_Observational xmlns="http://pds.nasa.gov/pds4/pds/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1A00.xsd">
+  <Identification_Area>
+    <logical_identifier>urn:nasa:pds:neowise_diameters_albedos:data:references_csv</logical_identifier>
+    <version_id>2.0</version_id>
+    <title>NEOWISE Reference Codes</title>
+    <information_model_version>1.10.0.0</information_model_version>
+    <product_class>Product_Observational</product_class>
+    <Citation_Information>
+      <author_list>Mainzer, A., Bauer, J., Cutri, R., Grav, T., Kramer, E., Masiero, J., Sonnett, S.,
+and Wright, E.</author_list>
+      <publication_year>2019</publication_year>
+      <description>Definition of reference codes used in NEOWISE PDS tables</description>
+    </Citation_Information>
+  </Identification_Area>
+  <Observation_Area>
+    <Time_Coordinates>
+      <start_date_time>2010-01-14Z</start_date_time>
+      <stop_date_time>2016-12-13Z</stop_date_time>
+    </Time_Coordinates>
+    <Primary_Result_Summary>
+      <purpose>Science</purpose>
+      <processing_level>Derived</processing_level>
+      <Science_Facets>
+        <discipline_name>Small Bodies</discipline_name>
+        <facet1>Physical Properties</facet1>
+      </Science_Facets>
+    </Primary_Result_Summary>
+    <Investigation_Area>
+      <name>NEOWISE</name>
+      <type>Mission</type>
+      <Internal_Reference>
+        <lid_reference>urn:nasa:pds:context:investigation:mission.neowise</lid_reference>
+        <reference_type>data_to_investigation</reference_type>
+      </Internal_Reference>
+    </Investigation_Area>
+    <Observing_System>
+      <Observing_System_Component>
+        <name>Wide-Field Infrared Survey Explorer</name>
+        <type>Spacecraft</type>
+        <Internal_Reference>
+          <lid_reference>urn:nasa:pds:context:instrument_host:spacecraft.wise</lid_reference>
+          <reference_type>is_instrument_host</reference_type>
+        </Internal_Reference>
+      </Observing_System_Component>
+      <Observing_System_Component>
+        <name>WISE Camera</name>
+        <type>Instrument</type>
+        <Internal_Reference>
+          <lid_reference>urn:nasa:pds:context:instrument:wise.wise_camera</lid_reference>
+          <reference_type>is_instrument</reference_type>
+        </Internal_Reference>
+      </Observing_System_Component>
+    </Observing_System>
+    <Target_Identification>
+      <name>Multiple Asteroids</name>
+      <type>Asteroid</type>
+    </Target_Identification>
+  </Observation_Area>
+  <Reference_List>
+    <External_Reference>
+      <reference_text>Grav, T., J.M. Bauer, A.K. Mainzer, J.R. Masiero, C.R. Nugent, and 3 others, NEOWISE:
+Observations of the Irregular Satellites of Jupiter and Saturn, Astroph. J. 809, 3,
+doi:10.1088/0004-637X/809/1/3, 2015</reference_text>
+    </External_Reference>
+    <External_Reference>
+      <reference_text>Mainzer, A., T. Grav, J. Bauer, J. Masiero, R.S. McMillan, and 32 others, NEOWISE
+Observations of Near-Earth Objects: Preliminary Results, Astroph. J. 743, 156,
+doi:10.1088/0004-637X/743/2/156, 2011</reference_text>
+    </External_Reference>
+    <External_Reference>
+      <reference_text>Mainzer, A., T. Grav, J. Masiero, J. Bauer, R.M. Cutri, and 5 others, Physical
+Parameters of Asteroids Estimated from the WISE 3-Band Data and NEOWISE
+Post-Cryogenic Survey, Astroph. J. 760, L12, doi:10.1088/2041-8205/760/1/L12, 2012.</reference_text>
+    </External_Reference>
+    <External_Reference>
+      <reference_text>Mainzer, A., J. Bauer, T. Grav, J. Masiero, R.M. Cutri, and 6 others, The Population
+of Tiny Near-Earth Objects Observed by NEOWISE, Astroph. J. 784, 110,
+doi:10.1088/0004-637X/784/2/110, 2014</reference_text>
+    </External_Reference>
+    <External_Reference>
+      <reference_text>Masiero, J.R., A.K. Mainzer, T. Grav, J.M. Bauer, R.M. Cutri, and 13 others, Main
+Belt Asteroids with WISE/NEOWISE. I. Preliminary Albedos and Diameters, Astroph. J.
+741, 68, doi:10.1088/0004-637X/741/2/68, 2011</reference_text>
+    </External_Reference>
+    <External_Reference>
+      <reference_text>Masiero, J.R., A.K. Mainzer, T. Grav, J.M. Bauer, R.M. Cutri, and 2 others,
+Preliminary Analysis of WISE/NEOWISE 3-Band Cryogenic and Post-cryogenic Observations
+of Main Belt Asteroids, Astroph. J. 759, L8, doi:10.1088/2041-8205/759/1/L8, 2012</reference_text>
+    </External_Reference>
+    <External_Reference>
+      <reference_text>Masiero, J.R., T. Grav, A.K. Mainzer, C.R. Nugent, J.M. Bauer, and 2 others,
+Main-belt Asteroids with WISE/NEOWISE: Near-infrared Albedos, Astroph. J. 791, 121,
+doi:10.1088/0004-637X/791/2/121, 2014</reference_text>
+    </External_Reference>
+    <External_Reference>
+      <reference_text>Masiero, J.R., C. Nugent, A.K. Mainzer, E.L. Wright, J.M. Bauer, and 4 others,
+NEOWISE Reactivation Mission Year Three: Asteroid Diameters and Albedos, Astron. J.
+154, 168, doi:10.3847/1538-3881/aa89ec, 2017</reference_text>
+    </External_Reference>
+    <External_Reference>
+      <reference_text>Masiero, J.R., E. Redwing, A.K. Mainzer, J.M. Bauer, R.M. Cutri, and 5 others, Small
+and Nearby NEOs Observed by NEOWISE During the First Three Years of Survey: Physical
+Properties, Astron. J. 156, 60, doi:10.3847/1538-3881/aa89ec, 2018</reference_text>
+    </External_Reference>
+    <External_Reference>
+      <reference_text>Nugent, C.R., A. Mainzer, J. Masiero, J. Bauer, R.M. Cutri, and 5 others, NEOWISE
+Reactivation Mission Year One: Preliminary Asteroid Diameters and Albedos, Astroph.
+J. 814, 117, doi:10.1088/0004-637X/814/2/117, 2015</reference_text>
+    </External_Reference>
+    <External_Reference>
+      <reference_text>Nugent, C.R., A. Mainzer, J. Bauer, R.M. Cutri, E.A. Kramer, and 4 others, NEOWISE
+Reactivation Mission Year Two: Asteroid Diameters and Albedos, Astron. J. 152, 63,
+doi:10.3847/0004-6256/152/3/63, 2016</reference_text>
+    </External_Reference>
+    <External_Reference>
+      <reference_text>Bauer, J. M., A.K. Mainzer, T. Grav, R.G. Walker, J.R. Masiero, and 20 others,
+WISE/NEOWISE Observations of Active Bodies in the Main Belt, Astroph. J. 747, 49,
+doi:10.1088/0004-637X/747/1/49, 2012</reference_text>
+    </External_Reference>
+    <External_Reference>
+      <reference_text>Bauer, J.M., T. Grav, E. Blauvelt, A.K. Mainzer, J.R. Masiero, and 20 others,
+Centaurs and Scattered Disk Objects in the Thermal Infrared: Analysis of WISE/NEOWISE
+Observations, Astroph. J. 773, 22, doi:10.1088/0004-637X/773/1/22, 2013.</reference_text>
+    </External_Reference>
+    <External_Reference>
+      <reference_text>T. Grav, A.K. Mainzer, J. Bauer, J. Masiero, T. Spahr, and 12 others, WISE/NEOWISE
+Observations of the Jovian Trojans: Preliminary Results, Astroph. J. 742, 40,
+doi:10.1088/0004-637X/742/1/40, 2011</reference_text>
+    </External_Reference>
+    <External_Reference>
+      <reference_text>Grav, T., A.K. Mainzer, J. Bauer, J. Masiero, T. Spahr, and 12 others, WISE/NEOWISE
+Observations of the Hilda Population: Preliminary Results, Astroph. J. 744, 197,
+doi:10.1088/0004-637X/744/2/197, 2012</reference_text>
+    </External_Reference>
+    <External_Reference>
+      <reference_text>Grav, T., A.K. Mainzer, J.M. Bauer, J.R. Masiero, C.R. Nugent, WISE/NEOWISE
+Observations of the Jovian Trojan Population: Taxonomy, Astroph. J. 759, 49,
+doi:10.1088/0004-637X/759/1/49, 2012</reference_text>
+    </External_Reference>
+  </Reference_List>
+  <File_Area_Observational>
+    <File>
+      <file_name>references.csv</file_name>
+      <local_identifier>file</local_identifier>
+      <creation_date_time>2018-10-02</creation_date_time>
+    </File>
+    <Table_Delimited>
+      <local_identifier>TABLE</local_identifier>
+      <offset unit="byte">0</offset>
+      <parsing_standard_id>PDS DSV 1</parsing_standard_id>
+      <records>26</records>
+      <record_delimiter>Carriage-Return Line-Feed</record_delimiter>
+      <field_delimiter>Comma</field_delimiter>
+      <Record_Delimited>
+        <fields>3</fields>
+        <groups>0</groups>
+        <Field_Delimited>
+          <name>Ref_code</name>
+          <data_type>UTF8_String</data_type>
+          <description>5-character reference code used in PDS tables</description>
+        </Field_Delimited>
+        <Field_Delimited>
+          <name>ADS_ref</name>
+          <data_type>UTF8_String</data_type>
+          <description>ADS-formatted reference code</description>
+          <Special_Constants>
+            <missing_constant>n/a</missing_constant>
+          </Special_Constants>
+        </Field_Delimited>
+        <Field_Delimited>
+          <name>Full_reference</name>
+          <data_type>UTF8_String</data_type>
+          <description>Full source reference</description>
+        </Field_Delimited>
+      </Record_Delimited>
+    </Table_Delimited>
+  </File_Area_Observational>
+</Product_Observational>
+

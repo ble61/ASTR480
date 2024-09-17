@@ -1,0 +1,21 @@
+Document Collection Contents
+
+The document collection contains documentation files, where available, for 
+this bundle. All document files will have an accompanying label file to 
+describe content and structure.  Label files have the same name as the main 
+document file, with an extension of ".xml".
+
+changelog.txt - Dataset change log between V1 and V2 - Details of changes between Version 1 and Version 2 of the NEOWISE diameters and albedos archive
+
+bundle_description.txt - Bundle description for the neowise_diameters_albedos bundle - A document describing the content and structure of the bundle.
+
+spacecraft.wise.txt - Wide-Field Infrared Survey Explorer - Description document for Wide-Field Infrared Survey Explorer
+
+wise.wise_camera.txt - Description Document for WISE Camera - A description of the WISE Camera instrument
+
+mission.neowise.txt - Description document for NEOWISE - Description document for NEOWISE
+
+AA_Document_Index.txt - Document Index - The file you are reading.
+
+collection_neowise_diameters_albedos_document_inventory.csv - Collection Inventory - An inventory of document products in this collection.
+

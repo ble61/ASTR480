@@ -1,0 +1,175 @@
+Changes implemented between Ver 1 and Ver 2 of the NEOWISE asteroid
+diameter data table:
+
+-For all objects with provisional designations, we have updated their
+ names in all fit tables to reflect the current primary designation as
+ of 4 Sep 2018 as assigned by the MPC and published in the relevant
+ object naming files.  Objects that have been numbered between the
+ previous version and this release have likewise been updated.  
+
+-Physical property tables for near-earth objects and Main Belt
+ asteroids published in Nugent et al. (2016), Masiero et al. (2017),
+ and Masiero et al. (2018) have been added to the appropriate physical
+ property tables.
+
+  New data tables added:
+  - 229 NEO fits from Nugent et al. 2016
+  - 6148 MBA fits from Nugent et al. 2016
+  - 202 NEO fits from Masiero et al. 2017
+  - 6867 MBA fits from Masiero et al. 2017
+  - 116 NEO fits from Masiero et al. 2018
+
+-Due to a typo in the thermal model code output, fit results for
+ objects with fixed beaming parameters were reporting approximations of
+ the error on the beaming parameter, not the actual error used for the
+ Monte Carlo error analysis.  The BEAMING_PARAM_ERR column has been
+ updated to reflect the actual value used for the error analysis.
+
+-In Version 1, a small number of objects appeared in multiple mutually
+ exclusive lists (e.g. Main Belt and Trojan).  This occurred when
+ objects were initially fit with an orbit in one class (usually Main
+ Belt asteroids) and given a designation as such (at which point they
+ were included in analysis of Main Belt asteroids and associated
+ papers), and then later linked by the Minor Planet Center to other
+ observations resulting in a new orbit and new classification.  Orbits
+ where the semimajor axis has changed by more than 1 AU between the
+ time of fitting and the present orbit solution have been noted as
+ such with the label "OrbChange".  In other cases, objects with short
+ arcs that had published orbits in the MPC catalog when the fits were
+ originally produced now no longer have orbits listed by the MPC.
+ These fits have been noted as such with the label "NoOrb".
+
+  Total numbers of objects with changed or removed orbits:
+  - 382 MBAs from Mas11
+  - 7 MBAs from Mas12
+  - 1 Hilda from Gr12a
+  - 4 Trojans from Gra11
+
+-In the Nug15 and Nug16 source papers, the lower limit on perihelion
+ distance for the Main Belt asteroid tables was set to 1.3 AU instead
+ of 1.666 AU.  Additionally, no upper limit on semimajor axis was used
+ for filtering.  Thus, those Main Belt tables contain some non-Main
+ Belt objects.
+
+-Mainzer et al. (2011b) used the NEATM to see whether the surface
+ brightnesses of asteroids and satellites with known diameters could
+ be reproduced in order to verify the calibration of the
+ then-newly-launched WISE mission's bandpasses for extremely red
+ objects. This set of 117 objects was drawn from radar, occultation,
+ and spacecraft data. Those fits have a '-' instead of a 'D' in the
+ model fit code.  Asteroids have red spectral energy distributions
+ (SEDs), and the WISE bandpasses are broad.  Mainzer et al. (2011b)
+ sought to verify that the zeropoints and color corrections derived
+ for the WISE bandpasses from calibrator stars (which are blue) and
+ Active Galactic Nuclei (which tend to be red but can be variable)
+ were appropriate for objects with very red SEDs such as asteroids. To
+ that end, the differences between model and observed magnitudes were
+ plotted vs. the asteroid calibrator objects' sub-solar temperatures
+ when their diameters were held fixed to previously published values
+ in order to verify that the newly derived color corrections worked
+ properly for these asteroids, which are much cooler than stars.
+ These fixed-diameter fits were then included in the fit tables of
+ Masiero et al. (2011) and Mainzer et al. (2011c) to ensure
+ consistency among the NEOWISE team papers.  During the review process
+ for the Mainzer et al. (2011b) paper, the referee requested that the
+ table be restricted to objects with light curve amplitudes <0.3 mag,
+ resulting in the final published table only having 48 listed
+ calibration objects.  Due to a clerical error, the team did not
+ update the other paper tables, resulting in fixed diameters that did
+ not have references to the calibration source.  To better trace the
+ provenance of the diameters used for these fits in this data release,
+ we have created a separate list of all fits that used a fixed
+ diameter, titled "neowise_fixed_diameter_fits", and have included
+ a second reference column to provide the source of the diameter.
+
+-The tabulated values in Ver 1 from Masiero et al. (2014) used an
+ unfiltered table that had not had the selection cuts as specified in
+ the text.  These fits were conducted in the same manner as presented
+ in the paper, but did not meet the criterion of having a fitted
+ infrared albedo in both short wavelength bands to be included in the
+ published table.  Due to this clerical error, 975 fits of 812 objects
+ were inadvertently used in the first PDS release to replace fits from
+ the original Masiero et al. (2011) fits.  We have reverted these fits
+ back to the 2011 values.  Fourteen of these reverted fits used a
+ fixed diameter from an external reference source to better constrain
+ the other model properties.  They are: (2), (13), (36), (46), (53),
+ (54), (84), (105), (134), (313), (336), (345), (2867).  These fits
+ have been moved to the table of fixed diameter fits, and references
+ to the calibration diameter source are included therein.
+
+-For 20 fits from Mainzer et al. (2014), the Fast-Rotating Model of
+ thermal emission was employed.  To better highlight these fits, we
+ replace the 'B' fitted beaming flag with an 'F' signifier instead in
+ the fit code, and list values of the beaming parameter and beaming
+ error as 0.000.  In addition, some objects had incorrect 'I' fit
+ codes listed upon table compilation, which have been fixed.
+
+-Nine objects from Mainzer et al. (2014) were inadvertently left out
+ of the PDS Ver 1 table.  These have been included in Ver 2.
+
+-The tabulated values in Ver 1 from Grav et al. (2012a) of Hilda
+ asteroids did not use the final table presented in the paper due to a
+ clerical error.  Correction of this has resulted in minor changes to
+ the uncertainties on the fitted parameters of most Hilda fits, and
+ the removal of object 2010 MM92 from the table which was not in the
+ final published version of the paper.
+
+-Three objects presented in Ver 1 used names based on MPC-published
+ tracklet linkages that were later found to be in error and corrected
+ by the MPC.  NEOWISE observations of 2010 JE90 were originally linked
+ to 2009 HN14 and published in Ver 1 under that name.  That object has
+ subsequently been numbered, and the tracklet for 2010 JE90 divorced
+ from this object.  2010 JE90 now is a short-arc tracklet with no
+ orbit in the MPC database.  NEOWISE observations of 2010 FH106 were
+ originally linked to 2011 EU61 and published under that name in Ver
+ 1.  Subsequent analysis by the MPC has shown that this tracklet
+ belongs to asteroid (462971).  The physical property fit is now
+ published under the numbered designation, and 2011 EU61 has no
+ associated NEOWISE observations and thus does not appear in the PDS
+ Ver 2 tables.  Two sets of observations for object 2010 OB91 were
+ published in Ver 1.  The observations from Feb 2010 have subsequently
+ been linked to (433458) and the fit to those detections is now
+ published under that name, while the observations from Jul 2010 are
+ correctly listed under that name, but have no orbit in the MPC
+ catalog.  It is possible there are additional broken linkages,
+ however to our knowledge there is no catalog of broken linkages
+ publicly supplied by the MPC to allow us to perform a comprehensive
+ search.
+
+References:
+
+Grav, T., Mainzer, A., Bauer, J., et al., 2012a, "WISE/NEOWISE
+Observations of the Jovian Trojan Population: Taxonomy", ApJ, 759, 49.
+
+Mainzer, A., Grav, T., Masiero, J., et al., 2011b, "Thermal Model
+Calibration for Minor Planets Observed with Wide-field Infrared Survey
+Explorer/NEOWISE", ApJ, 736, 100.
+
+Mainzer, A., Grav, T., Bauer, J., et al., 2011c, "NEOWISE observations
+of Near-Earth Objects: Preliminary Results", ApJ, 743, 156.
+
+Mainzer, A., Bauer, J. Grav, T., et al., 2014, "The Population of Tiny
+Near-Earth Objects Observed by NEOWISE", ApJ, 784, 110.
+
+Masiero, J., Mainzer, A., Grav, T., et al., 2011, "Main Belt Asteroids
+with WISE/NEOWISE. I. Preliminary Albedos and Diameters", ApJ, 741,
+68.
+
+Masiero, J., Grav, T., Mainzer, A., et al., 2014, "Main-belt Asteroids
+with WISE/NEOWISE: Near-infrared albedos", 791, 121.
+
+Masiero, J., Nugent, C., Mainzer, A., et al., 2017, "NEOWISE
+Reactivation Mission Year Three: Asteroid Diameters and Albedos", AJ,
+154, 168.
+
+Masiero, J., Redwing, E., Mainzer, A., et al., 2018, "Small and Nearby
+NEOs Observed by NEOWISE During the First Three Years of Survey:
+Physical Properties", AJ, 156, 60.
+
+Nugent, C., Mainzer, A., Masiero, J., et al., 2015, "NEOWISE
+Reactivation Mission Year One: Preliminary Asteroid Diameters and
+Albedos", ApJ, 814, 117.
+
+Nugent, C., Mainzer, A., Bauer, J., et al., 2016, "NEOWISE
+Reactivation Mission Year Two: Asteroid Diameters and Albedos", AJ,
+152, 63.

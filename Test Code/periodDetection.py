@@ -6,6 +6,8 @@ import lightkurve as lk
 import astropy.units as u
 from astropy.timeseries import LombScargle as lsp
 
+import nifty_ls
+
 %matplotlib widget 
 
 
@@ -48,18 +50,21 @@ def detect_period_ap(times, fluxes, plotting = False, knownFreq = None):
         nyquistP = 400*u.s   # 200 s ffi
     
 
+
+    centredFlux = fluxes - np.mean(fluxes)
+
     minFreq = 1/(2*(times.max()-times.min())*u.day).to(u.s)
     # minFreq = 1e-5/u.s
 
     maxFreq = 1/nyquistP
 
-    lsper = lsp((u.Quantity(times, u.day)).to(u.s), fluxes)
-    freqs, powers = lsper.autopower(minimum_frequency=minFreq, maximum_frequency=maxFreq)
+    lsper = lsp((u.Quantity(times, u.day)).to(u.s), centredFlux)
+    freqs, powers = lsper.autopower(minimum_frequency=minFreq, maximum_frequency=maxFreq, method="fastnifty")
     bestPow = np.max(powers)
     bestFreq = freqs[np.argmax(powers)]
 
     t_fit=(np.linspace(times.min(),times.max(),1000)*u.day).to(u.s)
-    y_fit = lsper.model(t_fit, bestFreq)
+    y_fit = lsper.model(t_fit, bestFreq) + np.mean(fluxes)
     modelParams = lsper.model_parameters(bestFreq)
     f_a_prob = lsper.false_alarm_probability(np.max(powers),samples_per_peak=50, minimum_frequency=minFreq, maximum_frequency=maxFreq)
 
@@ -208,26 +213,37 @@ numPerap = len(apPer.index)
 # print(badCountlk, numPerlk)
 print(badCountap, numPerap)
 
-fig, ax = plt.subplots()
-# ax.errorbar(lkPer.index, lkPer["Best Period"], fmt=".", c="tab:blue", capsize = 2, label="Lightkurve")
-
-#! Not error in period, but level of uncertanty due to f_a_Prob
-ax.errorbar(apPer.index, apPer["Best Period [Days]"], apPer["False Alarm Probability"]*10, fmt=".",c="tab:orange", capsize=2, label="All")
-
-bigPowLim = 0.2
-
-bigPows = apPer.iloc[apPer.index[apPer["Max Power"] > bigPowLim]]
 
 
-#?WHY DO I HAVE TO DO THIS????
-ids = bigPows.index.values
-peri = bigPows["Best Period [Days]"].values
-falAP = bigPows["False Alarm Probability"].values*10
-ax.errorbar(ids, peri, falAP, fmt=".",c="tab:blue", capsize=2, label=f"Max Power >{bigPowLim}")
 
-ax.set_ylabel("Period [days]")
-ax.set_xlabel("Index")
-ax.legend()
+
+#* period vs index
+# fig, ax = plt.subplots()
+# # ax.errorbar(lkPer.index, lkPer["Best Period"], fmt=".", c="tab:blue", capsize = 2, label="Lightkurve")
+
+# #! Not error in period, but level of uncertanty due to f_a_Prob
+# ax.errorbar(apPer.index, apPer["Best Period [Days]"], apPer["False Alarm Probability"]*10, fmt=".",c="tab:orange", capsize=2, label="All")
+
+# bigPowLim = 0.2
+
+# bigPows = apPer.iloc[apPer.index[apPer["Max Power"] > bigPowLim]]
+
+
+# #?WHY DO I HAVE TO DO THIS????
+# ids = bigPows.index.values
+# peri = bigPows["Best Period [Days]"].values
+# falAP = bigPows["False Alarm Probability"].values*10
+# ax.errorbar(ids, peri, falAP, fmt=".",c="tab:blue", capsize=2, label=f"Max Power >{bigPowLim}")
+
+# ax.set_ylabel("Period [days]")
+# ax.set_xlabel("Index")
+# ax.legend()
+
+
+
+
+
+
 
 
 # maxPlk = lkPer.loc[lkPer["Best Period"].idxmax()]
@@ -282,6 +298,7 @@ except:
     knownFreq=None
 
 
+
 singleNameLSP(interpLcDF,trialName, knownFreq)
 
 trialCut = name_cut(interpLcDF, trialName, colName="Name")
@@ -303,9 +320,9 @@ model = model_from_params(theta=theta, times=times, period=foundP/24, avgFlux=np
 ax.plot(times, model,  linestyle= "--", c="k", label ="Model and found P")
 
 
-ax.plot(times, np.sin(times*(2*np.pi/(knownP/24)))+np.mean(trialCut["Flux"]), linestyle= "-.", label = "Known P")  
+ax.plot(times, np.sin(times*(2*np.pi/(knownP/24)))+np.mean(trialCut["COM Flux"]), linestyle= "-.", label = "Known P")  
 
-ax.scatter(trialCut["MJD"], trialCut["Flux"],c="tab:blue", marker = "o", s=10, label = "Light Curve")
+# ax.scatter(trialCut["MJD"], trialCut["Flux"],c="tab:blue", marker = "o", s=10, label = "Light Curve")
 
 ax.scatter(trialCut["MJD"], trialCut["COM Flux"],c="tab:orange", marker = "d", s=10, label = "COM Light Curve")
 
@@ -314,43 +331,71 @@ matchesDf = load_matches(sector,cam, ccd, cut)
 
 matchCut = name_cut(matchesDf, trialName)
 
-ax.scatter(matchCut["Time"],matchCut["flux"], label="Matched Flux",c="Pink", marker="^")
+# ax.scatter(matchCut["Time"],matchCut["flux"], label="Matched Flux",c="Pink", marker="^")
+
+
+
+def sineFunc(t,freq,amp):
+    return amp*np.sin(2*np.pi*(freq*t))
+
+import scipy.optimize
+
+
+
+guessParams=[24/foundP,1]
+print(guessParams)
+popt, pcov =scipy.optimize.curve_fit(sineFunc, trialCut["MJD"], trialCut["COM Flux"]-np.mean(trialCut["COM Flux"]), guessParams)
+
+
+# popt, pcov =scipy.optimize.curve_fit(sineFunc, trialCut["MJD"], trialCut["COM Flux"])
+
+print(popt)
+
+perr = np.sqrt(np.diag(pcov))
+
+print(perr)
+
+
+times = np.linspace(trialCut["MJD"].min(), trialCut["MJD"].max(), 1000)
+sineFluxes = sineFunc(times,*popt)
+
+ax.plot(times, sineFluxes +np.mean(trialCut["COM Flux"]), label="CurveFit to COM", c="green", linestyle="-")
 
 
 # ax.set_ylim(100,800)
 ax.legend()
 
+#*MAGS
 
-
-fig2, ax2 = plt.subplots(figsize = (8,6))
-
-
-
-tessZP = 20.44 #* From Clarinda
-tessZP = 20.6 #* From Clarinda
-
-
-comMags = tessZP - 2.5*np.log10(trialCut["COM Flux"]) #????
-
-
-detectMags = tessZP - 2.5*np.log10(matchCut["flux"]) 
-
-
-ax2.scatter(trialCut["MJD"], comMags, label = "Mag from COM Flux")
+# fig2, ax2 = plt.subplots(figsize = (8,6))
 
 
 
-ax2.scatter(matchCut["Time"], detectMags, label = "Mag from detections flux")
+# tessZP = 20.44 #* From Clarinda
+# tessZP = 20.6 #* From Clarinda
 
-try:
-    magsCSV = pd.read_csv(f"MPC_{trialName}_mags.csv")
-    ax2.scatter(magsCSV["Date"], magsCSV["Mag"]-0.486, label= "MPC mags (G band)")
-except:
-    print(f"MPC mags not avalible for {trialName}")
 
-ax2.set(xlabel="Time [MJD]", ylabel="Mag [T?]")
-ax2.invert_yaxis()
-ax2.legend()
+# comMags = tessZP - 2.5*np.log10(trialCut["COM Flux"]) #????
+
+
+# detectMags = tessZP - 2.5*np.log10(matchCut["flux"]) 
+
+
+# ax2.scatter(trialCut["MJD"], comMags, label = "Mag from COM Flux")
+
+
+
+# ax2.scatter(matchCut["Time"], detectMags, label = "Mag from detections flux")
+
+# try:
+#     magsCSV = pd.read_csv(f"MPC_{trialName}_mags.csv")
+#     ax2.scatter(magsCSV["Date"], magsCSV["Mag"]-0.486, label= "MPC mags (G band)")
+# except:
+#     print(f"MPC mags not avalible for {trialName}")
+
+# ax2.set(xlabel="Time [MJD]", ylabel="Mag [T?]")
+# ax2.invert_yaxis()
+# ax2.legend()
 
 
 

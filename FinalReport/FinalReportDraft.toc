@@ -1,0 +1,21 @@
+\babel@toc {english}{}\relax 
+\contentsline {section}{Declaration}{i}{Doc-Start}%
+\contentsline {section}{Abstract}{ii}{Doc-Start}%
+\contentsline {section}{List of Figures}{iv}{section*.1}%
+\contentsline {section}{List of Tables}{v}{section*.2}%
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
+\contentsline {subsection}{\numberline {1.1}TESS}{1}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Asteroids}{2}{subsection.1.2}%
+\contentsline {section}{\numberline {2}Methods}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Querrying Databases}{3}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Interpolation}{4}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Detection Matching}{4}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Ligthcurves}{5}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Period detection}{6}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Asteroid Statistics}{6}{subsection.2.6}%
+\contentsline {section}{\numberline {3}Results}{7}{section.3}%
+\contentsline {section}{\numberline {4}Discussion}{7}{section.4}%
+\contentsline {section}{\numberline {5}Conclusion}{7}{section.5}%
+\contentsline {section}{\numberline {6}Figures}{7}{section.6}%
+\contentsline {section}{Acknowledgements}{9}{section*.7}%
+\contentsline {section}{References}{9}{section*.7}%

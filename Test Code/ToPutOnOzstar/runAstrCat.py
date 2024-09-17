@@ -1,5 +1,7 @@
 from asteroidCatalouge import make_asteroid_cat
 import numpy as np
+from itertools import product
+
 
 thisSector = 22
 
@@ -13,7 +15,24 @@ possibleCams = [1]
 possibleCCDs = [3]
 possibleCuts = [7]
 
-for i in  possibleCams:
-    for j in possibleCCDs:
-        for k in possibleCuts:
-            make_asteroid_cat(thisSector,i,j,k)
+# for i in  possibleCams:
+#     for j in possibleCCDs:
+#         for k in possibleCuts:
+#             print(thisSector,i,j,k)
+#             
+
+
+from multiprocessing import Pool
+# import time
+
+# def thisPrint(sector,cam,ccd,cut):
+#     time.sleep(0.5)
+#     print(sector,cam,ccd,cut)
+
+if __name__ == '__main__':
+    with Pool(12) as p:
+        p.starmap(make_asteroid_cat, product([thisSector],possibleCams,possibleCCDs,possibleCuts))
+        # p.starmap(thisPrint, product([thisSector],possibleCams,possibleCCDs,possibleCuts))
+
+
+

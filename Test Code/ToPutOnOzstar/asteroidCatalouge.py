@@ -9,6 +9,7 @@ from astropy.utils.data import download_file
 from astropy.io import fits
 from astroquery.jplhorizons import Horizons
 from tqdm import tqdm
+import shutil
 
 
 
@@ -45,12 +46,13 @@ def _Skybotquery(ra, dec, times, radius=10/60, location='C57', cache=False):
     url += '-rd={}&'.format(radius)
     url += '-loc={}&'.format(location)
     # TODO add more things here?
-
+    responses = []
     df = None
     times = np.atleast_1d(times)
     for time in tqdm(times, desc='Querying for SSOs'):
         url_queried = url + 'EPOCH={}'.format(time)
         response = download_file(url_queried, cache=cache)
+        responses.append(response)
         if open(response).read(10) == '# Flag: -1':  # error code detected?
             raise IOError("SkyBot Solar System query failed.\n"
                           "URL used:\n" + url_queried + "\n"
@@ -69,7 +71,7 @@ def _Skybotquery(ra, dec, times, radius=10/60, location='C57', cache=False):
     if df is not None:
         # // ! should have inplace=True...
         df.reset_index(drop=True, inplace=True)
-    return df
+    return df, responses
 
 
 def _setupQuery(dirPath="../OzData/"):
@@ -117,7 +119,7 @@ def _querySB(targetPos: list, qRad: float = 10.0, qLoc: str = "C57", numTimestep
     
     while len(result)<numTimesteps: #so if query timesout, it will restart with the cache
         try:
-            result = _Skybotquery(ra_i, dec_i, timeList.jd,
+            result ,responses = _Skybotquery(ra_i, dec_i, timeList.jd,
                           radius=qRad, location=qLoc, cache=True) #timeout throws error, so need to be in try/except to not close
         except:
             continue #restarts query with cache
@@ -142,7 +144,7 @@ def _querySB(targetPos: list, qRad: float = 10.0, qLoc: str = "C57", numTimestep
     brightResult["RA"] = coords.ra.deg
     brightResult["Dec"] = coords.dec.deg
 
-    return brightResult, timeList
+    return brightResult, timeList, responses
 
 
 def _get_properties_Horizons(asteroidsDf, time, loc:str="500@10")->pd.DataFrame:
@@ -185,7 +187,7 @@ def _get_properties_Horizons(asteroidsDf, time, loc:str="500@10")->pd.DataFrame:
 
 def _find_asteroids(sector,cam,ccd,cut,basePath):
 
-    res, timeList = _querySB(_setupQuery(basePath), numTimesteps=54, qRad=3.05)
+    res, timeList, responses = _querySB(_setupQuery(basePath), numTimesteps=54, qRad=3.05)
 
     wcsFname = f"{basePath}wcs.fits"
 
@@ -208,7 +210,7 @@ def _find_asteroids(sector,cam,ccd,cut,basePath):
     #give extra space for interploations to work with -1 instead of 0
     res.drop(index=badIds, inplace=True)
 
-    interpRes = _interplolation_of_pos(res,sector,cam,ccd,cut)
+    interpRes = _interplolation_of_pos(res,sector,cam,ccd,cut,basePath)
     interpRes.drop(columns=["X", "Y"], inplace=True)
 
     #* Same filter as above, but for interpolations only in the bounds of the cut
@@ -239,7 +241,7 @@ def _find_asteroids(sector,cam,ccd,cut,basePath):
 
     withEles = _get_properties_Horizons(asteroidPropertiesDf, timeList[0])
 
-    return interpRes, withEles
+    return interpRes, withEles, responses
 
 
 def _name_cut(df, name:str, colName:str="Name"):
@@ -312,10 +314,16 @@ def _interplolation_of_pos(posDf,sector,cam,ccd,cut, basePath):
     return interpRes
 
 
+
 def make_asteroid_cat(sector,cam,ccd,cut):
-    basePath = f"./TESSdata/Sector{sector}/Cam{cam}/Ccd{ccd}/Cut{cut}of16/" 
-    
-    res, props= _find_asteroids(sector,cam,ccd,cut, basePath)
+    basePath = f"../TESSdata/Sector{sector}/Cam{cam}/Ccd{ccd}/Cut{cut}of16/" 
+     
+
+    res, props, responses= _find_asteroids(sector,cam,ccd,cut, basePath)
+
+    for respon in responses:
+        shutil.rmtree(respon[:-9])
+
 
     res.to_csv(f"{basePath}asteroid_interpolated_positions.csv")
 

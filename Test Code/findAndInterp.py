@@ -16,6 +16,7 @@ from astroquery.jplhorizons import Horizons
 import itertools
 from tqdm import tqdm
 from scipy.spatial import KDTree
+import shutil
 
 
 plt.rcParams.update({
@@ -67,9 +68,11 @@ def _Skybotquery(ra, dec, times, radius=10/60, location='C57', cache=False):
 
     df = None
     times = np.atleast_1d(times)
+    responses =[]
     for time in tqdm(times, desc='Querying for SSOs'):
         url_queried = url + 'EPOCH={}'.format(time)
         response = download_file(url_queried, cache=cache)
+        responses.append(response)
         if open(response).read(10) == '# Flag: -1':  # error code detected?
             raise IOError("SkyBot Solar System query failed.\n"
                           "URL used:\n" + url_queried + "\n"
@@ -88,7 +91,7 @@ def _Skybotquery(ra, dec, times, radius=10/60, location='C57', cache=False):
     if df is not None:
         # // ! should have inplace=True...
         df.reset_index(drop=True, inplace=True)
-    return df
+    return df, responses
 
 
 def setupQuery(sector,cam,ccd,cut,dirPath="../OzData/"):
@@ -132,19 +135,22 @@ def querySB(targetPos: list, qRad: float = 10.0, qLoc: str = "C57", numTimesteps
     dt = (27/numTimesteps)*u.day  # a dt in days
     # list of times constructed sequentially
     timeList = t_i + dt*np.arange(0, numTimesteps)
-    result = pd.DataFrame()
+    result= pd.DataFrame()
     
-    while len(result)<numTimesteps: #so if query timesout, it will restart with the cache
+    while len(result)==0: #so if query timesout, it will restart with the cache
         try:
-            result = _Skybotquery(ra_i, dec_i, timeList.jd,
+            result, responses = _Skybotquery(ra_i, dec_i, timeList.jd,
                           radius=qRad, location=qLoc, cache=True) #timeout throws error, so need to be in try/except to not close
-        except:
+        except Exception as e:
+            print(e)
             continue #restarts query with cache
 
-        if type(result) != "pandas.core.frame.DataFrame": 
-            #! need something for when no asteroids are in cut.
-            #! else everthing else breaks too. 
+        if str(type(result)) != "<class 'pandas.core.frame.DataFrame'>": 
+            #// ! need something for when no asteroids are in cut.
+            #// ! else everthing else breaks too.
+            result = pd.DataFrame(data =[[np.nan,"There Were No Asteroids",np.nan,np.nan,np.nan,np.nan]], columns = ["Num", "Name", "RA","Dec","Mv","epoch"])
             break #to get out of while
+
     
 
     brightResult = result.loc[result["Mv"] <= magLim].reset_index(drop=True)
@@ -160,7 +166,7 @@ def querySB(targetPos: list, qRad: float = 10.0, qLoc: str = "C57", numTimesteps
     brightResult["RA"] = coords.ra.deg
     brightResult["Dec"] = coords.dec.deg
 
-    return brightResult, timeList
+    return brightResult, timeList, responses
 
 
 def get_properties_Horizons(asteroidsDf, time, loc:str="500@10")->pd.DataFrame:
@@ -202,9 +208,7 @@ def get_properties_Horizons(asteroidsDf, time, loc:str="500@10")->pd.DataFrame:
 
 def find_asteroids(sector,cam,ccd,cut):
 
-    res, timeList = querySB(setupQuery(sector, cam, ccd, cut), numTimesteps=54, qRad=3.05)
-
-    print(len(np.unique(res["Name"])))
+    res, timeList, responses = querySB(setupQuery(sector, cam, ccd, cut), numTimesteps=54, qRad=3.05)
 
     targetWSC = fits.open(f"../OzData/{sector}_{cam}_{ccd}_{cut}_wcs.fits")[0]
     w = wcs.WCS(targetWSC.header)
@@ -256,27 +260,38 @@ def find_asteroids(sector,cam,ccd,cut):
 
 
     unqNames = np.unique(interpRes["Name"])
-    print(len(unqNames))
-    propertiesList = []
 
-    for name in unqNames:
-        nCut = name_cut(res, name, colName="Name")
-        numPoints = len(nCut.index)
-        avgMv = np.mean(nCut["Mv"]).round(3)
-        num = nCut.at[0,"Num"]
-        astrClass = nCut.at[0,"Class"]  
+    if list(unqNames) == []:
+        
+        interpRes = pd.DataFrame(data=[[np.nan,f"There Were No Asteroids in {sector}_{cam}_{ccd}_{cut}",np.nan,np.nan,np.nan,np.nan,np.nan,np.nan,np.nan]], columns = ["Num", "Name","RA","Dec","Mv","MJD","FrameIDs","X","Y"])
 
-        propertiesList.append([num,name,avgMv,astrClass, numPoints])
+        asteroidPropertiesDf = pd.DataFrame([[np.nan,f"There Were No Asteroids in {sector}_{cam}_{ccd}_{cut}",np.nan,np.nan,np.nan,f"There Were No Asteroids in {sector}_{cam}_{ccd}_{cut}",np.nan,np.nan,np.nan, np.nan]],columns=["Num","Name","Mv(mean)","Class", "Number of Points","Name Horizons","a","e","i","H"])
 
-    asteroidPropertiesDf = pd.DataFrame(propertiesList,columns=["Num","Name","Mv(mean)","Class", "Number of Points"])
+        fname = f"asteroids_in_{sector}_{cam}_{ccd}_{cut}_properties"
+        asteroidPropertiesDf.to_csv(f"{fname}.csv")
 
-    withEles = get_properties_Horizons(asteroidPropertiesDf, timeList[0])
+        return interpRes, responses
+    else:
+        propertiesList = []
 
-    fname = f"asteroids_in_{sector}_{cam}_{ccd}_{cut}_properties"
-    withEles.to_csv(f"{fname}.csv")
+        for name in unqNames:
+            nCut = name_cut(res, name, colName="Name")
+            numPoints = len(nCut.index)
+            avgMv = np.mean(nCut["Mv"]).round(3)
+            num = nCut.at[0,"Num"]
+            astrClass = nCut.at[0,"Class"]  
+
+            propertiesList.append([num,name,avgMv,astrClass, numPoints])
+
+        asteroidPropertiesDf = pd.DataFrame(propertiesList,columns=["Num","Name","Mv(mean)","Class", "Number of Points"])
+
+        withEles = get_properties_Horizons(asteroidPropertiesDf, timeList[0])
+
+        fname = f"asteroids_in_{sector}_{cam}_{ccd}_{cut}_properties"
+        withEles.to_csv(f"{fname}.csv")
 
 
-    return interpRes
+        return interpRes, responses
 
 
 def name_cut(df, name:str, colName:str="NameMatch"):
@@ -299,7 +314,6 @@ def interplolation_of_pos(posDf, sector):
     
 
     unqNames = np.unique(posDf["Name"])
-    print(len(unqNames))
     dfsList = []
 
 
@@ -337,34 +351,47 @@ def interplolation_of_pos(posDf, sector):
         
         dfsList.append(concatedDF)
     
-    # print(len(dfsList))
-    interpRes = pd.concat(dfsList) #?puts everything back together
+    if dfsList == []:
+        interpRes = pd.DataFrame(data=[[np.nan,f"There Were No Asteroids in {sector}_{cam}_{ccd}_{cut}",np.nan,np.nan,np.nan,np.nan,np.nan,np.nan,np.nan, np.nan]], columns = ["Num", "Name","RA","Dec","Mv","MJD","FrameIDs","X","Y","Class"])
+    else:
+        interpRes = pd.concat(dfsList) #puts everything back together
     
-    
-    namesAfter =np.unique(interpRes["Name"])
-    # print(len(namesAfter))
-    namesDroped = np.setdiff1d(unqNames, namesAfter) #!names with only 1 point from query will be missed, as there is nothing to interpolate between.
-
+    # namesAfter =np.unique(interpRes["Name"])
+    # namesDroped = np.setdiff1d(unqNames, namesAfter) #!names with only 1 point from query will be missed, as there is nothing to interpolate between.
     # print(namesDroped)
 
     #final clean
     interpRes.reset_index(drop=True, inplace=True)
+ 
     interpRes.drop(columns=["Class"], inplace=True)
-    
+
 
 
     return interpRes
 
 
+# One that breaks [22, 4, 1, 7]
+
 sector = 22
-cam = 1
-ccd =3
+cam = 4
+ccd =1
 cut = 7
 
-resDf = find_asteroids(sector,cam,ccd,cut)
+
+resDf , responses = find_asteroids(sector,cam,ccd,cut)
 # interpDf = interplolation_of_pos(resDf,sector) Interp now done inside of the finding, so lower horizons queries
 fname = f"InterpolatedQuerryResult_{sector}_{cam}_{ccd}_{cut}"
 resDf.to_csv(f"{fname}.csv")
+
+import os
+
+
+
+#TO DELETE CACHE
+# for respon in responses:
+    # shutil.rmtree(respon[:-9])
+
+
 
 #TODO 
 #//save out df of pos properties name:pos(t,x,y) from interpolations (name repeated)

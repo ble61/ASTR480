@@ -1,9 +1,12 @@
-\documentclass[12pt]{article} 
+\documentclass{UCreport} 
 
-\usepackage{natbib,hyperref,graphicx}
+
+
+\usepackage[authoryear,comma,round]{natbib}
+\usepackage{hyperref,graphicx}
 \usepackage[separate-uncertainty=true,multi-part-units=single]{siunitx}
 
-\usepackage[margin=1.5cm, left=3cm ,twoside]{geometry}
+% \usepackage[margin=1.5cm, left=3cm ,twoside]{geometry}
 
 \usepackage[para]{footmisc}
 
@@ -29,21 +32,64 @@
 \newcommand{\omuamua}{\okina Oumuamua }
 
 
-\title{ASTR480 Final Report:\\
-\textit{Asteroids in TESS}
-}
-\author{Brayden Leicester \\ 
-\textit{61352063} \\
-[1ex]\small{Supervisors: Michele Bannister and Ryan Ridden-Harper}
-}
+% \title{ASTR480 Final Report:\\
+% \textit{Asteroids in TESS}
+% }
+% \author{Brayden Leicester \\ 
+% \textit{61352063} \\
+% [1ex]\small{Supervisors: Michele Bannister and Ryan Ridden-Harper}
+% }
 \begin{document}
-\pagenumbering{gobble} %to blank pg # before Contents pg
-%TODO declaration page ????
-%\newpage
-\maketitle
-%*{ as per the report guidelines
-% \newpage
-% \section*{Abstract}
+
+
+
+%----------- Report information ---------
+
+\logo{logos/UC.png}
+\school{\textbf{School of Physical and Chemical Sciences}}
+\course{\textbf{ASTR480}}
+\student{\textbf{Brayden Leicester}}
+\supervisor{Dr Michele Bannister and Dr Ryan Ridden-Harper}
+\ttitle{Asteroids in TESS} %title of the file
+
+
+%----------- Init -------------------
+        
+\buildmargins % display margins
+\buildcover % create the front cover of the document
+
+
+
+%------------ Declaration ----------------
+\pagenumbering{roman}
+\addcontentsline{toc}{section}{Declaration}
+\declaration
+
+I certify that content of this report was mostly my own work.
+\\
+
+My supervisor helped by proofreading the report and offering feedback. \\
+
+Graduate students, X and Y, helped me understand ... \\
+
+The derivation in section 3 was taken from ... \\
+
+\vspace{2cm}
+\begin{centering}
+\textbf{\student}\par
+\end{centering}
+
+\newpage
+
+%------------ Abstract ----------------
+
+\addcontentsline{toc}{section}{Abstract}
+\abstract
+
+This is where the abstract goes. \\
+
+This is the next paragraph.
+
 % %*Background
 
 % %*Methods
@@ -52,16 +98,19 @@
 
 % %*Conclusion
 
-% \newpage
-% \pagenumbering{roman}
-% \tableofcontents
-% \newpage
-% \listoffigures
-% \newpage
-% \listoftables
-% \newpage
-%*}
 \newpage
+%------------ Contents pages ----------------
+
+\toc % creates the table of contents
+
+\addcontentsline{toc}{section}{List of Figures}
+\listoffigures
+\newpage
+\addcontentsline{toc}{section}{List of Tables}
+\listoftables
+\newpage
+
+%------------ Report body ----------------
 \pagenumbering{arabic}
 
 \section{Introduction}\label{Sec:Intro}
@@ -88,14 +137,17 @@ Of interest here is what such a high sampling rate can do for statistic on the a
 For bright asteroids the rotation periods should be able to be easily determined from this vast dataset.
 The shortest FFIs will be able to accurately determine the rotation periods of all but the fastest rotating asteroids, most of which will be too dim to see in the TESS data.
 
-There have been attempts before to find and classify the asteroids in TESS data before.
+There have been attempts to find and classify the asteroids in TESS data before.
 \citet{Pal2018} proposes that TESS will be a good instrument for solar system object study, and simulate some detections down to \nth{20} visual magnitude, but that good photometry should only be expected to $V \lesssim 19$.
+The sentiment of using TESS in this way is shared by \citet{Wong2019}.
 The first data release in \citet{Pal2020} catalogues nearly 10,000 asteroid light curves from the first year of TESS operation, and they report that they triple the number of asteroids with accurate rotation periods.
 \citet{McNeill2023} also analyse TESS cycle 1, and detect almost 38,000 objects.
-They determine reliable rotation periods for about 3,500 asteroids in this sample, and show lack of reliability for objects with periods less than \qty{3}{\hour}.
+They determine reliable rotation periods for about 3,500 asteroids in this sample and show a lack of reliability for objects with periods less than \qty{3}{\hour}.
 In the overlap from the data from \citet{Pal2020}, \citeauthor{McNeill2023} find good agreement between the two sets of periods and amplitudes.
+The Minor Planet Center (MPC) gets regular updates from TESS thanks to the work of \citet{Woods2021} and their \texttt{LINEAR-TESS} program, which creates tracklets of objects over a day, and then stitches these together to form a track of each asteroid through an FFI. 
 \citet{Gowanlock2024} uses TESS photometry as well as  observations by the Zwicky Transient Facility \citep[ZTF, ][]{Bellm2018} to get a longer baseline on mutually observed objects while combining ground and space based observations.
 There were not very many objects in both samples with known periods for comparison, with only 222 objects analysed, however they demonstrate that the technique is effective.
+Fainter and unknown solar system objects can be found by shift and stacking \citep{Holman2019, Payne2019,Rice2020} or taking a fast X-ray transform \citep{Nguyen2024} of the FFI data. 
 
 This work aims to extend these studies to more sectors, hence characterising more asteroids.
 The aim is to get a volume complete set of asteroid lightcurves and periods, by analysis of the whole sky as seen by TESS using data from more than just the first year of TESS's operation.
@@ -138,7 +190,7 @@ Work is being done to understand the biases of how  asymmetric shape high amplit
 For the smallest objects ingenious observation techniques are employed to measure rotation periods such as intentionally streaking the asteroid down a column of pixel on a detector, and making the lightcurve from the streak, as done by \citet{Bolin2023}.
 
 Because of such a rich history of study, many asteroids have a known rotation period.
-These are catalogued by \citet{Warner2009} %TODO updated in citation
+These are catalogued by \citet{Warner2009} %TODO updated in citation http://www.MinorPlanet.info/php/lcdb.php
 in the Light Curve Database (LCDB).
 %TODO fig of period vs diameter.   
 In the October \nth{1} 2023 release, the LCDB has nearly 9000 objects with periods determined to a quality code $U\geq 2-$, which is the minimum reliability recommended by \citeauthor{Warner2009} for statistical analysis.
@@ -161,16 +213,25 @@ With the full sky survey of bright asteroids, we hope to find many asteroids wit
 
 \section{Methods}\label{Sec:Meth}
 
+
+% \begin{table}
+%   \caption[Tab1]{My table}
+
+% \end{table}
+
+
+
+
 \subsection{Querrying Databases}\label{SubSec:Querry}
 
 To check for asteroids in the TESS data, the positions of the asteroids with time are required.
 For most asteroids, their orbital elements are well known, so it is a matter of looking them up and cross-matching with transients in the TESS data.
-Python was used to make API calls to {Skybot}\footnote{\href{https://vo.imcce.fr/webservices/skybot/}{Skybot: https://vo.imcce.fr/webservices/skybot/}} to get positions of asteroids in a cone search box in right ascension (RA) and  declination (Dec) space.
+Python was used to make API calls to {Skybot}\footnote{\href{https://vo.imcce.fr/webservices/skybot/}{Skybot: https://vo.imcce.fr/webservices/skybot/}} \citep{Berthier2006} to get positions of asteroids in a cone search box in right ascension (RA) and  declination (Dec) space.
 As TESS sectors are \qty{27}{\day} long, querying every \qty{12}{\hour} is manageable.
 These positions are still very sparsely spaced in time compared to the TESS data, so an interpolation is needed to bridge the gap.
 
 Knowing where the asteroids are is helpful for finding them in the archival TESS data, but knowing more about the individual asteroids is also useful for population statistics.
-  {JPL Horizons}\footnote{\href{https://ssd.jpl.nasa.gov/horizons/}{JPL Horizons: https://ssd.jpl.nasa.gov/horizons/}} was used to obtain the orbital elements of each asteroid, $a$, $e$, and $i$, as well as an absolute magnitude $H$, which is a good proxy for size (as discussed above). %TODO ref
+The API of {JPL Horizons}\footnote{\href{https://ssd.jpl.nasa.gov/horizons/}{JPL Horizons: https://ssd.jpl.nasa.gov/horizons/}} was used to obtain the orbital elements of each asteroid, $a$, $e$, and $i$, as well as an absolute magnitude $H$, which is a good proxy for size (as discussed above). %TODO ref
 
 
 
@@ -318,14 +379,19 @@ Breaking the average V mag of these objects into \qty{0.5}{\mag} bins for both t
 \newpage %! Page number above here must be <=25
 
 \section*{Acknowledgements}
+\addcontentsline{toc}{section}{Acknowledgements}
 %OzSTAR asks for:
 \small
 This work was performed on the OzSTAR national facility at Swinburne University of Technology.
 The OzSTAR program receives funding in part from the Astronomy National Collaborative Research Infrastructure Strategy (NCRIS) allocation provided by the Australian Government, and from the Victorian Higher Education State Investment Fund (VHESIF) provided by the Victorian Government.
 
+This research has made use of data and/or services provided by the International Astronomical Union's Minor Planet Center.
+
+This work has used data and/or services provided by NASA's Solar System Dynamics website, https://ssd.jpl.nasa.gov/. Specifically JPL Horizons: https://ssd.jpl.nasa.gov/horizons/
 
 %*Bib
-\bibliographystyle{jphysicsB}
+\addcontentsline{toc}{section}{References}
+% \bibliographystyle{jphysicsB}
 \bibliography{bibfile.bib}
 \end{document}
 
