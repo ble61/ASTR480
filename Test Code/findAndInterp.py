@@ -183,6 +183,7 @@ def get_properties_Horizons(asteroidsDf, time, loc:str="500@10")->pd.DataFrame:
             e = elements["e"].value[0]
             i = elements["incl"].value[0]
             H = elements["H"].value[0]
+            #? phaseAng = elements["alpha"].value[0]
 
         except Exception as ex:
             print(f"{name} failed horizons check because:\n {ex}")
@@ -190,6 +191,7 @@ def get_properties_Horizons(asteroidsDf, time, loc:str="500@10")->pd.DataFrame:
             e = np.NaN
             i = np.NaN
             H = np.NaN
+            # phaseAng = np.NaN
 
         #TODO lcdb querry
         #lcdbQ = querryfunc()...
@@ -285,7 +287,7 @@ def find_asteroids(sector,cam,ccd,cut):
 
         asteroidPropertiesDf = pd.DataFrame(propertiesList,columns=["Num","Name","Mv(mean)","Class", "Number of Points"])
 
-        withEles = get_properties_Horizons(asteroidPropertiesDf, timeList[0])
+        withEles = get_properties_Horizons(asteroidPropertiesDf, timeList[0],"500@-95")
 
         fname = f"asteroids_in_{sector}_{cam}_{ccd}_{cut}_properties"
         withEles.to_csv(f"{fname}.csv")

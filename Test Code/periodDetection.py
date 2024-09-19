@@ -54,7 +54,10 @@ def detect_period_ap(times, fluxes, plotting = False, knownFreq = None):
     centredFlux = fluxes - np.mean(fluxes)
 
     minFreq = 1/(2*(times.max()-times.min())*u.day).to(u.s)
-    # minFreq = 1e-5/u.s
+    
+    minFreq = 1e-5/u.s
+
+    # minFreq = 1/(1468800*u.s)
 
     maxFreq = 1/nyquistP
 
@@ -113,7 +116,7 @@ def name_cut(df, name:str, colName:str="NameMatch"):
     toReturn.reset_index(drop=True, inplace=True)
     return toReturn
 
-numObser = 3 #*any less than 3 and NaNs come up, or it completely breaks
+numObser = 50 #*any less than 3 and NaNs come up, or it completely breaks
 #TODO, what should it be for a reliable P
 
 def compute_periods_lk(posDF):
@@ -218,26 +221,27 @@ print(badCountap, numPerap)
 
 
 #* period vs index
-# fig, ax = plt.subplots()
-# # ax.errorbar(lkPer.index, lkPer["Best Period"], fmt=".", c="tab:blue", capsize = 2, label="Lightkurve")
+fig, ax = plt.subplots()
+# ax.errorbar(lkPer.index, lkPer["Best Period"], fmt=".", c="tab:blue", capsize = 2, label="Lightkurve")
 
-# #! Not error in period, but level of uncertanty due to f_a_Prob
-# ax.errorbar(apPer.index, apPer["Best Period [Days]"], apPer["False Alarm Probability"]*10, fmt=".",c="tab:orange", capsize=2, label="All")
+#! Not error in period, but level of uncertanty due to f_a_Prob
 
-# bigPowLim = 0.2
+ax.errorbar(apPer.index.values, apPer["Best Period [Days]"].values, apPer["False Alarm Probability"].values*0, fmt=".",c="tab:orange", capsize=2, label="All")
 
-# bigPows = apPer.iloc[apPer.index[apPer["Max Power"] > bigPowLim]]
+bigPowLim = 0.2
+
+bigPows = apPer.iloc[apPer.index[apPer["Max Power"] > bigPowLim]]
 
 
-# #?WHY DO I HAVE TO DO THIS????
-# ids = bigPows.index.values
-# peri = bigPows["Best Period [Days]"].values
-# falAP = bigPows["False Alarm Probability"].values*10
-# ax.errorbar(ids, peri, falAP, fmt=".",c="tab:blue", capsize=2, label=f"Max Power >{bigPowLim}")
+#?WHY DO I HAVE TO DO THIS????
+ids = bigPows.index.values
+peri = bigPows["Best Period [Days]"].values
+falAP = bigPows["False Alarm Probability"].values*10
+ax.errorbar(ids, peri, falAP, fmt=".",c="tab:blue", capsize=2, label=f"Max Power >{bigPowLim}")
 
-# ax.set_ylabel("Period [days]")
-# ax.set_xlabel("Index")
-# ax.legend()
+ax.set_ylabel("Period [days]")
+ax.set_xlabel("Index")
+ax.legend()
 
 
 
@@ -290,7 +294,7 @@ compedPs = pd.DataFrame(inLCDBList, columns=["Name", "Known Period", "Found Peri
 print(compedPs)
 
 
-trialName = "Ruff"
+trialName = "Lincoln"
 
 try:
     knownFreq = 1/(compedPs.at[compedPs.index[compedPs["Name"]==trialName].values[0],"Known Period"]*60*60)
@@ -302,10 +306,15 @@ except:
 singleNameLSP(interpLcDF,trialName, knownFreq)
 
 trialCut = name_cut(interpLcDF, trialName, colName="Name")
+try:
+    knownP = compedPs.at[compedPs.index[compedPs["Name"]==trialName].values[0], "Known Period"]
 
-knownP = compedPs.at[compedPs.index[compedPs["Name"]==trialName].values[0], "Known Period"]
+    foundP = compedPs.at[compedPs.index[compedPs["Name"]==trialName].values[0], "Found Period"]
+except:
+    knownP = None
+    foundP = apPer.at[apPer.index[apPer["Name"] == trialName].values[0],"Best Period [Hours]"].value
 
-foundP = compedPs.at[compedPs.index[compedPs["Name"]==trialName].values[0], "Found Period"]
+
 
 theta = apPer.at[apPer.index[apPer["Name"]==trialName].values[0], "Model Parameters"]
 
@@ -319,8 +328,10 @@ model = model_from_params(theta=theta, times=times, period=foundP/24, avgFlux=np
 
 ax.plot(times, model,  linestyle= "--", c="k", label ="Model and found P")
 
-
-ax.plot(times, np.sin(times*(2*np.pi/(knownP/24)))+np.mean(trialCut["COM Flux"]), linestyle= "-.", label = "Known P")  
+try:
+    ax.plot(times, np.sin(times*(2*np.pi/(knownP/24)))+np.mean(trialCut["COM Flux"]), linestyle= "-.", label = "Known P")  
+except:
+    print("No known P")
 
 # ax.scatter(trialCut["MJD"], trialCut["Flux"],c="tab:blue", marker = "o", s=10, label = "Light Curve")
 
@@ -406,5 +417,17 @@ ax.legend()
 
 # detect_period_ap(downCut["MJD"], downCut["Flux"], plotting=True, knownFreq=knownFreq)
 
-# detect_period_ap(downCut["MJD"], downCut["COM Flux"], plotting=True, knownFreq=knownFreq)
+# per, f_a_prob, modelParams, bestPow = detect_period_ap(downCut["MJD"], downCut["COM Flux"], plotting=True, knownFreq=knownFreq)
 
+# guessParams = [1/(per.value/(60*60*24)), np.std(downCut["COM Flux"])]
+
+# popt, pcov =scipy.optimize.curve_fit(sineFunc, downCut["MJD"], downCut["COM Flux"]-np.mean(downCut["COM Flux"]), guessParams)
+
+# figZ, axZ = plt.subplots()
+
+# axZ.scatter(downCut["MJD"], downCut["COM Flux"])
+# axZ.plot()
+# times = np.linspace(downCut["MJD"].min(), downCut["MJD"].max(), 1000)
+# sineFluxes = sineFunc(times,*popt)
+
+# axZ.plot(times, sineFluxes +np.mean(downCut["COM Flux"]), label="CurveFit to COM", c="green", linestyle="-")

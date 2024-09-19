@@ -101,8 +101,14 @@ def sum_fluxes(frames, ys, xs):
         
 
         com = ndimage.center_of_mass(reducedFluxes[int(f),ymin:ymax,xmin:xmax])
-        comX = x-checkDown+com[1]
-        comY = y-checkDown+com[0]
+        if (com[0]>=0) &(com[0]<=7) &(com[1]>=0) & (com[1]<=7): #make sure COM in 7x7 box
+            comX =x-checkDown+com[1]
+            comY = y-checkDown+com[0]
+        else:
+            #reset defaults
+            comX =x
+            comY = y
+        
         
         try:
             comX = int(round(comX))
@@ -117,17 +123,6 @@ def sum_fluxes(frames, ys, xs):
         comTotal.append(comAppFlux)
         continue
 
-        ymin = comY-down
-        ymax = comY+up
-        xmin = comX-down
-        xmax = comX+up
-
-        if ymin < 0: ymin = 0
-        if ymax >= fluxBounds[1]: ymax = fluxBounds[1] -1
-        if xmin < 0: xmin = 0
-        if xmax >= fluxBounds[2]: xmax = fluxBounds[2]-1
-
-        comTotal.append(np.sum(reducedFluxes[int(f),ymin:ymax,xmin:xmax]))
         
 
     return total, comTotal
@@ -419,7 +414,7 @@ print(len(unqNames))
 
 extendedDfList = []
 
-for name in np.unique(interpDF["Name"]):
+for name in unqNames:
     lcRes = lightcurve_from_name(name)
     extendedDfList.append(lcRes)   
 
@@ -494,20 +489,33 @@ astrData.to_csv(f"./asteroids_in_{sector}_{cam}_{ccd}_{cut}_properties.csv")
 
 print(count)
 
-plot_lc_from_name("Bernoulli")
+testName = "1991 RE6"
+
+plot_lc_from_name(testName)
 
 
 #* sawtooth trials
-trialCut = name_cut(totalLcDf,"Bernoulli", colName="Name")
+trialCut = name_cut(totalLcDf,testName, colName="Name")
 
-timeCut = trialCut.loc[np.where((trialCut["MJD"]>=58900.58) & (trialCut["MJD"]<=58901.11))]
+# timeCut = trialCut.loc[np.where((trialCut["MJD"]>=58900.58) & (trialCut["MJD"]<=58901.11))] works for Bernoulli
+
+#Bernoulli
+#minTime = 58900.058
+#maxTime = 58901.11
+
+#Ruff
+minTime = 58916.0
+maxTime = 58916.52
+
+
+timeCut = trialCut.loc[np.where((trialCut["MJD"]>=minTime) & (trialCut["MJD"]<=maxTime))]
 
 timeCut.reset_index(drop=True, inplace=True)
 
 fig, ax = plt.subplots(figsize=(8,6))
 
 ax.scatter(timeCut["MJD"], timeCut["Flux"], label = "Flux from interpolated position")
-ax.set(xlabel="Time [MJD]", ylabel="Flux",ylim=(100,280))
+ax.set(xlabel="Time [MJD]", ylabel="Flux")
 
 fig2, ax2 = plt.subplots(5,5, figsize =(15,15))
 
@@ -522,7 +530,7 @@ w = wcs.WCS(targetWSC.header)
 comSums = []
 comApSums = []
 
-for pointID in range(timeCut.index.max()+1):
+for pointID in range(25):
 
     f = timeCut.at[pointID,"FrameIDs"]
     y =timeCut.at[pointID,"Y"]
@@ -546,13 +554,23 @@ for pointID in range(timeCut.index.max()+1):
     checkUp = 4
     checkDown = 3
     checkBox=reducedFluxes[int(f),y-checkDown:y+checkUp,x-checkDown:x+checkUp]
+    checkBox = np.where(checkBox>=0,checkBox,0)
     ax2[pointID].plot([x-checkDown,x+checkUp,x+checkUp,x-checkDown,x-checkDown],[y-checkDown,y-checkDown,y+checkUp,y+checkUp,y-checkDown], c="tab:green", linestyle =":")
 
     com = ndimage.center_of_mass(checkBox)
-    ax2[pointID].scatter(x-checkDown+com[1], y-checkDown+com[0],marker = "s", s=10,c="tab:green", label="COM")
+    if (com[0]>=0) &(com[0]<=7) &(com[1]>=0) & (com[1]<=7): #make sure COM in 7x7 box
+        comXint = int(x-checkDown+round(com[1]))
+        comYint = int(y-checkDown+round(com[0]))
+        comX =x-checkDown+com[1]
+        comY = y-checkDown+com[0]
+    else:
+        #reset defaults
+        comXint = int(x)
+        comYint = int(y)
+        comX =x
+        comY = y
 
-    comX = x-checkDown+com[1]
-    comY = y-checkDown+com[0]
+    ax2[pointID].scatter(comX, comY,marker = "s", s=10,c="tab:green", label="COM")
 
 
     #Photutils appeture
@@ -564,13 +582,11 @@ for pointID in range(timeCut.index.max()+1):
     comApFlux = photTable["aperture_sum"][0]
     comApSums.append(comApFlux)
 
-
-    comX = int(x-checkDown+round(com[1]))
-    comY = int(y-checkDown+round(com[0]))
-    comSum = np.sum(reducedFluxes[int(f), comY-1:comY+2, comX-1:comX+2])
+    comSum = np.sum(reducedFluxes[int(f), comYint-1:comYint+2, comXint-1:comXint+2])
     comSums.append(comSum)
-    ax2[pointID].scatter(comX+0.5,comY+0.5, label="COM sum centre",c="tab:orange",s=10)
-    ax2[pointID].plot([comX-1,comX+2,comX+2,comX-1,comX-1],[comY-1,comY-1,comY+2,comY+2,comY-1], c="tab:orange",linestyle=":", label=f"COM sum box F={round(comSum,1)}")
+    ax2[pointID].scatter(comXint+0.5,comYint+0.5, label="COM sum centre",c="tab:orange",s=10)
+    ax2[pointID].plot([comXint-1,comXint+2,comXint+2,comXint-1,comXint-1],[comYint-1,comYint-1,comYint+2,comYint+2,comYint-1], c="tab:orange",linestyle=":", label=f"COM sum box F={round(comSum,1)}")
+    thisAp.plot(ax = ax2[pointID], color = "tab:Green", label = f"Aperture F= {round(comApFlux,1)}")
     # ax2[pointID].legend(fontsize=5)
 
 
@@ -582,7 +598,7 @@ ax.legend()
 
 
 numPx = 6
-pointID = 24
+pointID = 20
 
 fig, ax3 = plt.subplots(figsize=(8,8))
 f = timeCut.at[pointID,"FrameIDs"]
@@ -601,15 +617,28 @@ redFluxCut = reducedFluxes[int(f),y-numPx:y+numPx,x-numPx:x+numPx]
 checkUp = 4
 checkDown = 3
 checkBox=reducedFluxes[int(f),y-checkDown:y+checkUp,x-checkDown:x+checkUp]
-
-
+checkBox = np.where(checkBox>=0,checkBox,0)
+print(checkBox)
 com = ndimage.center_of_mass(checkBox)
-comX = int(x-checkDown+round(com[1]))
-comY = int(y-checkDown+round(com[0]))
-comSum = np.sum(reducedFluxes[int(f), comY-1:comY+2, comX-1:comX+2])
+print(com)
+if (com[0]>=0) &(com[0]<=7) &(com[1]>=0) & (com[1]<=7): #make sure COM in 7x7 box
+    comXint = int(x-checkDown+round(com[1]))
+    comYint = int(y-checkDown+round(com[0]))
+    comX =x-checkDown+com[1]
+    comY = y-checkDown+com[0]
+else:
+    #reset defaults
+    comXint = int(x)
+    comYint = int(y)
+    comX =x
+    comY = y
+
+print(comY,comX)
 
 
-thisAp = CircularAperture((x-checkDown+com[1],y-checkDown+com[0]), r=1.5)  
+comSum = np.sum(reducedFluxes[int(f), comYint-1:comYint+2, comXint-1:comXint+2])
+
+thisAp = CircularAperture((comX,comY), r=1.5)  
 
 photTable = aperture_photometry(reducedFluxes[int(f),:,:],thisAp)
 
@@ -620,15 +649,15 @@ ax3.scatter(floX,floY, marker="d", c="tab:purple", label=f"Float Coord")
 ax3.scatter(x,y, marker="x", c="tab:red", label=f"Int Coord")
 ax3.scatter(x+0.5,y+0.5, marker="o", c="k", label=f"{x+0.5},{y+0.5} \n Box centre")
 
-ax3.scatter(x-checkDown+com[1], y-checkDown+com[0],c="tab:green", marker ="s", label="COM (float)")
+ax3.scatter(comX, comY,c="tab:green", marker ="s", label="COM (float)")
 
  
-ax3.scatter(comX+0.5,comY+0.5, label="COM sum centre",c="tab:orange")
+ax3.scatter(comXint+0.5,comYint+0.5, label="COM sum centre",c="tab:orange")
 
 ax3.plot([x-checkDown,x+checkUp,x+checkUp,x-checkDown,x-checkDown],[y-checkDown,y-checkDown,y+checkUp,y+checkUp,y-checkDown], c="tab:green", linestyle =":", label=f"COM check box")
 #!what it is, when TOP left origin
 ax3.plot([x-1,x+2,x+2,x-1,x-1],[y-1,y-1,y+2,y+2,y-1], c="k", linestyle ="-.", label=f"Sum +2,-1 box \n F= {round(timeCut.at[pointID,'Flux'],1)}") 
-ax3.plot([comX-1,comX+2,comX+2,comX-1,comX-1],[comY-1,comY-1,comY+2,comY+2,comY-1], c="tab:orange",linestyle=":", label=f"COM sum box \n F={round(comSum,1)}")
+ax3.plot([comXint-1,comXint+2,comXint+2,comXint-1,comXint-1],[comYint-1,comYint-1,comYint+2,comYint+2,comYint-1], c="tab:orange",linestyle=":", label=f"COM sum box \n F={round(comSum,1)}")
 thisAp.plot(ax = ax3, color = "tab:Green", label = f"Aperture F= {round(comApFlux,1)}")
 
 ax3.legend(fontsize=10)
