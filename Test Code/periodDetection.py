@@ -55,11 +55,11 @@ def detect_period_ap(times, fluxes, plotting = False, knownFreq = None):
 
     minFreq = 1/(2*(times.max()-times.min())*u.day).to(u.s)
     
-    minFreq = 1e-5/u.s
+    # minFreq = 1e-5/u.s
 
     # minFreq = 1/(1468800*u.s)
 
-    maxFreq = 1/nyquistP
+    maxFreq = 1/nyquistP 
 
     lsper = lsp((u.Quantity(times, u.day)).to(u.s), centredFlux)
     freqs, powers = lsper.autopower(minimum_frequency=minFreq, maximum_frequency=maxFreq, method="fastnifty")
@@ -294,7 +294,7 @@ compedPs = pd.DataFrame(inLCDBList, columns=["Name", "Known Period", "Found Peri
 print(compedPs)
 
 
-trialName = "Lincoln"
+trialName = "2000 JA66"
 
 try:
     knownFreq = 1/(compedPs.at[compedPs.index[compedPs["Name"]==trialName].values[0],"Known Period"]*60*60)

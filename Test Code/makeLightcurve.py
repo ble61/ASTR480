@@ -17,6 +17,7 @@ from photutils.aperture import CircularAperture
 from photutils.aperture import aperture_photometry
 from astropy.stats import SigmaClip as astroSC
 from photutils.background import Background2D, MedianBackground
+from astroquery.jplhorizons import Horizons
 
 import warnings
 from astropy.utils.exceptions import AstropyWarning
@@ -203,7 +204,7 @@ def plot_lc_from_name(name):
     ax.scatter(nCut["MJD"], nCut["COM Flux"])
     # ax.set_ylim(-200,200)
     
-def plotExpectedPos(posDf: pd.DataFrame, timeList: npt.ArrayLike, targetPos: list, magLim: float = 20.0, scaleAlpha: bool = False, minLen: int = 0, saving=False) -> plt.Figure:
+def plotExpectedPos(posDf: pd.DataFrame, timeList: npt.ArrayLike, targetPos: list, magLim: float = 20.0, scaleAlpha: bool = False, minLen: int = 0, saving=False, hsList = None) -> plt.Figure:
     """
     Takes the output of a query to SkyBot, sets up a WCS, and plots the objects position, coloured by time, in Ra/Dec and ecLon/ecLat space. 
 
@@ -270,19 +271,19 @@ def plotExpectedPos(posDf: pd.DataFrame, timeList: npt.ArrayLike, targetPos: lis
         scaleMult = 0.90  # changes how small alpha can get
         brightest = posDf["Mv"].min()  # * Mag. scale is backwards...
         deltaMag = magLim-brightest
-
         
-        hs = {}
+        if hsList == None:
+            hs = {}
+            for name in unqNames:
+                try:
+                    horizQ =Horizons(id = name, epochs = t_i.jd, location= "500@10")
+                    hs[name]=float(horizQ.elements()['H'])
+                except Exception as e:
+                    print(f"Name= {name} didn't work, error {str(e)}")#some names aren't in jpl?
+                    badNames.append(name)
 
-        for name in unqNames:
-            try:
-                horizQ =Horizons(id = name, epochs = t_i.jd, location= "500@10")
-                hs[name]=float(horizQ.elements()['H'])
-            except Exception as e:
-                print(f"Name= {name} didn't work, error {str(e)}")#some names aren't in jpl?
-                badNames.append(name)
-
-        hsList = list(hs.values())
+            hsList = list(hs.values())
+        
         # when alpha scale is by H
         brightest = np.min(hsList)
         deltaMag = np.max(hsList)-brightest
@@ -397,9 +398,9 @@ def recoveredHist(astrProperties, bkgLim):
 #TODO take these from an input
 
 sector = 22
-cam = 1
+cam = 2
 ccd = 3
-cut = 7
+cut = 4
 
 reducedFluxes = load_fluxes(sector, cam, ccd, cut)
 
@@ -431,7 +432,7 @@ namesDroped = np.setdiff1d(unqNames, namesAfter)
 
 # print(namesDroped)
 
-plotExpectedPos(totalLcDf,frameTimes,setupQuery(sector,cam,ccd,cut))
+plotExpectedPos(totalLcDf,frameTimes,setupQuery(sector,cam,ccd,cut), scaleAlpha=True)
 
 
 totalLcDf.to_csv(f"Interps_with_lc_{sector}_{cam}_{ccd}_{cut}.csv")
@@ -489,7 +490,11 @@ astrData.to_csv(f"./asteroids_in_{sector}_{cam}_{ccd}_{cut}_properties.csv")
 
 print(count)
 
-testName = "1991 RE6"
+
+
+kill
+testName = "2000 JA66"
+
 
 plot_lc_from_name(testName)
 
@@ -497,15 +502,18 @@ plot_lc_from_name(testName)
 #* sawtooth trials
 trialCut = name_cut(totalLcDf,testName, colName="Name")
 
-# timeCut = trialCut.loc[np.where((trialCut["MJD"]>=58900.58) & (trialCut["MJD"]<=58901.11))] works for Bernoulli
+trialCut.to_csv(f"{testName}LC.csv")
 
 #Bernoulli
-#minTime = 58900.058
-#maxTime = 58901.11
+minTime = 58900.58
+maxTime = 58901.11
 
-#Ruff
-minTime = 58916.0
-maxTime = 58916.52
+# #Ruff
+# minTime = 58916.0
+# maxTime = 58916.52
+
+minTime = 58905.00
+maxTime = 58906.55
 
 
 timeCut = trialCut.loc[np.where((trialCut["MJD"]>=minTime) & (trialCut["MJD"]<=maxTime))]

@@ -1,4 +1,4 @@
-\begin{thebibliography}{46}
+\begin{thebibliography}{49}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -98,6 +98,14 @@ W.~C. Fraser, P.~Pravec, A.~Fitzsimmons, P.~Lacerda, M.~T. Bannister, C.~Snodgra
 \newblock ISSN 23973366.
 \newblock \doi{10.1038/s41550-018-0398-z}.
 \newblock URL \url{https://ui.adsabs.harvard.edu/abs/2018NatAs...2..383F/abstract}.
+
+\bibitem[Ginsburg et~al.(2019)Ginsburg, Sipőcz, Brasseur, Cowperthwaite, Craig, Deil, Groener, Guillochon, Guzman, Liedtke, Lim, Lockhart, Mommert, Morris, Norman, Parikh, Persson, Robitaille, Segovia, Singer, Tollerud, de~Val-Borro, Valtchanov, Woillez, and a~subset of the astropy~collaboration The Astroquery~collaboration]{Ginsburg2019}
+A.~Ginsburg, B.~M. Sipőcz, C.~E. Brasseur, P.~S. Cowperthwaite, M.~W. Craig, C.~Deil, A.~M. Groener, J.~Guillochon, G.~Guzman, S.~Liedtke, P.~L. Lim, K.~E. Lockhart, M.~Mommert, B.~M. Morris, H.~Norman, M.~Parikh, M.~V. Persson, T.~P. Robitaille, J.-C. Segovia, L.~P. Singer, E.~J. Tollerud, M.~de~Val-Borro, I.~Valtchanov, J.~Woillez, and a~subset of the astropy~collaboration The Astroquery~collaboration.
+\newblock astroquery: An astronomical web-querying package in python.
+\newblock \emph{The Astronomical Journal}, 157:\penalty0 98, 2 2019.
+\newblock ISSN 1538-3881.
+\newblock \doi{10.3847/1538-3881/AAFC33}.
+\newblock URL \url{https://iopscience.iop.org/article/10.3847/1538-3881/aafc33 https://iopscience.iop.org/article/10.3847/1538-3881/aafc33/meta}.
 
 \bibitem[Gowanlock et~al.(2024)Gowanlock, Trilling, McNeill, Kramer, and Chernyavskaya]{Gowanlock2024}
 M.~Gowanlock, D.~E. Trilling, A.~McNeill, D.~Kramer, and M.~Chernyavskaya.
@@ -222,6 +230,14 @@ M.~J. Payne, M.~J. Holman, and A.~Pál.
 \newblock \doi{10.3847/2515-5172/ab5641}.
 \newblock URL \url{https://ui.adsabs.harvard.edu/abs/2019RNAAS...3..172P/abstract}.
 
+\bibitem[Pravec and Harris(2000)]{Pravec2000}
+P.~Pravec and A.~W. Harris.
+\newblock Fast and slow rotation of asteroids.
+\newblock \emph{Icar}, 148:\penalty0 12--20, 11 2000.
+\newblock ISSN 0019-1035.
+\newblock \doi{10.1006/ICAR.2000.6482}.
+\newblock URL \url{https://ui.adsabs.harvard.edu/abs/2000Icar..148...12P/abstract}.
+
 \bibitem[Pál et~al.(2018)Pál, Molnár, and Kiss]{Pal2018}
 A.~Pál, L.~Molnár, and C.~Kiss.
 \newblock Tess in the solar system.
@@ -263,6 +279,13 @@ H.~Roxburgh and R.~Ridden-Harper.
 \newblock \texttt{TESSELLATE}: A dedicated pipeline for hunting transients with tess.
 \newblock In Prep.
 \newblock URL \url{https://github.com/CheerfulUser/TESSELLATE}.
+
+\bibitem[Rubincam(2000)]{Rubincam2000}
+D.~P. Rubincam.
+\newblock Radiative spin-up and spin-down of small asteroids.
+\newblock \emph{Icarus}, 148:\penalty0 2--11, 11 2000.
+\newblock ISSN 00191035.
+\newblock \doi{10.1006/icar.2000.6485}.
 
 \bibitem[Scargle et~al.(1982)Scargle, Scargle, and D.]{Scargle1982}
 J.~D. Scargle, Scargle, and J.~D.

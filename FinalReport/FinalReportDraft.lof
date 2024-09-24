@@ -1,3 +1,7 @@
 \babel@toc {english}{}\relax 
-\contentsline {figure}{\numberline {1}{\ignorespaces Interpolated positions of asteroids}}{8}{figure.caption.5}%
-\contentsline {figure}{\numberline {2}{\ignorespaces Light curves of Ruff}}{9}{figure.caption.6}%
+\contentsline {figure}{\numberline {1}{\ignorespaces Asteroid frequencies vs diameter (LCDB)}}{4}{figure.caption.4}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Interpolated positions and error of asteroids}}{5}{figure.caption.6}%
+\contentsline {subfigure}{\numberline {2.a}{\ignorespaces Positions}}{5}{figure.caption.6}%
+\contentsline {subfigure}{\numberline {2.b}{\ignorespaces Errors}}{5}{figure.caption.6}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Interpolated and Detected Positions}}{7}{figure.caption.7}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Light curves of Ruff}}{9}{figure.caption.8}%

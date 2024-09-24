@@ -6,6 +6,12 @@
 \usepackage{hyperref,graphicx}
 \usepackage[separate-uncertainty=true,multi-part-units=single]{siunitx}
 
+\usepackage{caption}
+\usepackage[list=true,listformat=simple]{subcaption}
+\makeatletter
+\g@addto@macro\p@subfigure{.}
+\makeatother
+
 % \usepackage[margin=1.5cm, left=3cm ,twoside]{geometry}
 
 \usepackage[para]{footmisc}
@@ -15,9 +21,9 @@
 \usepackage{amsmath,amssymb}
 
 \DeclareSIUnit{\arcsec}{''}
-\DeclareSIUnit{\au}{\rm{AU}}
-\DeclareSIUnit{\mag}{\rm{mag}}
-\DeclareSIUnit{\px}{\rm{px}}
+\DeclareSIUnit{\au}{\mathrm{AU}}
+\DeclareSIUnit{\mag}{\mathrm{mag}}
+\DeclareSIUnit{\px}{\mathrm{px}}
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -68,11 +74,13 @@
 I certify that content of this report was mostly my own work.
 \\
 
-My supervisor helped by proofreading the report and offering feedback. \\
+My supervisors helped by proofreading the report and offering feedback. As well as providing useful insight into problems when I was stuck.\\
 
 Graduate students, X and Y, helped me understand ... \\
 
 The derivation in section 3 was taken from ... \\
+
+\autoref{Fig:FreqVsDiam} has been constructed from data from the Light Curve Database (LCDB) \citet{Warner2009}, as cited in text. That data has being built suplimented with my own work in the corrseponding Figure %TODO
 
 \vspace{2cm}
 \begin{centering}
@@ -117,8 +125,7 @@ This is the next paragraph.
 
 %To get all asteroids in TESS. 
 This project aims to find and characterise the light curves of all the asteroids seen by the Transiting Exoplanet Survey Satellite (TESS).
-As such, a thorough discussion of both is required.
-
+Combining knowledge of these asteroid's positions with the high cadence imaging of TESS should allow for the determination of rotation periods of these small bodies.
 
 \subsection{TESS}\label{SubSec:TESS}
 
@@ -179,8 +186,11 @@ Main belt asteroids have typical inclinations of \qtyrange{0}{30}{\degree} \cite
 %TODO asteroid families
 Asteroids can be grouped into families based on clustering of the proper orbital elements and similarities in their colour or spectra \citep{Nesvorny2015}.
 These families are named for their largest member.
+Families are thought to all originate from the same body that was destroyed by a collision earlier in the solar system's history.
 
 %TODO YORP spin up
+Asteroids can have their rotation properties changed with time, collisions can do this, but so can light from the sun. 
+The YORP effect (named for the discoverers Yarkovsky, O'Keefe, Radzievskii, and Paddack) is the process of tourquing asteroids of an asymmetric shape by both bombardment of photons and thermal (re-)emission \citep{Rubincam2000}. 
 
 Understanding the rotation properties of asteroids has long been of interest to astronomers \citep[e.g.][for early work into the limits of rotation period and the tumbling nature of some small bodies]{Weidenschilling1981,Harris1994}.
 This is still at the forefront of research, with more lightcurves being published year-on-year \citep{Harris2015}.
@@ -193,10 +203,21 @@ Because of such a rich history of study, many asteroids have a known rotation pe
 These are catalogued by \citet{Warner2009} %TODO updated in citation http://www.MinorPlanet.info/php/lcdb.php
 in the Light Curve Database (LCDB).
 %TODO fig of period vs diameter.   
-In the October \nth{1} 2023 release, the LCDB has nearly 9000 objects with periods determined to a quality code $U\geq 2-$, which is the minimum reliability recommended by \citeauthor{Warner2009} for statistical analysis.
-This includes data from \citet{Pal2020}.
+In the October \nth{1}, 2023 release, the LCDB has nearly 9000 objects with periods determined to a quality code $U\geq 2-$, which is the minimum reliability recommended by \citeauthor{Warner2009} for statistical analysis.
+This includes other TESS data from \citet{Pal2020} and \citet{Woods2021}.
+The frequencies against diameter plot of these asteroids in \autoref{Fig:FreqVsDiam} shows the collection of all the asteroids in the LCDB.
+The spin barrier \citep[first proposed by][]{Pravec2000} is seen in the red dashed lines as there are very few asteroids larger than $\qty{0.15}{\kilo\metre}$ rotating faster than $\sim \qty{10}{\per\day}$.
+It is thought that the YORP effect spins up asteroids so fast that they pass above this barrier and then no longer have the internal strength necessary to hold themselves together. 
+This , is shown  in \autoref{Fig:FreqVsDiam}. 
 Comparing the periods I find of asteroids that are already in the LCDB is key to making sure my methods are reliable, and that the periods for asteroids for which no data exists can be trusted.
 
+\begin{figure}[t!]
+  \centering
+  \includegraphics[width=0.7\textwidth]{../Test Code/Testing Figures/Diam-FreqPlot.pdf}
+  \caption[Asteroid frequencies vs diameter (LCDB)]{The $U\geq 2-$ rotation frequencies in \unit{\per\day} and the inverse as a period in \unit{\hour} againts the diameter of the body in the October \nth{1}, 2023 LCDB \citet{Warner2009}.
+  This is using the diameter of the asteroids from the LCDB $H$ to diameter conversion. The spin barrier of \citet{Pravec2000} is shown in red dashed lines}
+  \label{Fig:FreqVsDiam}
+\end{figure}
 
 \subsubsection*{Interstellar Objects}
 %Omuamu
@@ -210,28 +231,50 @@ The peak to peak amplitude variation of this ISO was \qty{2.5}{\mag} \citep{Meec
 This is quite interesting, as it varies more than most asteroids.
 With the full sky survey of bright asteroids, we hope to find many asteroids with such a large amplitude variation, and to see just how rare \omuamua is.
 
-
 \section{Methods}\label{Sec:Meth}
-
-
-% \begin{table}
-%   \caption[Tab1]{My table}
-
-% \end{table}
-
-
-
 
 \subsection{Querrying Databases}\label{SubSec:Querry}
 
+\begin{figure}[h!]
+  \begin{subfigure}[t]{0.5\textwidth}
+    \centering
+    \includegraphics[width =\textwidth]{../Test Code/Testing Figures/interpPos\_22\_2\_3\_4.pdf}
+    \caption[Positions]{Positions of asteroids in a cut.}
+    \label{Fig:interpPos}
+  \end{subfigure}
+  ~
+  \begin{subfigure}[t]{0.5\textwidth}
+    \centering
+    \includegraphics[width =\textwidth]{../Test Code/Testing Figures/1989 BC1PosCheck.pdf} %TODO one with more points???
+    \caption[Errors]{Error in interpolated positions}
+    \label{Fig:errPos}
+  \end{subfigure}
+
+  \caption[Interpolated positions and error of asteroids]{
+  (a)
+  The interpolated positions of asteroids in one cut of a TESS sector.
+  The colours of the lines are time sequenced, as shown in the colour bar.
+  The alpha of the colours are scaled by the absolute magnitude $H$ of the asteroid, queried from JPL Horizons.
+  Both celestial (RA and Dec) and ecliptic (ecLon and ecLat) coordinates axes are shown.
+  The green $+$ is the centre of the cut. 
+  This cut was chosen because of how many asteroids there were, enough to see the shape of the box, but not so much that the lines are overwhelming to the eye.\\
+  (b)
+  The difference in the interpolated position of an asteroid from bulk queries to JPL Horizons, with interpolated coordinate being subtracted from the coordinate returned by Horizons. The colour bar is a different colour map to (a) as the range of time is shorter. The extent of the box is one TESS pixel, \qty{21}{\arcsec}. This is of asteroid ``1989 BC1'', but all others checked are similarly accurate (It is very expensive to check them all by brute force queries of Horizons).
+  }
+  \label{Fig:interpandErrPos}
+\end{figure}
+
 To check for asteroids in the TESS data, the positions of the asteroids with time are required.
 For most asteroids, their orbital elements are well known, so it is a matter of looking them up and cross-matching with transients in the TESS data.
-Python was used to make API calls to {Skybot}\footnote{\href{https://vo.imcce.fr/webservices/skybot/}{Skybot: https://vo.imcce.fr/webservices/skybot/}} \citep{Berthier2006} to get positions of asteroids in a cone search box in right ascension (RA) and  declination (Dec) space.
+Python was used to make API calls to
+%{Skybot}\footnote{\href{https://vo.imcce.fr/webservices/skybot/}{Skybot: https://vo.imcce.fr/webservices/skybot/}} 
+Skybot \citep{Berthier2006} to get positions of asteroids in a cone search box in right ascension (RA) and  declination (Dec) space.
 As TESS sectors are \qty{27}{\day} long, querying every \qty{12}{\hour} is manageable.
 These positions are still very sparsely spaced in time compared to the TESS data, so an interpolation is needed to bridge the gap.
 
 Knowing where the asteroids are is helpful for finding them in the archival TESS data, but knowing more about the individual asteroids is also useful for population statistics.
-The API of {JPL Horizons}\footnote{\href{https://ssd.jpl.nasa.gov/horizons/}{JPL Horizons: https://ssd.jpl.nasa.gov/horizons/}} was used to obtain the orbital elements of each asteroid, $a$, $e$, and $i$, as well as an absolute magnitude $H$, which is a good proxy for size (as discussed above). %TODO ref
+The \texttt{astroquery} \citep{Ginsburg2019} package was use to query JPL Horizons% {JPL Horizons}\footnote{\href{https://ssd.jpl.nasa.gov/horizons/}{JPL Horizons: https://ssd.jpl.nasa.gov/horizons/}} 
+was used to obtain the orbital elements of each asteroid, $a$, $e$, and $i$, as well as an absolute magnitude $H$, which is a good proxy for size (as discussed above). %TODO ref
 
 
 
@@ -240,15 +283,17 @@ The API of {JPL Horizons}\footnote{\href{https://ssd.jpl.nasa.gov/horizons/}{JPL
 
 
 With TESS data coming in $\frac12\unit{\hour}$ chunks, 24 interpolated points are needed between each API call.
-Because of a small change in position between each frame, \citep[$\sim \qty{1}{\px}$ per frame][]{Pal2018}, this interpolation should be accurate.
-Checking against a higher frequency query to the JPL Horizons ephemeris  confirmed this accuracy on a few asteroids. %TODO fig
-This is not a feasable way of getting all of the positions, as the queries are per name, not per area like the conesearch in Skybot.
-They are also rate limited, so while a few asteroids can be checked, filling the gaps bewteen the Skybot half day queries for all the asteroids would take far too long.
-For the faster TESS FFIs, more interpolated points are needed, but a smaller the change in position between each point will be.
-Forcing the interpolations to be at the same time as the TESS frames, which are known thanks to \texttt{TESSELLATE} saving them out, simplifies the matching to detections and forced photometry of these points.
 These interpolated positions can be seen in \autoref{Fig:interpPos} for a cut from \texttt{TESSELLATE}.
 There are a few interesting features, such as the asteroids are moving in the same direction, indicated by the colouring, they come in from low RA and Dec and tend to increase both coordinates as the month of the sector progresses.
 There is also a large size range in this slice of sky, ranging over \qty{5}{\mag} in absolute magnitude, which can be seen in the alpha (or transparency) of the tracks in \autoref{Fig:interpPos}.
+Because of a small change in position between each frame, \citep[$\sim \qty{1}{\px}$ per frame][]{Pal2018}, this interpolation should be accurate.
+The 
+Checking against a higher frequency query to the JPL Horizons ephemeris  confirmed this accuracy on a few asteroids, as shown in \autoref{Fig:errPos}. 
+This is not a feasible way of getting all the positions, as the queries are per name and time, not per area and time like the cone search in Skybot.
+They are also rate limited, so while a few asteroids can be checked, filling the gaps between the Skybot half day queries for all the asteroids would take far too long.
+For the faster TESS FFIs, more interpolated points are needed, but a smaller the change in position between each point will be.
+Forcing the interpolations to be at the same time as the TESS frames, which are known thanks to \texttt{TESSELLATE} saving them out, simplifies the matching to detections and forced photometry of these points.
+
 
 
 \subsection{Detection Matching}\label{SubSec:Match}
@@ -264,11 +309,19 @@ These pipelines have already found the aforementioned supernova, stellar flares 
 The job of this work is to catch all the asteroids in the set of all the transients that are returned from the pipeline.
 To do this, catelogue matching is in order.
 
+
 Using the \texttt{KDTree} algorithm \citep{Maneewongvatana1999} as implemented in \texttt{SciPy} \citep{2020SciPy-NMeth}, the RA and Dec coordinates of the interpolated points and the detections can be compared and matched together.
 Filtering this \texttt{KDTree} output by restricting the time between spatially coincident matches to less than \qty{0.1}{\day} stops any accidental matches in position from non-asteroid detections.
 A cut is then made by smallest distance, in coordinate space, and any distance must be smaller than \qty{0.01}{\degree} (\qty{36}{\arcsec}), which is within 2 TESS pixels.
 Then, if multiple detection match to the same interpolated point, the detection with the smallest distance will be taken.
+An example of the matches found using this \texttt{KDTree} is shown in \autoref{Fig:RADecMatch}. 
 
+\begin{figure}[]
+  \centering
+  \includegraphics[width =\textwidth]{../Test Code/Testing Figures/DetectMatchPos.pdf}
+  \caption[Interpolated and Detected Positions]{The RA (right plot) and Dec (left plot) of the interpolated points (blue) and the matched \texttt{TESSELLATE} sources(orange) against the time. The gap is from the TESS downtime in the sector, when it was passing close to earth.}
+  \label{Fig:RADecMatch}
+\end{figure}
 
 \subsection{Ligthcurves}\label{SubSec:Lightcurves}
 
@@ -354,16 +407,6 @@ Breaking the average V mag of these objects into \qty{0.5}{\mag} bins for both t
 \section{Figures}
 %*Figures: Only here to keep them out of the way. Will be placed in text as it grows
 
-\begin{figure}
-  \centering
-  \includegraphics[width =\columnwidth]{../Test Code/Testing Figures/interpPos\_22\_2\_3\_4.pdf}
-  \caption[Interpolated positions of asteroids]{The interpolated positions of asteroids in one cut of a TESS sector.
-    The colours of the lines are time sequenced, as shown in the colour bar.
-    The alpha of the colours are scaled by the absolute magnitude $H$ of the asteroid, queried from JPL Horizons.
-    Both celestial (RA and Dec) coordinates and ecliptic (ecLon and ecLat) coordinates axes are shown.
-  }
-  \label{Fig:interpPos}
-\end{figure}
 
 
 
@@ -376,7 +419,7 @@ Breaking the average V mag of these objects into \qty{0.5}{\mag} bins for both t
 \end{figure}
 
 
-\newpage %! Page number above here must be <=25
+\newpage %* Page number above here must be <=25
 
 \section*{Acknowledgements}
 \addcontentsline{toc}{section}{Acknowledgements}
@@ -387,7 +430,7 @@ The OzSTAR program receives funding in part from the Astronomy National Collabor
 
 This research has made use of data and/or services provided by the International Astronomical Union's Minor Planet Center.
 
-This work has used data and/or services provided by NASA's Solar System Dynamics website, https://ssd.jpl.nasa.gov/. Specifically JPL Horizons: https://ssd.jpl.nasa.gov/horizons/
+This work has used data and/or services provided by NASA's Solar System Dynamics website, \url{https://ssd.jpl.nasa.gov/}. Specifically JPL Horizons: \url{https://ssd.jpl.nasa.gov/horizons/}.
 
 %*Bib
 \addcontentsline{toc}{section}{References}
