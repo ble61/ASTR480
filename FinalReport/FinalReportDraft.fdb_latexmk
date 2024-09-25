@@ -1,19 +1,19 @@
 # Fdb version 4
-["bibtex FinalReportDraft"] 1727154035.27218 "FinalReportDraft.aux" "FinalReportDraft.bbl" "FinalReportDraft" 1727154040.58407 0
-  "./bibfile.bib" 1727152953.92864 98142 e12583c3d84914ebe64cff9592725259 ""
+["bibtex FinalReportDraft"] 1727213802.09088 "FinalReportDraft.aux" "FinalReportDraft.bbl" "FinalReportDraft" 1727218617.59051 0
+  "./bibfile.bib" 1727213798.42035 102196 936fc71d67951ffb6ed248cbbd084f82 ""
   "/usr/local/texlive/2023/texmf-dist/bibtex/bst/natbib/abbrvnat.bst" 1233624470 26532 66bed5cc59495faaa3f9ae9af9fa5e42 ""
-  "FinalReportDraft.aux" 1727154040.36759 18823 05324b7f39c1ee1106273a4d3d16d4dc "pdflatex"
+  "FinalReportDraft.aux" 1727218617.37881 19207 928ec03bff3148b1e828edaf294d5b55 "pdflatex"
   (generated)
   "FinalReportDraft.bbl"
   "FinalReportDraft.blg"
   (rewritten before read)
-["pdflatex"] 1727154039.61806 "/home/users/ble61/Documents/ASTR480/FinalReport/FinalReportDraft.tex" "FinalReportDraft.pdf" "FinalReportDraft" 1727154040.58422 0
-  "../Test Code/Testing Figures/1989 BC1PosCheck.pdf" 1727149959.8296 22546 04280c402c016c0ecb74977d1ddd1004 ""
+["pdflatex"] 1727218616.63921 "/home/users/ble61/Documents/ASTR480/FinalReport/FinalReportDraft.tex" "FinalReportDraft.pdf" "FinalReportDraft" 1727218617.59068 0
+  "../Test Code/Testing Figures/1989 BC1PosCheck.pdf" 1727218493.53469 22546 3a812c407ffe449eb5631bc46088e9f1 ""
   "../Test Code/Testing Figures/DetectMatchPos.pdf" 1727153427.71554 26290 4bd03a4b8bb4a609f364747fadfc73fe ""
   "../Test Code/Testing Figures/Diam-FreqPlot.pdf" 1727153294.78622 106839 f96a4faebd67e82c57f2cdbca591d2e0 ""
   "../Test Code/Testing Figures/differentFluxes Ruff .pdf" 1721860057.87018 21314 f63c50c014a1e1ded891213c4cd69fff ""
-  "../Test Code/Testing Figures/interpPos_22_2_3_4.pdf" 1727149955.97557 128345 5652d73008708e81a4f16884796f018e ""
-  "/home/users/ble61/Documents/ASTR480/FinalReport/FinalReportDraft.tex" 1727154039.41859 30750 58bc3c6bd80a11116a98703adb23f46c ""
+  "../Test Code/Testing Figures/interpPos_22_2_3_4.pdf" 1727218489.30165 128399 ccf5b0c8992b9aa909b7655b56ec48a7 ""
+  "/home/users/ble61/Documents/ASTR480/FinalReport/FinalReportDraft.tex" 1727218616.4378 30991 0d4854a234f4c3a0cf8f00f4f8e8234c ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/ecbx1200.tfm" 1136768653 3584 402da0b29eafbad07963b1224b222f18 ""
@@ -169,13 +169,13 @@
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1708989307.99892 5472569 99e72973af7bd41132687409b8c9c95e ""
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1708921832 8220693 5c9edbd2a6c959e4a5aad3bc8493cf9a ""
   "/usr/local/texlive/2023/texmf.cnf" 1708921747.39568 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "FinalReportDraft.aux" 1727154040.36759 18823 05324b7f39c1ee1106273a4d3d16d4dc "pdflatex"
-  "FinalReportDraft.bbl" 1727154035.38055 40224 fc1be2d9f01f9669ed6f3ee4a488c87e "bibtex FinalReportDraft"
-  "FinalReportDraft.lof" 1727154040.36859 662 3fb2b54eadc83de151f4e9b19e0d91cc "pdflatex"
-  "FinalReportDraft.lot" 1727154040.36859 30 283c90c47f0e16887e96cec4ba110f76 "pdflatex"
-  "FinalReportDraft.out" 1727154040.36859 2191 82bfc021b5442059598a46a0504832f7 "pdflatex"
-  "FinalReportDraft.tex" 1727154039.41859 30750 58bc3c6bd80a11116a98703adb23f46c ""
-  "FinalReportDraft.toc" 1727154040.36859 1384 98396c9aaca018097841e0a2b06070c9 "pdflatex"
+  "FinalReportDraft.aux" 1727218617.37881 19207 928ec03bff3148b1e828edaf294d5b55 "pdflatex"
+  "FinalReportDraft.bbl" 1727213802.20838 41431 608b211273a47e055c7e4bf4bf926443 "bibtex FinalReportDraft"
+  "FinalReportDraft.lof" 1727218617.37981 662 3fb2b54eadc83de151f4e9b19e0d91cc "pdflatex"
+  "FinalReportDraft.lot" 1727218617.37981 30 283c90c47f0e16887e96cec4ba110f76 "pdflatex"
+  "FinalReportDraft.out" 1727218617.37981 2191 82bfc021b5442059598a46a0504832f7 "pdflatex"
+  "FinalReportDraft.tex" 1727218616.4378 30991 0d4854a234f4c3a0cf8f00f4f8e8234c ""
+  "FinalReportDraft.toc" 1727218617.37981 1384 98396c9aaca018097841e0a2b06070c9 "pdflatex"
   "UCreport.cls" 1726480398 8026 b6a3e9fd951b5f7998902f71d019b104 ""
   "logos/UC.png" 1726226866 131661 7d2ea269bcf61f456539109bc8313396 ""
   (generated)

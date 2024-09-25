@@ -437,7 +437,7 @@ def plotExpectedPos(posDf: pd.DataFrame, timeList: npt.ArrayLike, targetPos: lis
     badNames = []  # stops index problem later
     if scaleAlpha:
         # setup for possible alpha scaling
-        scaleMult = 0.85  # changes how small alpha can get
+        scaleMult = 0.95  # changes how small alpha can get
         if str(type(hsList)) == "<class 'NoneType'>": #doesn't like asking for None when it is a array
             hs = {}
             for name in unqNames:
@@ -468,9 +468,9 @@ def plotExpectedPos(posDf: pd.DataFrame, timeList: npt.ArrayLike, targetPos: lis
         # scales each objects alpha
 
         if scaleAlpha:
-            avgMag = posDf.loc[nameIDs]["Mv"].mean()
+            thisH = hsList[i]
             # scales the alpha of plotting to the brightness of the object, to give some idea of what might be detected
-            alpha = (1-scaleMult*((avgMag-brightest)/deltaMag))
+            alpha = (1-scaleMult*((thisH-brightest)/deltaMag))
         else:
             alpha = 1
 

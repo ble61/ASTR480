@@ -68,8 +68,8 @@ def sum_fluxes(frames, ys, xs):
 
     down = 1
     up = 2
-    checkUp = 4
-    checkDown = 3
+    checkUp = 3
+    checkDown = 2
     total = []
     comTotal = []
 
@@ -85,7 +85,11 @@ def sum_fluxes(frames, ys, xs):
         if ymax >= fluxBounds[1]: ymax = fluxBounds[1] -1
         if xmin < 0: xmin = 0
         if xmax >= fluxBounds[2]: xmax = fluxBounds[2]-1
-        total.append(np.sum(reducedFluxes[int(f),ymin:ymax,xmin:xmax]))
+        
+        photTable = aperture_photometry(reducedFluxes[int(f),:,:],CircularAperture((x,y), r=1.5)) 
+        apFlux = photTable["aperture_sum"][0]
+        total.append(apFlux)
+
 
         ymin = y-checkDown
         ymax = y+checkUp
@@ -98,13 +102,13 @@ def sum_fluxes(frames, ys, xs):
         if xmax >= fluxBounds[2]: xmax = fluxBounds[2]-1
 
 
-        #???? comTotal.append(np.sum(reducedFluxes[int(f),ymin:ymax,xmin:xmax]))
-        
+        checkBox = reducedFluxes[int(f),ymin:ymax,xmin:xmax]
+        checkBox = np.where(checkBox>=0,checkBox,0)
 
-        com = ndimage.center_of_mass(reducedFluxes[int(f),ymin:ymax,xmin:xmax])
-        if (com[0]>=0) &(com[0]<=7) &(com[1]>=0) & (com[1]<=7): #make sure COM in 7x7 box
-            comX =x-checkDown+com[1]
-            comY = y-checkDown+com[0]
+        com = ndimage.center_of_mass(checkBox)
+        if (com[0]>=0) &(com[0]<=(checkUp+checkDown)) &(com[1]>=0) & (com[1]<=(checkUp+checkDown)): #make sure COM in 5x5 box
+            comX =x-checkDown+com[1] 
+            comY = y-checkDown+com[0] 
         else:
             #reset defaults
             comX =x
@@ -120,8 +124,8 @@ def sum_fluxes(frames, ys, xs):
         
         photTable = aperture_photometry(reducedFluxes[int(f),:,:],CircularAperture((comX,comY), r=1.5))
 
-        comAppFlux = photTable["aperture_sum"][0]
-        comTotal.append(comAppFlux)
+        comApFlux = photTable["aperture_sum"][0]
+        comTotal.append(comApFlux)
         continue
 
         
@@ -302,8 +306,7 @@ def plotExpectedPos(posDf: pd.DataFrame, timeList: npt.ArrayLike, targetPos: lis
         # scales each objects alpha
 
         if scaleAlpha:
-            avgMag = posDf.loc[nameIDs]["Mv"].mean()
-            avgMag = hs[name]
+            avgMag = hsList[i]
             # scales the alpha of plotting to the brightness of the object, to give some idea of what might be detected
             alpha = (1-scaleMult*((avgMag-brightest)/deltaMag))
         else:
@@ -398,9 +401,9 @@ def recoveredHist(astrProperties, bkgLim):
 #TODO take these from an input
 
 sector = 22
-cam = 2
+cam = 1
 ccd = 3
-cut = 4
+cut = 7
 
 reducedFluxes = load_fluxes(sector, cam, ccd, cut)
 
@@ -492,8 +495,10 @@ print(count)
 
 
 
-kill
-testName = "2000 JA66"
+
+testName = "Bernoulli"
+
+
 
 
 plot_lc_from_name(testName)
@@ -512,8 +517,8 @@ maxTime = 58901.11
 # minTime = 58916.0
 # maxTime = 58916.52
 
-minTime = 58905.00
-maxTime = 58906.55
+# minTime = 58905.00
+# maxTime = 58906.55
 
 
 timeCut = trialCut.loc[np.where((trialCut["MJD"]>=minTime) & (trialCut["MJD"]<=maxTime))]
@@ -559,8 +564,8 @@ for pointID in range(25):
     ax2[pointID].plot([x-1,x+2,x+2,x-1,x-1],[y-1,y-1,y+2,y+2,y-1], c="k", linestyle = "-.",label=f"Sum Box, F={round(timeCut.at[pointID,'Flux'],1)}") 
 
     #4x4 box,
-    checkUp = 4
-    checkDown = 3
+    checkUp = 3
+    checkDown = 2
     checkBox=reducedFluxes[int(f),y-checkDown:y+checkUp,x-checkDown:x+checkUp]
     checkBox = np.where(checkBox>=0,checkBox,0)
     ax2[pointID].plot([x-checkDown,x+checkUp,x+checkUp,x-checkDown,x-checkDown],[y-checkDown,y-checkDown,y+checkUp,y+checkUp,y-checkDown], c="tab:green", linestyle =":")
@@ -569,8 +574,8 @@ for pointID in range(25):
     if (com[0]>=0) &(com[0]<=7) &(com[1]>=0) & (com[1]<=7): #make sure COM in 7x7 box
         comXint = int(x-checkDown+round(com[1]))
         comYint = int(y-checkDown+round(com[0]))
-        comX =x-checkDown+com[1]
-        comY = y-checkDown+com[0]
+        comX =x-checkDown+com[1] 
+        comY = y-checkDown+com[0] 
     else:
         #reset defaults
         comXint = int(x)
@@ -622,8 +627,8 @@ redFluxCut = reducedFluxes[int(f),y-numPx:y+numPx,x-numPx:x+numPx]
 
 
 #4x4 box,
-checkUp = 4
-checkDown = 3
+checkUp = 3
+checkDown = 2
 checkBox=reducedFluxes[int(f),y-checkDown:y+checkUp,x-checkDown:x+checkUp]
 checkBox = np.where(checkBox>=0,checkBox,0)
 print(checkBox)
@@ -632,7 +637,7 @@ print(com)
 if (com[0]>=0) &(com[0]<=7) &(com[1]>=0) & (com[1]<=7): #make sure COM in 7x7 box
     comXint = int(x-checkDown+round(com[1]))
     comYint = int(y-checkDown+round(com[0]))
-    comX =x-checkDown+com[1]
+    comX =x-checkDown+com[1] 
     comY = y-checkDown+com[0]
 else:
     #reset defaults
@@ -664,7 +669,7 @@ ax3.scatter(comXint+0.5,comYint+0.5, label="COM sum centre",c="tab:orange")
 
 ax3.plot([x-checkDown,x+checkUp,x+checkUp,x-checkDown,x-checkDown],[y-checkDown,y-checkDown,y+checkUp,y+checkUp,y-checkDown], c="tab:green", linestyle =":", label=f"COM check box")
 #!what it is, when TOP left origin
-ax3.plot([x-1,x+2,x+2,x-1,x-1],[y-1,y-1,y+2,y+2,y-1], c="k", linestyle ="-.", label=f"Sum +2,-1 box \n F= {round(timeCut.at[pointID,'Flux'],1)}") 
+ax3.plot([x-1,x+2,x+2,x-1,x-1],[y-1,y-1,y+2,y+2,y-1], c="k", linestyle ="-.", label=f"Sum +2,-1 box \n F= {round(timeCut.at[pointID,'Flux'],1)}") ##box not used, ap at x,y is.
 ax3.plot([comXint-1,comXint+2,comXint+2,comXint-1,comXint-1],[comYint-1,comYint-1,comYint+2,comYint+2,comYint-1], c="tab:orange",linestyle=":", label=f"COM sum box \n F={round(comSum,1)}")
 thisAp.plot(ax = ax3, color = "tab:Green", label = f"Aperture F= {round(comApFlux,1)}")
 

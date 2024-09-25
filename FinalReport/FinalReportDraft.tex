@@ -206,9 +206,8 @@ in the Light Curve Database (LCDB).
 In the October \nth{1}, 2023 release, the LCDB has nearly 9000 objects with periods determined to a quality code $U\geq 2-$, which is the minimum reliability recommended by \citeauthor{Warner2009} for statistical analysis.
 This includes other TESS data from \citet{Pal2020} and \citet{Woods2021}.
 The frequencies against diameter plot of these asteroids in \autoref{Fig:FreqVsDiam} shows the collection of all the asteroids in the LCDB.
-The spin barrier \citep[first proposed by][]{Pravec2000} is seen in the red dashed lines as there are very few asteroids larger than $\qty{0.15}{\kilo\metre}$ rotating faster than $\sim \qty{10}{\per\day}$.
-It is thought that the YORP effect spins up asteroids so fast that they pass above this barrier and then no longer have the internal strength necessary to hold themselves together. 
-This , is shown  in \autoref{Fig:FreqVsDiam}. 
+The spin barrier \citep{Pravec2000} is seen in the red dashed lines as there are very few asteroids larger than $\qty{0.15}{\kilo\metre}$ rotating faster than $\sim \qty{10}{\per\day}$.
+It is thought that the YORP effect spins up asteroids so fast that they pass above this barrier and then no longer have the internal strength necessary to hold themselves together, impling that all asteroids made to spin faster have torn themselves apart and that they have no tensile strength, i.e they are rubble piles instead of monoliths \citep{Harris1996}. This idea of the cohesive strength of small bodies is still explored today \citep[e.g.][for V-type asteroids]{Oszkiewicz2020}. 
 Comparing the periods I find of asteroids that are already in the LCDB is key to making sure my methods are reliable, and that the periods for asteroids for which no data exists can be trusted.
 
 \begin{figure}[t!]
@@ -397,7 +396,7 @@ The completeness of the asteroid population in TESS as a function of their appar
 The apparent magnitude is one of the properties returned from the queries, and is in the V band.
 By taking a limit on the if an asteroid is detected \dots %TODO what is the limit
 Breaking the average V mag of these objects into \qty{0.5}{\mag} bins for both the sample returned from a query and the sample detected, a ratio of completeness can be calculated per bin.
-(Note: If there is no asteroids in a bin, none have a chance of being recovered, so the all did get recovered. I.e. $\frac{0}{0}=1$)
+(Note: If there are no asteroids in a bin, none have a chance of being recovered, so the all did get recovered. I.e. $\frac{0}{0}=1$)
 
 
 \section{Results}\label{Sec:Res}

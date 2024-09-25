@@ -294,7 +294,8 @@ compedPs = pd.DataFrame(inLCDBList, columns=["Name", "Known Period", "Found Peri
 print(compedPs)
 
 
-trialName = "2000 JA66"
+trialName = "2004 FQ5"
+
 
 try:
     knownFreq = 1/(compedPs.at[compedPs.index[compedPs["Name"]==trialName].values[0],"Known Period"]*60*60)

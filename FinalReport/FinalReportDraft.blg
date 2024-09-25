@@ -5,45 +5,45 @@ The style file: abbrvnat.bst
 Database file #1: bibfile.bib
 Warning--empty journal in Gowanlock2024
 Warning--empty note in TESSELLATE
-You've used 49 entries,
+You've used 51 entries,
             2773 wiz_defined-function locations,
-            1037 strings with 35516 characters,
-and the built_in function-call counts, 72673 in all, are:
-= -- 5232
-> -- 10015
-< -- 19
-+ -- 3343
-- -- 3294
-* -- 7949
-:= -- 12560
-add.period$ -- 266
-call.type$ -- 49
-change.case$ -- 1242
-chr.to.int$ -- 49
-cite$ -- 100
-duplicate$ -- 1060
-empty$ -- 1866
-format.name$ -- 3355
-if$ -- 13826
+            1057 strings with 36441 characters,
+and the built_in function-call counts, 74478 in all, are:
+= -- 5370
+> -- 10226
+< -- 20
++ -- 3414
+- -- 3363
+* -- 8134
+:= -- 12870
+add.period$ -- 276
+call.type$ -- 51
+change.case$ -- 1271
+chr.to.int$ -- 51
+cite$ -- 104
+duplicate$ -- 1101
+empty$ -- 1938
+format.name$ -- 3426
+if$ -- 14175
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 50
-newline$ -- 372
-num.names$ -- 196
-pop$ -- 2318
+missing$ -- 52
+newline$ -- 386
+num.names$ -- 204
+pop$ -- 2369
 preamble$ -- 1
-purify$ -- 1196
+purify$ -- 1223
 quote$ -- 0
-skip$ -- 1716
+skip$ -- 1762
 stack$ -- 0
-substring$ -- 848
-swap$ -- 143
+substring$ -- 873
+swap$ -- 146
 text.length$ -- 6
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 524
+type$ -- 546
 warning$ -- 2
-while$ -- 197
+while$ -- 205
 width$ -- 0
-write$ -- 877
+write$ -- 911
 (There were 2 warnings)
