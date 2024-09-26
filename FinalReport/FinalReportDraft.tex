@@ -60,7 +60,7 @@
 
 
 %----------- Init -------------------
-        
+
 \buildmargins % display margins
 \buildcover % create the front cover of the document
 
@@ -84,7 +84,7 @@ The derivation in section 3 was taken from ... \\
 
 \vspace{2cm}
 \begin{centering}
-\textbf{\student}\par
+  \textbf{\student}\par
 \end{centering}
 
 \newpage
@@ -151,10 +151,10 @@ The first data release in \citet{Pal2020} catalogues nearly 10,000 asteroid ligh
 \citet{McNeill2023} also analyse TESS cycle 1, and detect almost 38,000 objects.
 They determine reliable rotation periods for about 3,500 asteroids in this sample and show a lack of reliability for objects with periods less than \qty{3}{\hour}.
 In the overlap from the data from \citet{Pal2020}, \citeauthor{McNeill2023} find good agreement between the two sets of periods and amplitudes.
-The Minor Planet Center (MPC) gets regular updates from TESS thanks to the work of \citet{Woods2021} and their \texttt{LINEAR-TESS} program, which creates tracklets of objects over a day, and then stitches these together to form a track of each asteroid through an FFI. 
+The Minor Planet Center (MPC) gets regular updates from TESS thanks to the work of \citet{Woods2021} and their \texttt{LINEAR-TESS} program, which creates tracklets of objects over a day, and then stitches these together to form a track of each asteroid through an FFI.
 \citet{Gowanlock2024} uses TESS photometry as well as  observations by the Zwicky Transient Facility \citep[ZTF, ][]{Bellm2018} to get a longer baseline on mutually observed objects while combining ground and space based observations.
 There were not very many objects in both samples with known periods for comparison, with only 222 objects analysed, however they demonstrate that the technique is effective.
-Fainter and unknown solar system objects can be found by shift and stacking \citep{Holman2019, Payne2019,Rice2020} or taking a fast X-ray transform \citep{Nguyen2024} of the FFI data. 
+Fainter and unknown solar system objects can be found by shift and stacking \citep{Holman2019, Payne2019,Rice2020} or taking a fast X-ray transform \citep{Nguyen2024} of the FFI data.
 
 This work aims to extend these studies to more sectors, hence characterising more asteroids.
 The aim is to get a volume complete set of asteroid lightcurves and periods, by analysis of the whole sky as seen by TESS using data from more than just the first year of TESS's operation.
@@ -189,8 +189,8 @@ These families are named for their largest member.
 Families are thought to all originate from the same body that was destroyed by a collision earlier in the solar system's history.
 
 %TODO YORP spin up
-Asteroids can have their rotation properties changed with time, collisions can do this, but so can light from the sun. 
-The YORP effect (named for the discoverers Yarkovsky, O'Keefe, Radzievskii, and Paddack) is the process of tourquing asteroids of an asymmetric shape by both bombardment of photons and thermal (re-)emission \citep{Rubincam2000}. 
+Asteroids can have their rotation properties changed with time, collisions can do this, but so can light from the sun.
+The YORP effect (named for the discoverers Yarkovsky, O'Keefe, Radzievskii, and Paddack) is the process of tourquing asteroids of an asymmetric shape by both bombardment of photons and thermal (re-)emission \citep{Rubincam2000}.
 
 Understanding the rotation properties of asteroids has long been of interest to astronomers \citep[e.g.][for early work into the limits of rotation period and the tumbling nature of some small bodies]{Weidenschilling1981,Harris1994}.
 This is still at the forefront of research, with more lightcurves being published year-on-year \citep{Harris2015}.
@@ -207,14 +207,14 @@ In the October \nth{1}, 2023 release, the LCDB has nearly 9000 objects with peri
 This includes other TESS data from \citet{Pal2020} and \citet{Woods2021}.
 The frequencies against diameter plot of these asteroids in \autoref{Fig:FreqVsDiam} shows the collection of all the asteroids in the LCDB.
 The spin barrier \citep{Pravec2000} is seen in the red dashed lines as there are very few asteroids larger than $\qty{0.15}{\kilo\metre}$ rotating faster than $\sim \qty{10}{\per\day}$.
-It is thought that the YORP effect spins up asteroids so fast that they pass above this barrier and then no longer have the internal strength necessary to hold themselves together, impling that all asteroids made to spin faster have torn themselves apart and that they have no tensile strength, i.e they are rubble piles instead of monoliths \citep{Harris1996}. This idea of the cohesive strength of small bodies is still explored today \citep[e.g.][for V-type asteroids]{Oszkiewicz2020}. 
+It is thought that the YORP effect spins up asteroids so fast that they pass above this barrier and then no longer have the internal strength necessary to hold themselves together, impling that all asteroids made to spin faster have torn themselves apart and that they have no tensile strength, i.e they are rubble piles instead of monoliths \citep{Harris1996}. This idea of the cohesive strength of small bodies is still explored today \citep[e.g.][for V-type asteroids]{Oszkiewicz2020}.
 Comparing the periods I find of asteroids that are already in the LCDB is key to making sure my methods are reliable, and that the periods for asteroids for which no data exists can be trusted.
 
 \begin{figure}[t!]
   \centering
   \includegraphics[width=0.7\textwidth]{../Test Code/Testing Figures/Diam-FreqPlot.pdf}
   \caption[Asteroid frequencies vs diameter (LCDB)]{The $U\geq 2-$ rotation frequencies in \unit{\per\day} and the inverse as a period in \unit{\hour} againts the diameter of the body in the October \nth{1}, 2023 LCDB \citet{Warner2009}.
-  This is using the diameter of the asteroids from the LCDB $H$ to diameter conversion. The spin barrier of \citet{Pravec2000} is shown in red dashed lines}
+    This is using the diameter of the asteroids from the LCDB $H$ to diameter conversion. The spin barrier of \citet{Pravec2000} is shown in red dashed lines}
   \label{Fig:FreqVsDiam}
 \end{figure}
 
@@ -250,15 +250,15 @@ With the full sky survey of bright asteroids, we hope to find many asteroids wit
   \end{subfigure}
 
   \caption[Interpolated positions and error of asteroids]{
-  (a)
-  The interpolated positions of asteroids in one cut of a TESS sector.
-  The colours of the lines are time sequenced, as shown in the colour bar.
-  The alpha of the colours are scaled by the absolute magnitude $H$ of the asteroid, queried from JPL Horizons.
-  Both celestial (RA and Dec) and ecliptic (ecLon and ecLat) coordinates axes are shown.
-  The green $+$ is the centre of the cut. 
-  This cut was chosen because of how many asteroids there were, enough to see the shape of the box, but not so much that the lines are overwhelming to the eye.\\
-  (b)
-  The difference in the interpolated position of an asteroid from bulk queries to JPL Horizons, with interpolated coordinate being subtracted from the coordinate returned by Horizons. The colour bar is a different colour map to (a) as the range of time is shorter. The extent of the box is one TESS pixel, \qty{21}{\arcsec}. This is of asteroid ``1989 BC1'', but all others checked are similarly accurate (It is very expensive to check them all by brute force queries of Horizons).
+    (a)
+    The interpolated positions of asteroids in one cut of a TESS sector.
+    The colours of the lines are time sequenced, as shown in the colour bar.
+    The alpha of the colours are scaled by the absolute magnitude $H$ of the asteroid, queried from JPL Horizons.
+    Both celestial (RA and Dec) and ecliptic (ecLon and ecLat) coordinates axes are shown.
+    The green $+$ is the centre of the cut.
+    This cut was chosen because of how many asteroids there were, enough to see the shape of the box, but not so much that the lines are overwhelming to the eye.\\
+    (b)
+    The difference in the interpolated position of an asteroid from bulk queries to JPL Horizons, with interpolated coordinate being subtracted from the coordinate returned by Horizons. The colour bar is a different colour map to (a) as the range of time is shorter. The extent of the box is one TESS pixel, \qty{21}{\arcsec}. This is of asteroid ``1989 BC1'', but all others checked are similarly accurate (It is very expensive to check them all by brute force queries of Horizons).
   }
   \label{Fig:interpandErrPos}
 \end{figure}
@@ -286,8 +286,8 @@ These interpolated positions can be seen in \autoref{Fig:interpPos} for a cut fr
 There are a few interesting features, such as the asteroids are moving in the same direction, indicated by the colouring, they come in from low RA and Dec and tend to increase both coordinates as the month of the sector progresses.
 There is also a large size range in this slice of sky, ranging over \qty{5}{\mag} in absolute magnitude, which can be seen in the alpha (or transparency) of the tracks in \autoref{Fig:interpPos}.
 Because of a small change in position between each frame, \citep[$\sim \qty{1}{\px}$ per frame][]{Pal2018}, this interpolation should be accurate.
-The 
-Checking against a higher frequency query to the JPL Horizons ephemeris  confirmed this accuracy on a few asteroids, as shown in \autoref{Fig:errPos}. 
+The
+Checking against a higher frequency query to the JPL Horizons ephemeris  confirmed this accuracy on a few asteroids, as shown in \autoref{Fig:errPos}.
 This is not a feasible way of getting all the positions, as the queries are per name and time, not per area and time like the cone search in Skybot.
 They are also rate limited, so while a few asteroids can be checked, filling the gaps between the Skybot half day queries for all the asteroids would take far too long.
 For the faster TESS FFIs, more interpolated points are needed, but a smaller the change in position between each point will be.
@@ -313,7 +313,13 @@ Using the \texttt{KDTree} algorithm \citep{Maneewongvatana1999} as implemented i
 Filtering this \texttt{KDTree} output by restricting the time between spatially coincident matches to less than \qty{0.1}{\day} stops any accidental matches in position from non-asteroid detections.
 A cut is then made by smallest distance, in coordinate space, and any distance must be smaller than \qty{0.01}{\degree} (\qty{36}{\arcsec}), which is within 2 TESS pixels.
 Then, if multiple detection match to the same interpolated point, the detection with the smallest distance will be taken.
-An example of the matches found using this \texttt{KDTree} is shown in \autoref{Fig:RADecMatch}. 
+An example of the matches found using this \texttt{KDTree} is shown in \autoref{Fig:RADecMatch}.
+It is clear that \texttt{TESSELLATE} is not detecting every frame that an asteroid is in.
+Detctions in \texttt{TESSELLATE} are done on a per pixel basis, and asteroids only cross each pixel for a short number of frames.
+Not every interpolated point gets a match, due to a variety of reasons, which culminate in there being not an extreme enough of a difference between frames at that pixel location.
+Instead there are bunches of freqntly matched points, and then patches where there are few matches detected at all.
+
+%TODO fig for agregate of all asteroids in a sector, to go in results 
 
 \begin{figure}[]
   \centering
@@ -327,29 +333,26 @@ An example of the matches found using this \texttt{KDTree} is shown in \autoref{
 %light curves; detected VS forced interpolated 
 There are two sets of points to take light curves from.
 The matches from the detections, which already have a flux calculated, and the interpolated points themselves, which are more numerous but require forcing the photometry.
-
 There were some challenges getting the flux of the interpolated points, even when \texttt{TESSELLATE} has already reduced all the FFIs of interest.
-The flux is summed in  $3\times3$ box centred on the integer $xy$ position returned from changing the world coordinates in RA and Dec to pixel coordinates using \texttt{Astropy}'s \texttt{SkyCoord} subpackage. %? cite
+
+Using the \texttt{SkyCoord} module of \texttt{Astropy}, the world coordinates, in RA and Dec, can be transformed into pixel coordinates, $x$ and $y$, using a world coordinates system (WCS) from TESSELLATE.
+\texttt{Photutils} \citep{Bradley2024} was then used to do aperture photometry with a \qty{1.5}{\px} radius to account for the spread in the TESS PRF. %?cite PRF
 
 The integer coordinates of the asteroids seemed to be leading the object in any given frame of TESS. %?FIG?
 This was decreasing the total flux of the asteroid, as the box used for sumation of the fluxes was hitting mostly sky.
 This also caused a ``sawtoothing'' effect, where the lighturve would jump from a minimum to a maximum when the integer coordinate snaped from being a pixel out to back on the asteroid.
-This both of these issues can be fixed by calculation of the centre of mass (COM) flux, the average brightness in $xy$ space on a $8\times8$ cut of the image centred on the interpolated position.
-I didn't take the highest pixel value in this box because there could be a rouge star, this would drag the COM around, but not by as much as snapping to that highest point.
-A \texttt{Photutils} %TODO cite 
-aperture photometry call to this COM with a radis of \qty{1.5}{\px} was enough to get fluxes of the same size, but with a far more smooth transition from maximum to minimum, as expected from rotating asteroids.
+This both of these issues can be fixed by calculation of the centre of mass (COM) flux, the average brightness in $xy$ space on a $5\times5$ cut of the image centred on the interpolated position.
+I didn't take the highest pixel value in this box because there could be a rouge star in the field that it snaps to, instead of the asteroid.
+A \texttt{Photutils} aperture photometry call to this COM with a radius of \qty{1.5}{\px} was enough to get fluxes of the same order, but with a far more smooth transition from maximum to minimum, as expected from rotating asteroids.
 
-Not every interpolated point gets a match, due to a variety of reasons, which culminate in there being not an extreme enough of a difference between frames.
-A comparison between the two light curves is interesting.
-
+A comparison between the two light curves is interesting, as one might expect only the brightest parts of the lightcurve will be matched.
 \autoref{Fig:DifFlux} shows these two light curves for a chosen asteroid, ``Ruff''.
 This was picked as it has a high number of points matched to detections, but of course still more interpolated points total.
-There seems to be a systematic offset between the fluxes, with the interpolated points having consistently lower flux, (here the means differ by 58 counts)
-Adjusting aperture to sum the fluxes over to the ``centre of mass'' of the asteroid in each frame does not alleviate this problem.
+There seems to be a systematic offset between the fluxes, with the interpolated points having consistently lower flux, (here the means differ by 58 counts)  %!check
 
 %TODO data cleaning explaination
-Following \citet{McNeill2023}, any fluxes more than $3\sigma$ from the mean value are sigma-clipped from the lightcurves.
-
+Following \citet{McNeill2023}, any fluxes more than $3\sigma$ from the mean value are sigma-clipped from the forced photometry lightcurves.
+This does introduce gaps into an otherwise regularly sampled lightcurve, but the contamination from background stars the object is passing in front of is too great.
 
 
 \subsection{Period detection}\label{SubSec:Periods}
@@ -380,24 +383,29 @@ It also returns a model, in the form of
 
 where the flux, $F$, is given in terms of time, $t$, the calculated frequency, f, and the model parameter $\vec{\theta} = [\theta_0, \theta_1,\theta_2]$.
 These parameters are useful in reconstructing the sinusoid without rerunning the periodogram.
+The method used for the periodogram fits is the new \texttt{nifty-ls} package \citep{Garrison2024} that has can be implemented on its own, or by interfacing with \texttt{Astropy}.
+I use the later implementation as the speed up from the nonuniform fast Fourier transform is helpful on the large dataset from \texttt{TESSELLATE}, but the astropy interface is how I had everything set up to run on just one cut.
 
+I an using a frequency window of for the periodogram between the the inverse of twice the time the asteroid spends in the sector and the Nyquist frequency (1/TESS cadance).
 
+%???
 There will be differences in the period between the matched points and the interpolated points, not just because of the difference in average flux, but also from the larger number of points. This difference needs to be carefully thought through to understand what is the more likely period.
+
+
 
 \subsection{Asteroid Statistics}\label{SubSec:StatMeth}
 
 %Run on server
 The \texttt{TESSELLATE} pipeline has been running on the OzSTAR supercomputing facilities.
-After I am confident that all the parts of the asteroid detection and subsequent light curve analysis works as required, the same code can be refactored to work on OzSTAR and a large-scale analysis of all the processed TESS sectors can be run.
-Only after this has completed can the asteroid population statistics can be computed.
-I will be looking for completeness of detections of asteroids, as well as accuracy of periods and amplitude variation.
+After I was confident that all the parts of the asteroid detection and subsequent light curve analysis worked as required on one cut of one camera of one ccd of one TESS sector, the same code was be refactored slightly to work on OzSTAR and a large-scale analysis of all the processed TESS sectors can be run.
+
+I will be looking for completeness of detections of asteroids, as well as accuracy of periods and amplitude variation by comparison to the LCDB.
 
 The completeness of the asteroid population in TESS as a function of their apparent magnitude can be determined.
 The apparent magnitude is one of the properties returned from the queries, and is in the V band.
 By taking a limit on the if an asteroid is detected \dots %TODO what is the limit
 Breaking the average V mag of these objects into \qty{0.5}{\mag} bins for both the sample returned from a query and the sample detected, a ratio of completeness can be calculated per bin.
-(Note: If there are no asteroids in a bin, none have a chance of being recovered, so the all did get recovered. I.e. $\frac{0}{0}=1$)
-
+(Note: If there are no asteroids in a bin, none have a chance of being recovered, so the all did get recovered. I.e. $\frac{0}{0}=1$, this is only an issue at the brightest magnitude where the fewest asteroids exist.)
 
 \section{Results}\label{Sec:Res}
 \section{Discussion}\label{Sec:Disc}
@@ -405,8 +413,6 @@ Breaking the average V mag of these objects into \qty{0.5}{\mag} bins for both t
 
 \section{Figures}
 %*Figures: Only here to keep them out of the way. Will be placed in text as it grows
-
-
 
 
 \begin{figure}
@@ -430,6 +436,8 @@ The OzSTAR program receives funding in part from the Astronomy National Collabor
 This research has made use of data and/or services provided by the International Astronomical Union's Minor Planet Center.
 
 This work has used data and/or services provided by NASA's Solar System Dynamics website, \url{https://ssd.jpl.nasa.gov/}. Specifically JPL Horizons: \url{https://ssd.jpl.nasa.gov/horizons/}.
+
+This research made use of Photutils, an Astropy package for detection and photometry of astronomical sources \citep{Bradley2024}.
 
 %*Bib
 \addcontentsline{toc}{section}{References}

@@ -11,8 +11,8 @@
 \contentsline {subsection}{\numberline {2.2}Interpolation}{5}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Detection Matching}{6}{subsection.2.3}%
 \contentsline {subsection}{\numberline {2.4}Ligthcurves}{6}{subsection.2.4}%
-\contentsline {subsection}{\numberline {2.5}Period detection}{7}{subsection.2.5}%
-\contentsline {subsection}{\numberline {2.6}Asteroid Statistics}{8}{subsection.2.6}%
+\contentsline {subsection}{\numberline {2.5}Period detection}{8}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Asteroid Statistics}{9}{subsection.2.6}%
 \contentsline {section}{\numberline {3}Results}{9}{section.3}%
 \contentsline {section}{\numberline {4}Discussion}{9}{section.4}%
 \contentsline {section}{\numberline {5}Conclusion}{9}{section.5}%
