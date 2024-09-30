@@ -526,15 +526,17 @@ def plotExpectedPos(posDf: pd.DataFrame, timeList: npt.ArrayLike, targetPos: lis
 
 
 sector = 22
-cam = 2
+cam = 1
 ccd = 3
-cut = 4
+cut = 7
 
 
 resDf, responses, astrProps = find_asteroids(sector, cam, ccd, cut)
 # interpDf = interplolation_of_pos(resDf,sector) Interp now done inside of the finding, so lower horizons queries
 fname = f"InterpolatedQuerryResult_{sector}_{cam}_{ccd}_{cut}"
 resDf.to_csv(f"{fname}.csv")
+
+
 
 
 # TO DELETE CACHE
@@ -602,17 +604,17 @@ for name in unqNames:
     deltaDec = (decsActs - decsInterp)*60*60
     fig, ax = plt.subplots(1, figsize=(10, 8))
     # ax.set_title(name)
-    ax.set_xlabel("$\Delta$ RA [$''$]")
+    ax.set_xlabel("$\Delta$RA [$''$]")
     ax.set_xlim((-limAngle, limAngle))
-    ax.set_ylabel("$\Delta$ Dec [$''$]")
+    ax.set_ylabel("$\Delta$Dec [$''$]")
     ax.set_ylim((-limAngle, limAngle))
     # TODO axis with 'TESS px units'
 
     ax2 = ax.secondary_xaxis("top", functions=(arcstopx, pxtoarcs))
     ax3 = ax.secondary_yaxis("right", functions=(arcstopx, pxtoarcs))
 
-    ax2.set_xlabel("$\Delta$ RA [TESS px]")
-    ax3.set_ylabel("$\Delta$ Dec [TESS px]")
+    ax2.set_xlabel("$\Delta$RA [TESS px]")
+    ax3.set_ylabel("$\Delta$Dec [TESS px]")
 
     cmap = "winter"
     # The delta T of the data, and makes a norm for a cmap

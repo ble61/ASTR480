@@ -14,11 +14,6 @@ warnings.simplefilter('ignore', category=AstropyWarning)
 warnings.simplefilter('ignore', category=RuntimeWarning)
 
 
-def load_matches(sector, cam, ccd, cut, dirPath = ""):
-    matchesDF = pd.read_csv(f"{dirPath}MatchesToDetections.csv")
-    matchesDF.drop(columns="Unnamed: 0", inplace=True)
-    return matchesDF
-
 def load_interpolations(sector, cam, ccd, cut, dirPath = ""):
     interpDF = pd.read_csv(f"{dirPath}asteroid_interpolated_positions.csv")
     interpDF.drop(columns="Unnamed: 0", inplace=True)

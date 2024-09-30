@@ -156,7 +156,6 @@ unqNames = pd.unique(interpRes["Name"])
 
 obsForDetect=3 #number of observations needed to count a detection
 
-
 interpedMv = []
 foundMv = []
 
