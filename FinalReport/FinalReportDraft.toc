@@ -14,8 +14,9 @@
 \contentsline {subsection}{\numberline {2.5}Period detection}{8}{subsection.2.5}%
 \contentsline {subsection}{\numberline {2.6}Asteroid Statistics}{9}{subsection.2.6}%
 \contentsline {section}{\numberline {3}Results}{9}{section.3}%
-\contentsline {section}{\numberline {4}Discussion}{9}{section.4}%
-\contentsline {section}{\numberline {5}Conclusion}{9}{section.5}%
-\contentsline {section}{\numberline {6}Figures}{9}{section.6}%
-\contentsline {section}{Acknowledgements}{10}{section*.9}%
-\contentsline {section}{References}{10}{section*.9}%
+\contentsline {subsection}{\numberline {3.1}Asteroid Properties}{10}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Detectability}{10}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Discussion}{13}{section.4}%
+\contentsline {section}{\numberline {5}Conclusion}{13}{section.5}%
+\contentsline {section}{Acknowledgements}{14}{section*.14}%
+\contentsline {section}{References}{14}{section*.14}%

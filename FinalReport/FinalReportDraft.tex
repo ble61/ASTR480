@@ -345,14 +345,28 @@ This both of these issues can be fixed by calculation of the centre of mass (COM
 I didn't take the highest pixel value in this box because there could be a rouge star in the field that it snaps to, instead of the asteroid.
 A \texttt{Photutils} aperture photometry call to this COM with a radius of \qty{1.5}{\px} was enough to get fluxes of the same order, but with a far more smooth transition from maximum to minimum, as expected from rotating asteroids.
 
-A comparison between the two light curves is interesting, as one might expect only the brightest parts of the lightcurve will be matched.
-\autoref{Fig:DifFlux} shows these two light curves for a chosen asteroid, ``Ruff''.
-This was picked as it has a high number of points matched to detections, but of course still more interpolated points total.
-There seems to be a systematic offset between the fluxes, with the interpolated points having consistently lower flux, (here the means differ by 58 counts)  %!check
-
 %TODO data cleaning explaination
 Following \citet{McNeill2023}, any fluxes more than $3\sigma$ from the mean value are sigma-clipped from the forced photometry lightcurves.
 This does introduce gaps into an otherwise regularly sampled lightcurve, but the contamination from background stars the object is passing in front of is too great.
+
+\begin{figure}
+  \centering
+  \includegraphics[width =\textwidth]{../OzData/SingleBodyLC1991 VT.pdf}
+  \caption[Light curves of 1991 VT]{The light curves of the asteroid 1991 VT throughout its entrie journey across sector 29, with the flux of the interpolated positions in blue circles and the flux from the COM in orange diamonds, and the \texttt{TESSELLATE} flux for any matched points in the black squares.
+    The Flux axis is measured in counts, as calculated by \texttt{TESSreduce}, and the times are in modified Julian date (MJD).}
+  \label{Fig:FullSingleLC}
+\end{figure}
+A comparison between the three light curves is interesting, as one might expect only the brightest parts of the lightcurve will be matched.
+\autoref{Fig:FullSingleLC} shows these three light curves for a single body.
+The COM flux seems much more stable than the interperted flux on its own, and at a higher average flux count.
+This should result in more accurate periodograms as there is less overall curve to the data.
+The matched points are comparatavely sparce for this object, which is not the case for all.
+Many have no matches, and some have almost fully matched, this will be discussed more later.
+
+
+
+
+
 
 
 \subsection{Period detection}\label{SubSec:Periods}
@@ -363,7 +377,7 @@ The next part of my analysis has to do with determining the periods and amplitud
 
 A widely used technique in determining the periods of astronomical data is the Lomb-Scargle periodogram \citep[\citet{Lomb1976,Scargle1982}, but see][for a review]{VanderPlas2018}.
 This method can efficiently take discrete timeseries data of which the observations are unevenly spaced and calculate the frequencies present in the sample.
-TESS should have rather evenly spaced data, as the FFIs are produced on a set candence, but sometimes data will be missing.
+TESS should have rather evenly spaced data, as the FFIs are produced on a set cadence, but sometimes data will be missing.
 For example, it may have been sigma clipped due to a spike in brightness that is unphysical for an asteroid, or TESS sees the same asteroid in the same sector on either side of the day long mid-sector break it takes for data transfer.
 The Lomb-Scargle periodogram deals with this uneven sampling much better than either a fast Fourier transform or a direct least squares fit.
 
@@ -391,7 +405,8 @@ I an using a frequency window of for the periodogram between the the inverse of 
 %???
 There will be differences in the period between the matched points and the interpolated points, not just because of the difference in average flux, but also from the larger number of points. This difference needs to be carefully thought through to understand what is the more likely period.
 
-
+%TODO single object periodogram
+%Maybe a bad one too
 
 \subsection{Asteroid Statistics}\label{SubSec:StatMeth}
 
@@ -408,20 +423,69 @@ Breaking the average V mag of these objects into \qty{0.5}{\mag} bins for both t
 (Note: If there are no asteroids in a bin, none have a chance of being recovered, so the all did get recovered. I.e. $\frac{0}{0}=1$, this is only an issue at the brightest magnitude where the fewest asteroids exist.)
 
 \section{Results}\label{Sec:Res}
-\section{Discussion}\label{Sec:Disc}
-\section{Conclusion}\label{Sec:Conc}
 
-\section{Figures}
-%*Figures: Only here to keep them out of the way. Will be placed in text as it grows
+This is the results for TESS sector 29.
+This sector was chosen because it is early in the \qty{10}{\min} cadence of TESS FFIs, and had been fully run through TESSELLATE.
+Similar results can be found in any of the sectors, just the computaion time was a limiting factor.
+
+\subsection{Asteroid Properties}\label{SubSec:AstPropRes}
+
+The orbital element properties of the asteroids were returned by JPL Horizons queries.
+A plot of the semi-major axis against the other orbital elements, eccentricity and inclination, is shown in \autoref{Fig:AEI}.
+The disticntion between the resonances in the main belt are clearly seen. There are lines seperating the middle belt from the inner and outer belt.
+The Jupiter trojans are well defined, at just past \qty{5}{\au}, with a small range of eccentricity but a large spread in the inclination.
+Inbetween the outerbelt and the Jupiter trojans, sit some Mars crossers.
+A some near earth objects (NEOs) at smaller $a$ and a few more objects that are scattered with high $e$ and or $i$ complete the distrabution.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{../OzData/AEIplot29.pdf}
+  \caption[aei distribution]{a, e, i, plot of all the objects on sector 29}
+  \label{Fig:AEI}
+\end{figure}
+
+
+The number the belong to each class of objects is highlighted in \autoref{Fig:NumPerClass}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{../OzData/classesBar29.pdf}
+  \caption[Class distribution]{A distrabution of the number of asteroids per class that \texttt{SkyBot} knows the object is. }
+  \label{Fig:NumPerClass}
+\end{figure}
+
+\subsection{Detectability}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{../OzData/recoverdHistBkgLimof10.pdf}
+  \caption[Recovery plot]{A histogram of known average visual magnitude of each object against the whether or not the object has a lightcurve with an average flux value above 10 %!CHECK
+    counts for its COM flux.
+  }
+  \label{Fig:RecovOverBkg}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{../OzData/pointsMatchesNumberHistTEST.pdf}
+  \caption[short]{A histogram of the number of point in the lightcurve of each asteroid (blue) against the number of matches each asteroid gets in the \texttt{TESSELLATE} detections(orange dashed). }
+  \label{Fig:MatchInterpHists}
+\end{figure}
 
 
 \begin{figure}
   \centering
-  \includegraphics[width =\columnwidth]{../Test Code/Testing Figures/differentFluxes Ruff .pdf}
-  \caption[Light curves of Ruff]{The light curves of the asteroid ``Ruff'', with the flux of the interpolated positions in blue circles and the flux from the matches to detected sources in orange diamonds.
-    The Flux axis is measured in counts, as calculated by \texttt{TESSreduce}, and the times are in Modified Julian Date.}
-  \label{Fig:DifFlux}
+  \includegraphics[width = \textwidth]{../OzData/matchesHist29.pdf}
+  \caption[Magnitude of matches]{The visual magnitude of the asteroid against the fraction of asteroids in this bin with more than 3 %!CHECK
+    matches.
+  }
+  \label{Fig:MagofMatches}
 \end{figure}
+
+
+\section{Discussion}\label{Sec:Disc}
+\section{Conclusion}\label{Sec:Conc}
+
 
 
 \newpage %* Page number above here must be <=25
