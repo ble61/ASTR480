@@ -92,10 +92,10 @@ def colate_cuts(sector):
                 ele = ele[0]
             colapsedEles.append(ele)
 
-        nameList = [nCut.at[0,"Num"],nCut.at[0,"Name"],newMean,nCut.at[0,"Class"],totPoints, colapsedEles[0], colapsedEles[1], colapsedEles[2], colapsedEles[3]]
+        nameList = [nCut.at[0,"Num"],nCut.at[0,"Name"],newMean,nCut.at[0,"Class"],totPoints,nCut.at[0,"Num Matches"], colapsedEles[0], colapsedEles[1], colapsedEles[2], colapsedEles[3]]
         nameLists.append(nameList)
 
-    unqNamesPropDF = pd.DataFrame(nameLists, columns=["Num","Name","Mv(mean)","Class","Number of Points","a","e","i","H"])
+    unqNamesPropDF = pd.DataFrame(nameLists, columns=["Num","Name","Mv(mean)","Class","Number of Points","Num Matches","a","e","i","H"])
     
 
     allProps.to_csv(f"/fred/oz335/bleicester/Data/{sector}_All_Properties.csv")
