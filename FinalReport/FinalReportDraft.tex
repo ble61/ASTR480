@@ -426,31 +426,39 @@ Breaking the average V mag of these objects into \qty{0.5}{\mag} bins for both t
 
 This is the results for TESS sector 29.
 This sector was chosen because it is early in the \qty{10}{\min} cadence of TESS FFIs, and had been fully run through TESSELLATE.
-Similar results can be found in any of the sectors, just the computaion time was a limiting factor.
+Similar results can be found in any of the sectors, the computation time was a limiting factor in getting more sectors processed.
 
 \subsection{Asteroid Properties}\label{SubSec:AstPropRes}
 
 The orbital element properties of the asteroids were returned by JPL Horizons queries.
 A plot of the semi-major axis against the other orbital elements, eccentricity and inclination, is shown in \autoref{Fig:AEI}.
-The disticntion between the resonances in the main belt are clearly seen. There are lines seperating the middle belt from the inner and outer belt.
-The Jupiter trojans are well defined, at just past \qty{5}{\au}, with a small range of eccentricity but a large spread in the inclination.
-Inbetween the outerbelt and the Jupiter trojans, sit some Mars crossers.
-A some near earth objects (NEOs) at smaller $a$ and a few more objects that are scattered with high $e$ and or $i$ complete the distrabution.
+The distinction between the resonances in the main belt are clearly seen. There are lines separating the middle belt from the inner and outer belt.
+The Jupiter Trojans are well-defined, at just past \qty{5}{\au}, with a small range of eccentricity but a large spread in the inclination.
+In between the outer belt and the Jupiter Trojans, sit some Mars crossers.
+A some near earth objects (NEOs) at smaller $a$ and a few more objects that are scattered with high $e$ and or $i$ complete the distribution.
+These are all objects in the field of the instrument during the sector. 
+Many of them will not be detected, as they will not be bright enough, this is seen below.
 
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{../OzData/AEIplot29.pdf}
-  \caption[aei distribution]{a, e, i, plot of all the objects on sector 29}
+  \caption[aei distribution]{
+    The $a$ against both $e$ and $i$ of all the objects that \texttt{SkyBot} found in Sector 29 with $V <\qty{20}{\mag}$. 
+    (Other than the comets and centaurs with poorly defined $a$ values)
+    The values of these proper elements were queried from JPL Horizons on 30/09/24.
+  }
   \label{Fig:AEI}
 \end{figure}
 
 
-The number the belong to each class of objects is highlighted in \autoref{Fig:NumPerClass}
+The number of asteroids belong to each class of objects is highlighted in \autoref{Fig:NumPerClass}. As expected from the orbital elements in \autoref{Fig:AEI}, the majority of the minor planets fall in the three regions of the main belt. \dots
 
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{../OzData/classesBar29.pdf}
-  \caption[Class distribution]{A distrabution of the number of asteroids per class that \texttt{SkyBot} knows the object is. }
+  \caption[Class distribution]{A distribution of the number of asteroids per class that \texttt{SkyBot} found in the Sector. 
+  As with \autoref{Fig:AEI}, this is for all objects brighter than \nth{20}\unit{\mag}
+  For the class labels, MB is ``main belt'' and ``NEA'' is near earth asteroid.}
   \label{Fig:NumPerClass}
 \end{figure}
 
@@ -459,17 +467,10 @@ The number the belong to each class of objects is highlighted in \autoref{Fig:Nu
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{../OzData/recoverdHistBkgLimof10.pdf}
-  \caption[Recovery plot]{A histogram of known average visual magnitude of each object against the whether or not the object has a lightcurve with an average flux value above 10 %!CHECK
-    counts for its COM flux.
+  \caption[Recovery plot]{A histogram of known average visual magnitude of each object against the whether the object has a lightcurve with an average flux value above 10 %!CHECK
+  counts for its COM flux.
   }
   \label{Fig:RecovOverBkg}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \includegraphics[width=\textwidth]{../OzData/pointsMatchesNumberHistTEST.pdf}
-  \caption[short]{A histogram of the number of point in the lightcurve of each asteroid (blue) against the number of matches each asteroid gets in the \texttt{TESSELLATE} detections(orange dashed). }
-  \label{Fig:MatchInterpHists}
 \end{figure}
 
 
@@ -482,6 +483,15 @@ The number the belong to each class of objects is highlighted in \autoref{Fig:Nu
   \label{Fig:MagofMatches}
 \end{figure}
 
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{../OzData/pointsMatchesNumberHistTEST.pdf}
+  \caption[Number of observations or matches]{A histogram of the number of observations in the lightcurve of each asteroid (blue) against the number of matches each asteroid gets in the \texttt{TESSELLATE} detections(orange dashed). }
+  \label{Fig:MatchInterpHists}
+\end{figure}
+
+\subsection{Period Analysis Results}\label{SubSec:PerRes}
 
 \section{Discussion}\label{Sec:Disc}
 \section{Conclusion}\label{Sec:Conc}
