@@ -3,10 +3,6 @@ import pandas as pd
 from scipy.spatial import KDTree
 
 
-def _load_lcs(sector, cam, ccd, cut, dirPath = "./"):
-    lcDF = pd.read_csv(f"{dirPath}InterpLC.csv")
-    #!need to not reset index lcDF.drop(columns="Unnamed: 0", inplace=True)
-    return lcDF
 
 def _load_fluxes(sector, cam, ccd, cut, dirPath = "../OzData/"):
     reduFlux = np.load(f"{dirPath}sector{sector}_cam{cam}_ccd{ccd}_cut{cut}_of16_ReducedFlux.npy")

@@ -20,8 +20,8 @@ plt.rcParams.update({
     # "ytick.minor.visible": True,
 })
 
-#TODO Nyquist criterion
-#TODO LC database
+#// TODO Nyquist criterion
+#// TODO LC database
 
 def detect_period_lk(times, fluxes, fluxErrs):
     """
