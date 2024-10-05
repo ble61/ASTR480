@@ -119,3 +119,6 @@ def period_analysis(sector):
 
     propDF.to_csv(f"../Data/{sector}Properties_and_Periods.csv")
 
+
+
+period_analysis(29)

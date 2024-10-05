@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.26)  3 OCT 2024 16:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.26)  5 OCT 2024 12:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -763,41 +763,41 @@ Package pdftex.def Info: ../OzData/AEIplot29.pdf  used on input line 444.
 <../OzData/classesBar29.pdf, id=678, 867.24pt x 433.62pt>
 File: ../OzData/classesBar29.pdf Graphic file (type pdf)
 <use ../OzData/classesBar29.pdf>
-Package pdftex.def Info: ../OzData/classesBar29.pdf  used on input line 458.
+Package pdftex.def Info: ../OzData/classesBar29.pdf  used on input line 461.
 (pdftex.def)             Requested size: 455.24408pt x 227.62082pt.
 <../OzData/recoverdHistBkgLimof10.pdf, id=681, 867.24pt x 433.62pt>
 File: ../OzData/recoverdHistBkgLimof10.pdf Graphic file (type pdf)
 <use ../OzData/recoverdHistBkgLimof10.pdf>
-Package pdftex.def Info: ../OzData/recoverdHistBkgLimof10.pdf  used on input line 469.
+Package pdftex.def Info: ../OzData/recoverdHistBkgLimof10.pdf  used on input line 472.
 (pdftex.def)             Requested size: 455.24408pt x 227.62082pt.
 <../OzData/matchesHist29.pdf, id=682, 867.24pt x 433.62pt>
 File: ../OzData/matchesHist29.pdf Graphic file (type pdf)
 <use ../OzData/matchesHist29.pdf>
-Package pdftex.def Info: ../OzData/matchesHist29.pdf  used on input line 479.
+Package pdftex.def Info: ../OzData/matchesHist29.pdf  used on input line 482.
 (pdftex.def)             Requested size: 455.24408pt x 227.62082pt.
 <../OzData/pointsMatchesNumberHistTEST.pdf, id=683, 867.24pt x 433.62pt>
 File: ../OzData/pointsMatchesNumberHistTEST.pdf Graphic file (type pdf)
 <use ../OzData/pointsMatchesNumberHistTEST.pdf>
-Package pdftex.def Info: ../OzData/pointsMatchesNumberHistTEST.pdf  used on input line 489.
+Package pdftex.def Info: ../OzData/pointsMatchesNumberHistTEST.pdf  used on input line 492.
 (pdftex.def)             Requested size: 455.24408pt x 227.62082pt.
 File: logos/UC.png Graphic file (type png)
 <use logos/UC.png>
-Package pdftex.def Info: logos/UC.png  used on input line 496.
+Package pdftex.def Info: logos/UC.png  used on input line 499.
 (pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
  [10 <../OzData/AEIplot29.pdf>]
 File: logos/UC.png Graphic file (type png)
 <use logos/UC.png>
-Package pdftex.def Info: logos/UC.png  used on input line 496.
+Package pdftex.def Info: logos/UC.png  used on input line 499.
 (pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
  [11 <../OzData/classesBar29.pdf> <../OzData/recoverdHistBkgLimof10.pdf>]
 File: logos/UC.png Graphic file (type png)
 <use logos/UC.png>
-Package pdftex.def Info: logos/UC.png  used on input line 496.
+Package pdftex.def Info: logos/UC.png  used on input line 499.
 (pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
  [12 <../OzData/matchesHist29.pdf> <../OzData/pointsMatchesNumberHistTEST.pdf>]
 File: logos/UC.png Graphic file (type png)
 <use logos/UC.png>
-Package pdftex.def Info: logos/UC.png  used on input line 501.
+Package pdftex.def Info: logos/UC.png  used on input line 504.
 (pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
  [13] (./FinalReportDraft.bbl
 File: logos/UC.png Graphic file (type png)
@@ -875,7 +875,7 @@ Package pdftex.def Info: logos/UC.png  used on input line 389.
 [20])
 File: logos/UC.png Graphic file (type png)
 <use logos/UC.png>
-Package pdftex.def Info: logos/UC.png  used on input line 520.
+Package pdftex.def Info: logos/UC.png  used on input line 523.
 (pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
  [21] (./FinalReportDraft.aux)
  ***********
@@ -894,7 +894,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  125i,17n,121p,4353b,1150s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfcc1728.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfcc2074.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfxc2074.pfb>
-Output written on FinalReportDraft.pdf (27 pages, 1113769 bytes).
+Output written on FinalReportDraft.pdf (27 pages, 1113983 bytes).
 PDF statistics:
  1088 PDF objects out of 1200 (max. 8388607)
  654 compressed objects within 7 object streams

@@ -398,9 +398,9 @@ It also returns a model, in the form of
 where the flux, $F$, is given in terms of time, $t$, the calculated frequency, f, and the model parameter $\vec{\theta} = [\theta_0, \theta_1,\theta_2]$.
 These parameters are useful in reconstructing the sinusoid without rerunning the periodogram.
 The method used for the periodogram fits is the new \texttt{nifty-ls} package \citep{Garrison2024} that has can be implemented on its own, or by interfacing with \texttt{Astropy}.
-I use the later implementation as the speed up from the nonuniform fast Fourier transform is helpful on the large dataset from \texttt{TESSELLATE}, but the astropy interface is how I had everything set up to run on just one cut.
+I use the later implementation as the speed-up from the non-uniform fast Fourier transform is helpful on the large dataset from \texttt{TESSELLATE}, but the \texttt{Astropy} interface is how I had everything set up to run on just the subsection I was trialling my code on.
 
-I an using a frequency window of for the periodogram between the the inverse of twice the time the asteroid spends in the sector and the Nyquist frequency (1/TESS cadance).
+I am using a frequency window of for the periodogram between inverse of twice the time the asteroid spends in the sector and the Nyquist frequency (1/TESS cadence).
 
 %???
 There will be differences in the period between the matched points and the interpolated points, not just because of the difference in average flux, but also from the larger number of points. This difference needs to be carefully thought through to understand what is the more likely period.
@@ -451,12 +451,15 @@ Many of them will not be detected, as they will not be bright enough, this is se
 \end{figure}
 
 
-The number of asteroids belong to each class of objects is highlighted in \autoref{Fig:NumPerClass}. As expected from the orbital elements in \autoref{Fig:AEI}, the majority of the minor planets fall in the three regions of the main belt. \dots
+The number of asteroids belonging to each class of objects is highlighted in \autoref{Fig:NumPerClass}. As expected from the orbital elements in \autoref{Fig:AEI}, the majority of the minor planets fall in the three regions of the main belt. 
+There are some objects that are not asteroids, 20 comets were in the field and 1 centaur.
+While they have a V mag less than 20, these objects are often not bright enough to have lightcurves with high enough mean fluxes to be detected well by TESS.
+ 
 
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{../OzData/classesBar29.pdf}
-  \caption[Class distribution]{A distribution of the number of asteroids per class that \texttt{SkyBot} found in the Sector. 
+  \caption[Class distribution]{A distribution of the number of objects per class that \texttt{SkyBot} found in the Sector. 
   As with \autoref{Fig:AEI}, this is for all objects brighter than \nth{20}\unit{\mag}
   For the class labels, MB is ``main belt'' and ``NEA'' is near earth asteroid.}
   \label{Fig:NumPerClass}
