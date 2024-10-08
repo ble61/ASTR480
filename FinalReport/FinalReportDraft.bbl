@@ -179,8 +179,8 @@ J.~Lewis.
 \newblock {Lightkurve: Kepler and TESS time series analysis in Python}.
 \newblock Astrophysics Source Code Library, Dec. 2018.
 
-\bibitem[Lomb et~al.(1976)Lomb, Lomb, and R.]{Lomb1976}
-N.~R. Lomb, Lomb, and N.~R.
+\bibitem[Lomb(1976)]{Lomb1976}
+N.~R. Lomb.
 \newblock Least-squares frequency analysis of unequally spaced data.
 \newblock \emph{Ap\&SS}, 39:\penalty0 447--462, 2 1976.
 \newblock ISSN 0004-640X.
@@ -313,8 +313,8 @@ D.~P. Rubincam.
 \newblock ISSN 00191035.
 \newblock \doi{10.1006/icar.2000.6485}.
 
-\bibitem[Scargle et~al.(1982)Scargle, Scargle, and D.]{Scargle1982}
-J.~D. Scargle, Scargle, and J.~D.
+\bibitem[Scargle(1982)]{Scargle1982}
+J.~D. Scargle.
 \newblock Studies in astronomical time series analysis. ii. statistical aspects of spectral analysis of unevenly spaced data.
 \newblock \emph{ApJ}, 263:\penalty0 835--853, 12 1982.
 \newblock ISSN 0004-637X.

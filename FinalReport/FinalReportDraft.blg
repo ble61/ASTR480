@@ -8,34 +8,34 @@ Warning--empty journal in Gowanlock2024
 Warning--empty note in TESSELLATE
 You've used 53 entries,
             2773 wiz_defined-function locations,
-            1072 strings with 37347 characters,
-and the built_in function-call counts, 76684 in all, are:
-= -- 5524
-> -- 10529
-< -- 20
-+ -- 3515
-- -- 3462
-* -- 8372
-:= -- 13248
+            1072 strings with 37306 characters,
+and the built_in function-call counts, 76454 in all, are:
+= -- 5508
+> -- 10489
+< -- 22
++ -- 3503
+- -- 3450
+* -- 8334
+:= -- 13212
 add.period$ -- 284
 call.type$ -- 53
-change.case$ -- 1310
+change.case$ -- 1306
 chr.to.int$ -- 53
 cite$ -- 109
-duplicate$ -- 1137
-empty$ -- 2002
-format.name$ -- 3527
-if$ -- 14593
+duplicate$ -- 1135
+empty$ -- 2000
+format.name$ -- 3515
+if$ -- 14549
 int.to.chr$ -- 1
 int.to.str$ -- 1
 missing$ -- 53
 newline$ -- 398
 num.names$ -- 212
-pop$ -- 2450
+pop$ -- 2444
 preamble$ -- 1
-purify$ -- 1260
+purify$ -- 1256
 quote$ -- 0
-skip$ -- 1818
+skip$ -- 1814
 stack$ -- 0
 substring$ -- 877
 swap$ -- 149

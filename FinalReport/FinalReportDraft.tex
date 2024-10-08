@@ -202,7 +202,7 @@ For the smallest objects ingenious observation techniques are employed to measur
 Because of such a rich history of study, many asteroids have a known rotation period.
 These are catalogued by \citet{Warner2009} %TODO updated in citation http://www.MinorPlanet.info/php/lcdb.php
 in the Light Curve Database (LCDB).
-%TODO fig of period vs diameter.   
+%// TODO fig of period vs diameter.   
 In the October \nth{1}, 2023 release, the LCDB has nearly 9000 objects with periods determined to a quality code $U\geq 2-$, which is the minimum reliability recommended by \citeauthor{Warner2009} for statistical analysis.
 This includes other TESS data from \citet{Pal2020} and \citet{Woods2021}.
 The frequencies against diameter plot of these asteroids in \autoref{Fig:FreqVsDiam} shows the collection of all the asteroids in the LCDB.
@@ -234,35 +234,6 @@ With the full sky survey of bright asteroids, we hope to find many asteroids wit
 
 \subsection{Querrying Databases}\label{SubSec:Querry}
 
-\begin{figure}[h!]
-  \begin{subfigure}[t]{0.5\textwidth}
-    \centering
-    \includegraphics[width =\textwidth]{../Test Code/Testing Figures/interpPos\_22\_2\_3\_4.pdf}
-    \caption[Positions]{Positions of asteroids in a cut.}
-    \label{Fig:interpPos}
-  \end{subfigure}
-  ~
-  \begin{subfigure}[t]{0.5\textwidth}
-    \centering
-    \includegraphics[width =\textwidth]{../Test Code/Testing Figures/1989 BC1PosCheck.pdf} %TODO one with more points???
-    \caption[Errors]{Error in interpolated positions}
-    \label{Fig:errPos}
-  \end{subfigure}
-
-  \caption[Interpolated positions and error of asteroids]{
-    (a)
-    The interpolated positions of asteroids in one cut of a TESS sector.
-    The colours of the lines are time sequenced, as shown in the colour bar.
-    The alpha of the colours are scaled by the absolute magnitude $H$ of the asteroid, queried from JPL Horizons.
-    Both celestial (RA and Dec) and ecliptic (ecLon and ecLat) coordinates axes are shown.
-    The green $+$ is the centre of the cut.
-    This cut was chosen because of how many asteroids there were, enough to see the shape of the box, but not so much that the lines are overwhelming to the eye.\\
-    (b)
-    The difference in the interpolated position of an asteroid from bulk queries to JPL Horizons, with interpolated coordinate being subtracted from the coordinate returned by Horizons. The colour bar is a different colour map to (a) as the range of time is shorter. The extent of the box is one TESS pixel, \qty{21}{\arcsec}. This is of asteroid ``1989 BC1'', but all others checked are similarly accurate (It is very expensive to check them all by brute force queries of Horizons).
-  }
-  \label{Fig:interpandErrPos}
-\end{figure}
-
 To check for asteroids in the TESS data, the positions of the asteroids with time are required.
 For most asteroids, their orbital elements are well known, so it is a matter of looking them up and cross-matching with transients in the TESS data.
 Python was used to make API calls to
@@ -280,9 +251,38 @@ was used to obtain the orbital elements of each asteroid, $a$, $e$, and $i$, as 
 \subsection{Interpolation}\label{SubSec:Interp}
 
 
+\begin{figure}[h!]
+  \begin{subfigure}[t]{0.5\textwidth}
+    \centering
+    \includegraphics[width =\textwidth]{../Test Code/Testing Figures/interpPos\_22\_2\_3\_4.pdf}
+    \caption[Positions]{Positions of asteroids in a subsection.}
+    \label{Fig:interpPos}
+  \end{subfigure}
+  ~
+  \begin{subfigure}[t]{0.5\textwidth}
+    \centering
+    \includegraphics[width =\textwidth]{../Test Code/Testing Figures/1989 BC1PosCheck.pdf} %TODO one with more points???
+    \caption[Errors]{Error in interpolated positions}
+    \label{Fig:errPos}
+  \end{subfigure}
+
+  \caption[Interpolated positions and error of asteroids]{
+    (a)
+    The interpolated positions of asteroids in one subsection of a TESS sector.
+    The colours of the lines are time sequenced, as shown in the colour bar.
+    The alpha of the colours are scaled by the absolute magnitude $H$ of the asteroid, queried from JPL Horizons.
+    Both celestial (RA and Dec) and ecliptic (ecLon and ecLat) coordinates axes are shown.
+    The green $+$ is the centre of the subsection.
+    This sunsection was chosen because of how many asteroids there were, enough to see the shape of the box, but not so much that the lines are overwhelming to the eye.\\
+    (b)
+    The difference in the interpolated position of an asteroid from bulk queries to JPL Horizons, with interpolated coordinate being subtracted from the coordinate returned by Horizons. The colour bar is a different colour map to (a) as the range of time is shorter. The extent of the box is one TESS pixel, \qty{21}{\arcsec}. This is of asteroid ``1989 BC1'', but all others checked are similarly accurate (It is very expensive to check them all by brute force queries of Horizons).
+  }
+  \label{Fig:interpandErrPos}
+\end{figure}
+
 
 With TESS data coming in $\frac12\unit{\hour}$ chunks, 24 interpolated points are needed between each API call.
-These interpolated positions can be seen in \autoref{Fig:interpPos} for a cut from \texttt{TESSELLATE}.
+These interpolated positions can be seen in \autoref{Fig:interpPos} for a subsection of sector from \texttt{TESSELLATE}.
 There are a few interesting features, such as the asteroids are moving in the same direction, indicated by the colouring, they come in from low RA and Dec and tend to increase both coordinates as the month of the sector progresses.
 There is also a large size range in this slice of sky, ranging over \qty{5}{\mag} in absolute magnitude, which can be seen in the alpha (or transparency) of the tracks in \autoref{Fig:interpPos}.
 Because of a small change in position between each frame, \citep[$\sim \qty{1}{\px}$ per frame][]{Pal2018}, this interpolation should be accurate.
@@ -292,7 +292,6 @@ This is not a feasible way of getting all the positions, as the queries are per 
 They are also rate limited, so while a few asteroids can be checked, filling the gaps between the Skybot half day queries for all the asteroids would take far too long.
 For the faster TESS FFIs, more interpolated points are needed, but a smaller the change in position between each point will be.
 Forcing the interpolations to be at the same time as the TESS frames, which are known thanks to \texttt{TESSELLATE} saving them out, simplifies the matching to detections and forced photometry of these points.
-
 
 
 \subsection{Detection Matching}\label{SubSec:Match}
@@ -340,19 +339,28 @@ Using the \texttt{SkyCoord} module of \texttt{Astropy}, the world coordinates, i
 
 The integer coordinates of the asteroids seemed to be leading the object in any given frame of TESS. %?FIG?
 This was decreasing the total flux of the asteroid, as the box used for sumation of the fluxes was hitting mostly sky.
-This also caused a ``sawtoothing'' effect, where the lighturve would jump from a minimum to a maximum when the integer coordinate snaped from being a pixel out to back on the asteroid.
-This both of these issues can be fixed by calculation of the centre of mass (COM) flux, the average brightness in $xy$ space on a $5\times5$ cut of the image centred on the interpolated position.
+This also caused a ``sawtoothing'' effect, where the lighturve would jump from a minimum to a maximum when the integer coordinate snapped from being a pixel out to back on the asteroid.
+Both of these issues can be fixed by calculation of the centre of mass (COM), the average brightness in $xy$ space on a $5\times5$ \unit{\px} box of the image centred on the interpolated position.
 I didn't take the highest pixel value in this box because there could be a rouge star in the field that it snaps to, instead of the asteroid.
-A \texttt{Photutils} aperture photometry call to this COM with a radius of \qty{1.5}{\px} was enough to get fluxes of the same order, but with a far more smooth transition from maximum to minimum, as expected from rotating asteroids.
+A \texttt{Photutils} aperture photometry centred on the COM with the same radius of \qty{1.5}{\px} sorted some of the discrepancies in the lightcurve, with a far smoother transition from maximum to minimum, as expected from rotating asteroids. Hereafter, unless otherwise spesified, ``flux'' referes to this COM flux measurement of the asteroid.
+
 
 %TODO data cleaning explaination
+A few steps need to be taken to clean these COM lightcurves. 
 Following \citet{McNeill2023}, any fluxes more than $3\sigma$ from the mean value are sigma-clipped from the forced photometry lightcurves.
-This does introduce gaps into an otherwise regularly sampled lightcurve, but the contamination from background stars the object is passing in front of is too great.
+This does introduce gaps into an otherwise regularly sampled lightcurve, but the contamination from background stars the object moves through of is too great.
+The subsections made by \texttt{TESSELLATE} have a small overlap. 
+If an object moves between these, there will be a few frames where it is found in multiple of these subsections.
+This makes the lightcurve have two simultaneous observations of the asteroid, which clearly is not possible.
+At the very edge of the subsections, the asteroid can have a COM position that would have the aperture be summing over pixels that are outside the field, and thus the asteroid would have a lower flux value on the edge.
+The overlap is great enough that the decrease in flux should only be happening on one of the edges at a time.
+So, sorting by flux on a per asteroid basis, then removing the duplicate observation times, keeping only those with the highest flux, will clean the lightcurve. 
+
 
 \begin{figure}
   \centering
   \includegraphics[width =\textwidth]{../OzData/SingleBodyLC1991 VT.pdf}
-  \caption[Light curves of 1991 VT]{The light curves of the asteroid 1991 VT throughout its entrie journey across sector 29, with the flux of the interpolated positions in blue circles and the flux from the COM in orange diamonds, and the \texttt{TESSELLATE} flux for any matched points in the black squares.
+  \caption[Light curves Example]{The light curves of the asteroid 1991 VT throughout its entrie journey across sector 29, with the flux of the interpolated positions in blue circles and the flux from the COM in orange diamonds, and the \texttt{TESSELLATE} flux for any matched points in the black squares.
     The Flux axis is measured in counts, as calculated by \texttt{TESSreduce}, and the times are in modified Julian date (MJD).}
   \label{Fig:FullSingleLC}
 \end{figure}
@@ -400,10 +408,36 @@ These parameters are useful in reconstructing the sinusoid without rerunning the
 The method used for the periodogram fits is the new \texttt{nifty-ls} package \citep{Garrison2024} that has can be implemented on its own, or by interfacing with \texttt{Astropy}.
 I use the later implementation as the speed-up from the non-uniform fast Fourier transform is helpful on the large dataset from \texttt{TESSELLATE}, but the \texttt{Astropy} interface is how I had everything set up to run on just the subsection I was trialling my code on.
 
-I am using a frequency window of for the periodogram between inverse of twice the time the asteroid spends in the sector and the Nyquist frequency (1/TESS cadence).
+I am using a frequency window of for the periodogram between inverse of twice the time the asteroid spends in the sector and the Nyquist frequency (1/TESS cadence). %TODO rework completely
 
 %???
-There will be differences in the period between the matched points and the interpolated points, not just because of the difference in average flux, but also from the larger number of points. This difference needs to be carefully thought through to understand what is the more likely period.
+There will be differences in the period between the matched points and the interpolated points, not just because of the difference in average flux, but also from the larger number of points. 
+The matches are often have fewer observations and are much sparcer in time that the forced photometry measurements (see the black squares in \autoref{Fig:FullSingleLC}), so would give worse periodograms. 
+
+
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{../OzData/PeriodogramUlysses.pdf}
+  \caption[Periodogram example]{\textit{Upper Panel}:The Periodogram of the COM flux of an asteroid, with the power of each frequency displayed, both axes are in log scale. 
+  The maximum power of the periodogram is highlighted with the gold star. 
+  This maximum is the calculated rotation frequency
+  The known frequency, from the LCDB \citep{Warner2009}, is shown in the blue dotted lines, and a factor of 2 alias each way is shown in the purple dotted lines ($2*$) and red dotted lines ($0.5*$). 
+  \textit{Lower Panel}: The COM flux lightcurve and the returned model (dashed black curve) of the lightcurve from the periodogram analysis. The frequency of this model is the same as the gold stared point in the upper panel.
+  }
+  \label{Fig:PeriodEx}
+\end{figure}
+
+
+An example of such a periodogram and the corresponding fit to the lightcurve is given in \autoref{Fig:PeriodEx}. 
+The periodogram calculated that this object had a frequency double that listed in the LCDB, as seen with the vertical dotted lines. 
+This is expected due to the double peaked nature of most asteroid lightcurves \citep{McNeill2023}.  
+The stared peak is by far the most prominent peak in the periodogram, as it is in log scale.
+Not all the asteroids have such well-defined maximums. 
+Many do not possess a signal strong enough to outperform the noise in the periodogram at low frequencies, which means many of the objects have a period that is consistent with the lowest frequency in the window (conversely the longest period). 
+This behaviour can be accounted for and the dataset unbiased by removing any objects with periods within \qty{90}{\percent} of this maximum. 
+The window of \qty{17}{\day} was chosen to allow for this cut, and to have a TESS sector sample lightcurve with this implicit maximum period all but twice in the \qty{27}{\day} sector, assuming the asteroid was in the sector for its duration.  
+%TODO discuss fit of model...
 
 %TODO single object periodogram
 %Maybe a bad one too
@@ -412,7 +446,7 @@ There will be differences in the period between the matched points and the inter
 
 %Run on server
 The \texttt{TESSELLATE} pipeline has been running on the OzSTAR supercomputing facilities.
-After I was confident that all the parts of the asteroid detection and subsequent light curve analysis worked as required on one cut of one camera of one ccd of one TESS sector, the same code was be refactored slightly to work on OzSTAR and a large-scale analysis of all the processed TESS sectors can be run.
+After I was confident that all the parts of the asteroid detection and subsequent light curve analysis worked as required on one subsection of one camera of one CCD of one TESS sector, the same code was refactored slightly to work on OzSTAR and a large-scale analysis of all the processed TESS sectors can be run.
 
 I will be looking for completeness of detections of asteroids, as well as accuracy of periods and amplitude variation by comparison to the LCDB.
 
