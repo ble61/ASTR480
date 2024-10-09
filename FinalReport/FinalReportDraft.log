@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.26)  8 OCT 2024 17:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.26)  9 OCT 2024 20:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -772,10 +772,10 @@ File: ../OzData/classesBar29.pdf Graphic file (type pdf)
 <use ../OzData/classesBar29.pdf>
 Package pdftex.def Info: ../OzData/classesBar29.pdf  used on input line 495.
 (pdftex.def)             Requested size: 455.24408pt x 227.62082pt.
-<../OzData/recoverdHistBkgLimof10.pdf, id=757, 867.24pt x 433.62pt>
-File: ../OzData/recoverdHistBkgLimof10.pdf Graphic file (type pdf)
-<use ../OzData/recoverdHistBkgLimof10.pdf>
-Package pdftex.def Info: ../OzData/recoverdHistBkgLimof10.pdf  used on input line 506.
+<../OzData/recoverdHistBkgLimof10atan.pdf, id=757, 867.24pt x 433.62pt>
+File: ../OzData/recoverdHistBkgLimof10atan.pdf Graphic file (type pdf)
+<use ../OzData/recoverdHistBkgLimof10atan.pdf>
+Package pdftex.def Info: ../OzData/recoverdHistBkgLimof10atan.pdf  used on input line 506.
 (pdftex.def)             Requested size: 455.24408pt x 227.62082pt.
 
 Underfull \vbox (badness 2103) has occurred while \output is active []
@@ -804,7 +804,7 @@ File: logos/UC.png Graphic file (type png)
 <use logos/UC.png>
 Package pdftex.def Info: logos/UC.png  used on input line 533.
 (pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
- [13 <../OzData/recoverdHistBkgLimof10.pdf>]
+ [13 <../OzData/recoverdHistBkgLimof10Atan.pdf>]
 File: logos/UC.png Graphic file (type png)
 <use logos/UC.png>
 Package pdftex.def Info: logos/UC.png  used on input line 533.
@@ -835,31 +835,6 @@ File: logos/UC.png Graphic file (type png)
 Package pdftex.def Info: logos/UC.png  used on input line 162.
 (pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
  [19]
-Underfull \hbox (badness 2368) in paragraph at lines 206--212
-[]\T1/cmr/m/n/10.95 A. Mc-Neill, M. Gowan-lock, M. Mom-mert, D. E. Trilling, J. Llama, and N. Pad-
- []
-
-
-Underfull \hbox (badness 3428) in paragraph at lines 206--212
-\T1/cmr/m/n/10.95 dock.  An un-tar-geted sur-vey of the ro-ta-tional prop-er-ties of main-belt as-ter-oids
- []
-
-
-Underfull \hbox (badness 5460) in paragraph at lines 206--212
-\T1/cmr/m/n/10.95 us-ing the tran-sit-ing ex-o-planet sur-vey satel-lite (tess).  \T1/cmr/m/it/10.95 The As-tro-nom-i-cal Jour-
- []
-
-
-Underfull \hbox (badness 1688) in paragraph at lines 206--212
-\T1/cmr/m/it/10.95 nal\T1/cmr/m/n/10.95 , 166:152, 9 2023.  ISSN 1538-3881.  doi: $10 . 3847 / 1538-[]3881 / ACF194$.  URL
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 206--212
-[]$\T1/cmtt/m/n/10.95 https : / / iopscience . iop . org / article / 10 . 3847 / 1538-[]3881 / acf194https : / / iopscience .
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 238--244
 []$\T1/cmtt/m/n/10.95 https : / / www . aanda . org / articles / aa / full _ html / 2020 / 11 / aa38062-[]20 / aa38062-[]20 .
  []
@@ -902,16 +877,16 @@ Package rerunfilecheck Info: File `FinalReportDraft.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  20309 strings out of 474137
- 387407 string characters out of 5744488
+ 387435 string characters out of 5744488
  1949187 words of memory out of 5000000
  42251 multiletter control sequences out of 15000+600000
  577449 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  125i,17n,121p,4353b,1150s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfcc1728.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfcc2074.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfxc2074.pfb>
-Output written on FinalReportDraft.pdf (29 pages, 1246944 bytes).
+Output written on FinalReportDraft.pdf (29 pages, 1249907 bytes).
 PDF statistics:
- 1172 PDF objects out of 1200 (max. 8388607)
+ 1178 PDF objects out of 1200 (max. 8388607)
  676 compressed objects within 7 object streams
  115 named destinations out of 1000 (max. 500000)
  237 words of extra memory for PDF output out of 10000 (max. 10000000)
