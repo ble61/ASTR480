@@ -463,8 +463,8 @@ After I was confident that all the parts of the asteroid detection and subsequen
 For accurate statistics, accurate data is needed. 
 So there must be checks on the quality of the values calculated. 
 These have mostly been discussed already, but for completeness I list them here.
-A lightcurve must have an average flux of 10 counts to be reliable.
-For an accurate periodogram, it is required that the lightcurve also contain more than 200 observations, which is very easy for TESS and its 10 minute cadance.
+A lightcurve must have an mean flux of at least 10 counts to be reliable.
+For an accurate periodogram, it is required that the lightcurve also contain more than 200 observations, which is very easy for TESS and its \qty{10}{\minute} cadence.
 The periodogram itself must have a peak power of at least 0.1, and the calculated period must be $\qty{1}{\hour}\leq P \leq \qty{367.2}{\hour}$, where the upper bound is \qty{90}{\percent} of the \qty{17}{\day} window suggested by \cite{McNeill2023}.  
 \begin{figure}[t]
   \centering
@@ -482,10 +482,14 @@ The $y=2x$ line is of interest here, the known periods being twice the detected 
 This line corresponds to the calculated frequency being at the double alias of the known frequency, as frequency and period are inveses of each other. 
 As seen in \autoref{Fig:PeriodEx} and expected from \citet{McNeill2023}, this line is what the periodogram should return. 
 Most of the asteroids the pass the cut line along or near this key relation. 
-Few asteroids on the line fail the checks, which is also reasuringing that the checks do what they are suposed to and filter out incorrect periods.
-The vertical line of grey points on the right hand side of \autoref{Fig:LCDBcomp} is on that maximum of the window of searched periods at $\qty{408}{\hour}$, and demonstrates why the \qty{90}{\percent} upper bound is necessary.
-Many asteroids across an order of magnitude of know periods have detected periods at the edge of the window, and shows that the periodogram will return this value when no signal is present.  
-
+Few asteroids on the line fail the checks, which is also reassuring that the checks do what they are supposed to and filter out incorrect periods.
+The vertical line of grey points on the right-hand side of \autoref{Fig:LCDBcomp} is on that maximum of the window of searched periods at $\qty{408}{\hour}$, and demonstrates why the \qty{90}{\percent} upper bound is necessary.
+Many asteroids, across an order of magnitude of know periods, have detected periods at the edge of the window which shows that the periodogram will return this value when no signal is present.  
+There are about a dozen asteroids that pass the checks with large detected periods when compared to their known period. These green points in the lower right of \autoref{Fig:LCDBcomp} speak to the checks not being perfect. 
+Some experimentation was done on the limiting values, and the ones presented here achieved the highest recovery of asteroid periods, while minimising the number that were incorrectly recovered. 
+The idea of doubleing the detected period of all the asteroids and calling that number the rotation period has had some doubt cast on it, as there are a couple of points recovered nicely on the $y=x$ line, indicating that the true period is found. 
+Either the LCDB has not accounted for the alias, which is unlikely as I only took the periods with high quality codes as they suggest \citep{Warner2009}, or the rotation signal sometimes returns the true period.
+The latter implies the lightcurve is not double peaked, as is normally expected.
 
 
 \section{Results}\label{Sec:Res}

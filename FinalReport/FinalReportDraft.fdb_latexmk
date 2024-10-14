@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex FinalReportDraft"] 1728885807.63348 "FinalReportDraft.aux" "FinalReportDraft.bbl" "FinalReportDraft" 1728889427.07238 0
+["bibtex FinalReportDraft"] 1728938712.95961 "FinalReportDraft.aux" "FinalReportDraft.bbl" "FinalReportDraft" 1728938714.03615 0
   "./bibfile.bib" 1728457359.43 103970 9f7365fd561b9016d366b04f8b9911b9 ""
   "/usr/local/texlive/2023/texmf-dist/bibtex/bst/natbib/abbrvnat.bst" 1233624470 26532 66bed5cc59495faaa3f9ae9af9fa5e42 ""
-  "FinalReportDraft.aux" 1728889426.85506 22127 328cf525f735623fd66bfab9bfd117b0 "pdflatex"
+  "FinalReportDraft.aux" 1728938713.82606 22149 a7b091e5441e3d45fc94877c4d11e095 "pdflatex"
   (generated)
   "FinalReportDraft.bbl"
   "FinalReportDraft.blg"
   (rewritten before read)
-["pdflatex"] 1728889426.04807 "/home/users/ble61/Documents/ASTR480/FinalReport/FinalReportDraft.tex" "FinalReportDraft.pdf" "FinalReportDraft" 1728889427.07253 0
+["pdflatex"] 1728938713.06226 "/home/users/ble61/Documents/ASTR480/FinalReport/FinalReportDraft.tex" "FinalReportDraft.pdf" "FinalReportDraft" 1728938714.03631 0
   "../OzData/AEIplotqualCut.pdf" 1728873086.17761 193376 5631ef92961509386ae4ec2a4587cc09 ""
   "../OzData/LCBDcompLogScaleLineText1.pdf" 1728594108.8546 17753 79cf14c16573f69b2543b29d0d56727c ""
   "../OzData/PeriodogramUlyssesUpdated.pdf" 1728594965.14762 111555 f771a73144b89115bd48b09d5115d79b ""
@@ -20,7 +20,7 @@
   "../Test Code/Testing Figures/DetectMatchPos.pdf" 1728360141.09204 25950 3d5d6d99dac6e9dad753f91aa6804d04 ""
   "../Test Code/Testing Figures/Diam-FreqPlot.pdf" 1728882077.84947 107249 4400d10af028e146627493363671c690 ""
   "../Test Code/Testing Figures/interpPos_22_2_3_4.pdf" 1727218489.30165 128399 ccf5b0c8992b9aa909b7655b56ec48a7 ""
-  "/home/users/ble61/Documents/ASTR480/FinalReport/FinalReportDraft.tex" 1728889425.84805 45819 9ff063646f81c79d1ada6ba846d7ebce ""
+  "/home/users/ble61/Documents/ASTR480/FinalReport/FinalReportDraft.tex" 1728938711.74204 46795 5ca1bae42c1f62557c400838deea3b6e ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/ecbx1200.tfm" 1136768653 3584 402da0b29eafbad07963b1224b222f18 ""
@@ -178,13 +178,13 @@
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1708989307.99892 5472569 99e72973af7bd41132687409b8c9c95e ""
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1708921832 8220693 5c9edbd2a6c959e4a5aad3bc8493cf9a ""
   "/usr/local/texlive/2023/texmf.cnf" 1708921747.39568 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "FinalReportDraft.aux" 1728889426.85506 22127 328cf525f735623fd66bfab9bfd117b0 "pdflatex"
-  "FinalReportDraft.bbl" 1728885807.74376 42416 744ea323a1a98c063f36021283a489d7 "bibtex FinalReportDraft"
-  "FinalReportDraft.lof" 1728889426.85606 1398 c46f6e703d11b719aea9d449b112cb86 "pdflatex"
-  "FinalReportDraft.lot" 1728889426.85606 30 283c90c47f0e16887e96cec4ba110f76 "pdflatex"
-  "FinalReportDraft.out" 1728889426.85606 2883 56df8775abfa62a9df5b7d9eb5fd73c3 "pdflatex"
-  "FinalReportDraft.tex" 1728889425.84805 45819 9ff063646f81c79d1ada6ba846d7ebce ""
-  "FinalReportDraft.toc" 1728889426.85606 1753 0dac337bb31c32d5b4631e25977e1920 "pdflatex"
+  "FinalReportDraft.aux" 1728938713.82606 22149 a7b091e5441e3d45fc94877c4d11e095 "pdflatex"
+  "FinalReportDraft.bbl" 1728938713.05906 42416 744ea323a1a98c063f36021283a489d7 "bibtex FinalReportDraft"
+  "FinalReportDraft.lof" 1728938713.82706 1398 04115252cc24dc8017a21e478dd455a5 "pdflatex"
+  "FinalReportDraft.lot" 1728938713.82706 30 283c90c47f0e16887e96cec4ba110f76 "pdflatex"
+  "FinalReportDraft.out" 1728938713.82706 2883 56df8775abfa62a9df5b7d9eb5fd73c3 "pdflatex"
+  "FinalReportDraft.tex" 1728938711.74204 46795 5ca1bae42c1f62557c400838deea3b6e ""
+  "FinalReportDraft.toc" 1728938713.82706 1753 03dfaa53703d42e87fe723ae3631752e "pdflatex"
   "UCreport.cls" 1728885389.35392 7998 18c5fe7869dc6d946b517db7299acaab ""
   "logos/UC.png" 1726226866 131661 7d2ea269bcf61f456539109bc8313396 ""
   (generated)
