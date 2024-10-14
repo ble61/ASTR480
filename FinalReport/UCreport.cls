@@ -29,19 +29,18 @@
 \RequirePackage{fancyhdr}
 \RequirePackage{url}
 \RequirePackage[hidelinks]{hyperref}
-\RequirePackage[left=2.5cm,right=2.5cm,top=2cm,bottom=3.5cm]{geometry}
 \RequirePackage{booktabs}
+\RequirePackage[bindingoffset=2cm]{geometry}
 
 %-------------------- Page dimensions ----------------------
 
-\hsize=165true mm\vsize=265true mm\oddsidemargin=0pt
-\textwidth=160truemm\textheight=240truemm
-\topmargin=5truemm \voffset=-23true mm\hoffset=4truemm
-\parskip = 3pt
-\def\singlesided{\evensidemargin=0pt}
-\def\doublesided{\evensidemargin=-11truemm}
-\doublesided
-
+\hsize=165truemm
+\vsize=265truemm
+\textwidth=160truemm
+\textheight=240truemm
+\voffset=-20truemm
+\hoffset=-14truemm
+\parskip=3pt
 
 
 %-------------------- Report information ----------------------
@@ -56,7 +55,8 @@
 \newcommand{\buildmargins}{
 \makenomenclature
 \pagestyle{fancy}
-\fancyheadoffset{1cm}
+%\fancyheadoffset{1cm}
+\fancyheadoffset[loh,reh]{0mm}
 \setlength{\headheight}{2cm}
 %\lhead{\includegraphics[scale=0.25]{logos/feit.png}}
 \lhead{\includegraphics[scale=0.1]{\logo}}
@@ -95,6 +95,10 @@
 	{\large \today\par} % Date
 
 \end{titlepage}
+\let\tmp\oddsidemargin
+\let\oddsidemargin\evensidemargin
+\let\evensidemargin\tmp
+\reversemarginpar
 }
 
 \newcommand{\toc}{
