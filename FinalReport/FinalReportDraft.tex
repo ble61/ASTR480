@@ -127,46 +127,6 @@ This is the next paragraph.
 This project aims to find and characterise the light curves of all the asteroids seen by the Transiting Exoplanet Survey Satellite (TESS).
 Combining knowledge of these asteroid's positions with the high cadence imaging of TESS should allow for the determination of rotation periods of these small bodies.
 
-\subsection{TESS}\label{SubSec:TESS}
-
-%Why TESS
-TESS is a large area, high cadence imaging, space telescope  \citep{Ricker2014}.
-TESS is tasked with observing one piece of sky for \qty{27}{\day} at a time (a sector), delivering \qtyproduct{96 x 24}{\degree} full frame images (FFIs) at regular intervals.
-These FFIs are built from stacked \qty{2}{\second} exposures, leveraging the short readout times of the 16 CCD cameras on-board.
-With the initial cadence for these full frame images set to \qty{30}{\minute}, the time resolution of TESS is unparalleled.
-The highest frequency (shortest period) that can be found from time series data like this is at the Nyquist limit, twice the minimum time between images.
-Due to the short cadence, the Nyquist frequency of TESS is quite high, \qty{1}{\per\hour}.
-This is well sampled enough to characterise most variable stars, as well as find the orbital periods of exoplanets to a high precision.
-As the mission was extended, after TESS had already mapped the entire sky, the length of the FFIs has decreased to \qty{10}{\minute} and then later to \qty{200}{\second}.
-This decreased in the FFI exposure time comes with a complementary increase in the Nyquist frequency.
-This high time resolution and observation area does come at the cost of spatial resolution, as the pixels are each \qty{21}{\arcsec} square.
-Of interest here is what such a high sampling rate can do for statistic on the asteroid population.
-For bright asteroids the rotation periods should be able to be easily determined from this vast dataset.
-The shortest FFIs will be able to accurately determine the rotation periods of all but the fastest rotating asteroids, most of which will be too dim to see in the TESS data.
-
-There have been attempts to find and classify the asteroids in TESS data before.
-\citet{Pal2018} proposes that TESS will be a good instrument for solar system object study, and simulate some detections down to \nth{20} visual magnitude, but that good photometry should only be expected to $V \lesssim 19$.
-The sentiment of using TESS in this way is shared by \citet{Wong2019}.
-The first data release in \citet{Pal2020} catalogues nearly 10,000 asteroid light curves from the first year of TESS operation, and they report that they triple the number of asteroids with accurate rotation periods.
-\citet{McNeill2023} also analyse TESS cycle 1, and detect almost 38,000 objects.
-They determine reliable rotation periods for about 3,500 asteroids in this sample and show a lack of reliability for objects with periods less than \qty{3}{\hour}.
-In the overlap from the data from \citet{Pal2020}, \citeauthor{McNeill2023} find good agreement between the two sets of periods and amplitudes.
-The Minor Planet Center (MPC) gets regular updates from TESS thanks to the work of \citet{Woods2021} and their \texttt{LINEAR-TESS} program, which creates tracklets of objects over a day, and then stitches these together to form a track of each asteroid through an FFI.
-\citet{Gowanlock2024} uses TESS photometry as well as  observations by the Zwicky Transient Facility \citep[ZTF, ][]{Bellm2018} to get a longer baseline on mutually observed objects while combining ground and space based observations.
-There were not very many objects in both samples with known periods for comparison, with only 222 objects analysed, however they demonstrate that the technique is effective.
-Fainter and unknown solar system objects can be found by shift and stacking \citep{Holman2019, Payne2019,Rice2020} or taking a fast X-ray transform \citep{Nguyen2024} of the FFI data.
-
-This work aims to extend these studies to more sectors, hence characterising more asteroids.
-The aim is to get a volume complete set of asteroid lightcurves and periods, by analysis of the whole sky as seen by TESS using data from more than just the first year of TESS's operation.
-I also employ a different data reduction method, reducing the data with the \texttt{TESSreduce} package \citep{Ridden-Harper2021} should increase the accuracy of the photometry due to the improved background subtraction process.
-Because of the survey properties, TESS provides a self-consistent way to measure the properties of asteroids over the full sky.
-By using the higher cadence FFIs of later TESS sectors, the $P\leq\qty{3}{\hour}$ limit on the accurate periods \citep[as found by ][]{McNeill2023} should be lowered.
-Another beneficial part of this work is that as part of a full sky transient survey using TESS, \texttt{TESSELLATE} \citep{TESSELLATE}.
-Asteroids can spike the brightness of a pixel for only a few frames while it is passing by.
-This can confuse pipelines looking for  transients such as flare stars and supernova, as they can look very similar, having the brightness change in one pixel for a short time.
-The goal of finding all the asteroids will allow for the removal of these spikes from the transient pipeline, as well as to understand the asteroid population better.
-By filtering the asteroid detections out, while also self consistently determining rotation properties of a large sample of the population, more science can be done with the one action.
-
 
 \subsection{Asteroids}\label{SubSec:Asteroid}
 
@@ -215,10 +175,8 @@ Comparing the periods I find of asteroids that are already in the LCDB is key to
 \begin{figure}[t!]
   \centering
   \includegraphics[width=0.7\textwidth]{../Test Code/Testing Figures/Diam-FreqPlot.pdf}
-  \caption[Asteroid frequencies vs diameter (LCDB)]{The $U\geq 2-$ rotation frequencies in \unit{\per\day} and the inverse as a period in \unit{\hour} againts the diameter of the body in the October \nth{1}, 2023 LCDB \citet{Warner2009}.
-  The axes are in log scale. 
-  This is using the diameter of the asteroids from the LCDB $H$ to diameter conversion. 
-  The spin barrier of \citet{Pravec2000} is shown in red dashed lines.
+  \caption[Asteroid frequencies vs diameter (LCDB)]{
+  Rotaion rate of asteroids by their size, recreated from the  October \nth{1}, 2023 LCDB after \citet{Warner2009}.   
   }
   \label{Fig:FreqVsDiam}
 \end{figure}
@@ -234,6 +192,48 @@ Combing the tumbling with an elongation ratio of up to \qty{6(1)}{}:1 \citep{McN
 The peak to peak amplitude variation of this ISO was \qty{2.5}{\mag} \citep{Meech2017} over its double peaked light curve.
 This is quite interesting, as it varies more than most asteroids.
 With the full sky survey of bright asteroids, we hope to find many asteroids with such a large amplitude variation, and to see just how rare \omuamua is.
+
+
+\subsection{TESS}\label{SubSec:TESS}
+
+%Why TESS
+TESS is a large area, high cadence imaging, space telescope  \citep{Ricker2014}.
+TESS is tasked with observing one piece of sky for \qty{27}{\day} at a time (a sector), delivering \qtyproduct{96 x 24}{\degree} full frame images (FFIs) at regular intervals.
+These FFIs are built from stacked \qty{2}{\second} exposures, leveraging the short readout times of the 16 CCD cameras on-board.
+With the initial cadence for these full frame images set to \qty{30}{\minute}, the time resolution of TESS is unparalleled.
+The highest frequency (shortest period) that can be found from time series data like this is at the Nyquist limit, twice the minimum time between images.
+Due to the short cadence, the Nyquist frequency of TESS is quite high, \qty{1}{\per\hour}.
+This is well sampled enough to characterise most variable stars, as well as find the orbital periods of exoplanets to a high precision.
+As the mission was extended, after TESS had already mapped the entire sky, the length of the FFIs has decreased to \qty{10}{\minute} and then later to \qty{200}{\second}.
+This decreased in the FFI exposure time comes with a complementary increase in the Nyquist frequency.
+This high time resolution and observation area does come at the cost of spatial resolution, as the pixels are each \qty{21}{\arcsec} square.
+Of interest here is what such a high sampling rate can do for statistic on the asteroid population.
+For bright asteroids the rotation periods should be able to be easily determined from this vast dataset.
+The shortest FFIs will be able to accurately determine the rotation periods of all but the fastest rotating asteroids, most of which will be too dim to see in the TESS data.
+
+There have been attempts to find and classify the asteroids in TESS data before.
+\citet{Pal2018} proposes that TESS will be a good instrument for solar system object study, and simulate some detections down to \nth{20} visual magnitude, but that good photometry should only be expected to $V \lesssim 19$.
+The sentiment of using TESS in this way is shared by \citet{Wong2019}.
+The first data release in \citet{Pal2020} catalogues nearly 10,000 asteroid light curves from the first year of TESS operation, and they report that they triple the number of asteroids with accurate rotation periods.
+\citet{McNeill2023} also analyse TESS cycle 1, and detect almost 38,000 objects.
+They determine reliable rotation periods for about 3,500 asteroids in this sample and show a lack of reliability for objects with periods less than \qty{3}{\hour}.
+In the overlap from the data from \citet{Pal2020}, \citeauthor{McNeill2023} find good agreement between the two sets of periods and amplitudes.
+The Minor Planet Center (MPC) gets regular updates from TESS thanks to the work of \citet{Woods2021} and their \texttt{LINEAR-TESS} program, which creates tracklets of objects over a day, and then stitches these together to form a track of each asteroid through an FFI.
+\citet{Gowanlock2024} uses TESS photometry as well as  observations by the Zwicky Transient Facility \citep[ZTF, ][]{Bellm2018} to get a longer baseline on mutually observed objects while combining ground and space based observations.
+There were not very many objects in both samples with known periods for comparison, with only 222 objects analysed, however they demonstrate that the technique is effective.
+Fainter and unknown solar system objects can be found by shift and stacking \citep{Holman2019, Payne2019,Rice2020} or taking a fast X-ray transform \citep{Nguyen2024} of the FFI data.
+
+This work aims to extend these studies to more sectors, hence characterising more asteroids.
+The aim is to get a volume complete set of asteroid lightcurves and periods, by analysis of the whole sky as seen by TESS using data from more than just the first year of TESS's operation.
+I also employ a different data reduction method, reducing the data with the \texttt{TESSreduce} package \citep{Ridden-Harper2021} should increase the accuracy of the photometry due to the improved background subtraction process.
+Because of the survey properties, TESS provides a self-consistent way to measure the properties of asteroids over the full sky.
+By using the higher cadence FFIs of later TESS sectors, the $P\leq\qty{3}{\hour}$ limit on the accurate periods \citep[as found by ][]{McNeill2023} should be lowered.
+Another beneficial part of this work is that as part of a full sky transient survey using TESS, \texttt{TESSELLATE} \citep{TESSELLATE}.
+Asteroids can spike the brightness of a pixel for only a few frames while it is passing by.
+This can confuse pipelines looking for  transients such as flare stars and supernova, as they can look very similar, having the brightness change in one pixel for a short time.
+The goal of finding all the asteroids will allow for the removal of these spikes from the transient pipeline, as well as to understand the asteroid population better.
+By filtering the asteroid detections out, while also self consistently determining rotation properties of a large sample of the population, more science can be done with the one action.
+
 
 \section{Methods}\label{Sec:Meth}
 
@@ -365,8 +365,8 @@ So, sorting by flux on a per asteroid basis, then removing the duplicate observa
 
 \begin{figure}
   \centering
-  \includegraphics[width =\textwidth]{../OzData/SingleBodyLC1991 VT.pdf}
-  \caption[Light curves Example]{The light curves of the asteroid 1991 VT throughout its entrie journey across sector 29, with the flux of the interpolated positions in blue circles and the flux from the COM in orange diamonds, and the \texttt{TESSELLATE} flux for any matched points in the black squares.
+  \includegraphics[width =\textwidth]{../OzData/SingleBodyLCUlyssesCorrectedAgain.pdf}
+  \caption[Light curves Example]{The light curves of the asteroid (5254) Ulysses throughout its entire journey across sector 29, with the flux of the interpolated positions in blue circles and the flux from the COM in orange diamonds, and the \texttt{TESSELLATE} flux for any matched points in the black squares.
     The Flux axis is measured in counts, as calculated by \texttt{TESSreduce}, and the times are in modified Julian date (MJD).}
   \label{Fig:FullSingleLC}
 \end{figure}

@@ -276,28 +276,24 @@ INPUT ./logos/UC.png
 INPUT ./logos/UC.png
 INPUT ./logos/UC.png
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/ecbx1440.tfm
+INPUT ./logos/UC.png
+INPUT ./logos/UC.png
+INPUT ./logos/UC.png
+INPUT ./logos/UC.png
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/ecrm0800.tfm
+INPUT ../Test Code/Testing Figures/Diam-FreqPlot.pdf
+INPUT ../Test Code/Testing Figures/Diam-FreqPlot.pdf
+INPUT ../Test Code/Testing Figures/Diam-FreqPlot.pdf
+INPUT ../Test Code/Testing Figures/Diam-FreqPlot.pdf
+INPUT ../Test Code/Testing Figures/Diam-FreqPlot.pdf
+INPUT ./logos/UC.png
+INPUT ./logos/UC.png
+INPUT ./logos/UC.png
+INPUT ./logos/UC.png
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/base/t1cmtt.fd
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/base/t1cmtt.fd
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/base/t1cmtt.fd
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/ectt1200.tfm
-INPUT ./logos/UC.png
-INPUT ./logos/UC.png
-INPUT ./logos/UC.png
-INPUT ./logos/UC.png
-INPUT ./logos/UC.png
-INPUT ./logos/UC.png
-INPUT ./logos/UC.png
-INPUT ./logos/UC.png
-INPUT ../Test Code/Testing Figures/Diam-FreqPlot.pdf
-INPUT ../Test Code/Testing Figures/Diam-FreqPlot.pdf
-INPUT ../Test Code/Testing Figures/Diam-FreqPlot.pdf
-INPUT ../Test Code/Testing Figures/Diam-FreqPlot.pdf
-INPUT ../Test Code/Testing Figures/Diam-FreqPlot.pdf
-INPUT ./logos/UC.png
-INPUT ./logos/UC.png
-INPUT ./logos/UC.png
-INPUT ./logos/UC.png
 INPUT ./logos/UC.png
 INPUT ./logos/UC.png
 INPUT ./logos/UC.png
@@ -317,6 +313,10 @@ INPUT ./logos/UC.png
 INPUT ./logos/UC.png
 INPUT ./logos/UC.png
 INPUT ./logos/UC.png
+INPUT ./logos/UC.png
+INPUT ./logos/UC.png
+INPUT ./logos/UC.png
+INPUT ./logos/UC.png
 INPUT ../Test Code/Testing Figures/DetectMatchPos.pdf
 INPUT ../Test Code/Testing Figures/DetectMatchPos.pdf
 INPUT ../Test Code/Testing Figures/DetectMatchPos.pdf
@@ -326,15 +326,15 @@ INPUT ./logos/UC.png
 INPUT ./logos/UC.png
 INPUT ./logos/UC.png
 INPUT ./logos/UC.png
+INPUT ../OzData/SingleBodyLCUlyssesCorrectedAgain.pdf
+INPUT ../OzData/SingleBodyLCUlyssesCorrectedAgain.pdf
+INPUT ../OzData/SingleBodyLCUlyssesCorrectedAgain.pdf
+INPUT ../OzData/SingleBodyLCUlyssesCorrectedAgain.pdf
+INPUT ../OzData/SingleBodyLCUlyssesCorrectedAgain.pdf
 INPUT ./logos/UC.png
 INPUT ./logos/UC.png
 INPUT ./logos/UC.png
 INPUT ./logos/UC.png
-INPUT ../OzData/SingleBodyLC1991 VT.pdf
-INPUT ../OzData/SingleBodyLC1991 VT.pdf
-INPUT ../OzData/SingleBodyLC1991 VT.pdf
-INPUT ../OzData/SingleBodyLC1991 VT.pdf
-INPUT ../OzData/SingleBodyLC1991 VT.pdf
 INPUT ./logos/UC.png
 INPUT ./logos/UC.png
 INPUT ./logos/UC.png

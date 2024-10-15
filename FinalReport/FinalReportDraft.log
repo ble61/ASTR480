@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.26)  15 OCT 2024 09:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.26)  15 OCT 2024 18:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -661,46 +661,41 @@ File: logos/UC.png Graphic file (type png)
 Package pdftex.def Info: logos/UC.png  used on input line 119.
 (pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
  [5]
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 154.
- (/usr/local/texlive/2023/texmf-dist/tex/latex/base/t1cmtt.fd
-File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
-)
 File: logos/UC.png Graphic file (type png)
 <use logos/UC.png>
-Package pdftex.def Info: logos/UC.png  used on input line 158.
+Package pdftex.def Info: logos/UC.png  used on input line 161.
 (pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.158 
+l.161 
        [1]
-File: logos/UC.png Graphic file (type png)
-<use logos/UC.png>
-Package pdftex.def Info: logos/UC.png  used on input line 194.
-(pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
- [2]
-<../Test Code/Testing Figures/Diam-FreqPlot.pdf, id=300, 867.24pt x 433.62pt>
+<../Test Code/Testing Figures/Diam-FreqPlot.pdf, id=251, 867.24pt x 433.62pt>
 File: ../Test Code/Testing Figures/Diam-FreqPlot.pdf Graphic file (type pdf)
 <use ../Test Code/Testing Figures/Diam-FreqPlot.pdf>
-Package pdftex.def Info: ../Test Code/Testing Figures/Diam-FreqPlot.pdf  used on input line 217.
+Package pdftex.def Info: ../Test Code/Testing Figures/Diam-FreqPlot.pdf  used on input line 177.
 (pdftex.def)             Requested size: 318.66946pt x 159.33192pt.
 File: logos/UC.png Graphic file (type png)
 <use logos/UC.png>
-Package pdftex.def Info: logos/UC.png  used on input line 237.
+Package pdftex.def Info: logos/UC.png  used on input line 195.
 (pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
- [3]
+ [2 <../Test Code/Testing Figures/Diam-FreqPlot.pdf>]
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 221.
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+)
 File: logos/UC.png Graphic file (type png)
 <use logos/UC.png>
-Package pdftex.def Info: logos/UC.png  used on input line 254.
+Package pdftex.def Info: logos/UC.png  used on input line 225.
 (pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
- [4 <../Test Code/Testing Figures/Diam-FreqPlot.pdf>]
-<../Test Code/Testing Figures/interpPos_22_2_3_4.pdf, id=416, 722.7pt x 578.16pt>
+ [3]
+<../Test Code/Testing Figures/interpPos_22_2_3_4.pdf, id=404, 722.7pt x 578.16pt>
 File: ../Test Code/Testing Figures/interpPos_22_2_3_4.pdf Graphic file (type pdf)
 <use ../Test Code/Testing Figures/interpPos_22_2_3_4.pdf>
 Package pdftex.def Info: ../Test Code/Testing Figures/interpPos_22_2_3_4.pdf  used on input line 263.
 (pdftex.def)             Requested size: 227.62204pt x 182.0949pt.
-<../Test Code/Testing Figures/1989 BC1PosCheck.pdf, id=417, 722.7pt x 578.16pt>
+<../Test Code/Testing Figures/1989 BC1PosCheck.pdf, id=405, 722.7pt x 578.16pt>
 File: ../Test Code/Testing Figures/1989 BC1PosCheck.pdf Graphic file (type pdf)
 <use ../Test Code/Testing Figures/1989 BC1PosCheck.pdf>
 Package pdftex.def Info: ../Test Code/Testing Figures/1989 BC1PosCheck.pdf  used on input line 270.
@@ -713,39 +708,44 @@ Overfull \hbox (7.83147pt too wide) in paragraph at lines 261--274
 Package hyperref Info: bookmark level for unknown subfigure defaults to 0 on input line 285.
 File: logos/UC.png Graphic file (type png)
 <use logos/UC.png>
+Package pdftex.def Info: logos/UC.png  used on input line 287.
+(pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
+[4]
+File: logos/UC.png Graphic file (type png)
+<use logos/UC.png>
 Package pdftex.def Info: logos/UC.png  used on input line 301.
 (pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
-[5 <../Test Code/Testing Figures/interpPos_22_2_3_4.pdf> <../Test Code/Testing Figures/1989 BC1PosCheck.pdf>]
+ [5 <../Test Code/Testing Figures/interpPos_22_2_3_4.pdf> <../Test Code/Testing Figures/1989 BC1PosCheck.pdf>]
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 329.
 
-<../Test Code/Testing Figures/DetectMatchPos.pdf, id=549, 867.24pt x 433.62pt>
+<../Test Code/Testing Figures/DetectMatchPos.pdf, id=553, 867.24pt x 433.62pt>
 File: ../Test Code/Testing Figures/DetectMatchPos.pdf Graphic file (type pdf)
 <use ../Test Code/Testing Figures/DetectMatchPos.pdf>
 Package pdftex.def Info: ../Test Code/Testing Figures/DetectMatchPos.pdf  used on input line 331.
 (pdftex.def)             Requested size: 455.24408pt x 227.62082pt.
 File: logos/UC.png Graphic file (type png)
 <use logos/UC.png>
-Package pdftex.def Info: logos/UC.png  used on input line 345.
+Package pdftex.def Info: logos/UC.png  used on input line 352.
 (pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
 [6]
-File: logos/UC.png Graphic file (type png)
-<use logos/UC.png>
-Package pdftex.def Info: logos/UC.png  used on input line 364.
-(pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
- [7 <../Test Code/Testing Figures/DetectMatchPos.pdf>]
-<../OzData/SingleBodyLC1991 VT.pdf, id=611, 867.24pt x 433.62pt>
-File: ../OzData/SingleBodyLC1991 VT.pdf Graphic file (type pdf)
-<use ../OzData/SingleBodyLC1991 VT.pdf>
-Package pdftex.def Info: ../OzData/SingleBodyLC1991 VT.pdf  used on input line 368.
+<../OzData/SingleBodyLCUlyssesCorrectedAgain.pdf, id=565, 867.24pt x 433.62pt>
+File: ../OzData/SingleBodyLCUlyssesCorrectedAgain.pdf Graphic file (type pdf)
+<use ../OzData/SingleBodyLCUlyssesCorrectedAgain.pdf>
+Package pdftex.def Info: ../OzData/SingleBodyLCUlyssesCorrectedAgain.pdf  used on input line 368.
 (pdftex.def)             Requested size: 455.24408pt x 227.62082pt.
 File: logos/UC.png Graphic file (type png)
 <use logos/UC.png>
-Package pdftex.def Info: logos/UC.png  used on input line 393.
+Package pdftex.def Info: logos/UC.png  used on input line 380.
 (pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
- [8 <../OzData/SingleBodyLC1991 VT.pdf>]
-<../OzData/PeriodogramUlyssesUpdated.pdf, id=681, 867.24pt x 578.16pt>
+ [7 <../Test Code/Testing Figures/DetectMatchPos.pdf>]
+File: logos/UC.png Graphic file (type png)
+<use logos/UC.png>
+Package pdftex.def Info: logos/UC.png  used on input line 402.
+(pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
+ [8 <../OzData/SingleBodyLCUlyssesCorrectedAgain.pdf>]
+<../OzData/PeriodogramUlyssesUpdated.pdf, id=699, 867.24pt x 578.16pt>
 File: ../OzData/PeriodogramUlyssesUpdated.pdf Graphic file (type pdf)
 <use ../OzData/PeriodogramUlyssesUpdated.pdf>
 Package pdftex.def Info: ../OzData/PeriodogramUlyssesUpdated.pdf  used on input line 429.
@@ -755,12 +755,14 @@ File: logos/UC.png Graphic file (type png)
 Package pdftex.def Info: logos/UC.png  used on input line 453.
 (pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
  [9]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 File: logos/UC.png Graphic file (type png)
 <use logos/UC.png>
 Package pdftex.def Info: logos/UC.png  used on input line 462.
 (pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
  [10 <../OzData/PeriodogramUlyssesUpdated.pdf>]
-<../OzData/LCBDcompLogScaleLineText1.pdf, id=769, 867.24pt x 433.62pt>
+<../OzData/LCBDcompLogScaleLineText1.pdf, id=787, 867.24pt x 433.62pt>
 File: ../OzData/LCBDcompLogScaleLineText1.pdf Graphic file (type pdf)
 <use ../OzData/LCBDcompLogScaleLineText1.pdf>
 Package pdftex.def Info: ../OzData/LCBDcompLogScaleLineText1.pdf  used on input line 471.
@@ -773,7 +775,7 @@ File: logos/UC.png Graphic file (type png)
 Package pdftex.def Info: logos/UC.png  used on input line 493.
 (pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
  [11 <../OzData/LCBDcompLogScaleLineText1.pdf>]
-<../OzData/AEIplotqualCut.pdf, id=825, 867.24pt x 433.62pt>
+<../OzData/AEIplotqualCut.pdf, id=843, 867.24pt x 433.62pt>
 File: ../OzData/AEIplotqualCut.pdf Graphic file (type pdf)
 <use ../OzData/AEIplotqualCut.pdf>
 Package pdftex.def Info: ../OzData/AEIplotqualCut.pdf  used on input line 517.
@@ -783,22 +785,22 @@ File: logos/UC.png Graphic file (type png)
 Package pdftex.def Info: logos/UC.png  used on input line 533.
 (pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
  [12]
-<../OzData/classesBarqualCut.pdf, id=832, 867.24pt x 433.62pt>
+<../OzData/classesBarqualCut.pdf, id=850, 867.24pt x 433.62pt>
 File: ../OzData/classesBarqualCut.pdf Graphic file (type pdf)
 <use ../OzData/classesBarqualCut.pdf>
 Package pdftex.def Info: ../OzData/classesBarqualCut.pdf  used on input line 537.
 (pdftex.def)             Requested size: 455.24408pt x 227.62082pt.
-<../OzData/recoverdHistBkgLimof10AtanBothLegendFixed.pdf, id=835, 867.24pt x 433.62pt>
+<../OzData/recoverdHistBkgLimof10AtanBothLegendFixed.pdf, id=853, 867.24pt x 433.62pt>
 File: ../OzData/recoverdHistBkgLimof10AtanBothLegendFixed.pdf Graphic file (type pdf)
 <use ../OzData/recoverdHistBkgLimof10AtanBothLegendFixed.pdf>
 Package pdftex.def Info: ../OzData/recoverdHistBkgLimof10AtanBothLegendFixed.pdf  used on input line 549.
 (pdftex.def)             Requested size: 455.24408pt x 227.62082pt.
-<../OzData/pointsMatchesNumberHistdouble1.pdf, id=836, 867.24pt x 433.62pt>
+<../OzData/pointsMatchesNumberHistdouble1.pdf, id=854, 867.24pt x 433.62pt>
 File: ../OzData/pointsMatchesNumberHistdouble1.pdf Graphic file (type pdf)
 <use ../OzData/pointsMatchesNumberHistdouble1.pdf>
 Package pdftex.def Info: ../OzData/pointsMatchesNumberHistdouble1.pdf  used on input line 570.
 (pdftex.def)             Requested size: 455.24408pt x 227.62082pt.
-<../OzData/QualPervsAmp1.pdf, id=837, 867.24pt x 433.62pt>
+<../OzData/QualPervsAmp1.pdf, id=855, 867.24pt x 433.62pt>
 File: ../OzData/QualPervsAmp1.pdf Graphic file (type pdf)
 <use ../OzData/QualPervsAmp1.pdf>
 Package pdftex.def Info: ../OzData/QualPervsAmp1.pdf  used on input line 582.
@@ -881,21 +883,21 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `FinalReportDraft.out' has not changed.
-(rerunfilecheck)             Checksum: 56DF8775ABFA62A9DF5B7D9EB5FD73C3;2883.
+(rerunfilecheck)             Checksum: AF26509B2F39CB507A97FF97077346D0;2883.
  ) 
 Here is how much of TeX's memory you used:
  20321 strings out of 474137
- 388088 string characters out of 5744488
+ 388186 string characters out of 5744488
  1949187 words of memory out of 5000000
  42259 multiletter control sequences out of 15000+600000
  577449 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  125i,16n,121p,4353b,1150s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfcc1728.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfcc2074.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfxc2074.pfb>
-Output written on FinalReportDraft.pdf (30 pages, 1301749 bytes).
+Output written on FinalReportDraft.pdf (30 pages, 1341174 bytes).
 PDF statistics:
- 1307 PDF objects out of 1440 (max. 8388607)
- 731 compressed objects within 8 object streams
+ 1325 PDF objects out of 1440 (max. 8388607)
+ 737 compressed objects within 8 object streams
  119 named destinations out of 1000 (max. 500000)
  258 words of extra memory for PDF output out of 10000 (max. 10000000)
 
