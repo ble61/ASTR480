@@ -176,7 +176,7 @@ Comparing the periods I find of asteroids that are already in the LCDB is key to
   \centering
   \includegraphics[width=0.7\textwidth]{../Test Code/Testing Figures/Diam-FreqPlot.pdf}
   \caption[Asteroid frequencies vs diameter (LCDB)]{
-  Rotaion rate of asteroids by their size, recreated from the  October \nth{1}, 2023 LCDB after \citet{Warner2009}.   
+    Rotaion rate of asteroids by their size, recreated from the  October \nth{1}, 2023 LCDB after \citet{Warner2009}.
   }
   \label{Fig:FreqVsDiam}
 \end{figure}
@@ -292,7 +292,7 @@ These interpolated positions can be seen in \autoref{Fig:interpPos} for a subsec
 There are a few interesting features, such as the asteroids are moving in the same direction, indicated by the colouring, they come in from low RA and Dec and tend to increase both coordinates as the month of the sector progresses.
 There is also a large size range in this slice of sky, ranging over \qty{5}{\mag} in absolute magnitude, which can be seen in the alpha (or transparency) of the tracks in \autoref{Fig:interpPos}.
 Because of a small change in position between each frame, \citep[$\sim \qty{1}{\px}$ per frame][]{Pal2018}, this interpolation should be accurate.
-The
+
 Checking against a higher frequency query to the JPL Horizons ephemeris  confirmed this accuracy on a few asteroids, as shown in \autoref{Fig:errPos}.
 This is not a feasible way of getting all the positions, as the queries are per name and time, not per area and time like the cone search in Skybot.
 They are also rate limited, so while a few asteroids can be checked, filling the gaps between the Skybot half day queries for all the asteroids would take far too long.
@@ -347,20 +347,20 @@ The integer coordinates of the asteroids seemed to be leading the object in any 
 This was decreasing the total flux of the asteroid, as the box used for aperture  was hitting mostly background.
 This also caused a ``sawtoothing'' effect, where the lightcurve would jump from a minimum to a maximum when the integer coordinate snapped from being a pixel out to back on the asteroid.
 Both of these issues can be fixed by calculation of the centre of mass (COM), the average brightness in $xy$ space on a $5\times5$ \unit{\px} box of the image centred on the interpolated position.
-I didn't take the highest pixel value in this box because there could be a rouge star in the field that it snaps to, instead of the asteroid.
+I did not take the highest pixel value in this box because there could be a rouge star in the field that it snaps to, instead of the asteroid.
 A \texttt{Photutils} aperture photometry centred on the COM with the same radius of \qty{1.5}{\px} sorted some of the discrepancies in the lightcurve, with a far smoother transition from maximum to minimum, as expected from rotating asteroids. Hereafter, unless otherwise specified, ``flux'' refers to this COM flux measurement of the asteroid.
 
 
 %TODO data cleaning explaination
-A few steps need to be taken to clean these COM lightcurves. 
+A few steps need to be taken to clean these COM lightcurves.
 Following \citet{McNeill2023}, any fluxes more than $3\sigma$ from the mean value are sigma-clipped from the forced photometry lightcurves.
 This does introduce gaps into an otherwise regularly sampled lightcurve, but the contamination from background stars the object moves through of is too great.
-The subsections made by \texttt{TESSELLATE} have a small overlap. 
+The subsections made by \texttt{TESSELLATE} have a small overlap.
 If an object moves between these, there will be a few frames where it is found in multiple of these subsections.
 This makes the lightcurve have two simultaneous observations of the asteroid, which clearly is not possible.
 At the very edge of the subsections, the asteroid can have a COM position that would have the aperture be summing over pixels that are outside the field, and thus the asteroid would have a lower flux value on the edge.
 The overlap is great enough that the decrease in flux should only be happening on one of the edges at a time.
-So, sorting by flux on a per asteroid basis, then removing the duplicate observation times, keeping only those with the highest flux, will clean the lightcurve. 
+So, sorting by flux on a per asteroid basis, then removing the duplicate observation times, keeping only those with the highest flux, will clean the lightcurve.
 
 
 \begin{figure}
@@ -393,7 +393,7 @@ The periodogram reduces to both a fast Fourier transform or a direct least squar
 
 There are a few different implementations of a Lomb-Scargle periodogram available in world of astronomy python packages.
 I first tried using the \texttt{Lightkurve} \citep{Lightkurve2018} package built for period analysis of TESS (and Kepler) data of variable stars.
-\texttt{Lightkurve} was easy to use but didn't allow for fine-tuning of the periodogram, or give any model of the curve it produced.
+\texttt{Lightkurve} was easy to use but did not allow for fine-tuning of the periodogram, or give any model of the curve it produced.
 The next option was peeling back a layer of abstraction and using the Lomb-Scargle periodogram as implemented by \texttt{Astropy}\citep[\citet{Astropy2022} but see][for the implementation]{Vanderplas2012,Vanderplas2015}.
 There were interesting similarities and differences between the packages.
 \texttt{Lightkurve} is based on the \texttt{Astropy} methods, but does not give all the functionality, instead opting to simplify the process.
@@ -410,36 +410,36 @@ These parameters are useful in reconstructing the sinusoid without rerunning the
 The method used for the periodogram fits is the new \texttt{nifty-ls} package \citep{Garrison2024} that has can be implemented on its own, or by interfacing with \texttt{Astropy}.
 I use the later implementation as the speed-up from the non-uniform fast Fourier transform is helpful on the large dataset from \texttt{TESSELLATE}, but the \texttt{Astropy} interface is how I had everything set up to run on just the subsection I was trialling my code on.
 
-The minimum period returned by the periodograms will be set by the Nyquist limit of the data. 
-For the \qty{10}{\min} FFIs (the cadence analysed here), the Nyquist period is $\qty{20}{\min}=\frac13\unit{\hour}$, a threefold increase in time sensitivity for fast rotating asteroids.  
+The minimum period returned by the periodograms will be set by the Nyquist limit of the data.
+For the \qty{10}{\min} FFIs (the cadence analysed here), the Nyquist period is $\qty{20}{\min}=\frac13\unit{\hour}$, a threefold increase in time sensitivity for fast rotating asteroids.
 Based on their experimentation with the \qty{30}{\min} cadence FFIs, \citet{McNeill2023} use a \qty{17}{\day} maximum period for their periodogram analysis.
-While a lack of signal in the rotation curve causes the calculated period to find this low frequency limit, such cases can be filtered out by keeping only periods less than \qty{90}{\percent} of this maximum. 
+While a lack of signal in the rotation curve causes the calculated period to find this low frequency limit, such cases can be filtered out by keeping only periods less than \qty{90}{\percent} of this maximum.
 They recommended that periods less than \qty{3}{\hour} be interpreted with caution, due to lack of reliability in recovering injected sources.
 Because of the increase in FFI rate, this time will be droped to \qty{1}{\hour} for the minimum reliable period, as the lightcurve sampling on these timescales is equivalent.
 
 %???
-There will be differences in the period between the matched points and the interpolated points, not just because of the difference in average flux, but also from the larger number of points. 
+There will be differences in the period between the matched points and the interpolated points, not just because of the difference in average flux, but also from the larger number of points.
 The matches are often having fewer observations and are much sparser in time that the forced photometry measurements (see the black squares in \autoref{Fig:FullSingleLC}), so would give worse periodograms.
 While the rotation period and other properties of the lightcurve will be calculated from the forced photometry on the COM positions, the matching is still beneficial to the \texttt{TESSELLATE} pipeline as a whole.
-Taking previously unidentified detections and assigning them to an asteroid category, the remaining unknown transients can be more efficiently searched for other interesting astrophysical phenomena. 
+Taking previously unidentified detections and assigning them to an asteroid category, the remaining unknown transients can be more efficiently searched for other interesting astrophysical phenomena.
 
 
 \begin{figure}[!t]
   \centering
   \includegraphics[width=\textwidth]{../OzData/PeriodogramUlyssesUpdated.pdf}
-  \caption[Periodogram example]{\textit{Upper Panel}:The Periodogram of the COM flux of an asteroid, with the power of each frequency displayed, both axes are in log scale. 
-  The maximum power of the periodogram is highlighted with the gold star. 
-  This maximum is the calculated rotation frequency
-  The known frequency, from the LCDB \citep{Warner2009}, is shown in the blue dotted lines, and a factor of 2 alias each way is shown in the purple dotted lines ($2*$) and red dotted lines ($0.5*$). 
-  \textit{Lower Panel}: The COM flux lightcurve and the returned model (dashed black curve) of the lightcurve from the periodogram analysis. The frequency of this model is the same as the gold stared point in the upper panel.
+  \caption[Periodogram example]{\textit{Upper Panel}:The Periodogram of the COM flux of an asteroid, with the power of each frequency displayed, both axes are in log scale.
+    The maximum power of the periodogram is highlighted with the gold star.
+    This maximum is the calculated rotation frequency
+    The known frequency, from the LCDB \citep{Warner2009}, is shown in the blue dotted lines, and a factor of 2 alias each way is shown in the purple dotted lines ($2*$) and red dotted lines ($0.5*$).
+    \textit{Lower Panel}: The COM flux lightcurve and the returned model (dashed black curve) of the lightcurve from the periodogram analysis. The frequency of this model is the same as the gold stared point in the upper panel.
   }
   \label{Fig:PeriodEx}
 \end{figure}
 
 
-An example of such a periodogram and the corresponding fit to the lightcurve is given in \autoref{Fig:PeriodEx}. 
-The periodogram calculated that this object had a frequency double that listed in the LCDB, as seen with the vertical dotted lines. 
-This is expected due to the double peaked nature of most asteroid lightcurves \citep{McNeill2023}.  
+An example of such a periodogram and the corresponding fit to the lightcurve is given in \autoref{Fig:PeriodEx}.
+The periodogram calculated that this object had a frequency double that listed in the LCDB, as seen with the vertical dotted lines.
+This is expected due to the double peaked nature of most asteroid lightcurves \citep{McNeill2023}.
 The stared peak is by far the most prominent peak in the periodogram, as it is in log scale.
 Not all the asteroids have such well-defined maximums, and the peak power of the periodogram is an important factor in its quality.
 A peak power less than 0.1 means there is little to no signal observed and it will be almost indistinguishable from the noise.
@@ -447,8 +447,8 @@ The lower panel of \autoref{Fig:PeriodEx} shows the model given in \autoref{Eq:L
 This looks to be a good fit, with the peaks and troughs lining up.
 The amplitude of the sinusoid appears to be slightly lower than the variation of the data, but it is consistent with the scatter.
 This model is successfully fit over a break in the lightcurve, and ignores the observations with a lower flux that did not quite get sigma clipped.
-This asteroid was chosen as an alias of the known frequency is recovered by this analysis, which is promising for those asteroids where no known frequency exists. 
-The double alias is expected here due to the double peaked nature of the lightcurve \citep{McNeill2023}.   
+This asteroid was chosen as an alias of the known frequency is recovered by this analysis, which is promising for those asteroids where no known frequency exists.
+The double alias is expected here due to the double peaked nature of the lightcurve \citep{McNeill2023}.
 %// TODO discuss fit of model...
 
 %// TODO single object periodogram
@@ -460,34 +460,34 @@ The double alias is expected here due to the double peaked nature of the lightcu
 The \texttt{TESSELLATE} pipeline has been running on the OzSTAR supercomputing facilities.
 After I was confident that all the parts of the asteroid detection and subsequent light curve analysis worked as required on one subsection of one camera of one CCD of one TESS sector, the same code was refactored slightly to work on OzSTAR and a large-scale analysis of all the processed TESS sectors can be run. I will be looking for completeness of detections of asteroids, as well as accuracy of periods and amplitude variation.
 
-For accurate statistics, accurate data is needed. 
-So there must be checks on the quality of the values calculated. 
+For accurate statistics, accurate data is needed.
+So there must be checks on the quality of the values calculated.
 These have mostly been discussed already, but for completeness I list them here.
 A lightcurve must have an mean flux of at least 10 counts to be reliable.
 For an accurate periodogram, it is required that the lightcurve also contain more than 200 observations, which is very easy for TESS and its \qty{10}{\minute} cadence.
-The periodogram itself must have a peak power of at least 0.1, and the calculated period must be $\qty{1}{\hour}\leq P \leq \qty{367.2}{\hour}$, where the upper bound is \qty{90}{\percent} of the \qty{17}{\day} window suggested by \cite{McNeill2023}.  
+The periodogram itself must have a peak power of at least 0.1, and the calculated period must be $\qty{1}{\hour}\leq P \leq \qty{367.2}{\hour}$, where the upper bound is \qty{90}{\percent} of the \qty{17}{\day} window suggested by \cite{McNeill2023}.
 \begin{figure}[t]
   \centering
   \includegraphics[width=\textwidth]{../OzData/LCBDcompLogScaleLineText1.pdf}
-  \caption[Known against calculated period]{A comparison of the calculated periods of the objects in the Sector to their known periods in the LCDB. 
-  Dotted lines of a constant relationship are plotted, coloured the same as \autoref{Fig:PeriodEx}.
-  Both axes are in log scale.
+  \caption[Known against calculated period]{A comparison of the calculated periods of the objects in the Sector to their known periods in the LCDB.
+    Dotted lines of a constant relationship are plotted, coloured the same as \autoref{Fig:PeriodEx}.
+    Both axes are in log scale.
   }
 
   \label{Fig:LCDBcomp}
 \end{figure}
 While some of the checks were chosen to agree with the past work of others, some were chosen to make sure the derived periods were in agreement with the known ones from the LCDB.
-A comparison between objects in both the sector and the LCDB is seen in \autoref{Fig:LCDBcomp}. 
-The $y=2x$ line is of interest here, the known periods being twice the detected period. 
-This line corresponds to the calculated frequency being at the double alias of the known frequency, as frequency and period are inveses of each other. 
-As seen in \autoref{Fig:PeriodEx} and expected from \citet{McNeill2023}, this line is what the periodogram should return. 
-Most of the asteroids the pass the cut line along or near this key relation. 
+A comparison between objects in both the sector and the LCDB is seen in \autoref{Fig:LCDBcomp}.
+The $y=2x$ line is of interest here, the known periods being twice the detected period.
+This line corresponds to the calculated frequency being at the double alias of the known frequency, as frequency and period are inveses of each other.
+As seen in \autoref{Fig:PeriodEx} and expected from \citet{McNeill2023}, this line is what the periodogram should return.
+Most of the asteroids the pass the cut line along or near this key relation.
 Few asteroids on the line fail the checks, which is also reassuring that the checks do what they are supposed to and filter out incorrect periods.
 The vertical line of grey points on the right-hand side of \autoref{Fig:LCDBcomp} is on that maximum of the window of searched periods at $\qty{408}{\hour}$, and demonstrates why the \qty{90}{\percent} upper bound is necessary.
-Many asteroids, across an order of magnitude of know periods, have detected periods at the edge of the window which shows that the periodogram will return this value when no signal is present.  
-There are about a dozen asteroids that pass the checks with large detected periods when compared to their known period. These green points in the lower right of \autoref{Fig:LCDBcomp} speak to the checks not being perfect. 
-Some experimentation was done on the limiting values, and the ones presented here achieved the highest recovery of asteroid periods, while minimising the number that were incorrectly recovered. 
-The idea of doubleing the detected period of all the asteroids and calling that number the rotation period has had some doubt cast on it, as there are a couple of points recovered nicely on the $y=x$ line, indicating that the true period is found. 
+Many asteroids, across an order of magnitude of know periods, have detected periods at the edge of the window which shows that the periodogram will return this value when no signal is present.
+There are about a dozen asteroids that pass the checks with large detected periods when compared to their known period. These green points in the lower right of \autoref{Fig:LCDBcomp} speak to the checks not being perfect.
+Some experimentation was done on the limiting values, and the ones presented here achieved the highest recovery of asteroid periods, while minimising the number that were incorrectly recovered.
+The idea of doubleing the detected period of all the asteroids and calling that number the rotation period has had some doubt cast on it, as there are a couple of points recovered nicely on the $y=x$ line, indicating that the true period is found.
 Either the LCDB has not accounted for the alias, which is unlikely as I only took the periods with high quality codes as they suggest \citep{Warner2009}, or the rotation signal sometimes returns the true period.
 The latter implies the lightcurve is not double peaked, as is normally expected.
 
@@ -503,7 +503,7 @@ Similar results can be found in any of the sectors, the computation time was a l
 The orbital element properties of the asteroids were returned by JPL Horizons queries.
 A plot of the semi-major axis against the other orbital elements, eccentricity and inclination, is shown in \autoref{Fig:AEI}.
 Looking at the data as a whole, all objects in the field of the instrument during the sector, with $V \leq \qty{20}{\mag}$, are plotted.
-The exception being comets and centaurs, which have an $a$ (really $q$, the perihelion distance) too larger to see the detail of the majority of the objects. 
+The exception being comets and centaurs, which have an $a$ (really $q$, the perihelion distance) too larger to see the detail of the majority of the objects.
 The distinction between the resonances in the main belt can be seen.
 There are vertical strips separating the middle belt from the inner and outer belt.
 The Jupiter Trojans are well-defined, at just past \qty{5}{\au}, with a small range of eccentricity but a large spread in the inclination.
@@ -517,61 +517,75 @@ In total, 309 objects passed all the quality checks, out of a total sample of 56
   \includegraphics[width=\textwidth]{../OzData/AEIplotqualCut.pdf}
   \caption[aei distribution]{
     The $a$ against both $e$ and $i$ of all the objects that \texttt{SkyBot} found in Sector 29 with $V <\qty{20}{\mag}$(Other than the comets and centaurs with poorly defined $a$ values).
-    The grey crosses are those objects that did not pass the quality checks on the lightcurve and periodogram, while the green is those that did. 
+    The grey crosses are those objects that did not pass the quality checks on the lightcurve and periodogram, while the green is those that did.
     The values of these proper elements were queried from JPL Horizons on 30/09/24.
   }
   \label{Fig:AEI}
 \end{figure}
 
 
-The number of asteroids belonging to each class of objects is highlighted in \autoref{Fig:NumPerClass}. 
-As expected from the orbital elements in \autoref{Fig:AEI}, the majority of the minor planets fall in the three regions of the main belt. 
+The number of asteroids belonging to each class of objects is highlighted in \autoref{Fig:NumPerClass}.
+As expected from the orbital elements in \autoref{Fig:AEI}, the majority of the minor planets fall in the three regions of the main belt.
 There are some objects that are not asteroids, 20 comets were in the field and 1 centaur.
 While they have a V mag less than 20, these objects are often not bright enough to have lightcurves with high enough mean fluxes to be detected well by TESS, as seen by the green bars.
-Around \qty{5}{\percent} of any class have lightcurves and periodograms that pass the quality checks. 
+Around \qty{5}{\percent} of any class have lightcurves and periodograms that pass the quality checks.
 The highest fraction is the $\frac29$ of the Amor family of NEAs, however with only 9 total objects the sample is too small to be representative of the detectability of this class as a whole.
 
 
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{../OzData/classesBarqualCut.pdf}
-  \caption[Class distribution]{A bar chart distribution of the total number of objects per class that \texttt{SkyBot} found in the Sector (blue) and the same distribution of those that passed all the quality checks (green). 
-  The numbers above each class (coloured the same) correspond to the height of the bar, as some classes have too few objects to be seen.
-  As with \autoref{Fig:AEI}, this is for all objects brighter than \nth{20}\unit{\mag}.
-  For the class labels, MB is ``main belt'' and ``NEA'' is near earth asteroid.}
+  \caption[Class distribution]{A bar chart distribution of the total number of objects per class that \texttt{SkyBot} found in the Sector (blue) and the same distribution of those that passed all the quality checks (green).
+    The numbers above each class (coloured the same) correspond to the height of the bar, as some classes have too few objects to be seen.
+    As with \autoref{Fig:AEI}, this is for all objects brighter than \nth{20}\unit{\mag}.
+    For the class labels, MB is ``main belt'' and ``NEA'' is near earth asteroid.}
   \label{Fig:NumPerClass}
 \end{figure}
 
 \subsection{Detectability}
 
+\begin{figure} %? // TODO fix.
+  \centering
+  \includegraphics[width=\textwidth]{../OzData/pointsMatchesNumberHistdouble1.pdf}
+  \caption[Number of observations or matches]{\textit{Left}: A histogram of the number of observations in the lightcurve of each asteroid (orange solid line) in 100 observation bins. \textit{Right}: The number of matches each asteroid gets in the \texttt{TESSELLATE} detections (black dashed).
+  }
+  \label{Fig:MatchInterpHists}
+\end{figure}
+
+The number of forced photometry observations in a lightcurve is more evenly distributed than the number of matches, as shown in \autoref{Fig:MatchInterpHists}.
+The quality cut of 200 observations in a lightcurve only cuts out $\sim 200$ asteroids.
+Most asteroids are well sampled, with the mode of the distribution in the 2900 to 3000 observation bin, which means the asteroids are in a large fraction of the about 3500 frames in a sector.
+
+The matches have a very different distribution to the observations.
+While both plots are limited to 600 asteroids on the y-axis, the matches histogram far exceeds this in the first bin, $\leq$ 100 matches, as indicated by the text and arrow.
+Yet the y-limit is too large for detail to be seen in any higher bin.
+There are only 102 asteroids matched more than 100 times in the \texttt{TESSELLATE} detections.
+
+
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{../OzData/recoverdHistBkgLimof10AtanBothLegendFixed.pdf}
-  \caption[Recovery plot]{A histogram of known average visual magnitude of each object against the whether the object has a lightcurve with an average flux value above 10 %!CHECK
-  counts for its COM flux (blue triangles) or passes all of the checks on the lightcurve and periodogram (green dots).
-  A fit of an $\arctan$ function is provided in dotted lines of the same colour. 
+  \caption[Recovery plot]{The recovery fraction against the known visual magnitude of each object against the whether the
+    object exceeds only the averge flux requirement  of the quality checks (blue triangles) or passes all of the quality checks on the lightcurve and periodogram (green dots).
+    A fit of an $\arctan$ function is provided in dotted lines of the same colour.
   }
   \label{Fig:RecovPassorFail}
 \end{figure}
 
 
-% \begin{figure}
-%   \centering
-%   \includegraphics[width = \textwidth]{../OzData/matchesHist29.pdf}
-%   \caption[Magnitude of matches]{The visual magnitude of the asteroid against the fraction of asteroids in this bin with more than 3 %!CHECK
-%     matches.
-%   }
-%   \label{Fig:MagofMatches}
-% \end{figure}
+The fits of to the fraction recoverd in \autoref{Fig:RecovPassorFail} take the form
+\begin{equation} \label{Eq:Atan}
+  y= 0.5 -\frac{1}{\pi} \arctan(\alpha \cdot (m-m_{1/2}))
+\end{equation}
+where $y$ is the recoved fraction, $\alpha$ is how the steep the transition from 1 down to 0 is,  $m$ the magnitude and $m_{1/2}$ is the shift along the magnitude axis.
+The constant of 0.5 in \autoref{Eq:Atan} raises the point of inflection to be at $\frac 1/2$, and the $\frac{-1}{\pi}$ makes the function take the expected maximum at bright magnitudes at \qty{100}{\percent} recoved, down to no dim asteroids being detected.
+The $m_{1/2}$ parameter dictates the limiting magnitude, as dimmer than this value less than half of the asteroids are recoverd.
+The fit is preformed on all bins (of \qty{0.5}{\mag}) dimmer than the first bin with more than one asteroid in it, to stop extremely bright asteroids from having too much influence.
 
+Only taking the minimum average flux of 10 counts requirement, blue in \autoref{Fig:RecovPassorFail}, the limiting magnitude is \qty{17.78(0.01)}{\mag}.
+When all the quality checks are imposed, this gets over a \unit{\mag} brighter, to \qty{16.46(0.37)}{\mag}.
+It is expected that a higher threshold for quality will make the limiting magnitude brighter, but is value is so uncertain because of the scatter in the recovery fraction at brighter magnitudes, and the shallower decrease in efficiency.
 
-\begin{figure} %TODO fix.
-  \centering
-  \includegraphics[width=\textwidth]{../OzData/pointsMatchesNumberHistdouble1.pdf}
-  \caption[Number of observations or matches]{\textit{Left}: A histogram of the number of observations in the lightcurve of each asteroid (orange solid line) in 100 observation bins. \textit{Right}: The number of matches each asteroid gets in the \texttt{TESSELLATE} detections (black dashed)in 100 match bins.
-  Both are limited to 600 asteroids on the y-axis, which pales in comparison to the number of asteroids with $\leq$ 100 matches and yet is too large for detail to be seen in any higher bins. }
-  \label{Fig:MatchInterpHists}
-\end{figure}
 
 \subsection{Period Analysis Results}\label{SubSec:PerRes}
 
@@ -581,8 +595,8 @@ The highest fraction is the $\frac29$ of the Amor family of NEAs, however with o
   \centering
   \includegraphics[width = \textwidth]{../OzData/QualPervsAmp1.pdf}
   \caption[Amplitude of Variation against Rotaion Period]{The amplitude of variation in the model from the period analysis against the calculated rotation period.
-  This is for all 309 %!CHECK
-  objects that pass the quality checks.
+    This is for all 309 %!CHECK
+    objects that pass the quality checks.
   }
   \label{Fig:perVSamp}
 \end{figure}
@@ -596,11 +610,32 @@ The highest fraction is the $\frac29$ of the Amor family of NEAs, however with o
 
 %! IF Matching works both to M23 and LCDB !!!
 
+
+The limiting magnitude of the recovery fraction demonstrated in \autoref{Fig:RecovPassorFail} agrees well with other tests of \texttt{TESSELLATE}.
+Concurrent work by another Honours student \citep{MontillaHons} achieves a similar recovery fraction detection efficiency of $\sim$\nth{17} \unit{\mag}.
+She has been preforming injection/recovery tests across many sectors, and finding the limiting magnitude is consistent across sectors and cadence of the FFIs.
+This is promising, as it means that asteroids will be detected to a similar depth as they are here for any further sectors processed, something I could not check myself.
+
 \subsection{Future work}
 
-quality checks aren't great
+%quality checks aren't great
+It is clear from the outliers in \autoref{Fig:perVSamp} and the clearly incorrect periods of know objects in \autoref{Fig:LCDBcomp} that the quality checks have room for improvement.
+Some of these checks were  taken to agree with the how others analyse similar data, like the maximum period from \citet{McNeill2023}.
+Others were more empherically derived, such as the minimum average flux value.
+There is a delecate balance between detecting as many known periods as possible and maintating strict enough cuts to keep out the junk.
 
-run on rest of TESSELLATE data
+The periodogram noise at the low frequency end is quite strong throughout the range of rotation periods. 
+Currently it is responsible for a lot of undetected rotaion rates, due to the \qty{90}{\percent} of the \qty{17}{\day} window check, and this noise region having a larger power than any signal.
+Modelling this excess to try and remove the noise and boost the signal from the rotaion could be done to improve the maximum power of the periodogram. 
+There are a few asteroids with known longer rotaion periods than this check allows for, but one TESS sector will not be enough to determine those accurately.
+
+Linking lightcurves of asteroids between sectors was not considered here, as only one sector has been analysed.
+Any one asteroid will be in multiple sectors, as TESS has surveyed that whole sky more than once. 
+The different FFI cadence, as well as the large temporal gap between these observations makes it non-trivial to recover the rotation periods.
+The different depths that the shortest cadence FFIs have \citep{MontillaHons}  
+
+
+%run on rest of TESSELLATE data
 
 \section{Conclusion}\label{Sec:Conc}
 
