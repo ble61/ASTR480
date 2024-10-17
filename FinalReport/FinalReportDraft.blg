@@ -1,53 +1,51 @@
-This is BibTeX, Version 0.99d
+This is BibTeX, Version 0.99d (TeX Live 2023)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: FinalReportDraft.aux
-Reallocating 'name_of_file' (item size: 1) to 9 items.
 The style file: abbrvnat.bst
-Reallocating 'name_of_file' (item size: 1) to 12 items.
 Database file #1: bibfile.bib
 Warning--empty journal in Garrison2024
 Warning--empty journal in Gowanlock2024
 Warning--empty note in MontillaHons
 Warning--empty note in TESSELLATE
-You've used 54 entries,
+You've used 56 entries,
             2773 wiz_defined-function locations,
-            1076 strings with 37368 characters,
-and the built_in function-call counts, 76824 in all, are:
-= -- 5540
-> -- 10519
-< -- 22
-+ -- 3513
-- -- 3459
-* -- 8368
-:= -- 13276
-add.period$ -- 287
-call.type$ -- 54
-change.case$ -- 1312
-chr.to.int$ -- 54
-cite$ -- 112
-duplicate$ -- 1149
-empty$ -- 2020
-format.name$ -- 3525
-if$ -- 14619
+            1093 strings with 37865 characters,
+and the built_in function-call counts, 78095 in all, are:
+= -- 5658
+> -- 10606
+< -- 23
++ -- 3542
+- -- 3486
+* -- 8484
+:= -- 13473
+add.period$ -- 298
+call.type$ -- 56
+change.case$ -- 1327
+chr.to.int$ -- 56
+cite$ -- 116
+duplicate$ -- 1200
+empty$ -- 2103
+format.name$ -- 3554
+if$ -- 14889
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 53
-newline$ -- 403
-num.names$ -- 216
-pop$ -- 2452
+missing$ -- 55
+newline$ -- 418
+num.names$ -- 224
+pop$ -- 2475
 preamble$ -- 1
-purify$ -- 1261
+purify$ -- 1274
 quote$ -- 0
-skip$ -- 1827
+skip$ -- 1870
 stack$ -- 0
-substring$ -- 879
-swap$ -- 149
-text.length$ -- 6
+substring$ -- 923
+swap$ -- 162
+text.length$ -- 7
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 579
+type$ -- 601
 warning$ -- 4
-while$ -- 214
+while$ -- 223
 width$ -- 0
-write$ -- 949
+write$ -- 985
 (There were 4 warnings)

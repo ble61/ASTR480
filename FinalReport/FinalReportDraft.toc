@@ -7,19 +7,19 @@
 \contentsline {subsection}{\numberline {1.1}Asteroids}{1}{subsection.1.1}%
 \contentsline {subsection}{\numberline {1.2}TESS}{3}{subsection.1.2}%
 \contentsline {section}{\numberline {2}Methods}{4}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Querrying Databases}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.1}Querrying Databases}{5}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Interpolation}{5}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Detection Matching}{6}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Ligthcurves}{6}{subsection.2.4}%
-\contentsline {subsection}{\numberline {2.5}Period detection}{8}{subsection.2.5}%
-\contentsline {subsection}{\numberline {2.6}Asteroid Statistics}{11}{subsection.2.6}%
-\contentsline {section}{\numberline {3}Results}{12}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Asteroid Properties}{12}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Detectability}{13}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Period Analysis Results}{15}{subsection.3.3}%
+\contentsline {subsection}{\numberline {2.4}Ligthcurves}{7}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Period detection}{9}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Periodogram Quality Checks}{11}{subsection.2.6}%
+\contentsline {section}{\numberline {3}Results}{13}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Asteroid Properties}{13}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Detectability}{14}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Period Analysis Results}{16}{subsection.3.3}%
 \contentsline {section}{\numberline {4}Discussion}{16}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Comparison to other work }{16}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Future work}{16}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.2}Future work}{17}{subsection.4.2}%
 \contentsline {section}{\numberline {5}Conclusion}{17}{section.5}%
 \contentsline {section}{Acknowledgements}{18}{section*.16}%
 \contentsline {section}{References}{18}{section*.16}%

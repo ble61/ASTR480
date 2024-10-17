@@ -125,51 +125,70 @@ This is the next paragraph.
 
 %To get all asteroids in TESS. 
 This project aims to find and characterise the light curves of all the asteroids seen by the Transiting Exoplanet Survey Satellite (TESS).
-Combining knowledge of these asteroid's positions with the high cadence imaging of TESS should allow for the determination of rotation periods of these small bodies.
+Combining knowledge of these asteroids positions with the high cadence imaging of TESS should allow for the determination of rotation periods of these small bodies, and the amplitude of the variation.
 
 
 \subsection{Asteroids}\label{SubSec:Asteroid}
 
-Asteroids are a key class of solar system objects.
-The orbits of asteroids can be well characterised by only a few values. The semi-major axis, $a$, is the largest distance from the sun that the asteroid achieves on its elliptical orbit.
-Main belt asteroids have typical $a$s of \qtyrange{2}{3.3}{\au} \citet{DeMeo2015}.
-The bounds between the inner, middle and outer main belt at \qty{2.5}{\au} and \qty{2.82}{\au}, these separations are due to resonances with Jupiter (the 3:1 and 5:2 mean motion resonances mark the edges of middle main belt) and Saturn (the $\nu_6$ secular resonance cuts off the lowest $a$ edge of the inner belt) carving swathes where asteroids cannot be in stable orbits.
-The eccentricity, $e$, of this orbit is the next parameter of interest. $e=0$ implies a perfectly circular orbit, $0<e<1$ are ellipses, $e=1$ give a parabolic orbit, and $e>1$ are unbound, hyperbolic orbits.
-Main belt asteroids have small $e$, in the range of \qtyrange{0}{0.35}{} \citep{DeMeo2015}
-Comets have larger $e$, with some long period comets having $e\approx 1$, but the typical range is \qtyrange{0.2}{0.7}{} \citep{Lewis2012}.
-Interstellar objects (ISOs) have $e>1$ as they are on unbound hyperbolic trajectories.
-The inclination, $i$, of asteroids is also a key orbital element, it is the angle relative to the ecliptic plane and in principle asteroids can span the whole range.
-Main belt asteroids have typical inclinations of \qtyrange{0}{30}{\degree} \citep{DeMeo2015}, so the TESS cameras closer to the ecliptic plane are expected to have the most asteroids in their fields.
+Asteroids are a key class of solar system objects. Much is known about them already, but there is always more to learn. 
+The orbits of asteroids can be well characterised by only a few values, the proper elements of the object.
+These are the lenght of the long axis of elliptical orbit, the semi-major axis, $a$, how elliptical the orbit is, the eccentricity, $e$, and the angle to the ecliptic plane, the inclination,$i$. 
+Typical values for main belt asteroids are an $a$ of \qtyrange{2}{3.3}{\au}, an $e$ in \qtyrange{0}{0.35}{} and an $i$ around \qtyrange{0}{30}{\degree} \citep{DeMeo2015}.
+Comets have undefined $a$ and larger $e$, with some long period comets having $e\approx 1$, but the typical range is \qtyrange{0.2}{0.7}{} \citep{Lewis2012}.
+Interstellar objects (ISOs) have $e>1$ as they are on unbound hyperbolic trajectories \citep{McGlynn1989}.
 
-% // below TODO Abs mag H, and how that is size.
 
-%TODO asteroid families
+% The semi-major axis, $a$, is the largest distance from the sun that the asteroid achieves on its elliptical orbit.
+% Main belt asteroids have a typical $a$ of \qtyrange{2}{3.3}{\au} \citep{DeMeo2015}.
+% The bounds between the inner, middle and outer main belt at \qty{2.5}{\au} and \qty{2.82}{\au}, these separations are due to resonances with Jupiter (the 3:1 and 5:2 mean motion resonances mark the edges of middle main belt) and Saturn (the $\nu_6$ secular resonance cuts off the lowest $a$ edge of the inner belt) carving swathes where asteroids cannot be in stable orbits.
+
+% The eccentricity, $e$, of this orbit is the next proper element. $e=0$ implies a perfectly circular orbit, $0<e<1$ are ellipses, $e=1$ give a parabolic orbit, and $e>1$ are unbound, hyperbolic orbits.
+% Main belt asteroids have small $e$, in the range of  \citep{DeMeo2015}
+% Comets have larger $e$, with some long period comets having $e\approx 1$, but the typical range is \qtyrange{0.2}{0.7}{} \citep{Lewis2012}.
+% Interstellar objects (ISOs) have $e>1$ as they are on unbound hyperbolic trajectories.
+
+% The inclination, $i$, of asteroids is also a key orbital element, it is the angle relative to the ecliptic plane.
+% In principle asteroids can span the whole range of inclinations, though they rarely do.
+% Main belt asteroids have typical inclinations of \qtyrange{0}{30}{\degree} \citep{DeMeo2015}, so the TESS cameras closer to the ecliptic plane are expected to have the most asteroids in their fields.
+
 Asteroids can be grouped into families based on clustering of the proper orbital elements and similarities in their colour or spectra \citep{Nesvorny2015}.
 These families are named for their largest member.
 Families are thought to all originate from the same body that was destroyed by a collision earlier in the solar system's history.
 
-%TODO YORP spin up
-Asteroids can have their rotation properties changed with time, collisions can do this, but so can light from the sun.
-The YORP effect (named for the discoverers Yarkovsky, O'Keefe, Radzievskii, and Paddack) is the process of tourquing asteroids of an asymmetric shape by both bombardment of photons and thermal (re-)emission \citep{Rubincam2000}.
+%TODO Rotation of asteroids
+As an asteroid rotates, the amount of sunlight reflected changes with time.
+This produces a lightcurve that is often sinusoidal in appearance.
+These lightcurves are normally ``double-peaked'', having two maximums for one full rotation of the body, due to symmetries in the shape of the object.
+The shape of the asteroid has a large effect on the scale of variation in the lightcurve \citep{Durech2015}, the more elongated the object is, the larger the variation.
+The rate of rotation is limited by the size of the asteroid \citep{Pravec2000}, as the internal strength of the body is put under too much strain if large asteroid rotate with short periods.
 
 Understanding the rotation properties of asteroids has long been of interest to astronomers \citep[e.g.][for early work into the limits of rotation period and the tumbling nature of some small bodies]{Weidenschilling1981,Harris1994}.
 This is still at the forefront of research, with more lightcurves being published year-on-year \citep{Harris2015}.
-This will only increase with more large survey telescopes coming online soon, such as the Legacy Survey of Space and Time \citep[LSST][]{LSST2019}, the number of new asteroids that are well characterised will increase by more than 2 orders of magnitude on the Sloan Digital Sky Survey \citep[SDSS][]{York2000} which had $\sim 88000$ objects \citet{Parker2008}.
+For the smallest objects ingenious observation techniques are employed to measure rotation periods such as intentionally streaking the asteroid down a column of pixel on a detector, and making the lightcurve from the streak, as done by \citet{Bolin2023}.
+
+Asteroids can have their rotation properties changed with time, collisions can do this, but so can light from the sun.
+The YORP effect (named for the discoverers Yarkovsky, O'Keefe, Radzievskii, and Paddack) is the process of tourquing asteroids of an asymmetric shape by both bombardment of photons and thermal (re-)emission \citep{Rubincam2000}.
+
+The data on solar system bodies will only increase with more large survey telescopes coming online soon, such as the Legacy Survey of Space and Time \citep[LSST][]{LSST2019}.
+The number of new asteroids that are well characterised will increase by more than 2 orders of magnitude on the Sloan Digital Sky Survey \citep[SDSS][]{York2000} which had $\sim 88000$ objects \citet{Parker2008}.
 LSST needs a dedicated pipeline for asteroid classification, the Solar System Notification Alert Processing System \citep[SNAPS][]{Trilling2023} has been developed using ZTF data and is can scale up handle volume of data coming from LSST.
 Work is being done to understand the biases of how  asymmetric shape high amplitude variations can lead to selection effects of such large sample of asteroids \citet{Levine2023}.
-For the smallest objects ingenious observation techniques are employed to measure rotation periods such as intentionally streaking the asteroid down a column of pixel on a detector, and making the lightcurve from the streak, as done by \citet{Bolin2023}.
 
 Because of such a rich history of study, many asteroids have a known rotation period.
 These are catalogued by \citet{Warner2009} %TODO updated in citation http://www.MinorPlanet.info/php/lcdb.php
 in the Light Curve Database (LCDB).
-%// TODO fig of period vs diameter.   
 In the October \nth{1}, 2023 release, the LCDB has nearly 9000 objects with periods determined to a quality code $U\geq 2-$, which is the minimum reliability recommended by \citeauthor{Warner2009} for statistical analysis.
 This includes other TESS data from \citet{Pal2020} and \citet{Woods2021}.
 The frequencies against diameter plot of these asteroids in \autoref{Fig:FreqVsDiam} shows the collection of all the asteroids in the LCDB.
 The diameter presented in the LCDB here calculated from the absolute magnitude $H$ of the bodies, assuming an albedo.
 \citeauthor{Warner2009} acknowledge that there are direct measurements of diameter for more asteroids in the present day, but continue to present the $H$ derived diameters for consistency.
-The spin barrier \citep{Pravec2000} is seen in the red dashed lines as there are very few asteroids larger than $\qty{0.15}{\kilo\metre}$ rotating faster than $\sim \qty{10}{\per\day}$.
-It is thought that the YORP effect spins up asteroids so fast that they pass above this barrier and then no longer have the internal strength necessary to hold themselves together, impling that all asteroids made to spin faster have torn themselves apart and that they have no tensile strength, i.e they are rubble piles instead of monoliths \citep{Harris1996}. This idea of the cohesive strength of small bodies is still explored today \citep[e.g.][for V-type asteroids]{Oszkiewicz2020}.
+
+The asteroid spin barrier \citep{Pravec2000} is seen in the red dashed lines in \autoref{Fig:FreqVsDiam}.
+There are very few asteroids larger than $\qty{0.15}{\kilo\metre}$ rotating faster than $\sim \qty{10}{\per\day}$.
+It is thought that the YORP effect, as wel as collisons, spin up asteroids so fast that they pass above this barrier and then no longer have the internal strength necessary to hold themselves together.
+This implies that all asteroids made to spin faster have torn themselves apart and that they have no tensile strength, i.e they are rubble piles instead of monoliths \citep{Harris1996}. 
+This idea of the cohesive strength of small bodies is still explored today \citep[e.g.][for V-type asteroids]{Oszkiewicz2020}.
+
 Comparing the periods I find of asteroids that are already in the LCDB is key to making sure my methods are reliable, and that the periods for asteroids for which no data exists can be trusted.
 
 \begin{figure}[t!]
@@ -186,56 +205,74 @@ Comparing the periods I find of asteroids that are already in the LCDB is key to
 High amplitude variation has come to the forefront of questions about asteroid properties because of the first interstellar object, 1I/\omuamua \citep[see][for a review]{Bannister2019}.
 \omuamua was determined to be spectroscopically red \citep{Fitzsimmons2017, Meech2017}, and having a photometric colour in the neutral end of the solar system range \citep{Bannister2017}.
 1I was classed as asteroid due to lack of a coma, and no noticeable activity.
-This contrasts the second ISO, 2I/Borisov, which had many cometary characteristics \citep[see ][for a review]{Dorofeeva2023}. %\\TODO cite, as opposed to 2I??
+This contrasts the second ISO, 2I/Borisov, which had many cometary characteristics \citep[see ][for a review]{Dorofeeva2023}. 
+
 \omuamua was measured to have a rotation period of \qty{8.67(0.34)}{\hour} \citep{Belton2018} and seemed to be tumbling \citep[e.g.][]{Drahus2018,Fraser2018}.
 Combing the tumbling with an elongation ratio of up to \qty{6(1)}{}:1 \citep{McNeill2018}, 1I is said to have a cigar shape \citep{Belton2018}.
-The peak to peak amplitude variation of this ISO was \qty{2.5}{\mag} \citep{Meech2017} over its double peaked light curve.
-This is quite interesting, as it varies more than most asteroids.
-With the full sky survey of bright asteroids, we hope to find many asteroids with such a large amplitude variation, and to see just how rare \omuamua is.
+The peak to peak amplitude variation of this ISO was \qty{2.5}{\mag} \citep{Meech2017} over its double peaked lightcurve, which is interesting as it is more variation than most asteroids more than most asteroids \citep[as seen in the LCDB of][]{Warner2009}.
+With the full sky survey of bright asteroids, I hope to and to see just how rare \omuamua is, by finding many asteroids with large amplitude variations.
 
 
 \subsection{TESS}\label{SubSec:TESS}
 
 %Why TESS
 TESS is a large area, high cadence imaging, space telescope  \citep{Ricker2014}.
-TESS is tasked with observing one piece of sky for \qty{27}{\day} at a time (a sector), delivering \qtyproduct{96 x 24}{\degree} full frame images (FFIs) at regular intervals.
-These FFIs are built from stacked \qty{2}{\second} exposures, leveraging the short readout times of the 16 CCD cameras on-board.
+TESS is tasked with observing one piece of sky for \qty{27}{\day} at a time , which defines a sector.
+The telescope delivers \qtyproduct{96 x 24}{\degree} full frame images (FFIs) at regular intervals.
+These FFIs are built from stacked \qty{2}{\second} exposures, leveraging the short readout times of the 16 charged-coupled devices (CCD) spread over four cameras on-board.
 With the initial cadence for these full frame images set to \qty{30}{\minute}, the time resolution of TESS is unparalleled.
+As the mission was extended, after TESS had already mapped the entire sky, the length of the FFIs has decreased to \qty{10}{\minute} and then later to \qty{200}{\second}.
+This high time resolution and observation area does come at the cost of spatial resolution, as the pixels are each \qty{21}{\arcsec} square.
+
+Of interest here is what such a high sampling rate can do for statistics on the asteroid population.
+For bright asteroids the rotation periods should be able to be easily determined from this vast dataset, due to the high sampling of the lightcurve.
+The shortest FFIs will be able to accurately determine the rotation periods of all but the fastest rotating asteroids, most of which will be too dim to see in the TESS data.
+
 The highest frequency (shortest period) that can be found from time series data like this is at the Nyquist limit, twice the minimum time between images.
 Due to the short cadence, the Nyquist frequency of TESS is quite high, \qty{1}{\per\hour}.
 This is well sampled enough to characterise most variable stars, as well as find the orbital periods of exoplanets to a high precision.
-As the mission was extended, after TESS had already mapped the entire sky, the length of the FFIs has decreased to \qty{10}{\minute} and then later to \qty{200}{\second}.
-This decreased in the FFI exposure time comes with a complementary increase in the Nyquist frequency.
-This high time resolution and observation area does come at the cost of spatial resolution, as the pixels are each \qty{21}{\arcsec} square.
-Of interest here is what such a high sampling rate can do for statistic on the asteroid population.
-For bright asteroids the rotation periods should be able to be easily determined from this vast dataset.
-The shortest FFIs will be able to accurately determine the rotation periods of all but the fastest rotating asteroids, most of which will be too dim to see in the TESS data.
+The decreased in the FFI exposure time in later sectors comes with a complementary increase in the Nyquist frequency.
 
-There have been attempts to find and classify the asteroids in TESS data before.
-\citet{Pal2018} proposes that TESS will be a good instrument for solar system object study, and simulate some detections down to \nth{20} visual magnitude, but that good photometry should only be expected to $V \lesssim 19$.
-The sentiment of using TESS in this way is shared by \citet{Wong2019}.
+Previous work has been conducted to find and classify all the asteroids in TESS data.
+\citet{Pal2018} proposes that TESS will be a good instrument for solar system object study, and simulate some detections down to \nth{20} visual magnitude, but that good photometry should only be expected to $V \lesssim 19$, a sentiment shared by \citet{Wong2019}.
 The first data release in \citet{Pal2020} catalogues nearly 10,000 asteroid light curves from the first year of TESS operation, and they report that they triple the number of asteroids with accurate rotation periods.
 \citet{McNeill2023} also analyse TESS cycle 1, and detect almost 38,000 objects.
 They determine reliable rotation periods for about 3,500 asteroids in this sample and show a lack of reliability for objects with periods less than \qty{3}{\hour}.
 In the overlap from the data from \citet{Pal2020}, \citeauthor{McNeill2023} find good agreement between the two sets of periods and amplitudes.
 The Minor Planet Center (MPC) gets regular updates from TESS thanks to the work of \citet{Woods2021} and their \texttt{LINEAR-TESS} program, which creates tracklets of objects over a day, and then stitches these together to form a track of each asteroid through an FFI.
+
+There is ongoing analysis of subsets of the asteroid population in TESS.
 \citet{Gowanlock2024} uses TESS photometry as well as  observations by the Zwicky Transient Facility \citep[ZTF, ][]{Bellm2018} to get a longer baseline on mutually observed objects while combining ground and space based observations.
 There were not very many objects in both samples with known periods for comparison, with only 222 objects analysed, however they demonstrate that the technique is effective.
 Fainter and unknown solar system objects can be found by shift and stacking \citep{Holman2019, Payne2019,Rice2020} or taking a fast X-ray transform \citep{Nguyen2024} of the FFI data.
 
 This work aims to extend these studies to more sectors, hence characterising more asteroids.
 The aim is to get a volume complete set of asteroid lightcurves and periods, by analysis of the whole sky as seen by TESS using data from more than just the first year of TESS's operation.
-I also employ a different data reduction method, reducing the data with the \texttt{TESSreduce} package \citep{Ridden-Harper2021} should increase the accuracy of the photometry due to the improved background subtraction process.
+This has not been achieved, as only one sectors analysis is presented here, but the methods are scalable.
 Because of the survey properties, TESS provides a self-consistent way to measure the properties of asteroids over the full sky.
-By using the higher cadence FFIs of later TESS sectors, the $P\leq\qty{3}{\hour}$ limit on the accurate periods \citep[as found by ][]{McNeill2023} should be lowered.
+By using the higher cadence FFIs of later TESS sectors, the $P\leq\qty{3}{\hour}$ limit on the accurate periods \citep[as found by ][]{McNeill2023} can be lowered.
+I also employ a different data reduction method, reducing the data with the \texttt{TESSreduce} package \citep{Ridden-Harper2021} should increase the accuracy of the photometry due to the improved background subtraction process.
+
+
 Another beneficial part of this work is that as part of a full sky transient survey using TESS, \texttt{TESSELLATE} \citep{TESSELLATE}.
 Asteroids can spike the brightness of a pixel for only a few frames while it is passing by.
 This can confuse pipelines looking for  transients such as flare stars and supernova, as they can look very similar, having the brightness change in one pixel for a short time.
-The goal of finding all the asteroids will allow for the removal of these spikes from the transient pipeline, as well as to understand the asteroid population better.
-By filtering the asteroid detections out, while also self consistently determining rotation properties of a large sample of the population, more science can be done with the one action.
+Knowing where the asteroids are will allow for the removal of these spikes from the transient pipeline, as well as to understand the asteroid population better.
+By filtering the asteroid detections out, while also self consistently determining rotation properties of a large sample of the population, more science can be done with the one set of analyses.
 
 
 \section{Methods}\label{Sec:Meth}
+
+The \texttt{TESSELLATE} pipeline has been running on the OzSTAR supercomputing facilities.
+I built the asteroid detection and subsequent lightcurve and periodogram analysis, to be described below, by testing on one subsection of one CCD of one camera  of one TESS sector.
+Once I was confident this worked as requird, the same code was refactored slightly to work on OzSTAR and a large-scale analysis of all the processed TESS sectors can be run. 
+I will be looking for completeness of detections of asteroids, as well as accuracy of periods and amplitude variation.
+
+For this work, I present analysis of TESS sector 29\footnote{\url{https://tess.mit.edu/observations/sector-29/}}, which was observed between \nth{26} August and \nth{22} September 2020.
+This was the third TESS sector to be using \qty{10}{\min} cadence FFIs, which has had less analysis of the asteroids preformed.
+It was chosen mainly because of this higher cadence, it was the only sector of this cadence that had been processed by \texttt{TESSELLATE} with enough time for my analysis to be preformed. 
+What is presented for this section is scalable, on a per sector basis, to any sector.
+
 
 \subsection{Querrying Databases}\label{SubSec:Querry}
 
@@ -319,6 +356,7 @@ Filtering this \texttt{KDTree} output by restricting the time between spatially 
 A cut is then made by smallest distance, in coordinate space, and any distance must be smaller than \qty{0.01}{\degree} (\qty{36}{\arcsec}), which is within 2 TESS pixels.
 Then, if multiple detection match to the same interpolated point, the detection with the smallest distance will be taken.
 An example of the matches found using this \texttt{KDTree} is shown in \autoref{Fig:RADecMatch}.
+
 It is clear that \texttt{TESSELLATE} is not detecting every frame that an asteroid is in.
 Detections in \texttt{TESSELLATE} are done on a per pixel basis, and asteroids only cross each pixel for a short number of frames.
 Not every interpolated point gets a match, due to a variety of reasons, which culminate in there being not an extreme enough of a difference between frames at that pixel location.
@@ -340,21 +378,27 @@ There are two sets of points to take light curves from.
 The matches from the detections, which already have a flux calculated, and the interpolated points themselves, which are more numerous but require forcing the photometry.
 There were some challenges getting the flux of the interpolated points, even when \texttt{TESSELLATE} has already reduced all the FFIs of interest.
 
-Using the \texttt{SkyCoord} module of \texttt{Astropy}, the world coordinates, in RA and Dec, can be transformed into pixel coordinates, $x$ and $y$, using a world coordinates system (WCS) from TESSELLATE.
-\texttt{Photutils} \citep{Bradley2024} was then used to do aperture photometry with a \qty{1.5}{\px} radius to account for the spread in the TESS PRF. %?cite PRF
+The flux is calculated with \texttt{Photutils} \citep{Bradley2024} aperture photometry with a \qty{1.5}{\px} radius.
+This aperture is placed on the centre of mass (COM) position of a $5\times5$ \unit{\px} box around the integer $xy$ coordinate of the asteroid.  
+The integer coordinates are found with the \texttt{SkyCoord} module of \texttt{Astropy}, the world coordinates, in RA and Dec, can be transformed into pixel coordinates, $x$ and $y$, using a world coordinates system (WCS) from TESSELLATE.
 
-The integer coordinates of the asteroids seemed to be leading the object in any given frame of TESS. %?FIG?
-This was decreasing the total flux of the asteroid, as the box used for aperture  was hitting mostly background.
+The integer coordinates  were not used themselves because the asteroids seemed to be leading the object in any given frame of TESS. %?FIG?
+This was decreasing the total flux of the asteroid, as the aperture  was hitting mostly background.
 This also caused a ``sawtoothing'' effect, where the lightcurve would jump from a minimum to a maximum when the integer coordinate snapped from being a pixel out to back on the asteroid.
-Both of these issues can be fixed by calculation of the centre of mass (COM), the average brightness in $xy$ space on a $5\times5$ \unit{\px} box of the image centred on the interpolated position.
-I did not take the highest pixel value in this box because there could be a rouge star in the field that it snaps to, instead of the asteroid.
-A \texttt{Photutils} aperture photometry centred on the COM with the same radius of \qty{1.5}{\px} sorted some of the discrepancies in the lightcurve, with a far smoother transition from maximum to minimum, as expected from rotating asteroids. Hereafter, unless otherwise specified, ``flux'' refers to this COM flux measurement of the asteroid.
+
+I did not take the highest pixel value in a box to make this correction because there could be a rouge star in the field that it detects as the maximum, instead of the asteroid.
+The COM technique would still be affected by such contamination, but the magnitude would be less. 
+The photometry on the COM aperture did fix the sawtoothing, as there is subpixel accuracy in the COM calculation.  
+There was a far smoother transition from maximum to minimum, as expected from rotating asteroids. 
+Hereafter, unless otherwise specified, ``flux'' refers to this COM flux measurement of the asteroid.
 
 
 %TODO data cleaning explaination
 A few steps need to be taken to clean these COM lightcurves.
 Following \citet{McNeill2023}, any fluxes more than $3\sigma$ from the mean value are sigma-clipped from the forced photometry lightcurves.
-This does introduce gaps into an otherwise regularly sampled lightcurve, but the contamination from background stars the object moves through of is too great.
+The contamination from background stars the object passes is too great to allow in the lightcurve.
+This does introduce gaps into an otherwise regularly sampled lightcurve, but the Lomb-Scargle periodogram is designed to deal with poorly sampled data. 
+
 The subsections made by \texttt{TESSELLATE} have a small overlap.
 If an object moves between these, there will be a few frames where it is found in multiple of these subsections.
 This makes the lightcurve have two simultaneous observations of the asteroid, which clearly is not possible.
@@ -383,7 +427,7 @@ Lightcurves with an average flux $<10$ counts are lost in the random noise floor
 
 %Periods and amplitueds for everything detected
 
-The next part of my analysis has to do with determining the periods and amplitudes of each asteroid's light curve.
+The next part of my analysis involves determining the periods and amplitudes of each asteroid's light curve.
 
 A widely used technique in determining the periods of astronomical data is the Lomb-Scargle periodogram \citep[\citet{Lomb1976,Scargle1982}, but see][for a review]{VanderPlas2018}.
 This method can efficiently take discrete time-series data of which the observations are unevenly spaced and calculate the frequencies present in the sample.
@@ -454,11 +498,10 @@ The double alias is expected here due to the double peaked nature of the lightcu
 %// TODO single object periodogram
 %Maybe a bad one too
 
-\subsection{Asteroid Statistics}\label{SubSec:StatMeth}
+\subsection{Periodogram Quality Checks}\label{SubSec:QualCheck}
 
 %Run on server
-The \texttt{TESSELLATE} pipeline has been running on the OzSTAR supercomputing facilities.
-After I was confident that all the parts of the asteroid detection and subsequent light curve analysis worked as required on one subsection of one camera of one CCD of one TESS sector, the same code was refactored slightly to work on OzSTAR and a large-scale analysis of all the processed TESS sectors can be run. I will be looking for completeness of detections of asteroids, as well as accuracy of periods and amplitude variation.
+
 
 For accurate statistics, accurate data is needed.
 So there must be checks on the quality of the values calculated.
@@ -503,7 +546,7 @@ Similar results can be found in any of the sectors, the computation time was a l
 The orbital element properties of the asteroids were returned by JPL Horizons queries.
 A plot of the semi-major axis against the other orbital elements, eccentricity and inclination, is shown in \autoref{Fig:AEI}.
 Looking at the data as a whole, all objects in the field of the instrument during the sector, with $V \leq \qty{20}{\mag}$, are plotted.
-The exception being comets and centaurs, which have an $a$ (really $q$, the perihelion distance) too larger to see the detail of the majority of the objects.
+The exception being centaurs, which have an $a$ too larger to see the detail of the majority of the objects and comets, which have an undefined $a$.
 The distinction between the resonances in the main belt can be seen.
 There are vertical strips separating the middle belt from the inner and outer belt.
 The Jupiter Trojans are well-defined, at just past \qty{5}{\au}, with a small range of eccentricity but a large spread in the inclination.
@@ -632,7 +675,7 @@ There are a few asteroids with known longer rotaion periods than this check allo
 Linking lightcurves of asteroids between sectors was not considered here, as only one sector has been analysed.
 Any one asteroid will be in multiple sectors, as TESS has surveyed that whole sky more than once. 
 The different FFI cadence, as well as the large temporal gap between these observations makes it non-trivial to recover the rotation periods.
-The different depths that the shortest cadence FFIs have \citep{MontillaHons}  
+%?? The different depths that the shortest cadence FFIs have \citep{MontillaHons}  
 
 
 %run on rest of TESSELLATE data
