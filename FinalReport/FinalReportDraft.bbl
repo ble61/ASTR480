@@ -1,183 +1,73 @@
-\begin{thebibliography}{56}
+\begin{thebibliography}{61}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
-\bibitem[{Astropy Collaboration} et~al.(2022){Astropy Collaboration},
-  Price-Whelan, Lim, Earl, Starkman, Bradley, Shupe, Patil, Corrales, Brasseur,
-  Nöthe, Donath, Tollerud, Morris, Ginsburg, Vaher, Weaver, Tocknell,
-  Jamieson, van Kerkwijk, Robitaille, Merry, Bachetti, Günther, Aldcroft,
-  Alvarado-Montes, Archibald, Bódi, Bapat, Barentsen, Bazán, Biswas, Boquien,
-  Burke, Cara, Cara, Conroy, Conseil, Craig, Cross, Cruz, D'Eugenio, Dencheva,
-  Devillepoix, Dietrich, Eigenbrot, Erben, Ferreira, Foreman-Mackey, Fox,
-  Freij, Garg, Geda, Glattly, Gondhalekar, Gordon, Grant, Greenfield, Groener,
-  Guest, Gurovich, Handberg, Hart, Hatfield-Dodds, Homeier, Hosseinzadeh,
-  Jenness, Jones, Joseph, Kalmbach, Karamehmetoglu, Kałuszyński, Kelley,
-  Kern, Kerzendorf, Koch, Kulumani, Lee, Ly, Ma, MacBride, Maljaars, Muna,
-  Murphy, Norman, O'Steen, Oman, Pacifici, Pascual, Pascual-Granado, Patil,
-  Perren, Pickering, Rastogi, Roulston, Ryan, Rykoff, Sabater, Sakurikar,
-  Salgado, Sanghi, Saunders, Savchenko, Schwardt, Seifert-Eckert, Shih, Jain,
-  Shukla, Sick, Simpson, Singanamalla, Singer, Singhal, Sinha, Sipőcz,
-  Spitler, Stansby, Streicher, Šumak, Swinbank, Taranu, Tewary, Tremblay,
-  de~Val-Borro, Kooten, Vasović, Verma, de~Miranda~Cardoso, Williams, Wilson,
-  Winkel, Wood-Vasey, Xue, Yoachim, Zhang, Zonca, and {Astropy Project
-  Contributors}]{Astropy2022}
-{Astropy Collaboration}, A.~M. Price-Whelan, P.~L. Lim, N.~Earl, N.~Starkman,
-  L.~Bradley, D.~L. Shupe, A.~A. Patil, L.~Corrales, C.~E. Brasseur, M.~Nöthe,
-  A.~Donath, E.~Tollerud, B.~M. Morris, A.~Ginsburg, E.~Vaher, B.~A. Weaver,
-  J.~Tocknell, W.~Jamieson, M.~H. van Kerkwijk, T.~P. Robitaille, B.~Merry,
-  M.~Bachetti, H.~M. Günther, T.~L. Aldcroft, J.~A. Alvarado-Montes, A.~M.
-  Archibald, A.~Bódi, S.~Bapat, G.~Barentsen, J.~Bazán, M.~Biswas,
-  M.~Boquien, D.~J. Burke, D.~Cara, M.~Cara, K.~E. Conroy, S.~Conseil, M.~W.
-  Craig, R.~M. Cross, K.~L. Cruz, F.~D'Eugenio, N.~Dencheva, H.~A.~R.
-  Devillepoix, J.~P. Dietrich, A.~D. Eigenbrot, T.~Erben, L.~Ferreira,
-  D.~Foreman-Mackey, R.~Fox, N.~Freij, S.~Garg, R.~Geda, L.~Glattly,
-  Y.~Gondhalekar, K.~D. Gordon, D.~Grant, P.~Greenfield, A.~M. Groener,
-  S.~Guest, S.~Gurovich, R.~Handberg, A.~Hart, Z.~Hatfield-Dodds, D.~Homeier,
-  G.~Hosseinzadeh, T.~Jenness, C.~K. Jones, P.~Joseph, J.~B. Kalmbach,
-  E.~Karamehmetoglu, M.~Kałuszyński, M.~S.~P. Kelley, N.~Kern, W.~E.
-  Kerzendorf, E.~W. Koch, S.~Kulumani, A.~Lee, C.~Ly, Z.~Ma, C.~MacBride, J.~M.
-  Maljaars, D.~Muna, N.~A. Murphy, H.~Norman, R.~O'Steen, K.~A. Oman,
-  C.~Pacifici, S.~Pascual, J.~Pascual-Granado, R.~R. Patil, G.~I. Perren, T.~E.
-  Pickering, T.~Rastogi, B.~R. Roulston, D.~F. Ryan, E.~S. Rykoff, J.~Sabater,
-  P.~Sakurikar, J.~Salgado, A.~Sanghi, N.~Saunders, V.~Savchenko, L.~Schwardt,
-  M.~Seifert-Eckert, A.~Y. Shih, A.~S. Jain, G.~Shukla, J.~Sick, C.~Simpson,
-  S.~Singanamalla, L.~P. Singer, J.~Singhal, M.~Sinha, B.~M. Sipőcz, L.~R.
-  Spitler, D.~Stansby, O.~Streicher, J.~Šumak, J.~D. Swinbank, D.~S. Taranu,
-  N.~Tewary, G.~R. Tremblay, M.~de~Val-Borro, S.~J.~V. Kooten, Z.~Vasović,
-  S.~Verma, J.~V. de~Miranda~Cardoso, P.~K.~G. Williams, T.~J. Wilson,
-  B.~Winkel, W.~M. Wood-Vasey, R.~Xue, P.~Yoachim, C.~Zhang, A.~Zonca, and
-  {Astropy Project Contributors}.
-\newblock The astropy project: Sustaining and growing a community-oriented
-  open-source project and the latest major release (v5.0) of the core package.
+\bibitem[{Astropy Collaboration} et~al.(2022){Astropy Collaboration}, Price-Whelan, Lim, Earl, Starkman, Bradley, Shupe, Patil, Corrales, Brasseur, Nöthe, Donath, Tollerud, Morris, Ginsburg, Vaher, Weaver, Tocknell, Jamieson, van Kerkwijk, Robitaille, Merry, Bachetti, Günther, Aldcroft, Alvarado-Montes, Archibald, Bódi, Bapat, Barentsen, Bazán, Biswas, Boquien, Burke, Cara, Cara, Conroy, Conseil, Craig, Cross, Cruz, D'Eugenio, Dencheva, Devillepoix, Dietrich, Eigenbrot, Erben, Ferreira, Foreman-Mackey, Fox, Freij, Garg, Geda, Glattly, Gondhalekar, Gordon, Grant, Greenfield, Groener, Guest, Gurovich, Handberg, Hart, Hatfield-Dodds, Homeier, Hosseinzadeh, Jenness, Jones, Joseph, Kalmbach, Karamehmetoglu, Kałuszyński, Kelley, Kern, Kerzendorf, Koch, Kulumani, Lee, Ly, Ma, MacBride, Maljaars, Muna, Murphy, Norman, O'Steen, Oman, Pacifici, Pascual, Pascual-Granado, Patil, Perren, Pickering, Rastogi, Roulston, Ryan, Rykoff, Sabater, Sakurikar, Salgado, Sanghi, Saunders, Savchenko, Schwardt, Seifert-Eckert, Shih, Jain, Shukla, Sick, Simpson, Singanamalla, Singer, Singhal, Sinha, Sipőcz, Spitler, Stansby, Streicher, Šumak, Swinbank, Taranu, Tewary, Tremblay, de~Val-Borro, Kooten, Vasović, Verma, de~Miranda~Cardoso, Williams, Wilson, Winkel, Wood-Vasey, Xue, Yoachim, Zhang, Zonca, and {Astropy Project Contributors}]{Astropy2022}
+{Astropy Collaboration}, A.~M. Price-Whelan, P.~L. Lim, N.~Earl, N.~Starkman, L.~Bradley, D.~L. Shupe, A.~A. Patil, L.~Corrales, C.~E. Brasseur, M.~Nöthe, A.~Donath, E.~Tollerud, B.~M. Morris, A.~Ginsburg, E.~Vaher, B.~A. Weaver, J.~Tocknell, W.~Jamieson, M.~H. van Kerkwijk, T.~P. Robitaille, B.~Merry, M.~Bachetti, H.~M. Günther, T.~L. Aldcroft, J.~A. Alvarado-Montes, A.~M. Archibald, A.~Bódi, S.~Bapat, G.~Barentsen, J.~Bazán, M.~Biswas, M.~Boquien, D.~J. Burke, D.~Cara, M.~Cara, K.~E. Conroy, S.~Conseil, M.~W. Craig, R.~M. Cross, K.~L. Cruz, F.~D'Eugenio, N.~Dencheva, H.~A.~R. Devillepoix, J.~P. Dietrich, A.~D. Eigenbrot, T.~Erben, L.~Ferreira, D.~Foreman-Mackey, R.~Fox, N.~Freij, S.~Garg, R.~Geda, L.~Glattly, Y.~Gondhalekar, K.~D. Gordon, D.~Grant, P.~Greenfield, A.~M. Groener, S.~Guest, S.~Gurovich, R.~Handberg, A.~Hart, Z.~Hatfield-Dodds, D.~Homeier, G.~Hosseinzadeh, T.~Jenness, C.~K. Jones, P.~Joseph, J.~B. Kalmbach, E.~Karamehmetoglu, M.~Kałuszyński, M.~S.~P. Kelley, N.~Kern, W.~E. Kerzendorf, E.~W. Koch, S.~Kulumani, A.~Lee, C.~Ly, Z.~Ma, C.~MacBride, J.~M. Maljaars, D.~Muna, N.~A. Murphy, H.~Norman, R.~O'Steen, K.~A. Oman, C.~Pacifici, S.~Pascual, J.~Pascual-Granado, R.~R. Patil, G.~I. Perren, T.~E. Pickering, T.~Rastogi, B.~R. Roulston, D.~F. Ryan, E.~S. Rykoff, J.~Sabater, P.~Sakurikar, J.~Salgado, A.~Sanghi, N.~Saunders, V.~Savchenko, L.~Schwardt, M.~Seifert-Eckert, A.~Y. Shih, A.~S. Jain, G.~Shukla, J.~Sick, C.~Simpson, S.~Singanamalla, L.~P. Singer, J.~Singhal, M.~Sinha, B.~M. Sipőcz, L.~R. Spitler, D.~Stansby, O.~Streicher, J.~Šumak, J.~D. Swinbank, D.~S. Taranu, N.~Tewary, G.~R. Tremblay, M.~de~Val-Borro, S.~J.~V. Kooten, Z.~Vasović, S.~Verma, J.~V. de~Miranda~Cardoso, P.~K.~G. Williams, T.~J. Wilson, B.~Winkel, W.~M. Wood-Vasey, R.~Xue, P.~Yoachim, C.~Zhang, A.~Zonca, and {Astropy Project Contributors}.
+\newblock The astropy project: Sustaining and growing a community-oriented open-source project and the latest major release (v5.0) of the core package.
 \newblock \emph{ApJ}, 935:\penalty0 167, 8 2022.
 \newblock ISSN 0004-637X.
 \newblock \doi{10.3847/1538-4357/AC7C74}.
-\newblock URL
-  \url{https://ui.adsabs.harvard.edu/abs/2022ApJ...935..167A/abstract}.
+\newblock URL \url{https://ui.adsabs.harvard.edu/abs/2022ApJ...935..167A/abstract}.
 
-\bibitem[Bannister et~al.(2017)Bannister, Schwamb, Fraser, Marsset,
-  Fitzsimmons, Benecchi, Lacerda, Pike, Kavelaars, Smith, Stewart, Wang, and
-  Lehner]{Bannister2017}
-M.~T. Bannister, M.~E. Schwamb, W.~C. Fraser, M.~Marsset, A.~Fitzsimmons, S.~D.
-  Benecchi, P.~Lacerda, R.~E. Pike, J.~J. Kavelaars, A.~B. Smith, S.~O.
-  Stewart, S.-Y. Wang, and M.~J. Lehner.
+\bibitem[Bannister et~al.(2017)Bannister, Schwamb, Fraser, Marsset, Fitzsimmons, Benecchi, Lacerda, Pike, Kavelaars, Smith, Stewart, Wang, and Lehner]{Bannister2017}
+M.~T. Bannister, M.~E. Schwamb, W.~C. Fraser, M.~Marsset, A.~Fitzsimmons, S.~D. Benecchi, P.~Lacerda, R.~E. Pike, J.~J. Kavelaars, A.~B. Smith, S.~O. Stewart, S.-Y. Wang, and M.~J. Lehner.
 \newblock Col-ossos: Colors of the interstellar planetesimal 1i/‘oumuamua.
 \newblock \emph{The Astrophysical Journal Letters}, 851:\penalty0 L38, 12 2017.
 \newblock ISSN 2041-8205.
 \newblock \doi{10.3847/2041-8213/aaa07c}.
-\newblock URL
-  \url{https://iopscience.iop.org/article/10.3847/2041-8213/aaa07c}.
+\newblock URL \url{https://iopscience.iop.org/article/10.3847/2041-8213/aaa07c}.
 
-\bibitem[Bannister et~al.(2019)Bannister, Bhandare, Dybczyński, Fitzsimmons,
-  Guilbert-Lepoutre, Jedicke, Knight, Meech, McNeill, Pfalzner, Raymond,
-  Snodgrass, Trilling, and Ye]{Bannister2019}
-M.~T. Bannister, A.~Bhandare, P.~A. Dybczyński, A.~Fitzsimmons,
-  A.~Guilbert-Lepoutre, R.~Jedicke, M.~M. Knight, K.~J. Meech, A.~McNeill,
-  S.~Pfalzner, S.~N. Raymond, C.~Snodgrass, D.~E. Trilling, and Q.~Ye.
+\bibitem[Bannister et~al.(2019)Bannister, Bhandare, Dybczyński, Fitzsimmons, Guilbert-Lepoutre, Jedicke, Knight, Meech, McNeill, Pfalzner, Raymond, Snodgrass, Trilling, and Ye]{Bannister2019}
+M.~T. Bannister, A.~Bhandare, P.~A. Dybczyński, A.~Fitzsimmons, A.~Guilbert-Lepoutre, R.~Jedicke, M.~M. Knight, K.~J. Meech, A.~McNeill, S.~Pfalzner, S.~N. Raymond, C.~Snodgrass, D.~E. Trilling, and Q.~Ye.
 \newblock The natural history of ‘oumuamua.
 \newblock \emph{Nature Astronomy 2019 3:7}, 3:\penalty0 594--602, 7 2019.
 \newblock ISSN 2397-3366.
 \newblock \doi{10.1038/s41550-019-0816-x}.
 \newblock URL \url{https://www.nature.com/articles/s41550-019-0816-x}.
 
-\bibitem[Bellm et~al.(2018)Bellm, Kulkarni, Graham, Dekany, Smith, Riddle,
-  Masci, Helou, Prince, Adams, Barbarino, Barlow, Bauer, Beck, Belicki, Biswas,
-  Blagorodnova, Bodewits, Bolin, Brinnel, Brooke, Bue, Bulla, Burruss, Cenko,
-  Chang, Connolly, Coughlin, Cromer, Cunningham, De, Delacroix, Desai, Duev,
-  Eadie, Farnham, Feeney, Feindt, Flynn, Franckowiak, Frederick, Fremling,
-  Gal-Yam, Gezari, Giomi, Goldstein, Golkhou, Goobar, Groom, Hacopians, Hale,
-  Henning, Ho, Hover, Howell, Hung, Huppenkothen, Imel, Ip, Željko Ivezić,
-  Jackson, Jones, Juric, Kasliwal, Kaspi, Kaye, Kelley, Kowalski, Kramer,
-  Kupfer, Landry, Laher, Lee, Lin, Lin, Lunnan, Giomi, Mahabal, Mao, Miller,
-  Monkewitz, Murphy, Ngeow, Nordin, Nugent, Ofek, Patterson, Penprase, Porter,
-  Rauch, Rebbapragada, Reiley, Rigault, Rodriguez, van Roestel, Rusholme, van
-  Santen, Schulze, Shupe, Singer, Soumagnac, Stein, Surace, Sollerman, Szkody,
-  Taddia, Terek, Sistine, van Velzen, Vestrand, Walters, Ward, Ye, Yu, Yan, and
-  Zolkower]{Bellm2018}
-E.~C. Bellm, S.~R. Kulkarni, M.~J. Graham, R.~Dekany, R.~M. Smith, R.~Riddle,
-  F.~J. Masci, G.~Helou, T.~A. Prince, S.~M. Adams, C.~Barbarino, T.~Barlow,
-  J.~Bauer, R.~Beck, J.~Belicki, R.~Biswas, N.~Blagorodnova, D.~Bodewits,
-  B.~Bolin, V.~Brinnel, T.~Brooke, B.~Bue, M.~Bulla, R.~Burruss, S.~B. Cenko,
-  C.~K. Chang, A.~Connolly, M.~Coughlin, J.~Cromer, V.~Cunningham, K.~De,
-  A.~Delacroix, V.~Desai, D.~A. Duev, G.~Eadie, T.~L. Farnham, M.~Feeney,
-  U.~Feindt, D.~Flynn, A.~Franckowiak, S.~Frederick, C.~Fremling, A.~Gal-Yam,
-  S.~Gezari, M.~Giomi, D.~A. Goldstein, V.~Z. Golkhou, A.~Goobar, S.~Groom,
-  E.~Hacopians, D.~Hale, J.~Henning, A.~Y. Ho, D.~Hover, J.~Howell, T.~Hung,
-  D.~Huppenkothen, D.~Imel, W.~H. Ip, Željko Ivezić, E.~Jackson, L.~Jones,
-  M.~Juric, M.~M. Kasliwal, S.~Kaspi, S.~Kaye, M.~S. Kelley, M.~Kowalski,
-  E.~Kramer, T.~Kupfer, W.~Landry, R.~R. Laher, C.~D. Lee, H.~W. Lin, Z.~Y.
-  Lin, R.~Lunnan, M.~Giomi, A.~Mahabal, P.~Mao, A.~A. Miller, S.~Monkewitz,
-  P.~Murphy, C.~C. Ngeow, J.~Nordin, P.~Nugent, E.~Ofek, M.~T. Patterson,
-  B.~Penprase, M.~Porter, L.~Rauch, U.~Rebbapragada, D.~Reiley, M.~Rigault,
-  H.~Rodriguez, J.~van Roestel, B.~Rusholme, J.~van Santen, S.~Schulze, D.~L.
-  Shupe, L.~P. Singer, M.~T. Soumagnac, R.~Stein, J.~Surace, J.~Sollerman,
-  P.~Szkody, F.~Taddia, S.~Terek, A.~V. Sistine, S.~van Velzen, W.~T. Vestrand,
-  R.~Walters, C.~Ward, Q.~Z. Ye, P.~C. Yu, L.~Yan, and J.~Zolkower.
-\newblock The zwicky transient facility: System overview, performance, and
-  first results.
-\newblock \emph{Publications of the Astronomical Society of the Pacific},
-  131:\penalty0 018002, 12 2018.
+\bibitem[Bellm et~al.(2018)Bellm, Kulkarni, Graham, Dekany, Smith, Riddle, Masci, Helou, Prince, Adams, Barbarino, Barlow, Bauer, Beck, Belicki, Biswas, Blagorodnova, Bodewits, Bolin, Brinnel, Brooke, Bue, Bulla, Burruss, Cenko, Chang, Connolly, Coughlin, Cromer, Cunningham, De, Delacroix, Desai, Duev, Eadie, Farnham, Feeney, Feindt, Flynn, Franckowiak, Frederick, Fremling, Gal-Yam, Gezari, Giomi, Goldstein, Golkhou, Goobar, Groom, Hacopians, Hale, Henning, Ho, Hover, Howell, Hung, Huppenkothen, Imel, Ip, Željko Ivezić, Jackson, Jones, Juric, Kasliwal, Kaspi, Kaye, Kelley, Kowalski, Kramer, Kupfer, Landry, Laher, Lee, Lin, Lin, Lunnan, Giomi, Mahabal, Mao, Miller, Monkewitz, Murphy, Ngeow, Nordin, Nugent, Ofek, Patterson, Penprase, Porter, Rauch, Rebbapragada, Reiley, Rigault, Rodriguez, van Roestel, Rusholme, van Santen, Schulze, Shupe, Singer, Soumagnac, Stein, Surace, Sollerman, Szkody, Taddia, Terek, Sistine, van Velzen, Vestrand, Walters, Ward, Ye, Yu, Yan, and Zolkower]{Bellm2018}
+E.~C. Bellm, S.~R. Kulkarni, M.~J. Graham, R.~Dekany, R.~M. Smith, R.~Riddle, F.~J. Masci, G.~Helou, T.~A. Prince, S.~M. Adams, C.~Barbarino, T.~Barlow, J.~Bauer, R.~Beck, J.~Belicki, R.~Biswas, N.~Blagorodnova, D.~Bodewits, B.~Bolin, V.~Brinnel, T.~Brooke, B.~Bue, M.~Bulla, R.~Burruss, S.~B. Cenko, C.~K. Chang, A.~Connolly, M.~Coughlin, J.~Cromer, V.~Cunningham, K.~De, A.~Delacroix, V.~Desai, D.~A. Duev, G.~Eadie, T.~L. Farnham, M.~Feeney, U.~Feindt, D.~Flynn, A.~Franckowiak, S.~Frederick, C.~Fremling, A.~Gal-Yam, S.~Gezari, M.~Giomi, D.~A. Goldstein, V.~Z. Golkhou, A.~Goobar, S.~Groom, E.~Hacopians, D.~Hale, J.~Henning, A.~Y. Ho, D.~Hover, J.~Howell, T.~Hung, D.~Huppenkothen, D.~Imel, W.~H. Ip, Željko Ivezić, E.~Jackson, L.~Jones, M.~Juric, M.~M. Kasliwal, S.~Kaspi, S.~Kaye, M.~S. Kelley, M.~Kowalski, E.~Kramer, T.~Kupfer, W.~Landry, R.~R. Laher, C.~D. Lee, H.~W. Lin, Z.~Y. Lin, R.~Lunnan, M.~Giomi, A.~Mahabal, P.~Mao, A.~A. Miller, S.~Monkewitz, P.~Murphy, C.~C. Ngeow, J.~Nordin, P.~Nugent, E.~Ofek, M.~T. Patterson, B.~Penprase, M.~Porter, L.~Rauch, U.~Rebbapragada, D.~Reiley, M.~Rigault, H.~Rodriguez, J.~van Roestel, B.~Rusholme, J.~van Santen, S.~Schulze, D.~L. Shupe, L.~P. Singer, M.~T. Soumagnac, R.~Stein, J.~Surace, J.~Sollerman, P.~Szkody, F.~Taddia, S.~Terek, A.~V. Sistine, S.~van Velzen, W.~T. Vestrand, R.~Walters, C.~Ward, Q.~Z. Ye, P.~C. Yu, L.~Yan, and J.~Zolkower.
+\newblock The zwicky transient facility: System overview, performance, and first results.
+\newblock \emph{Publications of the Astronomical Society of the Pacific}, 131:\penalty0 018002, 12 2018.
 \newblock ISSN 1538-3873.
 \newblock \doi{10.1088/1538-3873/AAECBE}.
-\newblock URL \url{https://iopscience.iop.org/article/10.1088/1538-3873/aaecbe
-  https://iopscience.iop.org/article/10.1088/1538-3873/aaecbe/meta}.
+\newblock URL \url{https://iopscience.iop.org/article/10.1088/1538-3873/aaecbe https://iopscience.iop.org/article/10.1088/1538-3873/aaecbe/meta}.
 
-\bibitem[Belton et~al.(2018)Belton, Hainaut, Meech, Mueller, Kleyna, Weaver,
-  Buie, Drahus, Guzik, Wainscoat, Waniak, Handzlik, Kurowski, Xu, Sheppard,
-  Micheli, Ebeling, and Keane]{Belton2018}
-M.~J.~S. Belton, O.~R. Hainaut, K.~J. Meech, B.~E.~A. Mueller, J.~T. Kleyna,
-  H.~A. Weaver, M.~W. Buie, M.~Drahus, P.~Guzik, R.~J. Wainscoat, W.~Waniak,
-  B.~Handzlik, S.~Kurowski, S.~Xu, S.~S. Sheppard, M.~Micheli, H.~Ebeling, and
-  J.~V. Keane.
+\bibitem[Belton et~al.(2018)Belton, Hainaut, Meech, Mueller, Kleyna, Weaver, Buie, Drahus, Guzik, Wainscoat, Waniak, Handzlik, Kurowski, Xu, Sheppard, Micheli, Ebeling, and Keane]{Belton2018}
+M.~J.~S. Belton, O.~R. Hainaut, K.~J. Meech, B.~E.~A. Mueller, J.~T. Kleyna, H.~A. Weaver, M.~W. Buie, M.~Drahus, P.~Guzik, R.~J. Wainscoat, W.~Waniak, B.~Handzlik, S.~Kurowski, S.~Xu, S.~S. Sheppard, M.~Micheli, H.~Ebeling, and J.~V. Keane.
 \newblock The excited spin state of 1i/2017 u1 ‘oumuamua.
 \newblock \emph{The Astrophysical Journal Letters}, 856:\penalty0 L21, 4 2018.
 \newblock ISSN 2041-8205.
 \newblock \doi{10.3847/2041-8213/aab370}.
-\newblock URL
-  \url{https://ui.adsabs.harvard.edu/abs/2018ApJ...856L..21B/abstract}.
+\newblock URL \url{https://ui.adsabs.harvard.edu/abs/2018ApJ...856L..21B/abstract}.
 
-\bibitem[Berthier et~al.(2006)Berthier, Vachier, Thuillot, Fernique,
-  Ochsenbein, Genova, Lainey, Arlot, Berthier, Vachier, Thuillot, Fernique,
-  Ochsenbein, Genova, Lainey, and Arlot]{Berthier2006}
-J.~Berthier, F.~Vachier, W.~Thuillot, P.~Fernique, F.~Ochsenbein, F.~Genova,
-  V.~Lainey, J.~E. Arlot, J.~Berthier, F.~Vachier, W.~Thuillot, P.~Fernique,
-  F.~Ochsenbein, F.~Genova, V.~Lainey, and J.~E. Arlot.
+\bibitem[Berthier et~al.(2006)Berthier, Vachier, Thuillot, Fernique, Ochsenbein, Genova, Lainey, Arlot, Berthier, Vachier, Thuillot, Fernique, Ochsenbein, Genova, Lainey, and Arlot]{Berthier2006}
+J.~Berthier, F.~Vachier, W.~Thuillot, P.~Fernique, F.~Ochsenbein, F.~Genova, V.~Lainey, J.~E. Arlot, J.~Berthier, F.~Vachier, W.~Thuillot, P.~Fernique, F.~Ochsenbein, F.~Genova, V.~Lainey, and J.~E. Arlot.
 \newblock Skybot, a new vo service to identify solar system objects.
 \newblock \emph{ASPC}, 351:\penalty0 367, 2006.
 \newblock ISSN 1050-3390.
-\newblock URL
-  \url{https://ui.adsabs.harvard.edu/abs/2006ASPC..351..367B/abstract}.
+\newblock URL \url{https://ui.adsabs.harvard.edu/abs/2006ASPC..351..367B/abstract}.
 
 \bibitem[Bolin et~al.(2023)Bolin, Ghosal, and Jedicke]{Bolin2023}
 B.~T. Bolin, M.~Ghosal, and R.~Jedicke.
-\newblock Rotation periods and colours of 10-m-scale near-earth asteroids from
-  cfht target of opportunity streak photometry.
-\newblock \emph{Monthly Notices of the Royal Astronomical Society},
-  527:\penalty0 1633--1637, 11 2023.
+\newblock Rotation periods and colours of 10-m-scale near-earth asteroids from cfht target of opportunity streak photometry.
+\newblock \emph{Monthly Notices of the Royal Astronomical Society}, 527:\penalty0 1633--1637, 11 2023.
 \newblock ISSN 0035-8711.
 \newblock \doi{10.1093/MNRAS/STAD3227}.
 \newblock URL \url{https://dx.doi.org/10.1093/mnras/stad3227}.
 
-\bibitem[Bradley et~al.(2024)Bradley, Sipőcz, Robitaille, Tollerud, Vinícius,
-  Deil, Barbary, Wilson, Busko, Donath, Günther, Cara, Lim, Meßlinger,
-  Burnett, Conseil, Droettboom, Bostroem, Bray, Bratholm, Jamieson, Ginsburg,
-  Barentsen, Craig, Pascual, Rathi, Perrin, Morris, and Perren]{Bradley2024}
-L.~Bradley, B.~Sipőcz, T.~Robitaille, E.~Tollerud, Z.~Vinícius, C.~Deil,
-  K.~Barbary, T.~J. Wilson, I.~Busko, A.~Donath, H.~M. Günther, M.~Cara, P.~L.
-  Lim, S.~Meßlinger, Z.~Burnett, S.~Conseil, M.~Droettboom, A.~Bostroem, E.~M.
-  Bray, L.~A. Bratholm, W.~Jamieson, A.~Ginsburg, G.~Barentsen, M.~Craig,
-  S.~Pascual, S.~Rathi, M.~Perrin, B.~M. Morris, and G.~Perren.
+\bibitem[Bradley et~al.(2024)Bradley, Sipőcz, Robitaille, Tollerud, Vinícius, Deil, Barbary, Wilson, Busko, Donath, Günther, Cara, Lim, Meßlinger, Burnett, Conseil, Droettboom, Bostroem, Bray, Bratholm, Jamieson, Ginsburg, Barentsen, Craig, Pascual, Rathi, Perrin, Morris, and Perren]{Bradley2024}
+L.~Bradley, B.~Sipőcz, T.~Robitaille, E.~Tollerud, Z.~Vinícius, C.~Deil, K.~Barbary, T.~J. Wilson, I.~Busko, A.~Donath, H.~M. Günther, M.~Cara, P.~L. Lim, S.~Meßlinger, Z.~Burnett, S.~Conseil, M.~Droettboom, A.~Bostroem, E.~M. Bray, L.~A. Bratholm, W.~Jamieson, A.~Ginsburg, G.~Barentsen, M.~Craig, S.~Pascual, S.~Rathi, M.~Perrin, B.~M. Morris, and G.~Perren.
 \newblock astropy/photutils: 1.13.0, 6 2024.
 \newblock URL \url{https://doi.org/10.5281/zenodo.12585239}.
 
-\bibitem[DeMeo et~al.(2015)DeMeo, Alexander, Walsh, Chapman, and
-  Binzel]{DeMeo2015}
+\bibitem[DeMeo et~al.(2015)DeMeo, Alexander, Walsh, Chapman, and Binzel]{DeMeo2015}
 F.~E. DeMeo, C.~M. Alexander, K.~J. Walsh, C.~R. Chapman, and R.~P. Binzel.
-\newblock \emph{The compositional structure of the asteroid belt}, pages
-  13--41.
+\newblock \emph{The compositional structure of the asteroid belt}, pages 13--41.
 \newblock University of Arizona Press, 1 2015.
 \newblock ISBN 9780816532186.
 \newblock \doi{10.2458/AZU_UAPRESS_9780816532131-CH002}.
@@ -188,72 +78,48 @@ V.~A. Dorofeeva, G.~V. Borisov, and B.~M. Shustov.
 \newblock \emph{Solar System Research}, 57:\penalty0 76--84, 2 2023.
 \newblock ISSN 16083423.
 \newblock \doi{10.1134/S0038094623010021/TABLES/1}.
-\newblock URL
-  \url{https://link.springer.com/article/10.1134/S0038094623010021}.
+\newblock URL \url{https://link.springer.com/article/10.1134/S0038094623010021}.
 
-\bibitem[Drahus et~al.(2018)Drahus, Guzik, Waniak, Handzlik, Kurowski, Xu,
-  Drahus, Guzik, Waniak, Handzlik, Kurowski, and Xu]{Drahus2018}
-M.~Drahus, P.~Guzik, W.~Waniak, B.~Handzlik, S.~Kurowski, S.~Xu, M.~Drahus,
-  P.~Guzik, W.~Waniak, B.~Handzlik, S.~Kurowski, and S.~Xu.
-\newblock Tumbling motion of 1i/`oumuamua and its implications for the body's
-  distant past.
+\bibitem[Drahus et~al.(2018)Drahus, Guzik, Waniak, Handzlik, Kurowski, Xu, Drahus, Guzik, Waniak, Handzlik, Kurowski, and Xu]{Drahus2018}
+M.~Drahus, P.~Guzik, W.~Waniak, B.~Handzlik, S.~Kurowski, S.~Xu, M.~Drahus, P.~Guzik, W.~Waniak, B.~Handzlik, S.~Kurowski, and S.~Xu.
+\newblock Tumbling motion of 1i/`oumuamua and its implications for the body's distant past.
 \newblock \emph{NatAs}, 2:\penalty0 407--412, 5 2018.
 \newblock ISSN 2397-3366.
 \newblock \doi{10.1038/S41550-018-0440-1}.
-\newblock URL
-  \url{https://ui.adsabs.harvard.edu/abs/2018NatAs...2..407D/abstract}.
+\newblock URL \url{https://ui.adsabs.harvard.edu/abs/2018NatAs...2..407D/abstract}.
 
-\bibitem[Fitzsimmons et~al.(2017)Fitzsimmons, Snodgrass, Rozitis, Yang, Hyland,
-  Seccull, Bannister, Fraser, Jedicke, and Lacerda]{Fitzsimmons2017}
-A.~Fitzsimmons, C.~Snodgrass, B.~Rozitis, B.~Yang, M.~Hyland, T.~Seccull, M.~T.
-  Bannister, W.~C. Fraser, R.~Jedicke, and P.~Lacerda.
-\newblock Spectroscopy and thermal modelling of the first interstellar object
-  1i/2017 u1 ‘oumuamua.
+\bibitem[Fitzsimmons et~al.(2017)Fitzsimmons, Snodgrass, Rozitis, Yang, Hyland, Seccull, Bannister, Fraser, Jedicke, and Lacerda]{Fitzsimmons2017}
+A.~Fitzsimmons, C.~Snodgrass, B.~Rozitis, B.~Yang, M.~Hyland, T.~Seccull, M.~T. Bannister, W.~C. Fraser, R.~Jedicke, and P.~Lacerda.
+\newblock Spectroscopy and thermal modelling of the first interstellar object 1i/2017 u1 ‘oumuamua.
 \newblock \emph{Nature Astronomy}, 2:\penalty0 133--137, 12 2017.
 \newblock ISSN 2397-3366.
 \newblock \doi{10.1038/s41550-017-0361-4}.
 \newblock URL \url{https://www.nature.com/articles/s41550-017-0361-4}.
 
-\bibitem[Fraser et~al.(2018)Fraser, Pravec, Fitzsimmons, Lacerda, Bannister,
-  Snodgrass, and Smolić]{Fraser2018}
-W.~C. Fraser, P.~Pravec, A.~Fitzsimmons, P.~Lacerda, M.~T. Bannister,
-  C.~Snodgrass, and I.~Smolić.
+\bibitem[Fraser et~al.(2018)Fraser, Pravec, Fitzsimmons, Lacerda, Bannister, Snodgrass, and Smolić]{Fraser2018}
+W.~C. Fraser, P.~Pravec, A.~Fitzsimmons, P.~Lacerda, M.~T. Bannister, C.~Snodgrass, and I.~Smolić.
 \newblock The tumbling rotational state of 1i/'oumuamua.
 \newblock \emph{Nature Astronomy}, 2:\penalty0 383--386, 5 2018.
 \newblock ISSN 23973366.
 \newblock \doi{10.1038/s41550-018-0398-z}.
-\newblock URL
-  \url{https://ui.adsabs.harvard.edu/abs/2018NatAs...2..383F/abstract}.
+\newblock URL \url{https://ui.adsabs.harvard.edu/abs/2018NatAs...2..383F/abstract}.
 
-\bibitem[Garrison et~al.(2024)Garrison, Foreman-Mackey, hsuan Shih, and
-  Barnett]{Garrison2024}
+\bibitem[Garrison et~al.(2024)Garrison, Foreman-Mackey, hsuan Shih, and Barnett]{Garrison2024}
 L.~H. Garrison, D.~Foreman-Mackey, Y.~hsuan Shih, and A.~Barnett.
-\newblock nifty-ls: Fast and accurate lomb-scargle periodograms using a
-  non-uniform fft.
+\newblock nifty-ls: Fast and accurate lomb-scargle periodograms using a non-uniform fft.
 \newblock 9 2024.
 \newblock \doi{10.3847/1538-3881/aabc4f}.
 \newblock URL \url{https://arxiv.org/abs/2409.08090v1}.
 
-\bibitem[Ginsburg et~al.(2019)Ginsburg, Sipőcz, Brasseur, Cowperthwaite,
-  Craig, Deil, Groener, Guillochon, Guzman, Liedtke, Lim, Lockhart, Mommert,
-  Morris, Norman, Parikh, Persson, Robitaille, Segovia, Singer, Tollerud,
-  de~Val-Borro, Valtchanov, Woillez, and a~subset of the astropy~collaboration
-  The Astroquery~collaboration]{Ginsburg2019}
-A.~Ginsburg, B.~M. Sipőcz, C.~E. Brasseur, P.~S. Cowperthwaite, M.~W. Craig,
-  C.~Deil, A.~M. Groener, J.~Guillochon, G.~Guzman, S.~Liedtke, P.~L. Lim,
-  K.~E. Lockhart, M.~Mommert, B.~M. Morris, H.~Norman, M.~Parikh, M.~V.
-  Persson, T.~P. Robitaille, J.-C. Segovia, L.~P. Singer, E.~J. Tollerud,
-  M.~de~Val-Borro, I.~Valtchanov, J.~Woillez, and a~subset of the
-  astropy~collaboration The Astroquery~collaboration.
+\bibitem[Ginsburg et~al.(2019)Ginsburg, Sipőcz, Brasseur, Cowperthwaite, Craig, Deil, Groener, Guillochon, Guzman, Liedtke, Lim, Lockhart, Mommert, Morris, Norman, Parikh, Persson, Robitaille, Segovia, Singer, Tollerud, de~Val-Borro, Valtchanov, Woillez, and a~subset of the astropy~collaboration The Astroquery~collaboration]{Ginsburg2019}
+A.~Ginsburg, B.~M. Sipőcz, C.~E. Brasseur, P.~S. Cowperthwaite, M.~W. Craig, C.~Deil, A.~M. Groener, J.~Guillochon, G.~Guzman, S.~Liedtke, P.~L. Lim, K.~E. Lockhart, M.~Mommert, B.~M. Morris, H.~Norman, M.~Parikh, M.~V. Persson, T.~P. Robitaille, J.-C. Segovia, L.~P. Singer, E.~J. Tollerud, M.~de~Val-Borro, I.~Valtchanov, J.~Woillez, and a~subset of the astropy~collaboration The Astroquery~collaboration.
 \newblock astroquery: An astronomical web-querying package in python.
 \newblock \emph{The Astronomical Journal}, 157:\penalty0 98, 2 2019.
 \newblock ISSN 1538-3881.
 \newblock \doi{10.3847/1538-3881/AAFC33}.
-\newblock URL \url{https://iopscience.iop.org/article/10.3847/1538-3881/aafc33
-  https://iopscience.iop.org/article/10.3847/1538-3881/aafc33/meta}.
+\newblock URL \url{https://iopscience.iop.org/article/10.3847/1538-3881/aafc33 https://iopscience.iop.org/article/10.3847/1538-3881/aafc33/meta}.
 
-\bibitem[Gowanlock et~al.(2024)Gowanlock, Trilling, McNeill, Kramer, and
-  Chernyavskaya]{Gowanlock2024}
+\bibitem[Gowanlock et~al.(2024)Gowanlock, Trilling, McNeill, Kramer, and Chernyavskaya]{Gowanlock2024}
 M.~Gowanlock, D.~E. Trilling, A.~McNeill, D.~Kramer, and M.~Chernyavskaya.
 \newblock Asteroid period solutions from combined dense and sparse photometry.
 \newblock 8 2024.
@@ -268,138 +134,49 @@ A.~W. Harris.
 
 \bibitem[Harris(1996)]{Harris1996}
 A.~W. Harris.
-\newblock The rotation rates of very small asteroids: Evidence for 'rubble
-  pile' structure.
+\newblock The rotation rates of very small asteroids: Evidence for 'rubble pile' structure.
 \newblock \emph{LPI}, 27:\penalty0 493, 1996.
-\newblock URL
-  \url{https://ui.adsabs.harvard.edu/abs/1996LPI....27..493H/abstract}.
+\newblock URL \url{https://ui.adsabs.harvard.edu/abs/1996LPI....27..493H/abstract}.
 
 \bibitem[Harris(2015)]{Harris2015}
 A.~W. Harris.
-\newblock A perspective of how far asteroid photometry has come in the past
-  forty years.
+\newblock A perspective of how far asteroid photometry has come in the past forty years.
 \newblock \emph{MPBu}, 42:\penalty0 10--11, 2015.
 \newblock ISSN 1052-8091.
-\newblock URL
-  \url{https://ui.adsabs.harvard.edu/abs/2015MPBu...42...10H/abstract}.
+\newblock URL \url{https://ui.adsabs.harvard.edu/abs/2015MPBu...42...10H/abstract}.
+
+\bibitem[Harris et~al.(2020)Harris, Millman, van~der Walt, Gommers, Virtanen, Cournapeau, Wieser, Taylor, Berg, Smith, Kern, Picus, Hoyer, van Kerkwijk, Brett, Haldane, del Río, Wiebe, Peterson, Gérard-Marchant, Sheppard, Reddy, Weckesser, Abbasi, Gohlke, and Oliphant]{Harris2020}
+C.~R. Harris, K.~J. Millman, S.~J. van~der Walt, R.~Gommers, P.~Virtanen, D.~Cournapeau, E.~Wieser, J.~Taylor, S.~Berg, N.~J. Smith, R.~Kern, M.~Picus, S.~Hoyer, M.~H. van Kerkwijk, M.~Brett, A.~Haldane, J.~F. del Río, M.~Wiebe, P.~Peterson, P.~Gérard-Marchant, K.~Sheppard, T.~Reddy, W.~Weckesser, H.~Abbasi, C.~Gohlke, and T.~E. Oliphant.
+\newblock Array programming with numpy.
+\newblock \emph{Nature}, 585:\penalty0 357--362, 9 2020.
+\newblock ISSN 0028-0836.
+\newblock \doi{10.1038/s41586-020-2649-2}.
 
 \bibitem[Holman et~al.(2019)Holman, Payne, and Pál]{Holman2019}
 M.~J. Holman, M.~J. Payne, and A.~Pál.
 \newblock A tess search for distant solar system planets: A feasibility study.
 \newblock \emph{Research Notes of the AAS}, 3:\penalty0 160, 10 2019.
 \newblock \doi{10.3847/2515-5172/ab4ea6}.
-\newblock URL
-  \url{https://ui.adsabs.harvard.edu/abs/2019RNAAS...3..160H/abstract}.
+\newblock URL \url{https://ui.adsabs.harvard.edu/abs/2019RNAAS...3..160H/abstract}.
 
-\bibitem[Ivezi{\'{c}} et~al.(2019)Ivezi{\'{c}}, Kahn, Tyson, Abel, Acosta,
-  Allsman, Alonso, AlSayyad, Anderson, Andrew, Angel, Angeli, Ansari,
-  Antilogus, Araujo, Armstrong, Arndt, Astier, Éric Aubourg, Auza, Axelrod,
-  Bard, Barr, Barrau, Bartlett, Bauer, Bauman, Baumont, Bechtol, Bechtol,
-  Becker, Becla, Beldica, Bellavia, Bianco, Biswas, Blanc, Blazek, Blandford,
-  Bloom, Bogart, Bond, Booth, Borgland, Borne, Bosch, Boutigny, Brackett,
-  Bradshaw, Brandt, Brown, Bullock, Burchat, Burke, Cagnoli, Calabrese,
-  Callahan, Callen, Carlin, Carlson, Chandrasekharan, Charles-Emerson, Chesley,
-  Cheu, Chiang, Chiang, Chirino, Chow, Ciardi, Claver, Cohen-Tanugi, Cockrum,
-  Coles, Connolly, Cook, Cooray, Covey, Cribbs, Cui, Cutri, Daly, Daniel,
-  Daruich, Daubard, Daues, Dawson, Delgado, Dellapenna, de~Peyster,
-  de~Val-Borro, Digel, Doherty, Dubois, Dubois-Felsmann, Durech, Economou,
-  Eifler, Eracleous, Emmons, Neto, Ferguson, Figueroa, Fisher-Levine, Focke,
-  Foss, Frank, Freemon, Gangler, Gawiser, Geary, Gee, Geha, Gessner, Gibson,
-  Gilmore, Glanzman, Glick, Goldina, Goldstein, Goodenow, Graham, Gressler,
-  Gris, Guy, Guyonnet, Haller, Harris, Hascall, Haupt, Hernandez, Herrmann,
-  Hileman, Hoblitt, Hodgson, Hogan, Howard, Huang, Huffer, Ingraham, Innes,
-  Jacoby, Jain, Jammes, Jee, Jenness, Jernigan, Jevremović, Johns, Johnson,
-  Johnson, Jones, Juramy-Gilles, Jurić, Kalirai, Kallivayalil, Kalmbach,
-  Kantor, Karst, Kasliwal, Kelly, Kessler, Kinnison, Kirkby, Knox, Kotov,
-  Krabbendam, Krughoff, Kubánek, Kuczewski, Kulkarni, Ku, Kurita, Lage,
-  Lambert, Lange, Langton, Guillou, Levine, Liang, Lim, Lintott, Long, Lopez,
-  Lotz, Lupton, Lust, MacArthur, Mahabal, Mandelbaum, Markiewicz, Marsh,
-  Marshall, Marshall, May, McKercher, McQueen, Meyers, Migliore, Miller, Mills,
-  Miraval, Moeyens, Moolekamp, Monet, Moniez, Monkewitz, Montgomery, Morrison,
-  Mueller, Muller, Arancibia, Neill, Newbry, Nief, Nomerotski, Nordby,
-  O'Connor, Oliver, Olivier, Olsen, O'Mullane, Ortiz, Osier, Owen, Pain,
-  Palecek, Parejko, Parsons, Pease, Peterson, Peterson, Petravick, Petrick,
-  Petry, Pierfederici, Pietrowicz, Pike, Pinto, Plante, Plate, Plutchak, Price,
-  Prouza, Radeka, Rajagopal, Rasmussen, Regnault, Reil, Reiss, Reuter, Ridgway,
-  Riot, Ritz, Robinson, Roby, Roodman, Rosing, Roucelle, Rumore, Russo, Saha,
-  Sassolas, Schalk, Schellart, Schindler, Schmidt, Schneider, Schneider,
-  Schoening, Schumacher, Schwamb, Sebag, Selvy, Sembroski, Seppala, Serio,
-  Serrano, Shaw, Shipsey, Sick, Silvestri, Slater, Smith, Smith, Sobhani,
-  Soldahl, Storrie-Lombardi, Stover, Strauss, Street, Stubbs, Sullivan,
-  Sweeney, Swinbank, Szalay, Takacs, Tether, Thaler, Thayer, Thomas, Thornton,
-  Thukral, Tice, Trilling, Turri, Berg, Berk, Vetter, Virieux, Vucina, Wahl,
-  Walkowicz, Walsh, Walter, Wang, Wang, Warner, Wiecha, Willman, Winters,
-  Wittman, Wolff, Wood-Vasey, Wu, Xin, Yoachim, and Zhan]{LSST2019}
-{\u{Z}}.~Ivezi{\'{c}}, S.~M. Kahn, J.~A. Tyson, B.~Abel, E.~Acosta, R.~Allsman,
-  D.~Alonso, Y.~AlSayyad, S.~F. Anderson, J.~Andrew, J.~R.~P. Angel, G.~Z.
-  Angeli, R.~Ansari, P.~Antilogus, C.~Araujo, R.~Armstrong, K.~T. Arndt,
-  P.~Astier, Éric Aubourg, N.~Auza, T.~S. Axelrod, D.~J. Bard, J.~D. Barr,
-  A.~Barrau, J.~G. Bartlett, A.~E. Bauer, B.~J. Bauman, S.~Baumont, E.~Bechtol,
-  K.~Bechtol, A.~C. Becker, J.~Becla, C.~Beldica, S.~Bellavia, F.~B. Bianco,
-  R.~Biswas, G.~Blanc, J.~Blazek, R.~D. Blandford, J.~S. Bloom, J.~Bogart,
-  T.~W. Bond, M.~T. Booth, A.~W. Borgland, K.~Borne, J.~F. Bosch, D.~Boutigny,
-  C.~A. Brackett, A.~Bradshaw, W.~N. Brandt, M.~E. Brown, J.~S. Bullock,
-  P.~Burchat, D.~L. Burke, G.~Cagnoli, D.~Calabrese, S.~Callahan, A.~L. Callen,
-  J.~L. Carlin, E.~L. Carlson, S.~Chandrasekharan, G.~Charles-Emerson,
-  S.~Chesley, E.~C. Cheu, H.-F. Chiang, J.~Chiang, C.~Chirino, D.~Chow, D.~R.
-  Ciardi, C.~F. Claver, J.~Cohen-Tanugi, J.~J. Cockrum, R.~Coles, A.~J.
-  Connolly, K.~H. Cook, A.~Cooray, K.~R. Covey, C.~Cribbs, W.~Cui, R.~Cutri,
-  P.~N. Daly, S.~F. Daniel, F.~Daruich, G.~Daubard, G.~Daues, W.~Dawson,
-  F.~Delgado, A.~Dellapenna, R.~de~Peyster, M.~de~Val-Borro, S.~W. Digel,
-  P.~Doherty, R.~Dubois, G.~P. Dubois-Felsmann, J.~Durech, F.~Economou,
-  T.~Eifler, M.~Eracleous, B.~L. Emmons, A.~F. Neto, H.~Ferguson, E.~Figueroa,
-  M.~Fisher-Levine, W.~Focke, M.~D. Foss, J.~Frank, M.~D. Freemon, E.~Gangler,
-  E.~Gawiser, J.~C. Geary, P.~Gee, M.~Geha, C.~J.~B. Gessner, R.~R. Gibson,
-  D.~K. Gilmore, T.~Glanzman, W.~Glick, T.~Goldina, D.~A. Goldstein,
-  I.~Goodenow, M.~L. Graham, W.~J. Gressler, P.~Gris, L.~P. Guy, A.~Guyonnet,
-  G.~Haller, R.~Harris, P.~A. Hascall, J.~Haupt, F.~Hernandez, S.~Herrmann,
-  E.~Hileman, J.~Hoblitt, J.~A. Hodgson, C.~Hogan, J.~D. Howard, D.~Huang,
-  M.~E. Huffer, P.~Ingraham, W.~R. Innes, S.~H. Jacoby, B.~Jain, F.~Jammes,
-  M.~J. Jee, T.~Jenness, G.~Jernigan, D.~Jevremović, K.~Johns, A.~S. Johnson,
-  M.~W.~G. Johnson, R.~L. Jones, C.~Juramy-Gilles, M.~Jurić, J.~S. Kalirai,
-  N.~J. Kallivayalil, B.~Kalmbach, J.~P. Kantor, P.~Karst, M.~M. Kasliwal,
-  H.~Kelly, R.~Kessler, V.~Kinnison, D.~Kirkby, L.~Knox, I.~V. Kotov, V.~L.
-  Krabbendam, K.~S. Krughoff, P.~Kubánek, J.~Kuczewski, S.~Kulkarni, J.~Ku,
-  N.~R. Kurita, C.~S. Lage, R.~Lambert, T.~Lange, J.~B. Langton, L.~L. Guillou,
-  D.~Levine, M.~Liang, K.-T. Lim, C.~J. Lintott, K.~E. Long, M.~Lopez, P.~J.
-  Lotz, R.~H. Lupton, N.~B. Lust, L.~A. MacArthur, A.~Mahabal, R.~Mandelbaum,
-  T.~W. Markiewicz, D.~S. Marsh, P.~J. Marshall, S.~Marshall, M.~May,
-  R.~McKercher, M.~McQueen, J.~Meyers, M.~Migliore, M.~Miller, D.~J. Mills,
-  C.~Miraval, J.~Moeyens, F.~E. Moolekamp, D.~G. Monet, M.~Moniez,
-  S.~Monkewitz, C.~Montgomery, C.~B. Morrison, F.~Mueller, G.~P. Muller, F.~M.
-  Arancibia, D.~R. Neill, S.~P. Newbry, J.-Y. Nief, A.~Nomerotski, M.~Nordby,
-  P.~O'Connor, J.~Oliver, S.~S. Olivier, K.~Olsen, W.~O'Mullane, S.~Ortiz,
-  S.~Osier, R.~E. Owen, R.~Pain, P.~E. Palecek, J.~K. Parejko, J.~B. Parsons,
-  N.~M. Pease, J.~M. Peterson, J.~R. Peterson, D.~L. Petravick, M.~E.~L.
-  Petrick, C.~E. Petry, F.~Pierfederici, S.~Pietrowicz, R.~Pike, P.~A. Pinto,
-  R.~Plante, S.~Plate, J.~P. Plutchak, P.~A. Price, M.~Prouza, V.~Radeka,
-  J.~Rajagopal, A.~P. Rasmussen, N.~Regnault, K.~A. Reil, D.~J. Reiss, M.~A.
-  Reuter, S.~T. Ridgway, V.~J. Riot, S.~Ritz, S.~Robinson, W.~Roby, A.~Roodman,
-  W.~Rosing, C.~Roucelle, M.~R. Rumore, S.~Russo, A.~Saha, B.~Sassolas, T.~L.
-  Schalk, P.~Schellart, R.~H. Schindler, S.~Schmidt, D.~P. Schneider, M.~D.
-  Schneider, W.~Schoening, G.~Schumacher, M.~E. Schwamb, J.~Sebag, B.~Selvy,
-  G.~H. Sembroski, L.~G. Seppala, A.~Serio, E.~Serrano, R.~A. Shaw, I.~Shipsey,
-  J.~Sick, N.~Silvestri, C.~T. Slater, J.~A. Smith, R.~C. Smith, S.~Sobhani,
-  C.~Soldahl, L.~Storrie-Lombardi, E.~Stover, M.~A. Strauss, R.~A. Street,
-  C.~W. Stubbs, I.~S. Sullivan, D.~Sweeney, J.~D. Swinbank, A.~Szalay,
-  P.~Takacs, S.~A. Tether, J.~J. Thaler, J.~G. Thayer, S.~Thomas, A.~J.
-  Thornton, V.~Thukral, J.~Tice, D.~E. Trilling, M.~Turri, R.~V. Berg, D.~V.
-  Berk, K.~Vetter, F.~Virieux, T.~Vucina, W.~Wahl, L.~Walkowicz, B.~Walsh,
-  C.~W. Walter, D.~L. Wang, S.-Y. Wang, M.~Warner, O.~Wiecha, B.~Willman, S.~E.
-  Winters, D.~Wittman, S.~C. Wolff, W.~M. Wood-Vasey, X.~Wu, B.~Xin,
-  P.~Yoachim, and H.~Zhan.
-\newblock Lsst: From science drivers to reference design and anticipated data
-  products.
+\bibitem[Hunter(2007)]{Hunter2007}
+J.~D. Hunter.
+\newblock Matplotlib: A 2d graphics environment.
+\newblock \emph{Computing in Science and Engineering}, 9:\penalty0 90--95, 2007.
+\newblock ISSN 15219615.
+\newblock \doi{10.1109/MCSE.2007.55}.
+
+\bibitem[Ivezi{\'{c}} et~al.(2019)Ivezi{\'{c}}, Kahn, Tyson, Abel, Acosta, Allsman, Alonso, AlSayyad, Anderson, Andrew, Angel, Angeli, Ansari, Antilogus, Araujo, Armstrong, Arndt, Astier, Éric Aubourg, Auza, Axelrod, Bard, Barr, Barrau, Bartlett, Bauer, Bauman, Baumont, Bechtol, Bechtol, Becker, Becla, Beldica, Bellavia, Bianco, Biswas, Blanc, Blazek, Blandford, Bloom, Bogart, Bond, Booth, Borgland, Borne, Bosch, Boutigny, Brackett, Bradshaw, Brandt, Brown, Bullock, Burchat, Burke, Cagnoli, Calabrese, Callahan, Callen, Carlin, Carlson, Chandrasekharan, Charles-Emerson, Chesley, Cheu, Chiang, Chiang, Chirino, Chow, Ciardi, Claver, Cohen-Tanugi, Cockrum, Coles, Connolly, Cook, Cooray, Covey, Cribbs, Cui, Cutri, Daly, Daniel, Daruich, Daubard, Daues, Dawson, Delgado, Dellapenna, de~Peyster, de~Val-Borro, Digel, Doherty, Dubois, Dubois-Felsmann, Durech, Economou, Eifler, Eracleous, Emmons, Neto, Ferguson, Figueroa, Fisher-Levine, Focke, Foss, Frank, Freemon, Gangler, Gawiser, Geary, Gee, Geha, Gessner, Gibson, Gilmore, Glanzman, Glick, Goldina, Goldstein, Goodenow, Graham, Gressler, Gris, Guy, Guyonnet, Haller, Harris, Hascall, Haupt, Hernandez, Herrmann, Hileman, Hoblitt, Hodgson, Hogan, Howard, Huang, Huffer, Ingraham, Innes, Jacoby, Jain, Jammes, Jee, Jenness, Jernigan, Jevremović, Johns, Johnson, Johnson, Jones, Juramy-Gilles, Jurić, Kalirai, Kallivayalil, Kalmbach, Kantor, Karst, Kasliwal, Kelly, Kessler, Kinnison, Kirkby, Knox, Kotov, Krabbendam, Krughoff, Kubánek, Kuczewski, Kulkarni, Ku, Kurita, Lage, Lambert, Lange, Langton, Guillou, Levine, Liang, Lim, Lintott, Long, Lopez, Lotz, Lupton, Lust, MacArthur, Mahabal, Mandelbaum, Markiewicz, Marsh, Marshall, Marshall, May, McKercher, McQueen, Meyers, Migliore, Miller, Mills, Miraval, Moeyens, Moolekamp, Monet, Moniez, Monkewitz, Montgomery, Morrison, Mueller, Muller, Arancibia, Neill, Newbry, Nief, Nomerotski, Nordby, O'Connor, Oliver, Olivier, Olsen, O'Mullane, Ortiz, Osier, Owen, Pain, Palecek, Parejko, Parsons, Pease, Peterson, Peterson, Petravick, Petrick, Petry, Pierfederici, Pietrowicz, Pike, Pinto, Plante, Plate, Plutchak, Price, Prouza, Radeka, Rajagopal, Rasmussen, Regnault, Reil, Reiss, Reuter, Ridgway, Riot, Ritz, Robinson, Roby, Roodman, Rosing, Roucelle, Rumore, Russo, Saha, Sassolas, Schalk, Schellart, Schindler, Schmidt, Schneider, Schneider, Schoening, Schumacher, Schwamb, Sebag, Selvy, Sembroski, Seppala, Serio, Serrano, Shaw, Shipsey, Sick, Silvestri, Slater, Smith, Smith, Sobhani, Soldahl, Storrie-Lombardi, Stover, Strauss, Street, Stubbs, Sullivan, Sweeney, Swinbank, Szalay, Takacs, Tether, Thaler, Thayer, Thomas, Thornton, Thukral, Tice, Trilling, Turri, Berg, Berk, Vetter, Virieux, Vucina, Wahl, Walkowicz, Walsh, Walter, Wang, Wang, Warner, Wiecha, Willman, Winters, Wittman, Wolff, Wood-Vasey, Wu, Xin, Yoachim, and Zhan]{LSST2019}
+{\u{Z}}.~Ivezi{\'{c}}, S.~M. Kahn, J.~A. Tyson, B.~Abel, E.~Acosta, R.~Allsman, D.~Alonso, Y.~AlSayyad, S.~F. Anderson, J.~Andrew, J.~R.~P. Angel, G.~Z. Angeli, R.~Ansari, P.~Antilogus, C.~Araujo, R.~Armstrong, K.~T. Arndt, P.~Astier, Éric Aubourg, N.~Auza, T.~S. Axelrod, D.~J. Bard, J.~D. Barr, A.~Barrau, J.~G. Bartlett, A.~E. Bauer, B.~J. Bauman, S.~Baumont, E.~Bechtol, K.~Bechtol, A.~C. Becker, J.~Becla, C.~Beldica, S.~Bellavia, F.~B. Bianco, R.~Biswas, G.~Blanc, J.~Blazek, R.~D. Blandford, J.~S. Bloom, J.~Bogart, T.~W. Bond, M.~T. Booth, A.~W. Borgland, K.~Borne, J.~F. Bosch, D.~Boutigny, C.~A. Brackett, A.~Bradshaw, W.~N. Brandt, M.~E. Brown, J.~S. Bullock, P.~Burchat, D.~L. Burke, G.~Cagnoli, D.~Calabrese, S.~Callahan, A.~L. Callen, J.~L. Carlin, E.~L. Carlson, S.~Chandrasekharan, G.~Charles-Emerson, S.~Chesley, E.~C. Cheu, H.-F. Chiang, J.~Chiang, C.~Chirino, D.~Chow, D.~R. Ciardi, C.~F. Claver, J.~Cohen-Tanugi, J.~J. Cockrum, R.~Coles, A.~J. Connolly, K.~H. Cook, A.~Cooray, K.~R. Covey, C.~Cribbs, W.~Cui, R.~Cutri, P.~N. Daly, S.~F. Daniel, F.~Daruich, G.~Daubard, G.~Daues, W.~Dawson, F.~Delgado, A.~Dellapenna, R.~de~Peyster, M.~de~Val-Borro, S.~W. Digel, P.~Doherty, R.~Dubois, G.~P. Dubois-Felsmann, J.~Durech, F.~Economou, T.~Eifler, M.~Eracleous, B.~L. Emmons, A.~F. Neto, H.~Ferguson, E.~Figueroa, M.~Fisher-Levine, W.~Focke, M.~D. Foss, J.~Frank, M.~D. Freemon, E.~Gangler, E.~Gawiser, J.~C. Geary, P.~Gee, M.~Geha, C.~J.~B. Gessner, R.~R. Gibson, D.~K. Gilmore, T.~Glanzman, W.~Glick, T.~Goldina, D.~A. Goldstein, I.~Goodenow, M.~L. Graham, W.~J. Gressler, P.~Gris, L.~P. Guy, A.~Guyonnet, G.~Haller, R.~Harris, P.~A. Hascall, J.~Haupt, F.~Hernandez, S.~Herrmann, E.~Hileman, J.~Hoblitt, J.~A. Hodgson, C.~Hogan, J.~D. Howard, D.~Huang, M.~E. Huffer, P.~Ingraham, W.~R. Innes, S.~H. Jacoby, B.~Jain, F.~Jammes, M.~J. Jee, T.~Jenness, G.~Jernigan, D.~Jevremović, K.~Johns, A.~S. Johnson, M.~W.~G. Johnson, R.~L. Jones, C.~Juramy-Gilles, M.~Jurić, J.~S. Kalirai, N.~J. Kallivayalil, B.~Kalmbach, J.~P. Kantor, P.~Karst, M.~M. Kasliwal, H.~Kelly, R.~Kessler, V.~Kinnison, D.~Kirkby, L.~Knox, I.~V. Kotov, V.~L. Krabbendam, K.~S. Krughoff, P.~Kubánek, J.~Kuczewski, S.~Kulkarni, J.~Ku, N.~R. Kurita, C.~S. Lage, R.~Lambert, T.~Lange, J.~B. Langton, L.~L. Guillou, D.~Levine, M.~Liang, K.-T. Lim, C.~J. Lintott, K.~E. Long, M.~Lopez, P.~J. Lotz, R.~H. Lupton, N.~B. Lust, L.~A. MacArthur, A.~Mahabal, R.~Mandelbaum, T.~W. Markiewicz, D.~S. Marsh, P.~J. Marshall, S.~Marshall, M.~May, R.~McKercher, M.~McQueen, J.~Meyers, M.~Migliore, M.~Miller, D.~J. Mills, C.~Miraval, J.~Moeyens, F.~E. Moolekamp, D.~G. Monet, M.~Moniez, S.~Monkewitz, C.~Montgomery, C.~B. Morrison, F.~Mueller, G.~P. Muller, F.~M. Arancibia, D.~R. Neill, S.~P. Newbry, J.-Y. Nief, A.~Nomerotski, M.~Nordby, P.~O'Connor, J.~Oliver, S.~S. Olivier, K.~Olsen, W.~O'Mullane, S.~Ortiz, S.~Osier, R.~E. Owen, R.~Pain, P.~E. Palecek, J.~K. Parejko, J.~B. Parsons, N.~M. Pease, J.~M. Peterson, J.~R. Peterson, D.~L. Petravick, M.~E.~L. Petrick, C.~E. Petry, F.~Pierfederici, S.~Pietrowicz, R.~Pike, P.~A. Pinto, R.~Plante, S.~Plate, J.~P. Plutchak, P.~A. Price, M.~Prouza, V.~Radeka, J.~Rajagopal, A.~P. Rasmussen, N.~Regnault, K.~A. Reil, D.~J. Reiss, M.~A. Reuter, S.~T. Ridgway, V.~J. Riot, S.~Ritz, S.~Robinson, W.~Roby, A.~Roodman, W.~Rosing, C.~Roucelle, M.~R. Rumore, S.~Russo, A.~Saha, B.~Sassolas, T.~L. Schalk, P.~Schellart, R.~H. Schindler, S.~Schmidt, D.~P. Schneider, M.~D. Schneider, W.~Schoening, G.~Schumacher, M.~E. Schwamb, J.~Sebag, B.~Selvy, G.~H. Sembroski, L.~G. Seppala, A.~Serio, E.~Serrano, R.~A. Shaw, I.~Shipsey, J.~Sick, N.~Silvestri, C.~T. Slater, J.~A. Smith, R.~C. Smith, S.~Sobhani, C.~Soldahl, L.~Storrie-Lombardi, E.~Stover, M.~A. Strauss, R.~A. Street, C.~W. Stubbs, I.~S. Sullivan, D.~Sweeney, J.~D. Swinbank, A.~Szalay, P.~Takacs, S.~A. Tether, J.~J. Thaler, J.~G. Thayer, S.~Thomas, A.~J. Thornton, V.~Thukral, J.~Tice, D.~E. Trilling, M.~Turri, R.~V. Berg, D.~V. Berk, K.~Vetter, F.~Virieux, T.~Vucina, W.~Wahl, L.~Walkowicz, B.~Walsh, C.~W. Walter, D.~L. Wang, S.-Y. Wang, M.~Warner, O.~Wiecha, B.~Willman, S.~E. Winters, D.~Wittman, S.~C. Wolff, W.~M. Wood-Vasey, X.~Wu, B.~Xin, P.~Yoachim, and H.~Zhan.
+\newblock Lsst: From science drivers to reference design and anticipated data products.
 \newblock \emph{The Astrophysical Journal}, 873:\penalty0 111, 3 2019.
 \newblock ISSN 0004-637X.
 \newblock \doi{10.3847/1538-4357/ab042c}.
-\newblock URL
-  \url{https://ui.adsabs.harvard.edu/abs/2019ApJ...873..111I/abstract}.
+\newblock URL \url{https://ui.adsabs.harvard.edu/abs/2019ApJ...873..111I/abstract}.
 
 \bibitem[Levine and Jedicke(2023)]{Levine2023}
 W.~G. Levine and R.~Jedicke.
-\newblock Shape-driven selection effects for aspherical near-earth objects in
-  systematic surveys.
+\newblock Shape-driven selection effects for aspherical near-earth objects in systematic surveys.
 \newblock \emph{Icarus}, 396:\penalty0 115501, 5 2023.
 \newblock ISSN 00191035.
 \newblock \doi{10.1016/j.icarus.2023.115501}.
@@ -411,15 +188,8 @@ J.~Lewis.
 \newblock ISBN 0323145841, 9780323145848.
 \newblock URL \url{https://books.google.co.nz/books?id=35uwarLgVLsC}.
 
-\bibitem[{Lightkurve Collaboration} et~al.(2018){Lightkurve Collaboration},
-  {Cardoso}, {Hedges}, {Gully-Santiago}, {Saunders}, {Cody}, {Barclay}, {Hall},
-  {Sagear}, {Turtelboom}, {Zhang}, {Tzanidakis}, {Mighell}, {Coughlin}, {Bell},
-  {Berta-Thompson}, {Williams}, {Dotson}, and {Barentsen}]{Lightkurve2018}
-{Lightkurve Collaboration}, J.~V.~d.~M. {Cardoso}, C.~{Hedges},
-  M.~{Gully-Santiago}, N.~{Saunders}, A.~M. {Cody}, T.~{Barclay}, O.~{Hall},
-  S.~{Sagear}, E.~{Turtelboom}, J.~{Zhang}, A.~{Tzanidakis}, K.~{Mighell},
-  J.~{Coughlin}, K.~{Bell}, Z.~{Berta-Thompson}, P.~{Williams}, J.~{Dotson},
-  and G.~{Barentsen}.
+\bibitem[{Lightkurve Collaboration} et~al.(2018){Lightkurve Collaboration}, {Cardoso}, {Hedges}, {Gully-Santiago}, {Saunders}, {Cody}, {Barclay}, {Hall}, {Sagear}, {Turtelboom}, {Zhang}, {Tzanidakis}, {Mighell}, {Coughlin}, {Bell}, {Berta-Thompson}, {Williams}, {Dotson}, and {Barentsen}]{Lightkurve2018}
+{Lightkurve Collaboration}, J.~V.~d.~M. {Cardoso}, C.~{Hedges}, M.~{Gully-Santiago}, N.~{Saunders}, A.~M. {Cody}, T.~{Barclay}, O.~{Hall}, S.~{Sagear}, E.~{Turtelboom}, J.~{Zhang}, A.~{Tzanidakis}, K.~{Mighell}, J.~{Coughlin}, K.~{Bell}, Z.~{Berta-Thompson}, P.~{Williams}, J.~{Dotson}, and G.~{Barentsen}.
 \newblock {Lightkurve: Kepler and TESS time series analysis in Python}.
 \newblock Astrophysics Source Code Library, Dec. 2018.
 
@@ -429,27 +199,35 @@ N.~R. Lomb.
 \newblock \emph{Ap\&SS}, 39:\penalty0 447--462, 2 1976.
 \newblock ISSN 0004-640X.
 \newblock \doi{10.1007/BF00648343}.
-\newblock URL
-  \url{https://ui.adsabs.harvard.edu/abs/1976Ap\&SS..39..447L/abstract}.
+\newblock URL \url{https://ui.adsabs.harvard.edu/abs/1976Ap\&SS..39..447L/abstract}.
+
+\bibitem[Mainzer et~al.(2019)Mainzer, Bauer, Cutri, Grav, Kramer, Masiero, Sonnett, and Wright]{NEOWISE2019}
+A.~Mainzer, J.~Bauer, R.~Cutri, T.~Grav, E.~Kramer, J.~Masiero, S.~Sonnett, and E.~Wright.
+\newblock Neowise diameters and albedos v2.0, 2019.
+\newblock URL \url{https://sbn.psi.edu/pds/resource/neowisediam.html}.
 
 \bibitem[Maneewongvatana and Mount(1999)]{Maneewongvatana1999}
 S.~Maneewongvatana and D.~M. Mount.
-\newblock Analysis of approximate nearest neighbor searching with clustered
-  point sets.
+\newblock Analysis of approximate nearest neighbor searching with clustered point sets.
 \newblock \emph{arXiv}, page cs/9901013, 1 1999.
 \newblock \doi{10.48550/ARXIV.CS/9901013}.
-\newblock URL
-  \url{https://ui.adsabs.harvard.edu/abs/1999cs........1013M/abstract}.
+\newblock URL \url{https://ui.adsabs.harvard.edu/abs/1999cs........1013M/abstract}.
 
-\bibitem[McGlynn et~al.(1989)McGlynn, Chapman, McGlynn, and
-  Chapman]{McGlynn1989}
+\bibitem[Masiero et~al.(2011)Masiero, Mainzer, Grav, Bauer, Cutri, Dailey, Eisenhardt, McMillan, Spahr, Skrutskie, Tholen, Walker, Wright, Debaun, Elsbury, Gautier, Gomillion, and Wilkins]{Masiero2011}
+J.~R. Masiero, A.~K. Mainzer, T.~Grav, J.~M. Bauer, R.~M. Cutri, J.~Dailey, P.~R. Eisenhardt, R.~S. McMillan, T.~B. Spahr, M.~F. Skrutskie, D.~Tholen, R.~G. Walker, E.~L. Wright, E.~Debaun, D.~Elsbury, T.~Gautier, S.~Gomillion, and A.~Wilkins.
+\newblock Main belt asteroids with wise/neowise. i. preliminary albedos and diameters.
+\newblock \emph{Astrophysical Journal}, 741:\penalty0 68, 11 2011.
+\newblock ISSN 15384357.
+\newblock \doi{10.1088/0004-637X/741/2/68}.
+\newblock URL \url{https://ui.adsabs.harvard.edu/abs/2011ApJ...741...68M/abstract}.
+
+\bibitem[McGlynn et~al.(1989)McGlynn, Chapman, McGlynn, and Chapman]{McGlynn1989}
 T.~A. McGlynn, R.~D. Chapman, T.~A. McGlynn, and R.~D. Chapman.
 \newblock On the nondetection of extrasolar comets.
 \newblock \emph{ApJL}, 346:\penalty0 L105, 11 1989.
 \newblock ISSN 0004-637X.
 \newblock \doi{10.1086/185590}.
-\newblock URL
-  \url{https://ui.adsabs.harvard.edu/abs/1989ApJ...346L.105M/abstract}.
+\newblock URL \url{https://ui.adsabs.harvard.edu/abs/1989ApJ...346L.105M/abstract}.
 
 \bibitem[McNeill et~al.(2018)McNeill, Trilling, and Mommert]{McNeill2018}
 A.~McNeill, D.~E. Trilling, and M.~Mommert.
@@ -457,84 +235,56 @@ A.~McNeill, D.~E. Trilling, and M.~Mommert.
 \newblock \emph{The Astrophysical Journal Letters}, 857:\penalty0 L1, 4 2018.
 \newblock ISSN 2041-8205.
 \newblock \doi{10.3847/2041-8213/aab9ab}.
-\newblock URL
-  \url{https://ui.adsabs.harvard.edu/abs/2018ApJ...857L...1M/abstract}.
+\newblock URL \url{https://ui.adsabs.harvard.edu/abs/2018ApJ...857L...1M/abstract}.
 
-\bibitem[McNeill et~al.(2023)McNeill, Gowanlock, Mommert, Trilling, Llama, and
-  Paddock]{McNeill2023}
+\bibitem[McNeill et~al.(2023)McNeill, Gowanlock, Mommert, Trilling, Llama, and Paddock]{McNeill2023}
 A.~McNeill, M.~Gowanlock, M.~Mommert, D.~E. Trilling, J.~Llama, and N.~Paddock.
-\newblock An untargeted survey of the rotational properties of main-belt
-  asteroids using the transiting exoplanet survey satellite (tess).
+\newblock An untargeted survey of the rotational properties of main-belt asteroids using the transiting exoplanet survey satellite (tess).
 \newblock \emph{The Astronomical Journal}, 166:\penalty0 152, 9 2023.
 \newblock ISSN 1538-3881.
 \newblock \doi{10.3847/1538-3881/ACF194}.
-\newblock URL
-  \url{https://iopscience.iop.org/article/10.3847/1538-3881/acf194}.
+\newblock URL \url{https://iopscience.iop.org/article/10.3847/1538-3881/acf194}.
 
-\bibitem[Meech et~al.(2017)Meech, Weryk, Micheli, Kleyna, Hainaut, Jedicke,
-  Wainscoat, Chambers, Keane, Petric, Denneau, Magnier, Berger, Huber,
-  Flewelling, Waters, Schunova-Lilly, and Chastel]{Meech2017}
-K.~J. Meech, R.~Weryk, M.~Micheli, J.~T. Kleyna, O.~R. Hainaut, R.~Jedicke,
-  R.~J. Wainscoat, K.~C. Chambers, J.~V. Keane, A.~Petric, L.~Denneau,
-  E.~Magnier, T.~Berger, M.~E. Huber, H.~Flewelling, C.~Waters,
-  E.~Schunova-Lilly, and S.~Chastel.
-\newblock A brief visit from a red and extremely elongated interstellar
-  asteroid.
+\bibitem[Meech et~al.(2017)Meech, Weryk, Micheli, Kleyna, Hainaut, Jedicke, Wainscoat, Chambers, Keane, Petric, Denneau, Magnier, Berger, Huber, Flewelling, Waters, Schunova-Lilly, and Chastel]{Meech2017}
+K.~J. Meech, R.~Weryk, M.~Micheli, J.~T. Kleyna, O.~R. Hainaut, R.~Jedicke, R.~J. Wainscoat, K.~C. Chambers, J.~V. Keane, A.~Petric, L.~Denneau, E.~Magnier, T.~Berger, M.~E. Huber, H.~Flewelling, C.~Waters, E.~Schunova-Lilly, and S.~Chastel.
+\newblock A brief visit from a red and extremely elongated interstellar asteroid.
 \newblock \emph{Nature}, 552:\penalty0 378--381, 12 2017.
 \newblock ISSN 0028-0836.
 \newblock \doi{10.1038/nature25020}.
 \newblock URL \url{https://www.nature.com/articles/nature25020}.
 
-\bibitem[Montilla et~al.(In Prep.)Montilla, Ridden-Harper, and
-  Albrow]{MontillaHons}
+\bibitem[Montilla et~al.(In Prep.)Montilla, Ridden-Harper, and Albrow]{MontillaHons}
 C.~Montilla, R.~Ridden-Harper, and M.~Albrow.
 \newblock Detection efficiency of \texttt{TESSELLATE}.
 \newblock In Prep.
 
 \bibitem[Nesvorný et~al.(2015)Nesvorný, Brož, and Carruba]{Nesvorny2015}
 D.~Nesvorný, M.~Brož, and V.~Carruba.
-\newblock \emph{Identification and dynamical properties of asteroid families},
-  pages 297--321.
+\newblock \emph{Identification and dynamical properties of asteroid families}, pages 297--321.
 \newblock University of Arizona Press, 1 2015.
 \newblock ISBN 9780816532186.
 \newblock \doi{10.2458/azu_uapress_9780816532131-ch016}.
-\newblock URL
-  \url{https://ui.adsabs.harvard.edu/abs/2015aste.book..297N/abstract}.
+\newblock URL \url{https://ui.adsabs.harvard.edu/abs/2015aste.book..297N/abstract}.
 
-\bibitem[Nguyen et~al.(2024)Nguyen, Woods, Ruprecht, Birge, Nguyen, Woods,
-  Ruprecht, and Birge]{Nguyen2024}
-T.~Nguyen, D.~F. Woods, J.~Ruprecht, J.~Birge, T.~Nguyen, D.~F. Woods,
-  J.~Ruprecht, and J.~Birge.
+\bibitem[Nguyen et~al.(2024)Nguyen, Woods, Ruprecht, Birge, Nguyen, Woods, Ruprecht, and Birge]{Nguyen2024}
+T.~Nguyen, D.~F. Woods, J.~Ruprecht, J.~Birge, T.~Nguyen, D.~F. Woods, J.~Ruprecht, and J.~Birge.
 \newblock Efficient search and detection of faint moving objects in image data.
 \newblock \emph{AJ}, 167:\penalty0 113, 3 2024.
 \newblock ISSN 0004-6256.
 \newblock \doi{10.3847/1538-3881/AD20E0}.
-\newblock URL
-  \url{https://ui.adsabs.harvard.edu/abs/2024AJ....167..113N/abstract}.
+\newblock URL \url{https://ui.adsabs.harvard.edu/abs/2024AJ....167..113N/abstract}.
 
-\bibitem[Oszkiewicz et~al.(2020)Oszkiewicz, Troianskyi, Föhring, Galád,
-  Kwiatkowski, Marciniak, Skiff, Geier, Borczyk, Moskovitz, Kankiewicz, Štefan
-  Gajdoš, Világi, Polčic, Kluwak, Wilawer, Kashuba, Udovichenko, Keir,
-  Kamiński, Devogele, and Gustafsson]{Oszkiewicz2020}
-D.~Oszkiewicz, V.~Troianskyi, D.~Föhring, A.~Galád, T.~Kwiatkowski,
-  A.~Marciniak, B.~A. Skiff, S.~Geier, W.~Borczyk, N.~A. Moskovitz,
-  P.~Kankiewicz, Štefan Gajdoš, J.~Világi, L.~Polčic, T.~Kluwak,
-  E.~Wilawer, V.~Kashuba, S.~Udovichenko, L.~Keir, K.~Kamiński, M.~Devogele,
-  and A.~Gustafsson.
+\bibitem[Oszkiewicz et~al.(2020)Oszkiewicz, Troianskyi, Föhring, Galád, Kwiatkowski, Marciniak, Skiff, Geier, Borczyk, Moskovitz, Kankiewicz, Štefan Gajdoš, Világi, Polčic, Kluwak, Wilawer, Kashuba, Udovichenko, Keir, Kamiński, Devogele, and Gustafsson]{Oszkiewicz2020}
+D.~Oszkiewicz, V.~Troianskyi, D.~Föhring, A.~Galád, T.~Kwiatkowski, A.~Marciniak, B.~A. Skiff, S.~Geier, W.~Borczyk, N.~A. Moskovitz, P.~Kankiewicz, Štefan Gajdoš, J.~Világi, L.~Polčic, T.~Kluwak, E.~Wilawer, V.~Kashuba, S.~Udovichenko, L.~Keir, K.~Kamiński, M.~Devogele, and A.~Gustafsson.
 \newblock Spin rates of v-type asteroids.
 \newblock \emph{Astronomy \& Astrophysics}, 643:\penalty0 A117, 11 2020.
 \newblock ISSN 0004-6361.
 \newblock \doi{10.1051/0004-6361/202038062}.
-\newblock URL
-  \url{https://www.aanda.org/articles/aa/full_html/2020/11/aa38062-20/aa38062-20.html
-  https://www.aanda.org/articles/aa/abs/2020/11/aa38062-20/aa38062-20.html}.
+\newblock URL \url{https://www.aanda.org/articles/aa/full_html/2020/11/aa38062-20/aa38062-20.html https://www.aanda.org/articles/aa/abs/2020/11/aa38062-20/aa38062-20.html}.
 
-\bibitem[Parker et~al.(2008)Parker, Ivezi{\'{c}}, Jurić, Lupton, Sekora, and
-  Kowalski]{Parker2008}
-A.~Parker, {\u{Z}}.~Ivezi{\'{c}}, M.~Jurić, R.~Lupton, M.~D. Sekora, and
-  A.~Kowalski.
-\newblock The size distributions of asteroid families in the sdss moving object
-  catalog 4.
+\bibitem[Parker et~al.(2008)Parker, Ivezi{\'{c}}, Jurić, Lupton, Sekora, and Kowalski]{Parker2008}
+A.~Parker, {\u{Z}}.~Ivezi{\'{c}}, M.~Jurić, R.~Lupton, M.~D. Sekora, and A.~Kowalski.
+\newblock The size distributions of asteroid families in the sdss moving object catalog 4.
 \newblock \emph{Icarus}, 198:\penalty0 138--155, 11 2008.
 \newblock ISSN 0019-1035.
 \newblock \doi{10.1016/J.ICARUS.2008.07.002}.
@@ -544,8 +294,7 @@ M.~J. Payne, M.~J. Holman, and A.~Pál.
 \newblock A tess search for distant solar system objects: Yield estimates.
 \newblock \emph{Research Notes of the AAS}, 3:\penalty0 172, 11 2019.
 \newblock \doi{10.3847/2515-5172/ab5641}.
-\newblock URL
-  \url{https://ui.adsabs.harvard.edu/abs/2019RNAAS...3..172P/abstract}.
+\newblock URL \url{https://ui.adsabs.harvard.edu/abs/2019RNAAS...3..172P/abstract}.
 
 \bibitem[Pravec and Harris(2000)]{Pravec2000}
 P.~Pravec and A.~W. Harris.
@@ -553,78 +302,47 @@ P.~Pravec and A.~W. Harris.
 \newblock \emph{Icar}, 148:\penalty0 12--20, 11 2000.
 \newblock ISSN 0019-1035.
 \newblock \doi{10.1006/ICAR.2000.6482}.
-\newblock URL
-  \url{https://ui.adsabs.harvard.edu/abs/2000Icar..148...12P/abstract}.
+\newblock URL \url{https://ui.adsabs.harvard.edu/abs/2000Icar..148...12P/abstract}.
 
 \bibitem[Pál et~al.(2018)Pál, Molnár, and Kiss]{Pal2018}
 A.~Pál, L.~Molnár, and C.~Kiss.
 \newblock Tess in the solar system.
-\newblock \emph{Publications of the Astronomical Society of the Pacific},
-  130:\penalty0 114503, 11 2018.
+\newblock \emph{Publications of the Astronomical Society of the Pacific}, 130:\penalty0 114503, 11 2018.
 \newblock ISSN 0004-6280.
 \newblock \doi{10.1088/1538-3873/aae2aa}.
-\newblock URL
-  \url{https://iopscience.iop.org/article/10.1088/1538-3873/aae2aa}.
+\newblock URL \url{https://iopscience.iop.org/article/10.1088/1538-3873/aae2aa}.
 
-\bibitem[Pál et~al.(2020)Pál, Szakáts, Kiss, Bódi, Bognár, Kalup, Kiss,
-  Marton, Molnár, Plachy, Sárneczky, Szabó, and Szabó]{Pal2020}
-A.~Pál, R.~Szakáts, C.~Kiss, A.~Bódi, Z.~Bognár, C.~Kalup, L.~L. Kiss,
-  G.~Marton, L.~Molnár, E.~Plachy, K.~Sárneczky, G.~M. Szabó, and R.~Szabó.
-\newblock Solar system objects observed with tess—first data release: Bright
-  main-belt and trojan asteroids from the southern survey.
-\newblock \emph{The Astrophysical Journal Supplement Series}, 247:\penalty0 26,
-  3 2020.
+\bibitem[Pál et~al.(2020)Pál, Szakáts, Kiss, Bódi, Bognár, Kalup, Kiss, Marton, Molnár, Plachy, Sárneczky, Szabó, and Szabó]{Pal2020}
+A.~Pál, R.~Szakáts, C.~Kiss, A.~Bódi, Z.~Bognár, C.~Kalup, L.~L. Kiss, G.~Marton, L.~Molnár, E.~Plachy, K.~Sárneczky, G.~M. Szabó, and R.~Szabó.
+\newblock Solar system objects observed with tess—first data release: Bright main-belt and trojan asteroids from the southern survey.
+\newblock \emph{The Astrophysical Journal Supplement Series}, 247:\penalty0 26, 3 2020.
 \newblock ISSN 0067-0049.
 \newblock \doi{10.3847/1538-4365/ab64f0}.
-\newblock URL
-  \url{https://iopscience.iop.org/article/10.3847/1538-4365/ab64f0}.
+\newblock URL \url{https://iopscience.iop.org/article/10.3847/1538-4365/ab64f0}.
 
 \bibitem[Rice and Laughlin(2020)]{Rice2020}
 M.~Rice and G.~Laughlin.
-\newblock Exploring trans-neptunian space with tess: A targeted shift-stacking
-  search for planet nine and distant tnos in the galactic plane.
+\newblock Exploring trans-neptunian space with tess: A targeted shift-stacking search for planet nine and distant tnos in the galactic plane.
 \newblock \emph{Planetary Science Journal}, 1:\penalty0 81, 12 2020.
 \newblock ISSN 26323338.
 \newblock \doi{10.3847/PSJ/abc42c}.
-\newblock URL
-  \url{https://ui.adsabs.harvard.edu/abs/2020PSJ.....1...81R/abstract}.
+\newblock URL \url{https://ui.adsabs.harvard.edu/abs/2020PSJ.....1...81R/abstract}.
 
-\bibitem[Ricker et~al.(2014)Ricker, Winn, Vanderspek, Latham, Bakos, Bean,
-  Berta-Thompson, Brown, Buchhave, Butler, Butler, Chaplin, Charbonneau,
-  Christensen-Dalsgaard, Clampin, Deming, Doty, Lee, Dressing, Dunham, Endl,
-  Fressin, Ge, Henning, Holman, Howard, Ida, Jenkins, Jernigan, Johnson,
-  Kaltenegger, Kawai, Kjeldsen, Laughlin, Levine, Lin, Lissauer, MacQueen,
-  Marcy, McCullough, Morton, Narita, Paegert, Palle, Pepe, Pepper, Quirrenbach,
-  Rinehart, Sasselov, Sato, Seager, Sozzetti, Stassun, Sullivan, Szentgyorgyi,
-  Torres, Udry, and Villasenor]{Ricker2014}
-G.~R. Ricker, J.~N. Winn, R.~Vanderspek, D.~W. Latham, G.~{\'A}. Bakos, J.~L.
-  Bean, Z.~K. Berta-Thompson, T.~M. Brown, L.~Buchhave, N.~R. Butler, R.~P.
-  Butler, W.~J. Chaplin, D.~Charbonneau, J.~Christensen-Dalsgaard, M.~Clampin,
-  D.~Deming, J.~Doty, N.~D. Lee, C.~Dressing, E.~W. Dunham, M.~Endl,
-  F.~Fressin, J.~Ge, T.~Henning, M.~J. Holman, A.~W. Howard, S.~Ida, J.~M.
-  Jenkins, G.~Jernigan, J.~A. Johnson, L.~Kaltenegger, N.~Kawai, H.~Kjeldsen,
-  G.~Laughlin, A.~M. Levine, D.~Lin, J.~J. Lissauer, P.~MacQueen, G.~Marcy,
-  P.~R. McCullough, T.~D. Morton, N.~Narita, M.~Paegert, E.~Palle, F.~Pepe,
-  J.~Pepper, A.~Quirrenbach, S.~A. Rinehart, D.~Sasselov, B.~Sato, S.~Seager,
-  A.~Sozzetti, K.~G. Stassun, P.~Sullivan, A.~Szentgyorgyi, G.~Torres, S.~Udry,
-  and J.~Villasenor.
+\bibitem[Ricker et~al.(2014)Ricker, Winn, Vanderspek, Latham, Bakos, Bean, Berta-Thompson, Brown, Buchhave, Butler, Butler, Chaplin, Charbonneau, Christensen-Dalsgaard, Clampin, Deming, Doty, Lee, Dressing, Dunham, Endl, Fressin, Ge, Henning, Holman, Howard, Ida, Jenkins, Jernigan, Johnson, Kaltenegger, Kawai, Kjeldsen, Laughlin, Levine, Lin, Lissauer, MacQueen, Marcy, McCullough, Morton, Narita, Paegert, Palle, Pepe, Pepper, Quirrenbach, Rinehart, Sasselov, Sato, Seager, Sozzetti, Stassun, Sullivan, Szentgyorgyi, Torres, Udry, and Villasenor]{Ricker2014}
+G.~R. Ricker, J.~N. Winn, R.~Vanderspek, D.~W. Latham, G.~{\'A}. Bakos, J.~L. Bean, Z.~K. Berta-Thompson, T.~M. Brown, L.~Buchhave, N.~R. Butler, R.~P. Butler, W.~J. Chaplin, D.~Charbonneau, J.~Christensen-Dalsgaard, M.~Clampin, D.~Deming, J.~Doty, N.~D. Lee, C.~Dressing, E.~W. Dunham, M.~Endl, F.~Fressin, J.~Ge, T.~Henning, M.~J. Holman, A.~W. Howard, S.~Ida, J.~M. Jenkins, G.~Jernigan, J.~A. Johnson, L.~Kaltenegger, N.~Kawai, H.~Kjeldsen, G.~Laughlin, A.~M. Levine, D.~Lin, J.~J. Lissauer, P.~MacQueen, G.~Marcy, P.~R. McCullough, T.~D. Morton, N.~Narita, M.~Paegert, E.~Palle, F.~Pepe, J.~Pepper, A.~Quirrenbach, S.~A. Rinehart, D.~Sasselov, B.~Sato, S.~Seager, A.~Sozzetti, K.~G. Stassun, P.~Sullivan, A.~Szentgyorgyi, G.~Torres, S.~Udry, and J.~Villasenor.
 \newblock Transiting exoplanet survey satellite.
-\newblock \emph{Journal of Astronomical Telescopes, Instruments, and Systems},
-  1:\penalty0 014003, 10 2014.
+\newblock \emph{Journal of Astronomical Telescopes, Instruments, and Systems}, 1:\penalty0 014003, 10 2014.
 \newblock ISSN 2329-4124.
 \newblock \doi{10.1117/1.JATIS.1.1.014003}.
 
-\bibitem[{Ridden-Harper} et~al.(2021){Ridden-Harper}, {Rest}, {Hounsell},
-  {M{\"u}ller-Bravo}, {Wang}, and {Villar}]{Ridden-Harper2021}
-R.~{Ridden-Harper}, A.~{Rest}, R.~{Hounsell}, T.~E. {M{\"u}ller-Bravo},
-  Q.~{Wang}, and V.~A. {Villar}.
+\bibitem[{Ridden-Harper} et~al.(2021){Ridden-Harper}, {Rest}, {Hounsell}, {M{\"u}ller-Bravo}, {Wang}, and {Villar}]{Ridden-Harper2021}
+R.~{Ridden-Harper}, A.~{Rest}, R.~{Hounsell}, T.~E. {M{\"u}ller-Bravo}, Q.~{Wang}, and V.~A. {Villar}.
 \newblock {TESSreduce: transient focused TESS data reduction pipeline}.
 \newblock \emph{arXiv e-prints}, art. arXiv:2111.15006, Nov. 2021.
 
 \bibitem[Roxburgh and Ridden-Harper(In Prep.)]{TESSELLATE}
 H.~Roxburgh and R.~Ridden-Harper.
-\newblock \texttt{TESSELLATE}: A dedicated pipeline for hunting transients with
-  tess.
+\newblock \texttt{TESSELLATE}: A dedicated pipeline for hunting transients with tess.
 \newblock In Prep.
 \newblock URL \url{https://github.com/CheerfulUser/TESSELLATE}.
 
@@ -637,45 +355,41 @@ D.~P. Rubincam.
 
 \bibitem[Scargle(1982)]{Scargle1982}
 J.~D. Scargle.
-\newblock Studies in astronomical time series analysis. ii. statistical aspects
-  of spectral analysis of unevenly spaced data.
+\newblock Studies in astronomical time series analysis. ii. statistical aspects of spectral analysis of unevenly spaced data.
 \newblock \emph{ApJ}, 263:\penalty0 835--853, 12 1982.
 \newblock ISSN 0004-637X.
 \newblock \doi{10.1086/160554}.
-\newblock URL
-  \url{https://ui.adsabs.harvard.edu/abs/1982ApJ...263..835S/abstract}.
+\newblock URL \url{https://ui.adsabs.harvard.edu/abs/1982ApJ...263..835S/abstract}.
 
-\bibitem[Trilling et~al.(2023)Trilling, Gowanlock, Kramer, McNeill, Donnelly,
-  Butler, and Kececioglu]{Trilling2023}
-D.~E. Trilling, M.~Gowanlock, D.~Kramer, A.~McNeill, B.~Donnelly, N.~Butler,
-  and J.~Kececioglu.
-\newblock The solar system notification alert processing system (snaps):
-  Design, architecture, and first data release (snapshot1).
+\bibitem[{The Matplotlib Development Team}.(2024)]{PLT3.9.2}
+{The Matplotlib Development Team}.
+\newblock Matplotlib: Visualization with python.
+\newblock 2024.
+\newblock \doi{10.5281/ZENODO.13308876}.
+\newblock URL \url{https://zenodo.org/records/13308876}.
+
+\bibitem[Trilling et~al.(2023)Trilling, Gowanlock, Kramer, McNeill, Donnelly, Butler, and Kececioglu]{Trilling2023}
+D.~E. Trilling, M.~Gowanlock, D.~Kramer, A.~McNeill, B.~Donnelly, N.~Butler, and J.~Kececioglu.
+\newblock The solar system notification alert processing system (snaps): Design, architecture, and first data release (snapshot1).
 \newblock \emph{The Astronomical Journal}, 165:\penalty0 111, 3 2023.
 \newblock ISSN 0004-6256.
 \newblock \doi{10.3847/1538-3881/acac7f}.
-\newblock URL
-  \url{https://ui.adsabs.harvard.edu/abs/2023AJ....165..111T/abstract}.
+\newblock URL \url{https://ui.adsabs.harvard.edu/abs/2023AJ....165..111T/abstract}.
 
-\bibitem[VanderPlas et~al.(2012)VanderPlas, Connolly, Ivezi{\'{c}}, and
-  Gray]{Vanderplas2012}
+\bibitem[VanderPlas et~al.(2012)VanderPlas, Connolly, Ivezi{\'{c}}, and Gray]{Vanderplas2012}
 J.~VanderPlas, A.~J. Connolly, {\u{Z}}.~Ivezi{\'{c}}, and A.~Gray.
 \newblock Introduction to astroml: Machine learning for astrophysics.
-\newblock \emph{Proceedings - 2012 Conference on Intelligent Data
-  Understanding, CIDU 2012}, pages 47--54, 2012.
+\newblock \emph{Proceedings - 2012 Conference on Intelligent Data Understanding, CIDU 2012}, pages 47--54, 2012.
 \newblock \doi{10.1109/CIDU.2012.6382200}.
-\newblock URL
-  \url{https://ui.adsabs.harvard.edu/abs/2012cidu.conf...47V/abstract}.
+\newblock URL \url{https://ui.adsabs.harvard.edu/abs/2012cidu.conf...47V/abstract}.
 
 \bibitem[VanderPlas(2018)]{VanderPlas2018}
 J.~T. VanderPlas.
 \newblock Understanding the lomb–scargle periodogram.
-\newblock \emph{The Astrophysical Journal Supplement Series}, 236:\penalty0 16,
-  5 2018.
+\newblock \emph{The Astrophysical Journal Supplement Series}, 236:\penalty0 16, 5 2018.
 \newblock ISSN 0067-0049.
 \newblock \doi{10.3847/1538-4365/aab766}.
-\newblock URL
-  \url{https://ui.adsabs.harvard.edu/abs/2018ApJS..236...16V/abstract}.
+\newblock URL \url{https://ui.adsabs.harvard.edu/abs/2018ApJS..236...16V/abstract}.
 
 \bibitem[VanderPlas and Ivezi{\'{c}}(2015)]{Vanderplas2015}
 J.~T. VanderPlas and {\u{Z}}.~Ivezi{\'{c}}.
@@ -683,24 +397,11 @@ J.~T. VanderPlas and {\u{Z}}.~Ivezi{\'{c}}.
 \newblock \emph{Astrophysical Journal}, 812:\penalty0 18, 10 2015.
 \newblock ISSN 15384357.
 \newblock \doi{10.1088/0004-637X/812/1/18}.
-\newblock URL
-  \url{https://ui.adsabs.harvard.edu/abs/2015ApJ...812...18V/abstract}.
+\newblock URL \url{https://ui.adsabs.harvard.edu/abs/2015ApJ...812...18V/abstract}.
 
-\bibitem[Virtanen et~al.(2020)Virtanen, Gommers, Oliphant, Haberland, Reddy,
-  Cournapeau, Burovski, Peterson, Weckesser, Bright, {van der Walt}, Brett,
-  Wilson, Millman, Mayorov, Nelson, Jones, Kern, Larson, Carey, Polat, Feng,
-  Moore, {VanderPlas}, Laxalde, Perktold, Cimrman, Henriksen, Quintero, Harris,
-  Archibald, Ribeiro, Pedregosa, {van Mulbregt}, and {SciPy 1.0
-  Contributors}]{2020SciPy-NMeth}
-P.~Virtanen, R.~Gommers, T.~E. Oliphant, M.~Haberland, T.~Reddy, D.~Cournapeau,
-  E.~Burovski, P.~Peterson, W.~Weckesser, J.~Bright, S.~J. {van der Walt},
-  M.~Brett, J.~Wilson, K.~J. Millman, N.~Mayorov, A.~R.~J. Nelson, E.~Jones,
-  R.~Kern, E.~Larson, C.~J. Carey, {\.I}.~Polat, Y.~Feng, E.~W. Moore,
-  J.~{VanderPlas}, D.~Laxalde, J.~Perktold, R.~Cimrman, I.~Henriksen, E.~A.
-  Quintero, C.~R. Harris, A.~M. Archibald, A.~H. Ribeiro, F.~Pedregosa, P.~{van
-  Mulbregt}, and {SciPy 1.0 Contributors}.
-\newblock {{SciPy} 1.0: Fundamental Algorithms for Scientific Computing in
-  Python}.
+\bibitem[Virtanen et~al.(2020)Virtanen, Gommers, Oliphant, Haberland, Reddy, Cournapeau, Burovski, Peterson, Weckesser, Bright, {van der Walt}, Brett, Wilson, Millman, Mayorov, Nelson, Jones, Kern, Larson, Carey, Polat, Feng, Moore, {VanderPlas}, Laxalde, Perktold, Cimrman, Henriksen, Quintero, Harris, Archibald, Ribeiro, Pedregosa, {van Mulbregt}, and {SciPy 1.0 Contributors}]{2020SciPy-NMeth}
+P.~Virtanen, R.~Gommers, T.~E. Oliphant, M.~Haberland, T.~Reddy, D.~Cournapeau, E.~Burovski, P.~Peterson, W.~Weckesser, J.~Bright, S.~J. {van der Walt}, M.~Brett, J.~Wilson, K.~J. Millman, N.~Mayorov, A.~R.~J. Nelson, E.~Jones, R.~Kern, E.~Larson, C.~J. Carey, {\.I}.~Polat, Y.~Feng, E.~W. Moore, J.~{VanderPlas}, D.~Laxalde, J.~Perktold, R.~Cimrman, I.~Henriksen, E.~A. Quintero, C.~R. Harris, A.~M. Archibald, A.~H. Ribeiro, F.~Pedregosa, P.~{van Mulbregt}, and {SciPy 1.0 Contributors}.
+\newblock {{SciPy} 1.0: Fundamental Algorithms for Scientific Computing in Python}.
 \newblock \emph{Nature Methods}, 17:\penalty0 261--272, 2020.
 \newblock \doi{10.1038/s41592-019-0686-2}.
 
@@ -710,9 +411,7 @@ B.~D. Warner, A.~W. Harris, and P.~Pravec.
 \newblock \emph{Icar}, 202:\penalty0 134--146, 7 2009.
 \newblock ISSN 0019-1035.
 \newblock \doi{10.1016/J.ICARUS.2009.02.003}.
-\newblock URL
-  \url{https://ui.adsabs.harvard.edu/abs/2009Icar..202..134W/abstract ,
-  http://www.MinorPlanet.info/php/lcdb.php}.
+\newblock URL \url{https://ui.adsabs.harvard.edu/abs/2009Icar..202..134W/abstract , http://www.MinorPlanet.info/php/lcdb.php}.
 
 \bibitem[Weidenschilling(1981)]{Weidenschilling1981}
 S.~J. Weidenschilling.
@@ -723,84 +422,31 @@ S.~J. Weidenschilling.
 
 \bibitem[Wong(2019)]{Wong2019}
 I.~Wong.
-\newblock Tess in the solar system: Refining asteroid light curves with
-  long-baseline photometry.
+\newblock Tess in the solar system: Refining asteroid light curves with long-baseline photometry.
 \newblock \emph{EPSC}, 2019:\penalty0 EPSC--DPS2019--1763, 2019.
-\newblock URL
-  \url{https://ui.adsabs.harvard.edu/abs/2019EPSC...13.1763W/abstract}.
+\newblock URL \url{https://ui.adsabs.harvard.edu/abs/2019EPSC...13.1763W/abstract}.
 
-\bibitem[Woods et~al.(2021)Woods, Ruprecht, Kotson, Main, Evans, Varey,
-  Vaillancourt, Viggh, Brown, Pál, Woods, Ruprecht, Kotson, Main, Evans,
-  Varey, Vaillancourt, Viggh, Brown, and Pál]{Woods2021}
-D.~F. Woods, J.~D. Ruprecht, M.~C. Kotson, E.~L. Main, E.~W. Evans, J.~D.
-  Varey, J.~E. Vaillancourt, H.~E.~M. Viggh, J.~J. Brown, A.~Pál, D.~F. Woods,
-  J.~D. Ruprecht, M.~C. Kotson, E.~L. Main, E.~W. Evans, J.~D. Varey, J.~E.
-  Vaillancourt, H.~E.~M. Viggh, J.~J. Brown, and A.~Pál.
-\newblock Asteroid observations from the transiting exoplanet survey satellite:
-  Detection processing pipeline and results from primary mission data.
+\bibitem[Woods et~al.(2021)Woods, Ruprecht, Kotson, Main, Evans, Varey, Vaillancourt, Viggh, Brown, Pál, Woods, Ruprecht, Kotson, Main, Evans, Varey, Vaillancourt, Viggh, Brown, and Pál]{Woods2021}
+D.~F. Woods, J.~D. Ruprecht, M.~C. Kotson, E.~L. Main, E.~W. Evans, J.~D. Varey, J.~E. Vaillancourt, H.~E.~M. Viggh, J.~J. Brown, A.~Pál, D.~F. Woods, J.~D. Ruprecht, M.~C. Kotson, E.~L. Main, E.~W. Evans, J.~D. Varey, J.~E. Vaillancourt, H.~E.~M. Viggh, J.~J. Brown, and A.~Pál.
+\newblock Asteroid observations from the transiting exoplanet survey satellite: Detection processing pipeline and results from primary mission data.
 \newblock \emph{PASP}, 133:\penalty0 014503, 1 2021.
 \newblock ISSN 0004-6280.
 \newblock \doi{10.1088/1538-3873/ABC761}.
-\newblock URL
-  \url{https://ui.adsabs.harvard.edu/abs/2021PASP..133a4503W/abstract}.
+\newblock URL \url{https://ui.adsabs.harvard.edu/abs/2021PASP..133a4503W/abstract}.
 
-\bibitem[York et~al.(2000)York, Adelman, John E.~Anderson, Anderson, Annis,
-  Bahcall, Bakken, Barkhouser, Bastian, Berman, Boroski, Bracker, Briegel,
-  Briggs, Brinkmann, Brunner, Burles, Carey, Carr, Castander, Chen, Colestock,
-  Connolly, Crocker, Csabai, Czarapata, Davis, Doi, Dombeck, Eisenstein,
-  Ellman, Elms, Evans, Fan, Federwitz, Fiscelli, Friedman, Frieman, Fukugita,
-  Gillespie, Gunn, Gurbani, de~Haas, Haldeman, Harris, Hayes, Heckman,
-  Hennessy, Hindsley, Holm, Holmgren, hao Huang, Hull, Husby, Ichikawa,
-  Ichikawa, Ivezi{\'{c}}, Kent, Kim, Kinney, Klaene, Kleinman, Kleinman, Knapp,
-  Korienek, Kron, Kunszt, Lamb, Lee, Leger, Limmongkol, Lindenmeyer, Long,
-  Loomis, Loveday, Lucinio, Lupton, MacKinnon, Mannery, Mantsch, Margon,
-  McGehee, McKay, Meiksin, Merelli, Monet, Munn, Narayanan, Nash, Neilsen,
-  Neswold, Newberg, Nichol, Nicinski, Nonino, Okada, Okamura, Ostriker, Owen,
-  Pauls, Peoples, Peterson, Petravick, Pier, Pope, Pordes, Prosapio,
-  Rechenmacher, Quinn, Richards, Richmond, Rivetta, Rockosi, Ruthmansdorfer,
-  Sandford, Schlegel, Schneider, Sekiguchi, Sergey, Shimasaku, Siegmund, Smee,
-  Smith, Snedden, Stone, Stoughton, Strauss, Stubbs, SubbaRao, Szalay, Szapudi,
-  Szokoly, Thakar, Tremonti, Tucker, Uomoto, Berk, Vogeley, Waddell, i~Wang,
-  Watanabe, Weinberg, Yanny, and Yasuda]{York2000}
-D.~G. York, J.~Adelman, J.~John E.~Anderson, S.~F. Anderson, J.~Annis, N.~A.
-  Bahcall, J.~A. Bakken, R.~Barkhouser, S.~Bastian, E.~Berman, W.~N. Boroski,
-  S.~Bracker, C.~Briegel, J.~W. Briggs, J.~Brinkmann, R.~Brunner, S.~Burles,
-  L.~Carey, M.~A. Carr, F.~J. Castander, B.~Chen, P.~L. Colestock, A.~J.
-  Connolly, J.~H. Crocker, I.~Csabai, P.~C. Czarapata, J.~E. Davis, M.~Doi,
-  T.~Dombeck, D.~Eisenstein, N.~Ellman, B.~R. Elms, M.~L. Evans, X.~Fan, G.~R.
-  Federwitz, L.~Fiscelli, S.~Friedman, J.~A. Frieman, M.~Fukugita,
-  B.~Gillespie, J.~E. Gunn, V.~K. Gurbani, E.~de~Haas, M.~Haldeman, F.~H.
-  Harris, J.~Hayes, T.~M. Heckman, G.~S. Hennessy, R.~B. Hindsley, S.~Holm,
-  D.~J. Holmgren, C.~hao Huang, C.~Hull, D.~Husby, S.-I. Ichikawa, T.~Ichikawa,
-  {\u{Z}}.~Ivezi{\'{c}}, S.~Kent, R.~S.~J. Kim, E.~Kinney, M.~Klaene, A.~N.
-  Kleinman, S.~Kleinman, G.~R. Knapp, J.~Korienek, R.~G. Kron, P.~Z. Kunszt,
-  D.~Q. Lamb, B.~Lee, R.~F. Leger, S.~Limmongkol, C.~Lindenmeyer, D.~C. Long,
-  C.~Loomis, J.~Loveday, R.~Lucinio, R.~H. Lupton, B.~MacKinnon, E.~J. Mannery,
-  P.~M. Mantsch, B.~Margon, P.~McGehee, T.~A. McKay, A.~Meiksin, A.~Merelli,
-  D.~G. Monet, J.~A. Munn, V.~K. Narayanan, T.~Nash, E.~Neilsen, R.~Neswold,
-  H.~J. Newberg, R.~C. Nichol, T.~Nicinski, M.~Nonino, N.~Okada, S.~Okamura,
-  J.~P. Ostriker, R.~Owen, A.~G. Pauls, J.~Peoples, R.~L. Peterson,
-  D.~Petravick, J.~R. Pier, A.~Pope, R.~Pordes, A.~Prosapio, R.~Rechenmacher,
-  T.~R. Quinn, G.~T. Richards, M.~W. Richmond, C.~H. Rivetta, C.~M. Rockosi,
-  K.~Ruthmansdorfer, D.~Sandford, D.~J. Schlegel, D.~P. Schneider,
-  M.~Sekiguchi, G.~Sergey, K.~Shimasaku, W.~A. Siegmund, S.~Smee, J.~A. Smith,
-  S.~Snedden, R.~Stone, C.~Stoughton, M.~A. Strauss, C.~Stubbs, M.~SubbaRao,
-  A.~S. Szalay, I.~Szapudi, G.~P. Szokoly, A.~R. Thakar, C.~Tremonti, D.~L.
-  Tucker, A.~Uomoto, D.~V. Berk, M.~S. Vogeley, P.~Waddell, S.~i~Wang,
-  M.~Watanabe, D.~H. Weinberg, B.~Yanny, and N.~Yasuda.
+\bibitem[York et~al.(2000)York, Adelman, John E.~Anderson, Anderson, Annis, Bahcall, Bakken, Barkhouser, Bastian, Berman, Boroski, Bracker, Briegel, Briggs, Brinkmann, Brunner, Burles, Carey, Carr, Castander, Chen, Colestock, Connolly, Crocker, Csabai, Czarapata, Davis, Doi, Dombeck, Eisenstein, Ellman, Elms, Evans, Fan, Federwitz, Fiscelli, Friedman, Frieman, Fukugita, Gillespie, Gunn, Gurbani, de~Haas, Haldeman, Harris, Hayes, Heckman, Hennessy, Hindsley, Holm, Holmgren, hao Huang, Hull, Husby, Ichikawa, Ichikawa, Ivezi{\'{c}}, Kent, Kim, Kinney, Klaene, Kleinman, Kleinman, Knapp, Korienek, Kron, Kunszt, Lamb, Lee, Leger, Limmongkol, Lindenmeyer, Long, Loomis, Loveday, Lucinio, Lupton, MacKinnon, Mannery, Mantsch, Margon, McGehee, McKay, Meiksin, Merelli, Monet, Munn, Narayanan, Nash, Neilsen, Neswold, Newberg, Nichol, Nicinski, Nonino, Okada, Okamura, Ostriker, Owen, Pauls, Peoples, Peterson, Petravick, Pier, Pope, Pordes, Prosapio, Rechenmacher, Quinn, Richards, Richmond, Rivetta, Rockosi, Ruthmansdorfer, Sandford, Schlegel, Schneider, Sekiguchi, Sergey, Shimasaku, Siegmund, Smee, Smith, Snedden, Stone, Stoughton, Strauss, Stubbs, SubbaRao, Szalay, Szapudi, Szokoly, Thakar, Tremonti, Tucker, Uomoto, Berk, Vogeley, Waddell, i~Wang, Watanabe, Weinberg, Yanny, and Yasuda]{York2000}
+D.~G. York, J.~Adelman, J.~John E.~Anderson, S.~F. Anderson, J.~Annis, N.~A. Bahcall, J.~A. Bakken, R.~Barkhouser, S.~Bastian, E.~Berman, W.~N. Boroski, S.~Bracker, C.~Briegel, J.~W. Briggs, J.~Brinkmann, R.~Brunner, S.~Burles, L.~Carey, M.~A. Carr, F.~J. Castander, B.~Chen, P.~L. Colestock, A.~J. Connolly, J.~H. Crocker, I.~Csabai, P.~C. Czarapata, J.~E. Davis, M.~Doi, T.~Dombeck, D.~Eisenstein, N.~Ellman, B.~R. Elms, M.~L. Evans, X.~Fan, G.~R. Federwitz, L.~Fiscelli, S.~Friedman, J.~A. Frieman, M.~Fukugita, B.~Gillespie, J.~E. Gunn, V.~K. Gurbani, E.~de~Haas, M.~Haldeman, F.~H. Harris, J.~Hayes, T.~M. Heckman, G.~S. Hennessy, R.~B. Hindsley, S.~Holm, D.~J. Holmgren, C.~hao Huang, C.~Hull, D.~Husby, S.-I. Ichikawa, T.~Ichikawa, {\u{Z}}.~Ivezi{\'{c}}, S.~Kent, R.~S.~J. Kim, E.~Kinney, M.~Klaene, A.~N. Kleinman, S.~Kleinman, G.~R. Knapp, J.~Korienek, R.~G. Kron, P.~Z. Kunszt, D.~Q. Lamb, B.~Lee, R.~F. Leger, S.~Limmongkol, C.~Lindenmeyer, D.~C. Long, C.~Loomis, J.~Loveday, R.~Lucinio, R.~H. Lupton, B.~MacKinnon, E.~J. Mannery, P.~M. Mantsch, B.~Margon, P.~McGehee, T.~A. McKay, A.~Meiksin, A.~Merelli, D.~G. Monet, J.~A. Munn, V.~K. Narayanan, T.~Nash, E.~Neilsen, R.~Neswold, H.~J. Newberg, R.~C. Nichol, T.~Nicinski, M.~Nonino, N.~Okada, S.~Okamura, J.~P. Ostriker, R.~Owen, A.~G. Pauls, J.~Peoples, R.~L. Peterson, D.~Petravick, J.~R. Pier, A.~Pope, R.~Pordes, A.~Prosapio, R.~Rechenmacher, T.~R. Quinn, G.~T. Richards, M.~W. Richmond, C.~H. Rivetta, C.~M. Rockosi, K.~Ruthmansdorfer, D.~Sandford, D.~J. Schlegel, D.~P. Schneider, M.~Sekiguchi, G.~Sergey, K.~Shimasaku, W.~A. Siegmund, S.~Smee, J.~A. Smith, S.~Snedden, R.~Stone, C.~Stoughton, M.~A. Strauss, C.~Stubbs, M.~SubbaRao, A.~S. Szalay, I.~Szapudi, G.~P. Szokoly, A.~R. Thakar, C.~Tremonti, D.~L. Tucker, A.~Uomoto, D.~V. Berk, M.~S. Vogeley, P.~Waddell, S.~i~Wang, M.~Watanabe, D.~H. Weinberg, B.~Yanny, and N.~Yasuda.
 \newblock The sloan digital sky survey: Technical summary.
 \newblock \emph{The Astronomical Journal}, 120:\penalty0 1579--1587, 9 2000.
 \newblock ISSN 00046256.
 \newblock \doi{10.1086/301513/FULLTEXT/}.
 \newblock URL \url{https://iopscience.iop.org/article/10.1086/301513}.
 
-\bibitem[Ďurech et~al.(2015)Ďurech, Carry, Delbo, Kaasalainen, and
-  Viikinkoski]{Durech2015}
+\bibitem[Ďurech et~al.(2015)Ďurech, Carry, Delbo, Kaasalainen, and Viikinkoski]{Durech2015}
 J.~Ďurech, B.~Carry, M.~Delbo, M.~Kaasalainen, and M.~Viikinkoski.
 \newblock Asteroid models from multiple data sources.
 \newblock \emph{Asteroids IV}, pages 183--202, 1 2015.
 \newblock \doi{10.2458/azu_uapress_9780816532131-ch010}.
-\newblock URL
-  \url{https://ui.adsabs.harvard.edu/abs/2015aste.book..183D/abstract}.
+\newblock URL \url{https://ui.adsabs.harvard.edu/abs/2015aste.book..183D/abstract}.
 
 \end{thebibliography}

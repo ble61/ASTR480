@@ -1,14 +1,17 @@
 \babel@toc {english}{}\relax 
 \contentsline {figure}{\numberline {1}{\ignorespaces Asteroid frequencies vs diameter (LCDB)}}{2}{figure.caption.4}%
-\contentsline {figure}{\numberline {2}{\ignorespaces Interpolated positions and error of asteroids}}{6}{figure.caption.6}%
-\contentsline {subfigure}{\numberline {2.a}{\ignorespaces Positions}}{6}{figure.caption.6}%
-\contentsline {subfigure}{\numberline {2.b}{\ignorespaces Errors}}{6}{figure.caption.6}%
-\contentsline {figure}{\numberline {3}{\ignorespaces Interpolated and Detected Positions}}{7}{figure.caption.7}%
-\contentsline {figure}{\numberline {4}{\ignorespaces Light curves Example}}{9}{figure.caption.8}%
-\contentsline {figure}{\numberline {5}{\ignorespaces Periodogram example}}{11}{figure.caption.9}%
-\contentsline {figure}{\numberline {6}{\ignorespaces Known against calculated period}}{13}{figure.caption.10}%
-\contentsline {figure}{\numberline {7}{\ignorespaces aei distribution}}{14}{figure.caption.11}%
-\contentsline {figure}{\numberline {8}{\ignorespaces Class distribution}}{15}{figure.caption.12}%
-\contentsline {figure}{\numberline {9}{\ignorespaces Number of observations or matches}}{15}{figure.caption.13}%
-\contentsline {figure}{\numberline {10}{\ignorespaces Recovery plot}}{16}{figure.caption.14}%
-\contentsline {figure}{\numberline {11}{\ignorespaces Amplitude of Variation against Rotaion Period}}{17}{figure.caption.15}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Interpolated Positions of Asteroids}}{6}{figure.caption.6}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Interpolated Position Verification}}{7}{figure.caption.7}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Interpolated and Detected Positions}}{8}{figure.caption.8}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Light curves Example}}{10}{figure.caption.9}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Periodogram example}}{12}{figure.caption.10}%
+\contentsline {figure}{\numberline {7}{\ignorespaces LCDB known period against detected period}}{14}{figure.caption.11}%
+\contentsline {figure}{\numberline {8}{\ignorespaces aei distribution}}{16}{figure.caption.12}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Class distribution}}{16}{figure.caption.13}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Number of observations or matches}}{17}{figure.caption.14}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Visual Magnitude Recovery}}{18}{figure.caption.15}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Period Distribution}}{19}{figure.caption.16}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Amplitude Variation Distribution}}{20}{figure.caption.17}%
+\contentsline {figure}{\numberline {14}{\ignorespaces Amplitude of Variation against Rotation Period}}{20}{figure.caption.18}%
+\contentsline {figure}{\numberline {15}{\ignorespaces This work's addition to \autoref {Fig:FreqVsDiam} and the LCDB of \citet {Warner2009}. The diameters are from NEOWISE where available.}}{22}{figure.caption.19}%
+\contentsline {figure}{\numberline {16}{\ignorespaces Comparison to periods from other work}}{22}{figure.caption.20}%

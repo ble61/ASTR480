@@ -605,9 +605,9 @@ for name in unqNames:
     fig, ax = plt.subplots(1, figsize=(10, 8))
     # ax.set_title(name)
     ax.set_xlabel("$\Delta$RA [$''$]")
-    ax.set_xlim((-limAngle, limAngle))
+    # ax.set_xlim((-limAngle, limAngle))
     ax.set_ylabel("$\Delta$Dec [$''$]")
-    ax.set_ylim((-limAngle, limAngle))
+    # ax.set_ylim((-limAngle, limAngle))
     # TODO axis with 'TESS px units'
 
     ax2 = ax.secondary_xaxis("top", functions=(arcstopx, pxtoarcs))
@@ -625,4 +625,4 @@ for name in unqNames:
     clb.ax.ticklabel_format(useOffset=False)
 
     ax.scatter(deltaRa, deltaDec, c=nameCut["MJD"], cmap=cmap, norm=cnorm, s=5)
-    fig.savefig(f"./Testing Figures/{name}PosCheck.pdf")
+    # fig.savefig(f"./Testing Figures/{name}PosCheck.pdf")
