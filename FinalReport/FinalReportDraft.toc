@@ -18,9 +18,9 @@
 \contentsline {subsection}{\numberline {3.2}Asteroid Properties}{15}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Asteroid Detectability in TESS}{15}{subsection.3.3}%
 \contentsline {subsection}{\numberline {3.4}Rotation Period Analysis Results}{18}{subsection.3.4}%
-\contentsline {section}{\numberline {4}Discussion}{21}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Comparison to other work }{21}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Future work}{21}{subsection.4.2}%
+\contentsline {section}{\numberline {4}Discussion}{20}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Comparison to Literature Data}{20}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Future work}{23}{subsection.4.2}%
 \contentsline {section}{\numberline {5}Conclusion}{23}{section.5}%
-\contentsline {section}{Acknowledgements}{24}{section*.21}%
-\contentsline {section}{References}{24}{section*.21}%
+\contentsline {section}{Acknowledgements}{24}{section*.22}%
+\contentsline {section}{References}{24}{section*.22}%
