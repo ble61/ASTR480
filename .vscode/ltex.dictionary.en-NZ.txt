@@ -9,3 +9,26 @@ periodogram
 Astropy
 
 NEOWISE
+lightcurves
+
+lightcurve
+Lomb-Scargle
+COM
+FFIs
+CCDs
+FFI
+LINEAR-TESS
+TESSreduce
+Lightcurve
+Zooniverse
+OzSTAR
+SkyBoT
+Astroquery
+Ia
+KDTree
+Lightcurves
+Photutils
+Scipy
+ndimage
+centerofmass
+periodograms

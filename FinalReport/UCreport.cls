@@ -89,7 +89,7 @@
 	{\scshape\LARGE \student \par} % name of course
 
 	\vspace{1.5cm}
-	{\scshape\LARGE Supervisor: \supervisor \par} % name of course
+	{\scshape\LARGE Supervisors: \supervisor \par} % name of course
    
 	\vfill
 	{\large \today\par} % Date

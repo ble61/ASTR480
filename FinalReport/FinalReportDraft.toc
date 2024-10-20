@@ -7,20 +7,21 @@
 \contentsline {subsection}{\numberline {1.1}Asteroids}{1}{subsection.1.1}%
 \contentsline {subsection}{\numberline {1.2}TESS}{3}{subsection.1.2}%
 \contentsline {section}{\numberline {2}Methods}{4}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Querrying Databases for Asteroid Positions and Properties}{5}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.1}Querying Databases for Asteroid Positions and Properties}{5}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Interpolation of the Positions to Match TESS Cadence}{5}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Matching Asteroids to \texttt {TESSELLATE} Detections}{6}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Photometry and the Construction of Asteroid Lightcurves}{8}{subsection.2.4}%
-\contentsline {subsection}{\numberline {2.5}Calculation of Asteroid Rotation Periods}{9}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.3}Matching Asteroids to \texttt {TESSELLATE} Detections}{7}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Photometry and the Construction of Asteroid Lightcurves}{9}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Calculation of Asteroid Rotation Periods}{10}{subsection.2.5}%
 \contentsline {subsection}{\numberline {2.6}Periodogram Quality Checks}{13}{subsection.2.6}%
 \contentsline {section}{\numberline {3}Results}{13}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Quality Check Verification}{13}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.1}Quality Check Verification}{14}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Asteroid Properties}{15}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Asteroid Detectability in TESS}{15}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Rotation Period Analysis Results}{18}{subsection.3.4}%
-\contentsline {section}{\numberline {4}Discussion}{20}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Comparison to Literature Data}{20}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Future work}{23}{subsection.4.2}%
-\contentsline {section}{\numberline {5}Conclusion}{23}{section.5}%
-\contentsline {section}{Acknowledgements}{24}{section*.22}%
-\contentsline {section}{References}{24}{section*.22}%
+\contentsline {subsection}{\numberline {3.3}Asteroid Detectability in TESS}{17}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Rotation Period Analysis Results}{19}{subsection.3.4}%
+\contentsline {section}{\numberline {4}Discussion}{21}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Comparison to Literature Data}{21}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Future work}{24}{subsection.4.2}%
+\contentsline {section}{\numberline {5}Conclusion}{25}{section.5}%
+\contentsline {section}{Acknowledgements}{26}{section*.22}%
+\contentsline {section}{Appendix}{26}{section*.23}%
+\contentsline {section}{References}{32}{figure.caption.28}%
