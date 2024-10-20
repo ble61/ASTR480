@@ -4,8 +4,8 @@
 \contentsline {section}{List of Figures}{iv}{section*.1}%
 \contentsline {section}{List of Tables}{v}{section*.2}%
 \contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Asteroids}{1}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}TESS}{3}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.1}Asteroids and their Rotation Properties}{1}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}TESS and its History of Asteroid Analysis}{3}{subsection.1.2}%
 \contentsline {section}{\numberline {2}Methods}{4}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Querying Databases for Asteroid Positions and Properties}{5}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Interpolation of the Positions to Match TESS Cadence}{5}{subsection.2.2}%
@@ -15,9 +15,9 @@
 \contentsline {subsection}{\numberline {2.6}Periodogram Quality Checks}{13}{subsection.2.6}%
 \contentsline {section}{\numberline {3}Results}{13}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Quality Check Verification}{14}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Asteroid Properties}{15}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.2}The Distribution of Asteroid Properties}{15}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Asteroid Detectability in TESS}{17}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Rotation Period Analysis Results}{19}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.4}Rotation Period and Amplitude Variation Results}{19}{subsection.3.4}%
 \contentsline {section}{\numberline {4}Discussion}{21}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Comparison to Literature Data}{21}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Future work}{24}{subsection.4.2}%

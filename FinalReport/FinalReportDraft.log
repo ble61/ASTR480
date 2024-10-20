@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.26)  20 OCT 2024 22:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.26)  20 OCT 2024 22:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -786,11 +786,7 @@ Package siunitx Info: Option "multi-part-units = single" has been deprecated
 (siunitx)             Use "separate-uncertainty-units = single" as a
 (siunitx)             replacement.
 
- (/usr/local/texlive/2023/texmf-dist/tex/latex/chngcntr/chngcntr.sty
-Package: chngcntr 2018/04/09 v1.1a change counter resetting
-Package chngcntr Info: \counterwithout already defined.
-(chngcntr)             Quitting chngcntr on input line 21.
-) (/usr/local/texlive/2023/texmf-dist/tex/latex/footmisc/footmisc.sty
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/footmisc/footmisc.sty
 Package: footmisc 2023/07/05 v6.0f a miscellany of footnote facilities
 \FN@temptoken=\toks71
 \footnotemargin=\dimen327
@@ -827,28 +823,28 @@ File: l3backend-pdftex.def 2024-02-20 L3 backend support: PDF output (pdfTeX)
 ) (./FinalReportDraft.aux)
 \openout1 = `FinalReportDraft.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
 File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
 )
-Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 52.
+Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 51.
  (/usr/local/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count381
@@ -871,7 +867,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring OFF on input line 52.
+Package hyperref Info: Link coloring OFF on input line 51.
  (./FinalReportDraft.out) (./FinalReportDraft.out)
 \@outlinefile=\write5
 \openout5 = `FinalReportDraft.out'.
@@ -917,47 +913,47 @@ Package pgfplots notification 'compat/show suggested version=true': document has
 \@nomenclaturefile=\write6
 \openout6 = `FinalReportDraft.nlo'.
 
-Package nomencl Info: Writing nomenclature file FinalReportDraft.nlo on input line 68.
+Package nomencl Info: Writing nomenclature file FinalReportDraft.nlo on input line 67.
 <logos/UC.png, id=110, 642.4pt x 383.4325pt>
 File: logos/UC.png Graphic file (type png)
 <use logos/UC.png>
-Package pdftex.def Info: logos/UC.png  used on input line 69.
+Package pdftex.def Info: logos/UC.png  used on input line 68.
 (pdftex.def)             Requested size: 136.5746pt x 81.5178pt.
 [1
 
 {/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc} <./logos/UC.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 78--80
+Underfull \hbox (badness 10000) in paragraph at lines 77--79
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 81--82
+Underfull \hbox (badness 10000) in paragraph at lines 80--81
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 83--84
+Underfull \hbox (badness 10000) in paragraph at lines 82--83
 
  []
 
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 85.
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 84.
 (/usr/local/texlive/2023/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 86.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 85.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 86.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 85.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Overfull \hbox (45.42535pt too wide) in paragraph at lines 85--87
+Overfull \hbox (45.42535pt too wide) in paragraph at lines 84--86
 \T1/cmr/m/n/12 et al.[], []2022[]) ( []$\T1/cmtt/m/n/12 https : / / docs . astropy . org / en / stable / api / astropy . timeseries . LombScargle .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 85--87
+Underfull \hbox (badness 10000) in paragraph at lines 84--86
 
  []
 
@@ -967,7 +963,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 85--87
 
 File: logos/UC.png Graphic file (type png)
 <use logos/UC.png>
-Package pdftex.def Info: logos/UC.png  used on input line 128.
+Package pdftex.def Info: logos/UC.png  used on input line 127.
 (pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
  [3] (./FinalReportDraft.lof)
 \tf@lof=\write8
@@ -975,7 +971,7 @@ Package pdftex.def Info: logos/UC.png  used on input line 128.
 
 File: logos/UC.png Graphic file (type png)
 <use logos/UC.png>
-Package pdftex.def Info: logos/UC.png  used on input line 132.
+Package pdftex.def Info: logos/UC.png  used on input line 131.
 (pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
  [4] (./FinalReportDraft.lot)
 \tf@lot=\write9
@@ -983,208 +979,208 @@ Package pdftex.def Info: logos/UC.png  used on input line 132.
 
 File: logos/UC.png Graphic file (type png)
 <use logos/UC.png>
-Package pdftex.def Info: logos/UC.png  used on input line 135.
+Package pdftex.def Info: logos/UC.png  used on input line 134.
 (pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
  [5]
 File: logos/UC.png Graphic file (type png)
 <use logos/UC.png>
-Package pdftex.def Info: logos/UC.png  used on input line 193.
+Package pdftex.def Info: logos/UC.png  used on input line 177.
 (pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.193 
+l.177 
        [1]
 <./Figures/Diam-FreqPlot.pdf, id=302, 867.24pt x 433.62pt>
 File: ./Figures/Diam-FreqPlot.pdf Graphic file (type pdf)
 <use ./Figures/Diam-FreqPlot.pdf>
-Package pdftex.def Info: ./Figures/Diam-FreqPlot.pdf  used on input line 212.
+Package pdftex.def Info: ./Figures/Diam-FreqPlot.pdf  used on input line 196.
 (pdftex.def)             Requested size: 318.66946pt x 159.33192pt.
 
 Underfull \vbox (badness 6708) has occurred while \output is active []
 
 File: logos/UC.png Graphic file (type png)
 <use logos/UC.png>
-Package pdftex.def Info: logos/UC.png  used on input line 224.
+Package pdftex.def Info: logos/UC.png  used on input line 208.
 (pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
  [2 <./Figures/Diam-FreqPlot.pdf>]
 File: logos/UC.png Graphic file (type png)
 <use logos/UC.png>
-Package pdftex.def Info: logos/UC.png  used on input line 256.
+Package pdftex.def Info: logos/UC.png  used on input line 239.
 (pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
  [3]
 Overfull \vbox (0.59294pt too high) has occurred while \output is active []
 
 File: logos/UC.png Graphic file (type png)
 <use logos/UC.png>
-Package pdftex.def Info: logos/UC.png  used on input line 292.
+Package pdftex.def Info: logos/UC.png  used on input line 275.
 (pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
  [4]
 <./Figures/interpPos_29_1_2_2.pdf, id=478, 722.7pt x 578.16pt>
 File: ./Figures/interpPos_29_1_2_2.pdf Graphic file (type pdf)
 <use ./Figures/interpPos_29_1_2_2.pdf>
-Package pdftex.def Info: ./Figures/interpPos_29_1_2_2.pdf  used on input line 317.
+Package pdftex.def Info: ./Figures/interpPos_29_1_2_2.pdf  used on input line 300.
 (pdftex.def)             Requested size: 364.19664pt x 291.35536pt.
 <./Figures/1990 KC1PosCheck.pdf, id=479, 722.7pt x 578.16pt>
 File: ./Figures/1990 KC1PosCheck.pdf Graphic file (type pdf)
 <use ./Figures/1990 KC1PosCheck.pdf>
-Package pdftex.def Info: ./Figures/1990 KC1PosCheck.pdf  used on input line 330.
+Package pdftex.def Info: ./Figures/1990 KC1PosCheck.pdf  used on input line 313.
 (pdftex.def)             Requested size: 364.19664pt x 291.35536pt.
 File: logos/UC.png Graphic file (type png)
 <use logos/UC.png>
-Package pdftex.def Info: logos/UC.png  used on input line 343.
+Package pdftex.def Info: logos/UC.png  used on input line 326.
 (pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
  [5]
 Underfull \vbox (badness 4303) has occurred while \output is active []
 
 File: logos/UC.png Graphic file (type png)
 <use logos/UC.png>
-Package pdftex.def Info: logos/UC.png  used on input line 358.
+Package pdftex.def Info: logos/UC.png  used on input line 341.
 (pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
  [6 <./Figures/interpPos_29_1_2_2.pdf>]
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 360.
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 343.
 File: logos/UC.png Graphic file (type png)
 <use logos/UC.png>
-Package pdftex.def Info: logos/UC.png  used on input line 378.
+Package pdftex.def Info: logos/UC.png  used on input line 361.
 (pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
  [7 <./Figures/1990 KC1PosCheck.pdf>]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 391.
+               Default added (so using `tbp') on input line 374.
 
 <./Figures/DetectMatchPosUlysses.pdf, id=656, 1011.78pt x 578.16pt>
 File: ./Figures/DetectMatchPosUlysses.pdf Graphic file (type pdf)
 <use ./Figures/DetectMatchPosUlysses.pdf>
-Package pdftex.def Info: ./Figures/DetectMatchPosUlysses.pdf  used on input line 393.
+Package pdftex.def Info: ./Figures/DetectMatchPosUlysses.pdf  used on input line 376.
 (pdftex.def)             Requested size: 455.24408pt x 260.14313pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 File: logos/UC.png Graphic file (type png)
 <use logos/UC.png>
-Package pdftex.def Info: logos/UC.png  used on input line 404.
+Package pdftex.def Info: logos/UC.png  used on input line 387.
 (pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
  [8 <./Figures/DetectMatchPosUlysses.pdf>]
 <./Figures/SingleBodyLCUlyssesgapSpan.pdf, id=727, 867.24pt x 433.62pt>
 File: ./Figures/SingleBodyLCUlyssesgapSpan.pdf Graphic file (type pdf)
 <use ./Figures/SingleBodyLCUlyssesgapSpan.pdf>
-Package pdftex.def Info: ./Figures/SingleBodyLCUlyssesgapSpan.pdf  used on input line 437.
+Package pdftex.def Info: ./Figures/SingleBodyLCUlyssesgapSpan.pdf  used on input line 420.
 (pdftex.def)             Requested size: 455.24408pt x 227.62082pt.
 
 Underfull \vbox (badness 6316) has occurred while \output is active []
 
 File: logos/UC.png Graphic file (type png)
 <use logos/UC.png>
-Package pdftex.def Info: logos/UC.png  used on input line 449.
+Package pdftex.def Info: logos/UC.png  used on input line 432.
 (pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
  [9]
 File: logos/UC.png Graphic file (type png)
 <use logos/UC.png>
-Package pdftex.def Info: logos/UC.png  used on input line 467.
+Package pdftex.def Info: logos/UC.png  used on input line 450.
 (pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
  [10 <./Figures/SingleBodyLCUlyssesgapSpan.pdf>]
 <./Figures/PeriodogramUlyssesResid.pdf, id=824, 867.24pt x 867.24pt>
 File: ./Figures/PeriodogramUlyssesResid.pdf Graphic file (type pdf)
 <use ./Figures/PeriodogramUlyssesResid.pdf>
-Package pdftex.def Info: ./Figures/PeriodogramUlyssesResid.pdf  used on input line 504.
+Package pdftex.def Info: ./Figures/PeriodogramUlyssesResid.pdf  used on input line 487.
 (pdftex.def)             Requested size: 455.24408pt x 455.24167pt.
 File: logos/UC.png Graphic file (type png)
 <use logos/UC.png>
-Package pdftex.def Info: logos/UC.png  used on input line 526.
+Package pdftex.def Info: logos/UC.png  used on input line 509.
 (pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
  [11]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 File: logos/UC.png Graphic file (type png)
 <use logos/UC.png>
-Package pdftex.def Info: logos/UC.png  used on input line 527.
+Package pdftex.def Info: logos/UC.png  used on input line 510.
 (pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
  [12 <./Figures/PeriodogramUlyssesResid.pdf>]
 <./Figures/LCBDcompFinal.pdf, id=917, 867.24pt x 433.62pt>
 File: ./Figures/LCBDcompFinal.pdf Graphic file (type pdf)
 <use ./Figures/LCBDcompFinal.pdf>
-Package pdftex.def Info: ./Figures/LCBDcompFinal.pdf  used on input line 573.
+Package pdftex.def Info: ./Figures/LCBDcompFinal.pdf  used on input line 556.
 (pdftex.def)             Requested size: 455.24408pt x 227.62082pt.
 
 Underfull \vbox (badness 3039) has occurred while \output is active []
 
 File: logos/UC.png Graphic file (type png)
 <use logos/UC.png>
-Package pdftex.def Info: logos/UC.png  used on input line 588.
+Package pdftex.def Info: logos/UC.png  used on input line 571.
 (pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
  [13]
 File: logos/UC.png Graphic file (type png)
 <use logos/UC.png>
-Package pdftex.def Info: logos/UC.png  used on input line 602.
+Package pdftex.def Info: logos/UC.png  used on input line 585.
 (pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
  [14 <./Figures/LCBDcompFinal.pdf>]
 File: logos/UC.png Graphic file (type png)
 <use logos/UC.png>
-Package pdftex.def Info: logos/UC.png  used on input line 639.
+Package pdftex.def Info: logos/UC.png  used on input line 622.
 (pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
  [15]
 <./Figures/AEIplotqualCut.pdf, id=998, 867.24pt x 433.62pt>
 File: ./Figures/AEIplotqualCut.pdf Graphic file (type pdf)
 <use ./Figures/AEIplotqualCut.pdf>
-Package pdftex.def Info: ./Figures/AEIplotqualCut.pdf  used on input line 647.
+Package pdftex.def Info: ./Figures/AEIplotqualCut.pdf  used on input line 630.
 (pdftex.def)             Requested size: 455.24408pt x 227.62082pt.
 <./Figures/classesBarqualCut.pdf, id=1002, 867.24pt x 433.62pt>
 File: ./Figures/classesBarqualCut.pdf Graphic file (type pdf)
 <use ./Figures/classesBarqualCut.pdf>
-Package pdftex.def Info: ./Figures/classesBarqualCut.pdf  used on input line 666.
+Package pdftex.def Info: ./Figures/classesBarqualCut.pdf  used on input line 649.
 (pdftex.def)             Requested size: 455.24408pt x 227.62082pt.
 <./Figures/pointsMatchesNumberHistdoubleChangedbound.pdf, id=1005, 867.24pt x 433.62pt>
 File: ./Figures/pointsMatchesNumberHistdoubleChangedbound.pdf Graphic file (type pdf)
 <use ./Figures/pointsMatchesNumberHistdoubleChangedbound.pdf>
-Package pdftex.def Info: ./Figures/pointsMatchesNumberHistdoubleChangedbound.pdf  used on input line 678.
+Package pdftex.def Info: ./Figures/pointsMatchesNumberHistdoubleChangedbound.pdf  used on input line 661.
 (pdftex.def)             Requested size: 455.24408pt x 227.62082pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 File: logos/UC.png Graphic file (type png)
 <use logos/UC.png>
-Package pdftex.def Info: logos/UC.png  used on input line 682.
+Package pdftex.def Info: logos/UC.png  used on input line 665.
 (pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
  [16 <./Figures/AEIplotqualCut.pdf>]
 <./Figures/recoverdHistBkgLimof10AtanBothLegendFixed.pdf, id=1052, 867.24pt x 433.62pt>
 File: ./Figures/recoverdHistBkgLimof10AtanBothLegendFixed.pdf Graphic file (type pdf)
 <use ./Figures/recoverdHistBkgLimof10AtanBothLegendFixed.pdf>
-Package pdftex.def Info: ./Figures/recoverdHistBkgLimof10AtanBothLegendFixed.pdf  used on input line 696.
+Package pdftex.def Info: ./Figures/recoverdHistBkgLimof10AtanBothLegendFixed.pdf  used on input line 679.
 (pdftex.def)             Requested size: 455.24408pt x 227.62082pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 File: logos/UC.png Graphic file (type png)
 <use logos/UC.png>
-Package pdftex.def Info: logos/UC.png  used on input line 713.
+Package pdftex.def Info: logos/UC.png  used on input line 696.
 (pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
  [17 <./Figures/classesBarqualCut.pdf>]
 File: logos/UC.png Graphic file (type png)
 <use logos/UC.png>
-Package pdftex.def Info: logos/UC.png  used on input line 713.
+Package pdftex.def Info: logos/UC.png  used on input line 696.
 (pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
  [18 <./Figures/pointsMatchesNumberHistdoubleChangedbound.pdf> <./Figures/recoverdHistBkgLimof10AtanBothLegendFixed.pdf>]
 <./Figures/perDistr.pdf, id=1217, 867.24pt x 433.62pt>
 File: ./Figures/perDistr.pdf Graphic file (type pdf)
 <use ./Figures/perDistr.pdf>
-Package pdftex.def Info: ./Figures/perDistr.pdf  used on input line 733.
+Package pdftex.def Info: ./Figures/perDistr.pdf  used on input line 716.
 (pdftex.def)             Requested size: 455.24408pt x 227.62082pt.
 File: logos/UC.png Graphic file (type png)
 <use logos/UC.png>
-Package pdftex.def Info: logos/UC.png  used on input line 742.
+Package pdftex.def Info: logos/UC.png  used on input line 725.
 (pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
  [19 <./Figures/perDistr.pdf>]
 <./Figures/delMagDistr.pdf, id=1256, 867.24pt x 433.62pt>
 File: ./Figures/delMagDistr.pdf Graphic file (type pdf)
 <use ./Figures/delMagDistr.pdf>
-Package pdftex.def Info: ./Figures/delMagDistr.pdf  used on input line 745.
+Package pdftex.def Info: ./Figures/delMagDistr.pdf  used on input line 728.
 (pdftex.def)             Requested size: 455.24408pt x 227.62082pt.
 <./Figures/QualPervsAmp1I.pdf, id=1261, 867.24pt x 433.62pt>
 File: ./Figures/QualPervsAmp1I.pdf Graphic file (type pdf)
 <use ./Figures/QualPervsAmp1I.pdf>
-Package pdftex.def Info: ./Figures/QualPervsAmp1I.pdf  used on input line 766.
+Package pdftex.def Info: ./Figures/QualPervsAmp1I.pdf  used on input line 749.
 (pdftex.def)             Requested size: 455.24408pt x 227.62082pt.
 
 
@@ -1192,101 +1188,103 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 File: logos/UC.png Graphic file (type png)
 <use logos/UC.png>
-Package pdftex.def Info: logos/UC.png  used on input line 788.
+Package pdftex.def Info: logos/UC.png  used on input line 771.
 (pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
 [20 <./Figures/delMagDistr.pdf>]
 <./Figures/Diam-FreqPlotThisWork.pdf, id=1318, 867.24pt x 433.62pt>
 File: ./Figures/Diam-FreqPlotThisWork.pdf Graphic file (type pdf)
 <use ./Figures/Diam-FreqPlotThisWork.pdf>
-Package pdftex.def Info: ./Figures/Diam-FreqPlotThisWork.pdf  used on input line 794.
+Package pdftex.def Info: ./Figures/Diam-FreqPlotThisWork.pdf  used on input line 777.
 (pdftex.def)             Requested size: 455.24408pt x 227.62082pt.
 <./Figures/M23andP20Comp.pdf, id=1336, 867.24pt x 433.62pt>
 File: ./Figures/M23andP20Comp.pdf Graphic file (type pdf)
 <use ./Figures/M23andP20Comp.pdf>
-Package pdftex.def Info: ./Figures/M23andP20Comp.pdf  used on input line 817.
+Package pdftex.def Info: ./Figures/M23andP20Comp.pdf  used on input line 800.
 (pdftex.def)             Requested size: 455.24408pt x 227.62082pt.
 
 Underfull \vbox (badness 2980) has occurred while \output is active []
 
 File: logos/UC.png Graphic file (type png)
 <use logos/UC.png>
-Package pdftex.def Info: logos/UC.png  used on input line 828.
+Package pdftex.def Info: logos/UC.png  used on input line 811.
 (pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
  [21 <./Figures/QualPervsAmp1I.pdf>]
 File: logos/UC.png Graphic file (type png)
 <use logos/UC.png>
-Package pdftex.def Info: logos/UC.png  used on input line 834.
+Package pdftex.def Info: logos/UC.png  used on input line 817.
 (pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
  [22 <./Figures/Diam-FreqPlotThisWork.pdf> <./Figures/M23andP20Comp.pdf>]
 PGFPlots: reading {tabDat.dat}
 File: logos/UC.png Graphic file (type png)
 <use logos/UC.png>
-Package pdftex.def Info: logos/UC.png  used on input line 872.
+Package pdftex.def Info: logos/UC.png  used on input line 855.
 (pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
  [23]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 File: logos/UC.png Graphic file (type png)
 <use logos/UC.png>
-Package pdftex.def Info: logos/UC.png  used on input line 908.
+Package pdftex.def Info: logos/UC.png  used on input line 898.
 (pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
  [24]
 File: logos/UC.png Graphic file (type png)
 <use logos/UC.png>
-Package pdftex.def Info: logos/UC.png  used on input line 944.
+Package pdftex.def Info: logos/UC.png  used on input line 925.
 (pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
  [25]
-<Figures/PeriodogramCeresResid.pdf, id=1581, 867.24pt x 867.24pt>
+<Figures/PeriodogramCeresResid.pdf, id=1584, 867.24pt x 867.24pt>
 File: Figures/PeriodogramCeresResid.pdf Graphic file (type pdf)
 <use Figures/PeriodogramCeresResid.pdf>
-Package pdftex.def Info: Figures/PeriodogramCeresResid.pdf  used on input line 981.
+Package pdftex.def Info: Figures/PeriodogramCeresResid.pdf  used on input line 962.
 (pdftex.def)             Requested size: 455.24408pt x 455.24167pt.
-<Figures/PeriodogramTakashimizunoResid.pdf, id=1584, 867.24pt x 867.24pt>
+<Figures/PeriodogramTakashimizunoResid.pdf, id=1587, 867.24pt x 867.24pt>
 File: Figures/PeriodogramTakashimizunoResid.pdf Graphic file (type pdf)
 <use Figures/PeriodogramTakashimizunoResid.pdf>
-Package pdftex.def Info: Figures/PeriodogramTakashimizunoResid.pdf  used on input line 988.
+Package pdftex.def Info: Figures/PeriodogramTakashimizunoResid.pdf  used on input line 969.
 (pdftex.def)             Requested size: 455.24408pt x 455.24167pt.
-<Figures/PeriodogramWuyeesunResid.pdf, id=1587, 867.24pt x 867.24pt>
+<Figures/PeriodogramWuyeesunResid.pdf, id=1590, 867.24pt x 867.24pt>
 File: Figures/PeriodogramWuyeesunResid.pdf Graphic file (type pdf)
 <use Figures/PeriodogramWuyeesunResid.pdf>
-Package pdftex.def Info: Figures/PeriodogramWuyeesunResid.pdf  used on input line 999.
+Package pdftex.def Info: Figures/PeriodogramWuyeesunResid.pdf  used on input line 980.
 (pdftex.def)             Requested size: 455.24408pt x 455.24167pt.
-<Figures/PeriodogramLocarnoResid.pdf, id=1590, 867.24pt x 867.24pt>
+<Figures/PeriodogramLocarnoResid.pdf, id=1593, 867.24pt x 867.24pt>
 File: Figures/PeriodogramLocarnoResid.pdf Graphic file (type pdf)
 <use Figures/PeriodogramLocarnoResid.pdf>
-Package pdftex.def Info: Figures/PeriodogramLocarnoResid.pdf  used on input line 1008.
+Package pdftex.def Info: Figures/PeriodogramLocarnoResid.pdf  used on input line 989.
 (pdftex.def)             Requested size: 455.24408pt x 455.24167pt.
-<Figures/Periodogram1999 VN44Resid.pdf, id=1593, 867.24pt x 867.24pt>
+<Figures/Periodogram1999 VN44Resid.pdf, id=1596, 867.24pt x 867.24pt>
 File: Figures/Periodogram1999 VN44Resid.pdf Graphic file (type pdf)
 <use Figures/Periodogram1999 VN44Resid.pdf>
-Package pdftex.def Info: Figures/Periodogram1999 VN44Resid.pdf  used on input line 1016.
+Package pdftex.def Info: Figures/Periodogram1999 VN44Resid.pdf  used on input line 997.
 (pdftex.def)             Requested size: 455.24408pt x 455.24167pt.
 File: logos/UC.png Graphic file (type png)
 <use logos/UC.png>
-Package pdftex.def Info: logos/UC.png  used on input line 1022.
+Package pdftex.def Info: logos/UC.png  used on input line 1003.
 (pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
  [26]
 File: logos/UC.png Graphic file (type png)
 <use logos/UC.png>
-Package pdftex.def Info: logos/UC.png  used on input line 1022.
+Package pdftex.def Info: logos/UC.png  used on input line 1003.
 (pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
  [27 <./Figures/PeriodogramCeresResid.pdf>]
 File: logos/UC.png Graphic file (type png)
 <use logos/UC.png>
-Package pdftex.def Info: logos/UC.png  used on input line 1022.
+Package pdftex.def Info: logos/UC.png  used on input line 1003.
 (pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
  [28 <./Figures/PeriodogramTakashimizunoResid.pdf>]
 File: logos/UC.png Graphic file (type png)
 <use logos/UC.png>
-Package pdftex.def Info: logos/UC.png  used on input line 1022.
+Package pdftex.def Info: logos/UC.png  used on input line 1003.
 (pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
  [29 <./Figures/PeriodogramWuyeesunResid.pdf>]
 File: logos/UC.png Graphic file (type png)
 <use logos/UC.png>
-Package pdftex.def Info: logos/UC.png  used on input line 1022.
+Package pdftex.def Info: logos/UC.png  used on input line 1003.
 (pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
  [30 <./Figures/PeriodogramLocarnoResid.pdf>]
 File: logos/UC.png Graphic file (type png)
 <use logos/UC.png>
-Package pdftex.def Info: logos/UC.png  used on input line 1022.
+Package pdftex.def Info: logos/UC.png  used on input line 1003.
 (pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
  [31 <./Figures/Periodogram1999 VN44Resid.pdf>] (./FinalReportDraft.bbl
 File: logos/UC.png Graphic file (type png)
@@ -1354,7 +1352,7 @@ See the caption package documentation for explanation.
 
 File: logos/UC.png Graphic file (type png)
 <use logos/UC.png>
-Package pdftex.def Info: logos/UC.png  used on input line 1027.
+Package pdftex.def Info: logos/UC.png  used on input line 1008.
 (pdftex.def)             Requested size: 64.24376pt x 38.34549pt.
 [40] (./FinalReportDraft.aux)
  ***********
@@ -1362,21 +1360,21 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `FinalReportDraft.out' has not changed.
-(rerunfilecheck)             Checksum: C02ACEAF172700605552077382630B15;4283.
+(rerunfilecheck)             Checksum: 8C540E833742A22C71ABAAE707493AD8;4838.
  ) 
 Here is how much of TeX's memory you used:
- 42883 strings out of 474137
- 1000674 string characters out of 5744488
+ 42864 strings out of 474137
+ 1000090 string characters out of 5744488
  1949187 words of memory out of 5000000
- 64365 multiletter control sequences out of 15000+600000
+ 64350 multiletter control sequences out of 15000+600000
  577222 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  125i,17n,121p,4353b,1170s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfcc1728.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfcc2074.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sftt1440.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfxc2074.pfb>
-Output written on FinalReportDraft.pdf (46 pages, 2223127 bytes).
+Output written on FinalReportDraft.pdf (46 pages, 2223711 bytes).
 PDF statistics:
- 2196 PDF objects out of 2487 (max. 8388607)
- 1097 compressed objects within 11 object streams
+ 2198 PDF objects out of 2487 (max. 8388607)
+ 1099 compressed objects within 11 object streams
  162 named destinations out of 1000 (max. 500000)
  331 words of extra memory for PDF output out of 10000 (max. 10000000)
 

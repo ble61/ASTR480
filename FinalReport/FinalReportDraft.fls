@@ -365,8 +365,6 @@ INPUT /usr/local/texlive/2023/texmf-dist/tex/generic/pgf/libraries/pgflibraryplo
 INPUT /usr/local/texlive/2023/texmf-dist/tex/generic/pgf/libraries/pgflibraryplotmarks.code.tex
 INPUT /usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstable.code.tex
 INPUT /usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstable.coltype.code.tex
-INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/chngcntr/chngcntr.sty
-INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/chngcntr/chngcntr.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/footmisc/footmisc.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/footmisc/footmisc.sty
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/ecrm1000.tfm

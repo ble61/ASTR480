@@ -14,7 +14,6 @@
 \makeatother
 
 
-\usepackage{chngcntr}
 
 \usepackage[para]{footmisc}
 
@@ -103,7 +102,7 @@ All the analysis of the photometry was also done by me.
 % %*Background
 The Transiting Exoplanet Survey Satellite (TESS) is a wealth of high-cadence photometric data. 
 Asteroids move across the TESS field, and their intrinsic rotation varies their brightness periodically. 
-Here, I present an analysis of the asteroids in TESS sector 29, as an addition to the \texttt{TESSELLATE} pipeline's analysis.
+Here, an analysis of the asteroids in TESS sector 29 is presented, as an addition to the \texttt{TESSELLATE} pipeline's analysis.
 
 % %*Methods
 After obtaining the positions of the asteroids in \qty{12}{\hour} intervals, they are interpolated to match the cadence of the TESS images (\qty{10}{\min}).
@@ -144,7 +143,7 @@ This project aims to find and characterise the light curves of all the asteroids
 Combining knowledge of these asteroids positions with the high-cadence imaging of TESS should allow for the determination of rotation periods of these small bodies, and the amplitude of the variation in their lightcurves.
 
 
-\subsection{Asteroids}\label{SubSec:Asteroid}
+\subsection{Asteroids and their Rotation Properties}\label{SubSec:Asteroid}
 
 Asteroids are a key class of solar system objects. Much is known about them already, but there is always more to learn.
 Three values characterise the orbits of asteroids, the proper elements of the object.
@@ -153,25 +152,10 @@ Typical values for main belt asteroids are an $a$ of \qtyrange{2}{3.3}{\au}, an 
 Comets have undefined $a$ and larger $e$, with some long-period comets having $e\approx 1$, but the typical range is \qtyrange{0.2}{0.7}{} \citep{Lewis2012}.
 Interstellar objects (ISOs) have $e>1$ as they are on unbound hyperbolic trajectories \citep{McGlynn1989}.
 
-
-% The semi-major axis, $a$, is the largest distance from the sun that the asteroid achieves on its elliptical orbit.
-% Main belt asteroids have a typical $a$ of \qtyrange{2}{3.3}{\au} \citep{DeMeo2015}.
-% The bounds between the inner, middle and outer main belt at \qty{2.5}{\au} and \qty{2.82}{\au}, these separations are due to resonances with Jupiter (the 3:1 and 5:2 mean motion resonances mark the edges of middle main belt) and Saturn (the $\nu_6$ secular resonance cuts off the lowest $a$ edge of the inner belt) carving swathes where asteroids cannot be in stable orbits.
-
-% The eccentricity, $e$, of this orbit is the next proper element. $e=0$ implies a perfectly circular orbit, $0<e<1$ are ellipses, $e=1$ give a parabolic orbit, and $e>1$ are unbound, hyperbolic orbits.
-% Main belt asteroids have small $e$, in the range of  \citep{DeMeo2015}
-% Comets have larger $e$, with some long period comets having $e\approx 1$, but the typical range is \qtyrange{0.2}{0.7}{} \citep{Lewis2012}.
-% Interstellar objects (ISOs) have $e>1$ as they are on unbound hyperbolic trajectories.
-
-% The inclination, $i$, of asteroids is also a key orbital element, it is the angle relative to the ecliptic plane.
-% In principle asteroids can span the whole range of inclinations, though they rarely do.
-% Main belt asteroids have typical inclinations of \qtyrange{0}{30}{\degree} \citep{DeMeo2015}, so the TESS cameras closer to the ecliptic plane are expected to have the most asteroids in their fields.
-
 Asteroids can be grouped into families based on  the  clustering of the proper orbital elements and similarities in their colour or spectra \citep{Nesvorny2015}.
 These families are named for their largest member.
 Families are thought to all originate from the same body that was destroyed by a collision earlier in the solar system's history.
 
-%TODO Rotation of asteroids
 As an asteroid rotates, the amount of sunlight reflected changes with time.
 This produces a lightcurve that is often sinusoidal in appearance.
 These lightcurves are normally ``double-peaked'', with two maximums for one full rotation, due to symmetries in the object's shape. 
@@ -228,9 +212,8 @@ The peak to peak amplitude variation of this ISO was \qty{2.5}{\mag} \citep{Meec
 With the full sky survey of bright asteroids, I aim to see how rare \omuamua is, by finding asteroids with large amplitude variations.
 
 
-\subsection{TESS}\label{SubSec:TESS}
+\subsection{TESS and its History of Asteroid Analysis}\label{SubSec:TESS}
 
-%Why TESS
 TESS is a large area, high-cadence imaging, space telescope  \citep{Ricker2014}.
 TESS is tasked with observing one piece of sky for \qty{27}{\day} at a time, which defines a sector.
 The telescope delivers \qtyproduct{96 x 24}{\degree} full frame images (FFIs).
@@ -629,7 +612,7 @@ Including those periods that find a different alias of the rotation rate, fallin
 Considering that the detected periods are doubled to obtain the rotation period, the \qty{70}{\percent} accuracy is a better reflection of the data.  
 
 
-\subsection{Asteroid Properties}\label{SubSec:AstPropRes} %TODO fix name
+\subsection{The Distribution of Asteroid Properties}\label{SubSec:AstPropRes}
 
 A plot of the semi-major axis against the other proper elements, eccentricity and inclination, is shown in \autoref{Fig:AEI}.
 Looking at the data as a whole, all objects in the field of the instrument during the sector, with $V \leq \qty{20}{\mag}$, are plotted.
@@ -725,7 +708,7 @@ The shallower decrease in efficiency also affects the uncertainty.
 As it is no longer strictly a brightness cut-off that is being imposed on the data, the recovery fraction does not quite follow the $\arctan$ shape.
 
 
-\subsection{Rotation Period Analysis Results}\label{SubSec:PerRes}
+\subsection{Rotation Period and Amplitude Variation Results}\label{SubSec:PerRes}
 
 
 \begin{figure}[!b]
@@ -752,7 +735,7 @@ The mode of the distribution is a period less than \qty{1}{\day}, by a factor of
 The distribution of the amplitude of the lightcurves is given in \autoref{Fig:ampDistr}.
 The peak of the distribution at $\frac13$ \unit{\mag} and is right skewed.
 The high $\Delta m$ values are from lightcurves of dubious quality.
-Manually checking the analysis, it is clear that these asteroids above $\Delta m =\qty{1.5}{\mag}$ have all been affected contamination in their lightcurves, and have untrustworth photometry.
+Manually checking the analysis, it is clear that these asteroids above $\Delta m =\qty{1.5}{\mag}$ have all been affected contamination in their lightcurves, and have untrustworthy photometry.
 Some examples are given in the appendix, Figures \ref{ApFig:Takashimizuno} \ref{ApFig:Wuyeesun} and \ref{ApFig:Locarno}
 
 It is unclear how to avoid such contamination.
@@ -890,7 +873,6 @@ This technique once again biases against long rotation periods, which combining 
 
 Lomb-Scargle periodograms can deal with large gaps in the time data, but would require the flux values to have the same normalisation.
 \texttt{TESSELLATE} is self-consistent in the data reduction for a sector, but comparing fluxes between sectors may have some difficulties.
-By assuming the mean flux of the asteroid should be physically constant, subtracting this off the lightcurves before the periodogram is run, as is already done, will start to mitigate this difference. 
 There are also phase and viewing angle effects on the lightcurve that are important to correct for with large time gaps. %????
 These were not considered for the single sector analysis because the change in these values is not significant over a month.
 
@@ -916,24 +898,23 @@ These lightcurves then underwent minor cleaning to make sure there was no double
 
 A Lomb-Scargle periodogram was used to detect the periods of each object. 
 From the model that \texttt{Astropy} determined was the best fit to the data, a $\Delta m$ was calculated to quantify the amplitude of the lightcurve. 
-The distributions of these broadly agree with the literature. 
+The distributions of these properties broadly agree with the literature. 
 
 Of the 5664 objects with $V<\qty{20}{\mag}$ in found in sector 29, the rotation properties of 374 asteroids are calculated. 
-These are the objects that have met all the requirements placed on their lightcurve and periodogram, and the checks were found to be \qty{70}{\percent} accurate.
+These are the objects that have met all the requirements placed on their lightcurve and periodogram, and the checks were found to be \qty{70}{\percent} reliable.
 59 of these asteroids have rotation periods documented in the LCDB already \citep{Warner2009}.
-315 new asteroid rotation periods have been determined, as well as the amplitude of the variation in the lightcurve, \qty{80}{\percent} of the total asteroids that pass the checks.
+So 315 new asteroid rotation periods have been determined, as well as the amplitude of the variation in the lightcurve, \qty{80}{\percent} of the total asteroids that pass the checks.
 
-Some bodies appear to have more extreme variation of their lightcurves that the unusual \omuamuans.
+Some bodies appear to have more extreme variation of their lightcurves than the unusual \omuamuans.
 These were checked and have contamination in the lightcurves. 
 This contamination has managed to pass undetected through sigma-clipping and other quality checks on the periodogram. 
-There is evidently a slight issue with my checks 
-
+There is evidently a issue with my checks, and more data will help to refine them. 
 
 I have shown that \texttt{TESSELLATE} detects asteroids far less often than they appear in the FFIs.
 Most objects are matches $<100$ times, while the forced photometry lightcurves average more than 2000 observations. 
 Those that are matched to TESSELLATE detections can be filtered out of further transient searches. 
-The forced photometry detects more than \qty{50}{\percent} of asteroids brighter than 
-
+The forced photometry detects more than \qty{50}{\percent} of asteroids brighter than $V = \qty{16.36(0.73)}{\mag}$ from analysis of the recovery fraction.
+This agrees with other work on the detection efficiency of \texttt{TESSELLATE}
 
 The main extension of this work is to analyse more TESS sectors. 
 Gathering a larger sample size is always beneficial. 
@@ -972,8 +953,8 @@ This research made use of Photutils, an Astropy package for detection and photom
 \renewcommand{\thefigure}{A.\arabic{figure}}
 \setcounter{figure}{0}
 
-Here I present some more periodogram examples, Figures \ref{ApFig:Ceres} \ref{ApFig:Takashimizuno}, \ref{ApFig:Wuyeesun} and \ref{ApFig:Locarno}.
-This provides context to what I claim in text especially about the contamination of the lightcurves.
+Here I present some more periodogram examples, Figures \ref{ApFig:Ceres} \ref{ApFig:Takashimizuno}, \ref{ApFig:Wuyeesun} \ref{ApFig:Locarno}, and \ref{ApFig:1999VN44}.
+This provides context to what I claim in the text, especially about the contamination of the lightcurves.
 As they are all so similar to \autoref{Fig:PeriodEx} and quite large, so I do not place them where they are referred to.
 
 \begin{figure}
@@ -1015,7 +996,7 @@ As they are all so similar to \autoref{Fig:PeriodEx} and quite large, so I do no
   \centering
   \includegraphics[width = \textwidth]{Figures/Periodogram1999 VN44Resid.pdf}
   \caption[(36240) 1999 VN44 Periodogram]{Same as \autoref{Fig:PeriodEx}, but for (36240) 1999 VN44.
-  This object was in the data of both \citet{Pal2020} and \citet{McNeill2023}, but the calculated period here was not the same.}
+  This object was in the data of both \citet{Pal2020} and \citet{McNeill2023}, but period the calculated here was not the same, due to the low mean flux.}
   \label{ApFig:1999VN44}
 \end{figure}
 
