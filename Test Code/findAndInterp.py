@@ -78,7 +78,7 @@ def _Skybotquery(ra, dec, times, radius=10/60, location='C57', cache=False):
             raise IOError("SkyBot Solar System query failed.\n"
                           "URL used:\n" + url_queried + "\n"
                           "Response received:\n" + open(response).read())
-        res = pd.read_csv(response, delimiter='|', skiprows=2)
+        res = pd.read_csv(response, delimiter='|', skiprows=2, on_bad_lines='warn')
         if len(res) > 0:
             res['epoch'] = time
             res.rename({'# Num ': 'Num', ' Name ': 'Name', ' RA(h) ': 'RA', ' DE(deg) ': 'Dec',
@@ -139,10 +139,12 @@ def querySB(targetPos: list, qRad: float = 10.0, qLoc: str = "C57", numTimesteps
     timeList = t_i + dt*np.arange(0, numTimesteps)
     result = pd.DataFrame()
 
-    while len(result) == 0:  # so if query timesout, it will restart with the cache
+    # while len(result) == 0:  # so if query timesout, it will restart with the cache
+        # try:
+    queryDone = False
+    while not queryDone: #so if query timesout, it will restart with the cache
         try:
-            result, responses = _Skybotquery(ra_i, dec_i, timeList.jd,
-                                             radius=qRad, location=qLoc, cache=True)  # timeout throws error, so need to be in try/except to not close
+            result, responses = _Skybotquery(ra_i, dec_i, timeList.jd,radius=qRad, location=qLoc, cache=True)  # timeout throws error, so need to be in try/except to not close
         except Exception as e:
             print(e)
             continue  # restarts query with cache
@@ -153,6 +155,8 @@ def querySB(targetPos: list, qRad: float = 10.0, qLoc: str = "C57", numTimesteps
             result = pd.DataFrame(data=[[np.nan, "There Were No Asteroids", np.nan, np.nan, np.nan, np.nan]], columns=[
                                   "Num", "Name", "RA", "Dec", "Mv", "epoch"])
             break  # to get out of while
+        queryDone=True
+        break
 
     brightResult = result.loc[result["Mv"] <= magLim].reset_index(drop=True)
 
@@ -215,7 +219,7 @@ def get_properties_Horizons(asteroidsDf, time, loc: str = "500@10") -> pd.DataFr
 def find_asteroids(sector, cam, ccd, cut):
 
     res, timeList, responses = querySB(setupQuery(
-        sector, cam, ccd, cut), numTimesteps=54, qRad=3.05)
+        sector, cam, ccd, cut), numTimesteps=54, qRad=2.3)
 
     targetWSC = fits.open(f"../OzData/{sector}_{cam}_{ccd}_{cut}_wcs.fits")[0]
     w = wcs.WCS(targetWSC.header)
@@ -422,7 +426,7 @@ def plotExpectedPos(posDf: pd.DataFrame, timeList: npt.ArrayLike, targetPos: lis
     # proj. things #! I don't understand
     w.wcs.ctype = ["RA---AIR", "DEC--AIR"]
     w.wcs.set_pv([(2, 1, 45.0)])
-
+    
     # Set up figure with WCS
     # fig = plt.figure(figsize=(12, 12))
     fig = plt.figure(figsize=(10, 8))
@@ -525,10 +529,10 @@ def plotExpectedPos(posDf: pd.DataFrame, timeList: npt.ArrayLike, targetPos: lis
 # // One that breaks [22, 4, 1, 7]
 
 
-sector = 22
+sector = 32
 cam = 1
-ccd = 3
-cut = 7
+ccd = 2
+cut = 13
 
 
 resDf, responses, astrProps = find_asteroids(sector, cam, ccd, cut)
@@ -552,7 +556,7 @@ plotExpectedPos(resDf, frameTimes, setupQuery(sector, cam, ccd, cut),
 # TODO
 # //save out df of pos properties name:pos(t,x,y) from interpolations (name repeated)
 # //save out df of name:num:avgMag:a:e:i:H + other properties of asteroid ?known period? 1 row per name. Other file will add found Period, lc properties etc
-
+kill
 
 unqNames = np.unique(resDf["Name"])
 
