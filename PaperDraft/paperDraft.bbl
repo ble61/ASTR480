@@ -1,130 +1,89 @@
 \begin{thebibliography}{}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\providecommand{\url}[1]{\href{#1}{#1}}
+\providecommand{\dodoi}[1]{doi:~\href{http://doi.org/#1}{\nolinkurl{#1}}}
+\providecommand{\doeprint}[1]{\href{http://ascl.net/#1}{\nolinkurl{http://ascl.net/#1}}}
+\providecommand{\doarXiv}[1]{\href{https://arxiv.org/abs/#1}{\nolinkurl{https://arxiv.org/abs/#1}}}
 
-\bibitem[{Astropy Collaboration} et~al., 2022]{Astropy2022}
-{Astropy Collaboration}, Price-Whelan, A.~M., Lim, P.~L., Earl, N., Starkman, N., Bradley, L., Shupe, D.~L., Patil, A.~A., Corrales, L., Brasseur, C.~E., Nöthe, M., Donath, A., Tollerud, E., Morris, B.~M., Ginsburg, A., Vaher, E., Weaver, B.~A., Tocknell, J., Jamieson, W., van Kerkwijk, M.~H., Robitaille, T.~P., Merry, B., Bachetti, M., Günther, H.~M., Aldcroft, T.~L., Alvarado-Montes, J.~A., Archibald, A.~M., Bódi, A., Bapat, S., Barentsen, G., Bazán, J., Biswas, M., Boquien, M., Burke, D.~J., Cara, D., Cara, M., Conroy, K.~E., Conseil, S., Craig, M.~W., Cross, R.~M., Cruz, K.~L., D'Eugenio, F., Dencheva, N., Devillepoix, H. A.~R., Dietrich, J.~P., Eigenbrot, A.~D., Erben, T., Ferreira, L., Foreman-Mackey, D., Fox, R., Freij, N., Garg, S., Geda, R., Glattly, L., Gondhalekar, Y., Gordon, K.~D., Grant, D., Greenfield, P., Groener, A.~M., Guest, S., Gurovich, S., Handberg, R., Hart, A., Hatfield-Dodds, Z., Homeier, D., Hosseinzadeh, G., Jenness, T., Jones, C.~K., Joseph, P., Kalmbach, J.~B., Karamehmetoglu, E., Kałuszyński, M., Kelley, M. S.~P., Kern, N., Kerzendorf, W.~E., Koch, E.~W., Kulumani, S., Lee, A., Ly, C., Ma, Z., MacBride, C., Maljaars, J.~M., Muna, D., Murphy, N.~A., Norman, H., O'Steen, R., Oman, K.~A., Pacifici, C., Pascual, S., Pascual-Granado, J., Patil, R.~R., Perren, G.~I., Pickering, T.~E., Rastogi, T., Roulston, B.~R., Ryan, D.~F., Rykoff, E.~S., Sabater, J., Sakurikar, P., Salgado, J., Sanghi, A., Saunders, N., Savchenko, V., Schwardt, L., Seifert-Eckert, M., Shih, A.~Y., Jain, A.~S., Shukla, G., Sick, J., Simpson, C., Singanamalla, S., Singer, L.~P., Singhal, J., Sinha, M., Sipőcz, B.~M., Spitler, L.~R., Stansby, D., Streicher, O., Šumak, J., Swinbank, J.~D., Taranu, D.~S., Tewary, N., Tremblay, G.~R., de~Val-Borro, M., Kooten, S. J.~V., Vasović, Z., Verma, S., de~Miranda~Cardoso, J.~V., Williams, P. K.~G., Wilson, T.~J., Winkel, B., Wood-Vasey, W.~M., Xue, R., Yoachim, P., Zhang, C., Zonca, A., Contributors, A.~P., Collaboration, A., Price-Whelan, A.~M., Lim, P.~L., Earl, N., Starkman, N., Bradley, L., Shupe, D.~L., Patil, A.~A., Corrales, L., Brasseur, C.~E., Nöthe, M., Donath, A., Tollerud, E., Morris, B.~M., Ginsburg, A., Vaher, E., Weaver, B.~A., Tocknell, J., Jamieson, W., van Kerkwijk, M.~H., Robitaille, T.~P., Merry, B., Bachetti, M., Günther, H.~M., Aldcroft, T.~L., Alvarado-Montes, J.~A., Archibald, A.~M., Bódi, A., Bapat, S., Barentsen, G., Bazán, J., Biswas, M., Boquien, M., Burke, D.~J., Cara, D., Cara, M., Conroy, K.~E., Conseil, S., Craig, M.~W., Cross, R.~M., Cruz, K.~L., D'Eugenio, F., Dencheva, N., Devillepoix, H. A.~R., Dietrich, J.~P., Eigenbrot, A.~D., Erben, T., Ferreira, L., Foreman-Mackey, D., Fox, R., Freij, N., Garg, S., Geda, R., Glattly, L., Gondhalekar, Y., Gordon, K.~D., Grant, D., Greenfield, P., Groener, A.~M., Guest, S., Gurovich, S., Handberg, R., Hart, A., Hatfield-Dodds, Z., Homeier, D., Hosseinzadeh, G., Jenness, T., Jones, C.~K., Joseph, P., Kalmbach, J.~B., Karamehmetoglu, E., Kałuszyński, M., Kelley, M. S.~P., Kern, N., Kerzendorf, W.~E., Koch, E.~W., Kulumani, S., Lee, A., Ly, C., Ma, Z., MacBride, C., Maljaars, J.~M., Muna, D., Murphy, N.~A., Norman, H., O'Steen, R., Oman, K.~A., Pacifici, C., Pascual, S., Pascual-Granado, J., Patil, R.~R., Perren, G.~I., Pickering, T.~E., Rastogi, T., Roulston, B.~R., Ryan, D.~F., Rykoff, E.~S., Sabater, J., Sakurikar, P., Salgado, J., Sanghi, A., Saunders, N., Savchenko, V., Schwardt, L., Seifert-Eckert, M., Shih, A.~Y., Jain, A.~S., Shukla, G., Sick, J., Simpson, C., Singanamalla, S., Singer, L.~P., Singhal, J., Sinha, M., Sipőcz, B.~M., Spitler, L.~R., Stansby, D., Streicher, O., Šumak, J., Swinbank, J.~D., Taranu, D.~S., Tewary, N., Tremblay, G.~R., de~Val-Borro, M., Kooten, S. J.~V., Vasović, Z., Verma, S., de~Miranda~Cardoso, J.~V., Williams, P. K.~G., Wilson, T.~J., Winkel, B., Wood-Vasey, W.~M., Xue, R., Yoachim, P., Zhang, C., Zonca, A., and Contributors, A.~P. (2022).
-\newblock The astropy project: Sustaining and growing a community-oriented open-source project and the latest major release (v5.0) of the core package.
-\newblock {\em ApJ}, 935:167.
+\bibitem[{{Astropy Collaboration} {et~al.}(2013){Astropy Collaboration}, Robitaille, Tollerud, Greenfield, Droettboom, Bray, Aldcroft, Davis, Ginsburg, Price-Whelan, Kerzendorf, Conley, Crighton, Barbary, Muna, Ferguson, Grollier, Parikh, Nair, Günther, Deil, Woillez, Conseil, Kramer, Turner, Singer, Fox, Weaver, Zabalza, Edwards, Bostroem, Burke, Casey, Crawford, Dencheva, Ely, Jenness, Labrie, Lim, Pierfederici, Pontzen, Ptak, Refsdal, Servillat, \& Streicher}]{Astropy2013}
+{Astropy Collaboration}, Robitaille, T.~P., Tollerud, E.~J., {et~al.} 2013, Astronomy and Astrophysics, 558, A33, \dodoi{10.1051/0004-6361/201322068}
 
-\bibitem[{Astropy Collaboration} et~al., 2018]{Astropy2018}
-{Astropy Collaboration}, Price-Whelan, A.~M., Sipőcz, B.~M., Günther, H.~M., Lim, P.~L., Crawford, S.~M., Conseil, S., Shupe, D.~L., Craig, M.~W., Dencheva, N., Ginsburg, A., VanderPlas, J.~T., Bradley, L.~D., Pérez-Suárez, D., de~Val-Borro, M., Aldcroft, T.~L., Cruz, K.~L., Robitaille, T.~P., Tollerud, E.~J., Ardelean, C., Babej, T., Bach, Y.~P., Bachetti, M., Bakanov, A.~V., Bamford, S.~P., Barentsen, G., Barmby, P., Baumbach, A., Berry, K.~L., Biscani, F., Boquien, M., Bostroem, K.~A., Bouma, L.~G., Brammer, G.~B., Bray, E.~M., Breytenbach, H., Buddelmeijer, H., Burke, D.~J., Calderone, G., Rodríguez, J. L.~C., Cara, M., Cardoso, J. V.~M., Cheedella, S., Copin, Y., Corrales, L., Crichton, D., D'Avella, D., Deil, C., Depagne, {\'E}., Dietrich, J.~P., Donath, A., Droettboom, M., Earl, N., Erben, T., Fabbro, S., Ferreira, L.~A., Finethy, T., Fox, R.~T., Garrison, L.~H., Gibbons, S. L.~J., Goldstein, D.~A., Gommers, R., Greco, J.~P., Greenfield, P., Groener, A.~M., Grollier, F., Hagen, A., Hirst, P., Homeier, D., Horton, A.~J., Hosseinzadeh, G., Hu, L., Hunkeler, J.~S., Ivezi{\`c}, {\v Z}., Jain, A., Jenness, T., Kanarek, G., Kendrew, S., Kern, N.~S., Kerzendorf, W.~E., Khvalko, A., King, J., Kirkby, D., Kulkarni, A.~M., Kumar, A., Lee, A., Lenz, D., Littlefair, S.~P., Ma, Z., Macleod, D.~M., Mastropietro, M., McCully, C., Montagnac, S., Morris, B.~M., Mueller, M., Mumford, S.~J., Muna, D., Murphy, N.~A., Nelson, S., Nguyen, G.~H., Ninan, J.~P., Nöthe, M., Ogaz, S., Oh, S., Parejko, J.~K., Parley, N., Pascual, S., Patil, R., Patil, A.~A., Plunkett, A.~L., Prochaska, J.~X., Rastogi, T., Janga, V.~R., Sabater, J., Sakurikar, P., Seifert, M., Sherbert, L.~E., Sherwood-Taylor, H., Shih, A.~Y., Sick, J., Silbiger, M.~T., Singanamalla, S., Singer, L.~P., Sladen, P.~H., Sooley, K.~A., Sornarajah, S., Streicher, O., Teuben, P., Thomas, S.~W., Tremblay, G.~R., Turner, J. E.~H., Terrón, V., van Kerkwijk, M.~H., de~la Vega, A., Watkins, L.~L., Weaver, B.~A., Whitmore, J.~B., Woillez, J., Zabalza, V., and Contributors, A. (2018).
-\newblock The astropy project: Building an open-science project and status of the v2.0 core package.
-\newblock {\em AJ}, 156:123.
+\bibitem[{{Astropy Collaboration} {et~al.}(2018){Astropy Collaboration}, Price-Whelan, Sipőcz, Günther, Lim, Crawford, Conseil, Shupe, Craig, Dencheva, Ginsburg, VanderPlas, Bradley, Pérez-Suárez, de~Val-Borro, Aldcroft, Cruz, Robitaille, Tollerud, Ardelean, Babej, Bach, Bachetti, Bakanov, Bamford, Barentsen, Barmby, Baumbach, Berry, Biscani, Boquien, Bostroem, Bouma, Brammer, Bray, Breytenbach, Buddelmeijer, Burke, Calderone, Rodríguez, Cara, Cardoso, Cheedella, Copin, Corrales, Crichton, D'Avella, Deil, Depagne, Dietrich, Donath, Droettboom, Earl, Erben, Fabbro, Ferreira, Finethy, Fox, Garrison, Gibbons, Goldstein, Gommers, Greco, Greenfield, Groener, Grollier, Hagen, Hirst, Homeier, Horton, Hosseinzadeh, Hu, Hunkeler, Ivezi{\`c}, Jain, Jenness, Kanarek, Kendrew, Kern, Kerzendorf, Khvalko, King, Kirkby, Kulkarni, Kumar, Lee, Lenz, Littlefair, Ma, Macleod, Mastropietro, McCully, Montagnac, Morris, Mueller, Mumford, Muna, Murphy, Nelson, Nguyen, Ninan, Nöthe, Ogaz, Oh, Parejko, Parley, Pascual, Patil, Patil, Plunkett, Prochaska, Rastogi, Janga, Sabater, Sakurikar, Seifert, Sherbert, Sherwood-Taylor, Shih, Sick, Silbiger, Singanamalla, Singer, Sladen, Sooley, Sornarajah, Streicher, Teuben, Thomas, Tremblay, Turner, Terrón, van Kerkwijk, de~la Vega, Watkins, Weaver, Whitmore, Woillez, Zabalza, \& Contributors}]{Astropy2018}
+{Astropy Collaboration}, Price-Whelan, A.~M., Sipőcz, B.~M., {et~al.} 2018, AJ, 156, 123, \dodoi{10.3847/1538-3881/AABC4F}
 
-\bibitem[{Astropy Collaboration} et~al., 2013]{Astropy2013}
-{Astropy Collaboration}, Robitaille, T.~P., Tollerud, E.~J., Greenfield, P., Droettboom, M., Bray, E., Aldcroft, T., Davis, M., Ginsburg, A., Price-Whelan, A.~M., Kerzendorf, W.~E., Conley, A., Crighton, N., Barbary, K., Muna, D., Ferguson, H., Grollier, F., Parikh, M.~M., Nair, P.~H., Günther, H.~M., Deil, C., Woillez, J., Conseil, S., Kramer, R., Turner, J.~E., Singer, L., Fox, R., Weaver, B.~A., Zabalza, V., Edwards, Z.~I., Bostroem, K.~A., Burke, D.~J., Casey, A.~R., Crawford, S.~M., Dencheva, N., Ely, J., Jenness, T., Labrie, K., Lim, P.~L., Pierfederici, F., Pontzen, A., Ptak, A., Refsdal, B., Servillat, M., and Streicher, O. (2013).
-\newblock Astropy: A community python package for astronomy.
-\newblock {\em Astronomy and Astrophysics}, 558:A33.
+\bibitem[{{Astropy Collaboration} {et~al.}(2022){Astropy Collaboration}, Price-Whelan, Lim, Earl, Starkman, Bradley, Shupe, Patil, Corrales, Brasseur, Nöthe, Donath, Tollerud, Morris, Ginsburg, Vaher, Weaver, Tocknell, Jamieson, van Kerkwijk, Robitaille, Merry, Bachetti, Günther, Aldcroft, Alvarado-Montes, Archibald, Bódi, Bapat, Barentsen, Bazán, Biswas, Boquien, Burke, Cara, Cara, Conroy, Conseil, Craig, Cross, Cruz, D'Eugenio, Dencheva, Devillepoix, Dietrich, Eigenbrot, Erben, Ferreira, Foreman-Mackey, Fox, Freij, Garg, Geda, Glattly, Gondhalekar, Gordon, Grant, Greenfield, Groener, Guest, Gurovich, Handberg, Hart, Hatfield-Dodds, Homeier, Hosseinzadeh, Jenness, Jones, Joseph, Kalmbach, Karamehmetoglu, Kałuszyński, Kelley, Kern, Kerzendorf, Koch, Kulumani, Lee, Ly, Ma, MacBride, Maljaars, Muna, Murphy, Norman, O'Steen, Oman, Pacifici, Pascual, Pascual-Granado, Patil, Perren, Pickering, Rastogi, Roulston, Ryan, Rykoff, Sabater, Sakurikar, Salgado, Sanghi, Saunders, Savchenko, Schwardt, Seifert-Eckert, Shih, Jain, Shukla, Sick, Simpson, Singanamalla, Singer, Singhal, Sinha, Sipőcz, Spitler, Stansby, Streicher, Šumak, Swinbank, Taranu, Tewary, Tremblay, de~Val-Borro, Kooten, Vasović, Verma, de~Miranda~Cardoso, Williams, Wilson, Winkel, Wood-Vasey, Xue, Yoachim, Zhang, Zonca, Contributors, Collaboration, Price-Whelan, Lim, Earl, Starkman, Bradley, Shupe, Patil, Corrales, Brasseur, Nöthe, Donath, Tollerud, Morris, Ginsburg, Vaher, Weaver, Tocknell, Jamieson, van Kerkwijk, Robitaille, Merry, Bachetti, Günther, Aldcroft, Alvarado-Montes, Archibald, Bódi, Bapat, Barentsen, Bazán, Biswas, Boquien, Burke, Cara, Cara, Conroy, Conseil, Craig, Cross, Cruz, D'Eugenio, Dencheva, Devillepoix, Dietrich, Eigenbrot, Erben, Ferreira, Foreman-Mackey, Fox, Freij, Garg, Geda, Glattly, Gondhalekar, Gordon, Grant, Greenfield, Groener, Guest, Gurovich, Handberg, Hart, Hatfield-Dodds, Homeier, Hosseinzadeh, Jenness, Jones, Joseph, Kalmbach, Karamehmetoglu, Kałuszyński, Kelley, Kern, Kerzendorf, Koch, Kulumani, Lee, Ly, Ma, MacBride, Maljaars, Muna, Murphy, Norman, O'Steen, Oman, Pacifici, Pascual, Pascual-Granado, Patil, Perren, Pickering, Rastogi, Roulston, Ryan, Rykoff, Sabater, Sakurikar, Salgado, Sanghi, Saunders, Savchenko, Schwardt, Seifert-Eckert, Shih, Jain, Shukla, Sick, Simpson, Singanamalla, Singer, Singhal, Sinha, Sipőcz, Spitler, Stansby, Streicher, Šumak, Swinbank, Taranu, Tewary, Tremblay, de~Val-Borro, Kooten, Vasović, Verma, de~Miranda~Cardoso, Williams, Wilson, Winkel, Wood-Vasey, Xue, Yoachim, Zhang, Zonca, \& Contributors}]{Astropy2022}
+{Astropy Collaboration}, Price-Whelan, A.~M., Lim, P.~L., {et~al.} 2022, ApJ, 935, 167, \dodoi{10.3847/1538-4357/AC7C74}
 
-\bibitem[Bellm et~al., 2019]{Bellm2019}
-Bellm, E.~C., Kulkarni, S.~R., Graham, M.~J., Dekany, R., Smith, R.~M., Riddle, R., Masci, F.~J., Helou, G., Prince, T.~A., Adams, S.~M., Barbarino, C., Barlow, T., Bauer, J., Beck, R., Belicki, J., Biswas, R., Blagorodnova, N., Bodewits, D., Bolin, B., Brinnel, V., Brooke, T., Bue, B., Bulla, M., Burruss, R., Cenko, S.~B., Chang, C.-K., Connolly, A., Coughlin, M., Cromer, J., Cunningham, V., De, K., Delacroix, A., Desai, V., Duev, D.~A., Eadie, G., Farnham, T.~L., Feeney, M., Feindt, U., Flynn, D., Franckowiak, A., Frederick, S., Fremling, C., Gal-Yam, A., Gezari, S., Giomi, M., Goldstein, D.~A., Golkhou, V.~Z., Goobar, A., Groom, S., Hacopians, E., Hale, D., Henning, J., Ho, A. Y.~Q., Hover, D., Howell, J., Hung, T., Huppenkothen, D., Imel, D., Ip, W.-H., Željko Ivezić, Jackson, E., Jones, L., Juric, M., Kasliwal, M.~M., Kaspi, S., Kaye, S., Kelley, M. S.~P., Kowalski, M., Kramer, E., Kupfer, T., Landry, W., Laher, R.~R., Lee, C.-D., Lin, H.~W., Lin, Z.-Y., Lunnan, R., Giomi, M., Mahabal, A., Mao, P., Miller, A.~A., Monkewitz, S., Murphy, P., Ngeow, C.-C., Nordin, J., Nugent, P., Ofek, E., Patterson, M.~T., Penprase, B., Porter, M., Rauch, L., Rebbapragada, U., Reiley, D., Rigault, M., Rodriguez, H., van Roestel, J., Rusholme, B., van Santen, J., Schulze, S., Shupe, D.~L., Singer, L.~P., Soumagnac, M.~T., Stein, R., Surace, J., Sollerman, J., Szkody, P., Taddia, F., Terek, S., Sistine, A.~V., van Velzen, S., Vestrand, W.~T., Walters, R., Ward, C., Ye, Q.-Z., Yu, P.-C., Yan, L., and Zolkower, J. (2019).
-\newblock The zwicky transient facility: System overview, performance, and first results.
-\newblock {\em Publications of the Astronomical Society of the Pacific}, 131:018002.
+\bibitem[{Bellm {et~al.}(2019)Bellm, Kulkarni, Graham, Dekany, Smith, Riddle, Masci, Helou, Prince, Adams, Barbarino, Barlow, Bauer, Beck, Belicki, Biswas, Blagorodnova, Bodewits, Bolin, Brinnel, Brooke, Bue, Bulla, Burruss, Cenko, Chang, Connolly, Coughlin, Cromer, Cunningham, De, Delacroix, Desai, Duev, Eadie, Farnham, Feeney, Feindt, Flynn, Franckowiak, Frederick, Fremling, Gal-Yam, Gezari, Giomi, Goldstein, Golkhou, Goobar, Groom, Hacopians, Hale, Henning, Ho, Hover, Howell, Hung, Huppenkothen, Imel, Ip, Željko Ivezić, Jackson, Jones, Juric, Kasliwal, Kaspi, Kaye, Kelley, Kowalski, Kramer, Kupfer, Landry, Laher, Lee, Lin, Lin, Lunnan, Giomi, Mahabal, Mao, Miller, Monkewitz, Murphy, Ngeow, Nordin, Nugent, Ofek, Patterson, Penprase, Porter, Rauch, Rebbapragada, Reiley, Rigault, Rodriguez, van Roestel, Rusholme, van Santen, Schulze, Shupe, Singer, Soumagnac, Stein, Surace, Sollerman, Szkody, Taddia, Terek, Sistine, van Velzen, Vestrand, Walters, Ward, Ye, Yu, Yan, \& Zolkower}]{Bellm2019}
+Bellm, E.~C., Kulkarni, S.~R., Graham, M.~J., {et~al.} 2019, Publications of the Astronomical Society of the Pacific, 131, 018002, \dodoi{10.1088/1538-3873/aaecbe}
 
-\bibitem[Berthier et~al., 2006]{Berthier2006}
-Berthier, J., Vachier, F., Thuillot, W., Fernique, P., Ochsenbein, F., Genova, F., Lainey, V., Arlot, J.~E., Berthier, J., Vachier, F., Thuillot, W., Fernique, P., Ochsenbein, F., Genova, F., Lainey, V., and Arlot, J.~E. (2006).
-\newblock Skybot, a new vo service to identify solar system objects.
-\newblock {\em ASPC}, 351:367.
+\bibitem[{Berthier {et~al.}(2006)Berthier, Vachier, Thuillot, Fernique, Ochsenbein, Genova, Lainey, Arlot, Berthier, Vachier, Thuillot, Fernique, Ochsenbein, Genova, Lainey, \& Arlot}]{Berthier2006}
+Berthier, J., Vachier, F., Thuillot, W., {et~al.} 2006, ASPC, 351, 367.
+\newblock \url{https://ui.adsabs.harvard.edu/abs/2006ASPC..351..367B/abstract}
 
-\bibitem[Bradley et~al., 2024]{Bradley2024}
-Bradley, L., Sipőcz, B., Robitaille, T., Tollerud, E., Vinícius, Z., Deil, C., Barbary, K., Wilson, T.~J., Busko, I., Donath, A., Günther, H.~M., Cara, M., Lim, P.~L., Meßlinger, S., Burnett, Z., Conseil, S., Droettboom, M., Bostroem, A., Bray, E.~M., Bratholm, L.~A., Jamieson, W., Ginsburg, A., Barentsen, G., Craig, M., Pascual, S., Rathi, S., Perrin, M., Morris, B.~M., and Perren, G. (2024).
-\newblock astropy/photutils: 1.13.0.
+\bibitem[{Bradley {et~al.}(2024)Bradley, Sipőcz, Robitaille, Tollerud, Vinícius, Deil, Barbary, Wilson, Busko, Donath, Günther, Cara, Lim, Meßlinger, Burnett, Conseil, Droettboom, Bostroem, Bray, Bratholm, Jamieson, Ginsburg, Barentsen, Craig, Pascual, Rathi, Perrin, Morris, \& Perren}]{Bradley2024}
+Bradley, L., Sipőcz, B., Robitaille, T., {et~al.} 2024, astropy/photutils: 1.13.0,  Zenodo, \dodoi{10.5281/zenodo.12585239}
 
-\bibitem[Garrison et~al., 2024]{Garrison2024}
-Garrison, L.~H., Foreman-Mackey, D., hsuan Shih, Y., and Barnett, A. (2024).
-\newblock nifty-ls: Fast and accurate lomb–scargle periodograms using a non-uniform fft.
-\newblock {\em Research Notes of the AAS}, 8:250.
+\bibitem[{Garrison {et~al.}(2024)Garrison, Foreman-Mackey, hsuan Shih, \& Barnett}]{Garrison2024}
+Garrison, L.~H., Foreman-Mackey, D., hsuan Shih, Y., \& Barnett, A. 2024, Research Notes of the AAS, 8, 250, \dodoi{10.3847/2515-5172/ad82cd}
 
-\bibitem[Gowanlock et~al., 2024]{Gowanlock2024}
-Gowanlock, M., Trilling, D.~E., McNeill, A., Kramer, D., and Chernyavskaya, M. (2024).
-\newblock Asteroid period solutions from combined dense and sparse photometry.
+\bibitem[{Gowanlock {et~al.}(2024)Gowanlock, Trilling, McNeill, Kramer, \& Chernyavskaya}]{Gowanlock2024}
+Gowanlock, M., Trilling, D.~E., McNeill, A., Kramer, D., \& Chernyavskaya, M. 2024.
+\newblock \url{http://arxiv.org/abs/2408.04096}
 
-\bibitem[Holman et~al., 2019]{Holman2019}
-Holman, M.~J., Payne, M.~J., and Pál, A. (2019).
-\newblock A tess search for distant solar system planets: A feasibility study.
-\newblock {\em Research Notes of the AAS}, 3:160.
+\bibitem[{Holman {et~al.}(2019)Holman, Payne, \& Pál}]{Holman2019}
+Holman, M.~J., Payne, M.~J., \& Pál, A. 2019, Research Notes of the AAS, 3, 160, \dodoi{10.3847/2515-5172/ab4ea6}
 
-\bibitem[Humes and Hanuš, 2024]{Humes2024}
-Humes, O.~A. and Hanuš, J. (2024).
-\newblock Insights on the rotational state and shape of asteroid (203) pompeja from tess photometry.
-\newblock {\em arXiv}, page arXiv:2412.04123.
+\bibitem[{Humes \& Hanuš(2024)}]{Humes2024}
+Humes, O.~A., \& Hanuš, J. 2024, arXiv, arXiv:2412.04123, \dodoi{10.48550/ARXIV.2412.04123}
 
-\bibitem[Lomb et~al., 1976]{Lomb1976}
-Lomb, N.~R., Lomb, and R., N. (1976).
-\newblock Least-squares frequency analysis of unequally spaced data.
-\newblock {\em Ap\&SS}, 39:447--462.
+\bibitem[{Lomb {et~al.}(1976)Lomb, Lomb, \& R.}]{Lomb1976}
+Lomb, N.~R., Lomb, \& R., N. 1976, Ap\&SS, 39, 447, \dodoi{10.1007/BF00648343}
 
-\bibitem[Maneewongvatana and Mount, 1999]{Maneewongvatana1999}
-Maneewongvatana, S. and Mount, D.~M. (1999).
-\newblock Analysis of approximate nearest neighbor searching with clustered point sets.
-\newblock {\em arXiv}, page cs/9901013.
+\bibitem[{Maneewongvatana \& Mount(1999)}]{Maneewongvatana1999}
+Maneewongvatana, S., \& Mount, D.~M. 1999, arXiv, cs/9901013, \dodoi{10.48550/ARXIV.CS/9901013}
 
-\bibitem[McNeill et~al., 2023]{McNeill2023}
-McNeill, A., Gowanlock, M., Mommert, M., Trilling, D.~E., Llama, J., and Paddock, N. (2023).
-\newblock An untargeted survey of the rotational properties of main-belt asteroids using the transiting exoplanet survey satellite (tess).
-\newblock {\em The Astronomical Journal}, 166:152.
+\bibitem[{McNeill {et~al.}(2023)McNeill, Gowanlock, Mommert, Trilling, Llama, \& Paddock}]{McNeill2023}
+McNeill, A., Gowanlock, M., Mommert, M., {et~al.} 2023, The Astronomical Journal, 166, 152, \dodoi{10.3847/1538-3881/ACF194}
 
-\bibitem[Nguyen et~al., 2024]{Nguyen2024}
-Nguyen, T., Woods, D.~F., Ruprecht, J., Birge, J., Nguyen, T., Woods, D.~F., Ruprecht, J., and Birge, J. (2024).
-\newblock Efficient search and detection of faint moving objects in image data.
-\newblock {\em AJ}, 167:113.
+\bibitem[{Nguyen {et~al.}(2024)Nguyen, Woods, Ruprecht, Birge, Nguyen, Woods, Ruprecht, \& Birge}]{Nguyen2024}
+Nguyen, T., Woods, D.~F., Ruprecht, J., {et~al.} 2024, AJ, 167, 113, \dodoi{10.3847/1538-3881/AD20E0}
 
-\bibitem[Payne et~al., 2019]{Payne2019}
-Payne, M.~J., Holman, M.~J., and Pál, A. (2019).
-\newblock A tess search for distant solar system objects: Yield estimates.
-\newblock {\em Research Notes of the AAS}, 3:172.
+\bibitem[{Payne {et~al.}(2019)Payne, Holman, \& Pál}]{Payne2019}
+Payne, M.~J., Holman, M.~J., \& Pál, A. 2019, Research Notes of the AAS, 3, 172, \dodoi{10.3847/2515-5172/ab5641}
 
-\bibitem[Pravec and Harris, 2000]{Pravec2000}
-Pravec, P. and Harris, A.~W. (2000).
-\newblock Fast and slow rotation of asteroids.
-\newblock {\em Icar}, 148:12--20.
+\bibitem[{Pravec \& Harris(2000)}]{Pravec2000}
+Pravec, P., \& Harris, A.~W. 2000, Icar, 148, 12, \dodoi{10.1006/ICAR.2000.6482}
 
-\bibitem[Pál et~al., 2018]{Pal2018}
-Pál, A., Molnár, L., and Kiss, C. (2018).
-\newblock Tess in the solar system.
-\newblock {\em Publications of the Astronomical Society of the Pacific}, 130:114503.
+\bibitem[{Pál {et~al.}(2018)Pál, Molnár, \& Kiss}]{Pal2018}
+Pál, A., Molnár, L., \& Kiss, C. 2018, Publications of the Astronomical Society of the Pacific, 130, 114503, \dodoi{10.1088/1538-3873/aae2aa}
 
-\bibitem[Pál et~al., 2020]{Pal2020}
-Pál, A., Szakáts, R., Kiss, C., Bódi, A., Bognár, Z., Kalup, C., Kiss, L.~L., Marton, G., Molnár, L., Plachy, E., Sárneczky, K., Szabó, G.~M., and Szabó, R. (2020).
-\newblock Solar system objects observed with tess—first data release: Bright main-belt and trojan asteroids from the southern survey.
-\newblock {\em The Astrophysical Journal Supplement Series}, 247:26.
+\bibitem[{Pál {et~al.}(2020)Pál, Szakáts, Kiss, Bódi, Bognár, Kalup, Kiss, Marton, Molnár, Plachy, Sárneczky, Szabó, \& Szabó}]{Pal2020}
+Pál, A., Szakáts, R., Kiss, C., {et~al.} 2020, The Astrophysical Journal Supplement Series, 247, 26, \dodoi{10.3847/1538-4365/ab64f0}
 
-\bibitem[Rice and Laughlin, 2020]{Rice2020}
-Rice, M. and Laughlin, G. (2020).
-\newblock Exploring trans-neptunian space with tess: A targeted shift-stacking search for planet nine and distant tnos in the galactic plane.
-\newblock {\em Planetary Science Journal}, 1:81.
+\bibitem[{Rice \& Laughlin(2020)}]{Rice2020}
+Rice, M., \& Laughlin, G. 2020, Planetary Science Journal, 1, 81, \dodoi{10.3847/PSJ/abc42c}
 
-\bibitem[Ricker et~al., 2014]{Ricker2014}
-Ricker, G.~R., Winn, J.~N., Vanderspek, R., Latham, D.~W., Bakos, G.~{\'A}., Bean, J.~L., Berta-Thompson, Z.~K., Brown, T.~M., Buchhave, L., Butler, N.~R., Butler, R.~P., Chaplin, W.~J., Charbonneau, D., Christensen-Dalsgaard, J., Clampin, M., Deming, D., Doty, J., Lee, N.~D., Dressing, C., Dunham, E.~W., Endl, M., Fressin, F., Ge, J., Henning, T., Holman, M.~J., Howard, A.~W., Ida, S., Jenkins, J.~M., Jernigan, G., Johnson, J.~A., Kaltenegger, L., Kawai, N., Kjeldsen, H., Laughlin, G., Levine, A.~M., Lin, D., Lissauer, J.~J., MacQueen, P., Marcy, G., McCullough, P.~R., Morton, T.~D., Narita, N., Paegert, M., Palle, E., Pepe, F., Pepper, J., Quirrenbach, A., Rinehart, S.~A., Sasselov, D., Sato, B., Seager, S., Sozzetti, A., Stassun, K.~G., Sullivan, P., Szentgyorgyi, A., Torres, G., Udry, S., and Villasenor, J. (2014).
-\newblock Transiting exoplanet survey satellite.
-\newblock {\em Journal of Astronomical Telescopes, Instruments, and Systems}, 1:014003.
+\bibitem[{Ricker {et~al.}(2014)Ricker, Winn, Vanderspek, Latham, Bakos, Bean, Berta-Thompson, Brown, Buchhave, Butler, Butler, Chaplin, Charbonneau, Christensen-Dalsgaard, Clampin, Deming, Doty, Lee, Dressing, Dunham, Endl, Fressin, Ge, Henning, Holman, Howard, Ida, Jenkins, Jernigan, Johnson, Kaltenegger, Kawai, Kjeldsen, Laughlin, Levine, Lin, Lissauer, MacQueen, Marcy, McCullough, Morton, Narita, Paegert, Palle, Pepe, Pepper, Quirrenbach, Rinehart, Sasselov, Sato, Seager, Sozzetti, Stassun, Sullivan, Szentgyorgyi, Torres, Udry, \& Villasenor}]{Ricker2014}
+Ricker, G.~R., Winn, J.~N., Vanderspek, R., {et~al.} 2014, Journal of Astronomical Telescopes, Instruments, and Systems, 1, 014003, \dodoi{10.1117/1.JATIS.1.1.014003}
 
-\bibitem[{Ridden-Harper} et~al., 2021a]{Ridden-Harper2021b}
-{Ridden-Harper}, R., {Bannister}, M.~T., and {Kokotanekova}, R. (2021a).
-\newblock {No Rotational Variability in C/2014 UN271 (Bernardinelli-Bernstein) at 23.8 au and 21.1 au as Seen by TESS}.
-\newblock {\em Research Notes of the American Astronomical Society}, 5(7):161.
+\bibitem[{{Ridden-Harper} {et~al.}(2021{\natexlab{a}}){Ridden-Harper}, {Bannister}, \& {Kokotanekova}}]{Ridden-Harper2021b}
+{Ridden-Harper}, R., {Bannister}, M.~T., \& {Kokotanekova}, R. 2021{\natexlab{a}}, Research Notes of the American Astronomical Society, 5, 161, \dodoi{10.3847/2515-5172/ac1512}
 
-\bibitem[{Ridden-Harper} et~al., 2021b]{Ridden-Harper2021a}
-{Ridden-Harper}, R., {Rest}, A., {Hounsell}, R., {M{\"u}ller-Bravo}, T.~E., {Wang}, Q., and {Villar}, V.~A. (2021b).
-\newblock {TESSreduce: transient focused TESS data reduction pipeline}.
-\newblock {\em arXiv e-prints}, page arXiv:2111.15006.
+\bibitem[{{Ridden-Harper} {et~al.}(2021{\natexlab{b}}){Ridden-Harper}, {Rest}, {Hounsell}, {M{\"u}ller-Bravo}, {Wang}, \& {Villar}}]{Ridden-Harper2021a}
+{Ridden-Harper}, R., {Rest}, A., {Hounsell}, R., {et~al.} 2021{\natexlab{b}}, arXiv e-prints, arXiv:2111.15006.
+\newblock \doarXiv{2111.15006}
 
-\bibitem[Roxburgh and Ridden-Harper, Prep]{TESSELLATE}
-Roxburgh, H. and Ridden-Harper, R. (In Prep.).
-\newblock \texttt{TESSELLATE}: A dedicated pipeline for hunting transients with tess.
+\bibitem[{{Roxburgh} {et~al.}(2025){Roxburgh}, {Ridden-Harper}, {Moore}, {Montilla}, {Leicester}, {Lane}, {Freeburn}, {Rest}, {Bannister}, {Ridden-Harper}, {Hubley}, {Wang}, {Hounsell}, {Cooke}, {Coulter}, \& {Fausnaugh}}]{TESSELLATE}
+{Roxburgh}, H., {Ridden-Harper}, R., {Moore}, A., {et~al.} 2025, arXiv e-prints, arXiv:2502.16905, \dodoi{10.48550/arXiv.2502.16905}
 
-\bibitem[Scargle et~al., 1982]{Scargle1982}
-Scargle, J.~D., Scargle, and D., J. (1982).
-\newblock Studies in astronomical time series analysis. ii. statistical aspects of spectral analysis of unevenly spaced data.
-\newblock {\em ApJ}, 263:835--853.
+\bibitem[{Scargle {et~al.}(1982)Scargle, Scargle, \& D.}]{Scargle1982}
+Scargle, J.~D., Scargle, \& D., J. 1982, ApJ, 263, 835, \dodoi{10.1086/160554}
 
-\bibitem[VanderPlas, 2018]{VanderPlas2018}
-VanderPlas, J.~T. (2018).
-\newblock Understanding the lomb–scargle periodogram.
-\newblock {\em The Astrophysical Journal Supplement Series}, 236:16.
+\bibitem[{VanderPlas(2018)}]{VanderPlas2018}
+VanderPlas, J.~T. 2018, The Astrophysical Journal Supplement Series, 236, 16, \dodoi{10.3847/1538-4365/aab766}
 
-\bibitem[Woods et~al., 2021]{Woods2021}
-Woods, D.~F., Ruprecht, J.~D., Kotson, M.~C., Main, E.~L., Evans, E.~W., Varey, J.~D., Vaillancourt, J.~E., Viggh, H. E.~M., Brown, J.~J., Pál, A., Woods, D.~F., Ruprecht, J.~D., Kotson, M.~C., Main, E.~L., Evans, E.~W., Varey, J.~D., Vaillancourt, J.~E., Viggh, H. E.~M., Brown, J.~J., and Pál, A. (2021).
-\newblock Asteroid observations from the transiting exoplanet survey satellite: Detection processing pipeline and results from primary mission data.
-\newblock {\em PASP}, 133:014503.
+\bibitem[{Woods {et~al.}(2021)Woods, Ruprecht, Kotson, Main, Evans, Varey, Vaillancourt, Viggh, Brown, Pál, Woods, Ruprecht, Kotson, Main, Evans, Varey, Vaillancourt, Viggh, Brown, \& Pál}]{Woods2021}
+Woods, D.~F., Ruprecht, J.~D., Kotson, M.~C., {et~al.} 2021, PASP, 133, 014503, \dodoi{10.1088/1538-3873/ABC761}
 
 \end{thebibliography}

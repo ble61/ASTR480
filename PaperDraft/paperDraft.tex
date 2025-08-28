@@ -27,7 +27,7 @@
 \section{Abstract}\label{sec:Abs}
 %TODO Later
 
-%\twocolumn %To check size
+% \twocolumn %To check size
 
 
 \section{Introduction}\label{sec:Intro}
@@ -38,8 +38,8 @@ Since 2017, the Transiting Exoplanet Survey Satellite \citep[\tess,][]{Ricker201
 These month long blocks of full frame images (FFIs) are named sectors, with the cadence of the sectors dependant on the cycle.
 The cadence started at \qty{30}{\minute}, then increased to \qty{10}{\minute}, and has now increased again to \qty{200}{\second} FFIs.
 
-The large archival dataset of \tess\ has gone largely unanalysied.
-This is until the \tessellate\ project \citep{TESSELLATE}, which seeks to find all the transient events that were serendipitously observed by \tess.
+The large archival dataset of \tess\ has gone largely unanalysed.
+This is until the \tessellate\ project \defcitealias{TESSELLATE}{H. Roxburgh and R. Ridden-Harper et al. 2025}\citepalias{TESSELLATE}, which seeks to find all the transient events that were serendipitously observed by \tess.
 \tessellate\ searches every pixel of every FFI from \tess, using the \ttt{TESSreduce} \citep{Ridden-Harper2021a} to looking for changes in brightness that could be related to a physical event.
 
 Asteroids are the most numerous source of non-transient detections in \tessellate, and need to be filtered out of the rest of the data.
@@ -60,8 +60,8 @@ They also use the \tess\ data alongside other observations to determine the shap
 \tess\ has been used to study comets as well \citep[e.g.][]{Ridden-Harper2021b}
 Fainter and unknown solar system objects can be found by shift and stacking \citep{Holman2019, Payne2019, Rice2020} or taking a fast X-ray transform \citep{Nguyen2024} of the \tess\ FFI data.
 
-For our analysis of the asteroids in \tess, we use sectors \red{TODO} %TODO
-which have a \qty{10}{\minute} cadence.
+For our analysis of the asteroids in \tess, we use the third year of observations from the spacecraft; sectors 27 to 39. 
+These were the first sectors to have a \qty{10}{\minute} cadence.
 Our methods are presented in \autoref{sec:Meth}, followed by the results in \autoref{sec:Res}.
 A discussion of how our results compare to other \tess\ asteroid studies is given in \autoref{sec:Dis}, and we conclude in \autoref{sec:Conc}.
 
@@ -97,8 +97,9 @@ The matched events are then classified as asteroids, and are not considered furt
 %-Forced Photometry Lightcurve
 
 Forced photometry along the tracks of the asteroids allows for the construction of lightcurves.
+The differenced images are used for the forced photometry, as the objects are moving they are not dimmed by the differencing. 
 % The positions are readjusted to the center of mass (COM) of the object.
-Aperture photometry, using \texttt{Photutils} \citep{Bradley2024}, is preformed at this COM position with a \qty{1.5}{\px} aperture.
+Aperture photometry, using \texttt{Photutils} \citep{Bradley2024}, is preformed at the centre of mass of the point spread function with a \qty{1.5}{\px} aperture, the standard size of an aperture in \tessellate.
 The lightcurves are then sigma-clipped to $3\sigma$ from the mean remove background stellar contamination.
 
 
@@ -106,16 +107,22 @@ The lightcurves are then sigma-clipped to $3\sigma$ from the mean remove backgro
 
 From their lightcurves, the rotation period of the object can be determined by using a Lomb-Scargle periodogram \citep[\citet{Lomb1976, Scargle1982}, but see][ for a review]{VanderPlas2018}.
 The new \ttt{NIFTY-LS} package \citep{Garrison2024},  as implemented in \ttt{astropy} \citep{Astropy2013,Astropy2018,Astropy2022}, was used to calculate the periodogram.
-The periodogram searched for rotation periods between the Nyquist limit of \qty{20}{\minute} and a maximum of \qty{17}{\day} \citep[the value used in][ due to the lenght of the lightcurve]{McNeill2023} .
+The periodogram searched for rotation periods between the Nyquist limit of \qty{20}{\minute} and a maximum of \qty{17}{\day} \citep[the value used in][ due to the length of the lightcurve]{McNeill2023}.
 
 -Example Figure
+
+An example of the periodogram fit to the lightcurve is given by \autoref{fig:perEx}. 
+A clear maximum power is found in the top panel, and the associated frequency is fed to the model shown in the middle panel.
+The residuals in the lower panel are small for the most part, with large deviations from 0 only where the lightcurve has large uncertainty in its flux. 
+Thanks to the known frequency from LCDB plotted, we note that we recover the double frequency alias, this is explored further below.   
 
 -Quality Checks on the lightcurves
 
 Not every lightcurve and periodogram is good enough for analysis, so some quality cuts are applied.
 A minimum brightness cut of 10 counts $\sim \qty{18}{mag}$ %?which way around is better? 
-is applied, otherwise the lightcurve is indistinugshable from noise. %* This is emperical from match to LCDB, should that fig be here?
-The periodograms could return the \qty{17}{\day} maximum value if no physical period was detected, so following \citet{McNeill2023} we discard any periods within \qty{10}{\percent} of this maximum.
+is applied, otherwise the lightcurve is indistinguishable from noise. %* This is emperical from match to LCDB, should that fig be here?
+The periodograms could return the \qty{17}{\day} maximum value if no physical period was detected, so following \citet{McNeill2023} we discard any periods within \qty{10}{\percent} of this maximum. %TODO min period of \qty{1}{\hour} 
+%! This and the doubling of the periods means we can't get fast rotators at all. Need to think this through
 Also following \citeauthor{McNeill2023}, we do not trust the periods of any lightcurve with $\leq 200$ datapoints.
 %TODO are there more checks
 
@@ -146,9 +153,11 @@ so we are the first to get the rotation period for these bodies.
 -Fast Rotator Plot
 
 We do not find any fast rotators in our dataset.
-While our Nyquist limit is well above the spin barrier of \citet{Pravec2000} thanks to \tess's fast cadence, most asteroids discoverd above the barrier are small%TODO CITE Warner2009 LCDB?
+While our Nyquist limit is well above the spin barrier of \citet{Pravec2000} thanks to \tess's fast cadence, most asteroids discovered above the barrier are small%TODO CITE Warner2009 LCDB?
 , and therefore dim.
 The shallow magnitude of \tessellate\ \citep{TESSELLATE} makes it difficult for dim planetesimals to pass the quality checks.
+
+%! we also can't actually go below 2hrs even with a 10 min cadence because we double the period.
 
 -other discussion
 
@@ -157,15 +166,15 @@ This is due to the fixed aperture size of our forced photometry, \qty{1.5}{\px}.
 The bright asteroids can start to saturate the \tess\ detector, and can bloom out to occupy more pixels.
 We chose to keep a constant aperture to standardise the analysis, and to be agnostic to the properties of the asteroid being analysed.
 
-Some asteroids slip through our detetcion methods, and end up unclassifed in the \tessellate\ data.
+Some asteroids slip through our detection methods, and end up unclassified in the \tessellate\ data.
 This is often because the detections of bright asteroids are offset from the predicted positions by further than the matching radius we set.
-Asteroids are easy to spot for our Cosmics Cataclysms \ttt{Zooniverse}\footnote{\url{https://www.zooniverse.org/projects/cheerfuluser/cosmic-cataclysms}} volunteers, as they are at a different position in the ``1 hour later'' panel, so any that slip past can be caught here.
+Asteroids are easy to spot for our Cosmic Cataclysms \ttt{Zooniverse}\footnote{\url{https://www.zooniverse.org/projects/cheerfuluser/cosmic-cataclysms}} volunteers, as they are at a different position in the ``1 hour later'' panel, so any that slip past can be caught here.
 
 
 \section{Conclusion}\label{sec:Conc}
 %TODO Later
 
-\bibliographystyle{apalike}
+\bibliographystyle{aasjournal}
 \bibliography{paperBib.bib}
 
 \end{document}
