@@ -1,0 +1,171 @@
+\documentclass[12pt]{article}
+\usepackage{}
+\usepackage[margin=2cm]{geometry}
+\usepackage[authoryear,comma,round]{natbib}
+\usepackage[separate-uncertainty=true,multi-part-units=single]{siunitx}
+\usepackage{datatool,booktabs,hyperref,graphicx,caption,amsmath,amssymb}
+\usepackage[list=true,listformat=simple]{subcaption}
+\usepackage[para]{footmisc}
+\usepackage[super]{nth}
+\usepackage[utf8]{inputenc}
+
+\DeclareSIUnit{\arcsec}{''}
+\DeclareSIUnit{\au}{\mathrm{AU}}
+\DeclareSIUnit{\mag}{\mathrm{mag}}
+\DeclareSIUnit{\px}{\mathrm{px}}
+
+\newcommand{\ttt}{\texttt}
+\newcommand{\tess}{\textit{TESS}}
+\newcommand{\tessellate}{\texttt{TESSELLATE}}
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+
+\title{TESSELLATE asteroids paper}
+\author{Brayden Leicester, Ryan Ridden-Harper, Michele Bannister and Others}
+\begin{document}
+\maketitle
+
+\section{Abstract}\label{sec:Abs}
+%TODO Later
+
+%\twocolumn %To check size
+
+
+\section{Introduction}\label{sec:Intro}
+
+%TODO general opening statment about asteroids as transiet events/ moving objects
+
+Since 2017, the Transiting Exoplanet Survey Satellite \citep[\tess,][]{Ricker2014} has been obseving large swathes ($\qty{96}{\degree}\times\qty{24}{\degree}$) of sky at a very high cadence.
+These month long blocks of full frame images (FFIs) are named sectors, with the cadence of the sectors dependant on the cycle.
+The cadence started at \qty{30}{\minute}, then increased to \qty{10}{\minute}, and has now increased again to \qty{200}{\second} FFIs.
+
+The large archival dataset of \tess\ has gone largely unanalysied.
+This is until the \tessellate\ project \citep{TESSELLATE}, which seeks to find all the transient events that were serendipitously observed by \tess.
+\tessellate\ searches every pixel of every FFI from \tess, using the \ttt{TESSreduce} \citep{Ridden-Harper2021a} to looking for changes in brightness that could be related to a physical event.
+
+Asteroids are the most numerous source of non-transient detections in \tessellate, and need to be filtered out of the rest of the data.
+This also allows for analysis of the properties of these planetesimals.
+This letter presents our analysis of the asteroids found with the first set of \tessellate\ sectors, with a \qty{10}{\minute} cadence.
+This cadence is fast enough that the Nyquist frequency of the observations is above the spin barrier for asteroids \citep{Pravec2000}, so \tess\ could detect new fast rotators.
+
+There have been other studies done using \tess\ to characterise asteroids.
+It was suggested by \citet{Pal2018} that it would be possible to get good photometry down to $V \lesssim \qty{19}{\mag}$.
+They followed up with an analysis of the small bodies the first 12 sectors (cycle 1) \citep{Pal2020}, tripleing the number of asteroids with accurate rotation periods.
+\citet{McNeill2023} re-analyses the same sectors of cycle 1, and is in broad agreement with \citeauthor{Pal2020}.
+
+\tess\ is used for solar-system observation in many other ways aswell.
+The Minor Planet Center (MPC) gets regular updates on asteroids in \tess\ from the \ttt{LINEAR-TESS} program \citep{Woods2021}.
+\citet{Gowanlock2024} uses \tess\ photometry as well as observations by the Zwicky Transient Facility \citep[ZTF, ][]{Bellm2019} to get a longer baseline on mutually observed objects while combining ground and space-based observations.
+Single object analysis is also possible, \citet{Humes2024} recover the period of an asteroid commensurate with Earth's rotation.
+They also use the \tess\ data alongside other observations to determine the shape of the object.
+\tess\ has been used to study comets as well \citep[e.g.][]{Ridden-Harper2021b}
+Fainter and unknown solar system objects can be found by shift and stacking \citep{Holman2019, Payne2019, Rice2020} or taking a fast X-ray transform \citep{Nguyen2024} of the \tess\ FFI data.
+
+For our analysis of the asteroids in \tess, we use sectors \red{TODO} %TODO
+which have a \qty{10}{\minute} cadence.
+Our methods are presented in \autoref{sec:Meth}, followed by the results in \autoref{sec:Res}.
+A discussion of how our results compare to other \tess\ asteroid studies is given in \autoref{sec:Dis}, and we conclude in \autoref{sec:Conc}.
+
+\section{Methods}\label{sec:Meth}
+
+%-How they are found in TESSELLATE accidentally
+
+\tessellate\ provides a new way to find and characterize asteroids: detecting them as transient events.
+The lightcurves of these detections often have spike only a few frames long, as the asteroid moves over the pixel of interest.
+Asteroids move at about \qty{1}{\px} per frame for the \qty{30}{\min} cadence \citep{Pal2018}, and thus are found as many different transient events as they cross a sector.
+Both \ttt{SourceDetect} and \ttt{Starfind}, the detection methods employed by \tessellate, detect planetesimals.
+
+Characterizing the spikes in the single pixel lightcurves as an ``asteroid'' has it's problems, as real transient events can look similar.
+We have implemented another way of finding and removing asteroids from the set of detected events.
+The reduction of full sectors during a \tessellate\ run also allows for forced photometry at known asteroid positions.
+These can then be matched with the detections to classify the spikes, and properties of the asteroids can be measured at the same time.
+
+%-Conesearch w/ SkyBoT and names w/ Horizons
+
+The position of known asteroids is important for matching them to detections.
+We use \ttt{SkyBoT} \citep{Berthier2006} conesearch to find all the asteroids with $V\leq \qty{20}{\mag}$, the limit suggested by \citep{Pal2018}.
+We query every \qty{12}{\hour} over the month of the sector, and interpolate the positions to the times of the \tess\ observations.
+With \tess's large pixel scale, these interpolations are accurate enough for our purposes, and save on time and resources, as the query can be expensive.
+%? They were checked for accuracy against JPL Horizons
+
+%-Matching to TESSELLATE
+The positions of these asteroids can be matched with the detections, using a KDTree \citep{Maneewongvatana1999}.
+Setting boundaries of \qty{0.1}{\day} and \qty{1}{\px} %TODO check it is 1 px.
+on the nearest match keeps only objects that are coincident temporally and spatially.
+If two such objects  match to the same detection, the shortest distance between the positions is taken.
+The matched events are then classified as asteroids, and are not considered further by \tessellate.%Clunky end to sentance
+
+%-Forced Photometry Lightcurve
+
+Forced photometry along the tracks of the asteroids allows for the construction of lightcurves.
+% The positions are readjusted to the center of mass (COM) of the object.
+Aperture photometry, using \texttt{Photutils} \citep{Bradley2024}, is preformed at this COM position with a \qty{1.5}{\px} aperture.
+The lightcurves are then sigma-clipped to $3\sigma$ from the mean remove background stellar contamination.
+
+
+%-Lomb-Scargle Periodogram
+
+From their lightcurves, the rotation period of the object can be determined by using a Lomb-Scargle periodogram \citep[\citet{Lomb1976, Scargle1982}, but see][ for a review]{VanderPlas2018}.
+The new \ttt{NIFTY-LS} package \citep{Garrison2024},  as implemented in \ttt{astropy} \citep{Astropy2013,Astropy2018,Astropy2022}, was used to calculate the periodogram.
+The periodogram searched for rotation periods between the Nyquist limit of \qty{20}{\minute} and a maximum of \qty{17}{\day} \citep[the value used in][ due to the lenght of the lightcurve]{McNeill2023} .
+
+-Example Figure
+
+-Quality Checks on the lightcurves
+
+Not every lightcurve and periodogram is good enough for analysis, so some quality cuts are applied.
+A minimum brightness cut of 10 counts $\sim \qty{18}{mag}$ %?which way around is better? 
+is applied, otherwise the lightcurve is indistinugshable from noise. %* This is emperical from match to LCDB, should that fig be here?
+The periodograms could return the \qty{17}{\day} maximum value if no physical period was detected, so following \citet{McNeill2023} we discard any periods within \qty{10}{\percent} of this maximum.
+Also following \citeauthor{McNeill2023}, we do not trust the periods of any lightcurve with $\leq 200$ datapoints.
+%TODO are there more checks
+
+%-Run all these are part of TESSELLATE
+The above methods are integrated into the rest of the \tessellate\ pipeline. %*I should probably get around to doing that...
+This allows for asteroids to be filtered out of the new detections as they happen.
+The results given below will be improved upon as more sectors are run and a higher number of minor planets can have their rotation properties measured.
+
+
+\section{Results}\label{sec:Res}
+
+-Total Asteroids found
+
+\red{A Number \#\#\#} of asteroids with $V\leq \qty{20}{\mag}$ were found in the sectors we analysed.
+Most of these are too faint for the lightcurve to give a reliable and period.
+Once the quality checks described above have been applied, we are left with \red{A smaller number \#\#\#} of planetesimals with accurate rotation rates.
+\red{Some fraction} of these asteroids are not in the LCDB,%TODO check defind before
+so we are the first to get the rotation period for these bodies.
+
+-Properties of those that pass
+
+%TODO table of asteroids by class and frac that pass.
+
+\section{Discussion} \label{sec:Dis}
+
+-Comp to Pal and McNeill
+
+-Fast Rotator Plot
+
+We do not find any fast rotators in our dataset.
+While our Nyquist limit is well above the spin barrier of \citet{Pravec2000} thanks to \tess's fast cadence, most asteroids discoverd above the barrier are small%TODO CITE Warner2009 LCDB?
+, and therefore dim.
+The shallow magnitude of \tessellate\ \citep{TESSELLATE} makes it difficult for dim planetesimals to pass the quality checks.
+
+-other discussion
+
+The rotation periods of the brightest asteroids are not recovered.
+This is due to the fixed aperture size of our forced photometry, \qty{1.5}{\px}.
+The bright asteroids can start to saturate the \tess\ detector, and can bloom out to occupy more pixels.
+We chose to keep a constant aperture to standardise the analysis, and to be agnostic to the properties of the asteroid being analysed.
+
+Some asteroids slip through our detetcion methods, and end up unclassifed in the \tessellate\ data.
+This is often because the detections of bright asteroids are offset from the predicted positions by further than the matching radius we set.
+Asteroids are easy to spot for our Cosmics Cataclysms \ttt{Zooniverse}\footnote{\url{https://www.zooniverse.org/projects/cheerfuluser/cosmic-cataclysms}} volunteers, as they are at a different position in the ``1 hour later'' panel, so any that slip past can be caught here.
+
+
+\section{Conclusion}\label{sec:Conc}
+%TODO Later
+
+\bibliographystyle{apalike}
+\bibliography{paperBib.bib}
+
+\end{document}
