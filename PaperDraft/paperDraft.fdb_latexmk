@@ -1,14 +1,18 @@
 # Fdb version 4
-["bibtex paperDraft"] 1753251563.76806 "paperDraft.aux" "paperDraft.bbl" "paperDraft" 1753757958.87387 0
-  "./paperBib.bib" 1753248600 48328 49868a09cba2bdf154179daf001e5531 ""
-  "c:/texlive/2025/texmf-dist/bibtex/bst/base/apalike.bst" 1741561552 24635 604dafcc79f521a11ea73e506e1fbd98 ""
-  "paperDraft.aux" 1753757956 3393 191ad24b142a5ca8b0ac773eaf734c0e "pdflatex"
+["bibtex paperDraft"] 1757991388.73229 "paperDraft.aux" "paperDraft.bbl" "paperDraft" 1757991393.80136 0
+  "./paperBib.bib" 1757984876 54803 b01a2eb970950a7469f8b23f575c0b4d ""
+  "c:/texlive/2025/texmf-dist/bibtex/bst/aastex/aasjournal.bst" 1741556802 36130 1e2d4614828005814bd64e3c665b8e99 ""
+  "paperDraft.aux" 1757991391 15112 1ac4743d573d77764487ea489e9e705d "pdflatex"
   (generated)
   "paperDraft.bbl"
   "paperDraft.blg"
   (rewritten before read)
-["pdflatex"] 1753757951.36708 "c:/Users/Brayd/OneDrive - University of Canterbury/2024/ASTR480/ASTR480/PaperDraft/paperDraft.tex" "paperDraft.pdf" "paperDraft" 1753757958.87496 0
-  "c:/Users/Brayd/OneDrive - University of Canterbury/2024/ASTR480/ASTR480/PaperDraft/paperDraft.tex" 1753757948 10891 4ad738358aa48458262badbc4ee0d3af ""
+["pdflatex"] 1757991389.59763 "c:/Users/Brayd/OneDrive - University of Canterbury/2024/ASTR480/ASTR480/PaperDraft/paperDraft.tex" "paperDraft.pdf" "paperDraft" 1757991393.80247 0
+  "Diam-FreqPlotThisWorkPaperFigDraft.pdf" 1757984876 155504 8f9e19d6d8882133d495f89a35e6a266 ""
+  "LCDBCompTotalPaperFigDraft.pdf" 1757984876 112731 18b9ef3dad3f55d0f159ed2768426aa6 ""
+  "M23andP20CompPaperFigDraft.pdf" 1757984876 24877 719b48dbafbc6fe36617df9877679811 ""
+  "PeriodogramUlyssesPaperFigDraft.pdf" 1757984876 234582 a5d3e16337235c4d8c8e5cdf25a3b185 ""
+  "c:/Users/Brayd/OneDrive - University of Canterbury/2024/ASTR480/ASTR480/PaperDraft/paperDraft.tex" 1757991373 16172 12ccf7d90de9a133c1f9606f8b72f1b6 ""
   "c:/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1741582083 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1741558557 1004 54797486969f23fa377b128694d548df ""
   "c:/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1741558557 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -35,6 +39,7 @@
   "c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm" 1741565046 772 9a936b7f5e2ff0557fce0f62822f0bbf ""
   "c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1741558557 32080 340ef9bf63678554ee606688e7b5339d ""
   "c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb" 1741558558 36741 0ee9e374ec3e30da87cdfb0ea3575226 ""
+  "c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1741558558 35469 dcf3a5f2fc1862f5952e3ee5eb1d98c4 ""
   "c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1741558558 32722 d7379af29a190c3f453aba36302ff5a9 ""
   "c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb" 1741558558 32362 bc3f3eec7ab7d65fe700963d4017d32c ""
   "c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1741558558 32762 7fee39e011c23b3589931effd97b9702 ""
@@ -123,10 +128,10 @@
   "c:/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1741596807 5512713 d5293fe2524c042fff1d1aaaba621917 ""
   "c:/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1741597004 3346132 f5abba0d4268d6ff92cc4090c64ea7c4 ""
   "c:/texlive/2025/texmf.cnf" 1741596777 713 e69b156964470283e0530f5060668171 ""
-  "paperDraft.aux" 1753757956 3393 191ad24b142a5ca8b0ac773eaf734c0e "pdflatex"
-  "paperDraft.bbl" 1753251564 15968 b59d9eae62b2b66302b326c58cd331a8 "bibtex paperDraft"
-  "paperDraft.out" 1753757956 528 178d0d0967c3680bdb49a5009e5c49b8 "pdflatex"
-  "paperDraft.tex" 1753757948 10891 4ad738358aa48458262badbc4ee0d3af ""
+  "paperDraft.aux" 1757991391 15112 1ac4743d573d77764487ea489e9e705d "pdflatex"
+  "paperDraft.bbl" 1757991389 12779 9156672ec7fc60f0b6cc44a1c40eb87c "bibtex paperDraft"
+  "paperDraft.out" 1757991391 528 178d0d0967c3680bdb49a5009e5c49b8 "pdflatex"
+  "paperDraft.tex" 1757991373 16172 12ccf7d90de9a133c1f9606f8b72f1b6 ""
   (generated)
   "paperDraft.aux"
   "paperDraft.log"

@@ -60,7 +60,7 @@ They also use the \tess\ data alongside other observations to determine the shap
 \tess\ has been used to study comets as well \citep[e.g.][]{Ridden-Harper2021b}
 Fainter and unknown solar system objects can be found by shift and stacking \citep{Holman2019, Payne2019, Rice2020} or taking a fast X-ray transform \citep{Nguyen2024} of the \tess\ FFI data.
 
-For our analysis of the asteroids in \tess, we use the third year of observations from the spacecraft; sectors 27 to 39. 
+For our analysis of the asteroids in \tess, we use the third year of observations from the spacecraft; sectors 27 to 39.
 These were the first sectors to have a \qty{10}{\minute} cadence.
 Our methods are presented in \autoref{sec:Meth}, followed by the results in \autoref{sec:Res}.
 A discussion of how our results compare to other \tess\ asteroid studies is given in \autoref{sec:Dis}, and we conclude in \autoref{sec:Conc}.
@@ -97,36 +97,35 @@ The matched events are then classified as asteroids, and are not considered furt
 %-Forced Photometry Lightcurve
 
 Forced photometry along the tracks of the asteroids allows for the construction of lightcurves.
-The differenced images are used for the forced photometry, as the objects are moving they are not dimmed by the differencing. 
+The differenced images are used for the forced photometry, as the objects are moving they are not dimmed by the differencing.
 % The positions are readjusted to the center of mass (COM) of the object.
 Aperture photometry, using \texttt{Photutils} \citep{Bradley2024}, is preformed at the centre of mass of the point spread function with a \qty{1.5}{\px} aperture, the standard size of an aperture in \tessellate.
 The lightcurves are then sigma-clipped to $3\sigma$ from the mean remove background stellar contamination.
-
 
 %-Lomb-Scargle Periodogram
 
 From their lightcurves, the rotation period of the object can be determined by using a Lomb-Scargle periodogram \citep[\citet{Lomb1976, Scargle1982}, but see][ for a review]{VanderPlas2018}.
 The new \ttt{NIFTY-LS} package \citep{Garrison2024},  as implemented in \ttt{astropy} \citep{Astropy2013,Astropy2018,Astropy2022}, was used to calculate the periodogram.
 The periodogram searched for rotation periods between the Nyquist limit of \qty{20}{\minute} and a maximum of \qty{17}{\day} \citep[the value used in][ due to the length of the lightcurve]{McNeill2023}.
-The uncertainty in the frequency is calculated as half full width half maximum of the peak found in the periodogram, crudely approximating the peaks as Gaussian. 
+The uncertainty in the frequency is calculated as half full width half maximum of the peak found in the periodogram, crudely approximating the peaks as Gaussian.
 
 -Example Figure
 
 \begin{figure}[!t]
     \centering
     \includegraphics[width=\textwidth]{PeriodogramUlyssesPaperFigDraft.pdf}
-    \caption{An example of the periodogram analysis we conduct for each object. 
-    This figure uses the lightcurve of the asteroid (5254) Ulysses from sector 29. 
-    Top panel: A periodogram of the lightcurve, with the known frequency and aliases indicated (from the LCDB).
-    Middle panel: The lightcurve (orange error bars) and model(dashed black). 
-    Lower panel: Residuals of the difference between the model and the lightcurve.}
+    \caption{An example of the periodogram analysis we conduct for each object.
+        This figure uses the lightcurve of the asteroid (5254) Ulysses from sector 29.
+        Top panel: A periodogram of the lightcurve, with the known frequency and aliases indicated (from the LCDB).
+        Middle panel: The lightcurve (orange error bars) and model(dashed black).
+        Lower panel: Residuals of the difference between the model and the lightcurve.}
     \label{fig:perEx}
 \end{figure}
 
-An example of the periodogram fit to the lightcurve is given by \autoref{fig:perEx}. 
+An example of the periodogram fit to the lightcurve is given by \autoref{fig:perEx}.
 A clear maximum power is found in the top panel, and the associated frequency is fed to the model shown in the middle panel.
-The residuals in the lower panel are small for the most part, with large deviations from zero only where the lightcurve has large uncertainty in its flux. 
-Thanks to the known frequency from LCDB plotted, we note that we recover the double frequency alias, this is explored further below.   
+The residuals in the lower panel are small for the most part, with large deviations from zero only where the lightcurve has large uncertainty in its flux.
+Thanks to the known frequency from LCDB plotted, we note that we recover the double frequency alias, this is explored further below.
 
 -Quality Checks on the lightcurves
 
@@ -135,10 +134,10 @@ A minimum brightness cut of 10 counts ($m_T \sim \qty{18}{mag}$) %?which way aro
 is applied, otherwise the lightcurve is indistinguishable from noise. %* This is emperical from match to LCDB, should that fig be here?
 Following \citeauthor{McNeill2023}, we do not trust the periods of any lightcurve with $\leq 200$ data points.
 
-There were also quality cuts applied to the periodograms. 
+There were also quality cuts applied to the periodograms.
 The methods would return the \qty{17}{\day} maximum value if no physical period was detected, so also following \citet{McNeill2023} we discard any periods within \qty{10}{\percent} of this maximum. %TODO min period of \qty{1}{\hour} 
 They find that periods of $\leq \qty{3}{\hour}$ is also unreliable.
-We are using data with a factor of three higher cadence, so we reduce this condition to $\leq \qty{1}{\hour}$ for the same number of observations sampled per rotation. 
+We are using data with a factor of three higher cadence, so we reduce this condition to $\leq \qty{1}{\hour}$ for the same number of observations sampled per rotation.
 %! This and the doubling of the periods means we can't get fast rotators at all. Need to think this through
 %TODO are there more checks
 
@@ -177,8 +176,8 @@ Extrapolating this trend to the \red{4328} asteroids that pass the checks, we pr
     \centering
     \includegraphics[width=\textwidth]{LCDBCompTotalPaperFigDraft.pdf}
     \caption{Comparison of the detected period and known period for all the asteroids analysed that are in the LCDB.
-    Those that failed the quality check are shown with crosses, and those that passed are filled circles. They are coloured by the measured mean \tess\ magnitude ($m_T$).
-    The 1:1 correspondence line (blue), and the factor of two aliases (purple ($\times 2$) and red ($\times 0.5$)) are plotted as dotted lines.
+        Those that failed the quality check are shown with crosses, and those that passed are filled circles. They are coloured by the measured mean \tess\ magnitude ($m_T$).
+        The 1:1 correspondence line (blue), and the factor of two aliases (purple ($\times 2$) and red ($\times 0.5$)) are plotted as dotted lines.
     }
     \label{fig:LCDBComp}
 \end{figure}
@@ -189,16 +188,18 @@ Extrapolating this trend to the \red{4328} asteroids that pass the checks, we pr
 
 -Comp to Pal and McNeill
 
-\autoref{fig:otherWorksComp}
+Both \citet{Pal2020} and \citet{McNeill2023} published tables of the rotation properties for their asteroids.
+For those objects we have in common, we compare the periods we find in \autoref{fig:otherWorksComp}.
+
 
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{M23andP20CompPaperFigDraft.pdf}
-    \caption{Comparing the rotation period of asteroids found in this work to asteroids in other studies that used TESS to investigate asteroids. 
-    Left: The comparison to \citet{McNeill2023} plotted as pink crosses, there are \red{139} objects.
-    Right: The comparison to \citet{Pal2020} plotted as purple pluses, there are \red{117} objects. 
-    Those planetesimals found in all three works are circled (\red{54} asteroids).
-    Lines of 1:1 agreement are plotted (dotted blue).}
+    \caption{Comparing the rotation period of asteroids found in this work to asteroids in other studies that used TESS to investigate asteroids.
+        Left: The comparison to \citet{McNeill2023} plotted as pink crosses, there are \red{139} objects.
+        Right: The comparison to \citet{Pal2020} plotted as purple pluses, there are \red{117} objects.
+        Those planetesimals found in all three works are circled (\red{54} asteroids).
+        Lines of 1:1 agreement are plotted (dotted blue).}
     \label{fig:otherWorksComp}
 \end{figure}
 
@@ -209,8 +210,8 @@ Extrapolating this trend to the \red{4328} asteroids that pass the checks, we pr
     \centering
     \includegraphics[width=\textwidth]{Diam-FreqPlotThisWorkPaperFigDraft.pdf}
     \caption{A rotation rate against size plot after the LCDB \citep{Warner2009} (grey
-circles) with this work's addition (blue squares). The
-diameters are from NEOWISE \citep{Masiero2011,NEOWISE2019} where available. The red dashed lines represent the spin barrier of \citep{Pravec2000}.}
+        circles) with this work's addition (blue squares). The
+        diameters are from NEOWISE \citep{Masiero2011,NEOWISE2019} where available. The red dashed lines represent the spin barrier of \citep{Pravec2000}.}
     \label{fig:FreqDiam}
 \end{figure}
 
