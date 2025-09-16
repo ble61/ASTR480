@@ -40,8 +40,14 @@ Humes, O.~A., \& Hanuš, J. 2024, arXiv, arXiv:2412.04123, \dodoi{10.48550/ARXIV
 \bibitem[{Lomb {et~al.}(1976)Lomb, Lomb, \& R.}]{Lomb1976}
 Lomb, N.~R., Lomb, \& R., N. 1976, Ap\&SS, 39, 447, \dodoi{10.1007/BF00648343}
 
+\bibitem[{Mainzer {et~al.}(2019)Mainzer, Bauer, Cutri, Grav, Kramer, Masiero, Sonnett, \& Wright}]{NEOWISE2019}
+Mainzer, A., Bauer, J., Cutri, R., {et~al.} 2019, NEOWISE Diameters and Albedos V2.0,  NASA Planetary Data System, \dodoi{10.26033/18S3-2Z54}
+
 \bibitem[{Maneewongvatana \& Mount(1999)}]{Maneewongvatana1999}
 Maneewongvatana, S., \& Mount, D.~M. 1999, arXiv, cs/9901013, \dodoi{10.48550/ARXIV.CS/9901013}
+
+\bibitem[{Masiero {et~al.}(2011)Masiero, Mainzer, Grav, Bauer, Cutri, Dailey, Eisenhardt, McMillan, Spahr, Skrutskie, Tholen, Walker, Wright, Debaun, Elsbury, Gautier, Gomillion, \& Wilkins}]{Masiero2011}
+Masiero, J.~R., Mainzer, A.~K., Grav, T., {et~al.} 2011, Astrophysical Journal, 741, 68, \dodoi{10.1088/0004-637X/741/2/68}
 
 \bibitem[{McNeill {et~al.}(2023)McNeill, Gowanlock, Mommert, Trilling, Llama, \& Paddock}]{McNeill2023}
 McNeill, A., Gowanlock, M., Mommert, M., {et~al.} 2023, The Astronomical Journal, 166, 152, \dodoi{10.3847/1538-3881/ACF194}
@@ -82,6 +88,9 @@ Scargle, J.~D., Scargle, \& D., J. 1982, ApJ, 263, 835, \dodoi{10.1086/160554}
 
 \bibitem[{VanderPlas(2018)}]{VanderPlas2018}
 VanderPlas, J.~T. 2018, The Astrophysical Journal Supplement Series, 236, 16, \dodoi{10.3847/1538-4365/aab766}
+
+\bibitem[{Warner {et~al.}(2009)Warner, Harris, \& Pravec}]{Warner2009}
+Warner, B.~D., Harris, A.~W., \& Pravec, P. 2009, Icar, 202, 134, \dodoi{10.1016/J.ICARUS.2009.02.003}
 
 \bibitem[{Woods {et~al.}(2021)Woods, Ruprecht, Kotson, Main, Evans, Varey, Vaillancourt, Viggh, Brown, Pál, Woods, Ruprecht, Kotson, Main, Evans, Varey, Vaillancourt, Viggh, Brown, \& Pál}]{Woods2021}
 Woods, D.~F., Ruprecht, J.~D., Kotson, M.~C., {et~al.} 2021, PASP, 133, 014503, \dodoi{10.1088/1538-3873/ABC761}
