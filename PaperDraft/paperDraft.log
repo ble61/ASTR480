@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.26)  18 SEP 2025 13:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.26)  18 SEP 2025 16:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -575,24 +575,24 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 <PeriodogramUlyssesPaperFigDraft.pdf, id=120, 762.00002pt x 470.9419pt>
 File: PeriodogramUlyssesPaperFigDraft.pdf Graphic file (type pdf)
 <use PeriodogramUlyssesPaperFigDraft.pdf>
-Package pdftex.def Info: PeriodogramUlyssesPaperFigDraft.pdf  used on input line 111.
+Package pdftex.def Info: PeriodogramUlyssesPaperFigDraft.pdf  used on input line 114.
 (pdftex.def)             Requested size: 500.484pt x 309.32793pt.
  [2] [3 <./PeriodogramUlyssesPaperFigDraft.pdf>]
-<LCDBCompTotalPaperFigDraft.pdf, id=210, 867.24pt x 433.62pt>
+<LCDBCompTotalPaperFigDraft.pdf, id=214, 867.24pt x 433.62pt>
 File: LCDBCompTotalPaperFigDraft.pdf Graphic file (type pdf)
 <use LCDBCompTotalPaperFigDraft.pdf>
-Package pdftex.def Info: LCDBCompTotalPaperFigDraft.pdf  used on input line 163.
+Package pdftex.def Info: LCDBCompTotalPaperFigDraft.pdf  used on input line 168.
 (pdftex.def)             Requested size: 500.484pt x 250.24265pt.
  [4 <./LCDBCompTotalPaperFigDraft.pdf>]
-<M23andP20CompPaperFigDraft.pdf, id=300, 867.24pt x 433.62pt>
+<M23andP20CompPaperFigDraft.pdf, id=303, 867.24pt x 433.62pt>
 File: M23andP20CompPaperFigDraft.pdf Graphic file (type pdf)
 <use M23andP20CompPaperFigDraft.pdf>
-Package pdftex.def Info: M23andP20CompPaperFigDraft.pdf  used on input line 218.
+Package pdftex.def Info: M23andP20CompPaperFigDraft.pdf  used on input line 223.
 (pdftex.def)             Requested size: 500.484pt x 250.24265pt.
-<Diam-FreqPlotThisWorkPaperFigDraft.pdf, id=309, 867.24pt x 433.62pt>
+<Diam-FreqPlotThisWorkPaperFigDraft.pdf, id=312, 867.24pt x 433.62pt>
 File: Diam-FreqPlotThisWorkPaperFigDraft.pdf Graphic file (type pdf)
 <use Diam-FreqPlotThisWorkPaperFigDraft.pdf>
-Package pdftex.def Info: Diam-FreqPlotThisWorkPaperFigDraft.pdf  used on input line 232.
+Package pdftex.def Info: Diam-FreqPlotThisWorkPaperFigDraft.pdf  used on input line 237.
 (pdftex.def)             Requested size: 500.484pt x 250.24265pt.
  [5] [6 <./M23andP20CompPaperFigDraft.pdf> <./Diam-FreqPlotThisWorkPaperFigDraft.pdf>] (./paperDraft.bbl [7]) [8] (./paperDraft.aux)
  ***********
@@ -605,16 +605,16 @@ Package rerunfilecheck Info: File `paperDraft.out' has not changed.
 Here is how much of TeX's memory you used:
  18265 strings out of 474137
  344495 string characters out of 5744488
- 1940187 words of memory out of 5000000
+ 1941187 words of memory out of 5000000
  40321 multiletter control sequences out of 15000+600000
  567547 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  94i,7n,117p,2707b,1045s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on paperDraft.pdf (8 pages, 681815 bytes).
+Output written on paperDraft.pdf (8 pages, 681934 bytes).
 PDF statistics:
- 574 PDF objects out of 1000 (max. 8388607)
- 339 compressed objects within 4 object streams
+ 577 PDF objects out of 1000 (max. 8388607)
+ 342 compressed objects within 4 object streams
  50 named destinations out of 1000 (max. 500000)
  69 words of extra memory for PDF output out of 10000 (max. 10000000)
 

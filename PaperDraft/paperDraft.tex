@@ -30,6 +30,7 @@
 % \twocolumn %To check size
 
 
+
 \section{Introduction}\label{sec:Intro}
 
 %TODO general opening statment about asteroids as transiet events/ moving objects
@@ -52,12 +53,14 @@ It was suggested by \citet{Pal2018} that it would be possible to get good photom
 They followed up with an analysis of the small bodies the first 12 sectors (cycle 1) \citep{Pal2020}, tripling the number of asteroids with accurate rotation periods.
 \citet{McNeill2023} re-analyses the same sectors of cycle 1, and is in broad agreement with \citeauthor{Pal2020}.
 
+As opposed to the population studies, single object analysis is also possible with \tess.
+\citet{Humes2024} recover the period of an asteroid commensurate with Earth's rotation.
+They also use the \tess\ data alongside other observations to determine the shape of the object.
+\tess\ has been used to study comets as well \citep[e.g.][]{Ridden-Harper2021b}
+
 \tess\ is used for solar-system observation in many other ways as well.
 The Minor Planet Center (MPC) gets regular updates on asteroids in \tess\ from the \ttt{LINEAR-TESS} program \citep{Woods2021}.
 \citet{Gowanlock2024} uses \tess\ photometry as well as observations by the Zwicky Transient Facility \citep[ZTF, ][]{Bellm2019} to get a longer baseline on mutually observed objects while combining ground and space-based observations.
-Single object analysis is also possible, \citet{Humes2024} recover the period of an asteroid commensurate with Earth's rotation.
-They also use the \tess\ data alongside other observations to determine the shape of the object.
-\tess\ has been used to study comets as well \citep[e.g.][]{Ridden-Harper2021b}
 Fainter and unknown solar system objects can be found by shift and stacking \citep{Holman2019, Payne2019, Rice2020} or taking a fast X-ray transform \citep{Nguyen2024} of the \tess\ FFI data.
 
 For our analysis of the asteroids in \tess, we use the third year of observations from the spacecraft; sectors 27 to 39.
@@ -80,7 +83,7 @@ These can then be matched with the detections to classify the spikes, and proper
 
 %Conesearch w/ SkyBoT and names w/ Horizons
 The position of known asteroids is important for matching them to detections.
-We use \ttt{SkyBoT} \citep{Berthier2006} conesearch to find all the asteroids with $V\leq \qty{20}{\mag}$, the limit suggested by \citep{Pal2018}.
+We preform a conesearch with \ttt{SkyBoT} \citep{Berthier2006} to find all the asteroids with $V\leq \qty{20}{\mag}$, the limit suggested by \citep{Pal2018}.
 We query every \qty{12}{\hour} over the month of the sector, and interpolate the positions to the times of the \tess\ observations.
 With \tess's large pixel scale, these interpolations are accurate enough for our purposes, and save on time and resources, as the query can be expensive.
 %? They were checked for accuracy against JPL Horizons
@@ -90,7 +93,7 @@ The positions of these asteroids can be matched with the detections, using a KDT
 Setting boundaries of \qty{0.1}{\day} and \qty{1}{\px} %TODO check it is 1 px.
 on the nearest match keeps only objects that are coincident temporally and spatially.
 If two such objects  match to the same detection, the shortest distance between the positions is taken.
-The matched events are then classified as asteroids, and are not considered further by \tessellate.%Clunky end to sentance
+The matched events are then classified as asteroids, so other analyses of the \tessellate data can filter them out.
 
 %-Forced Photometry Lightcurve
 Forced photometry along the tracks of the asteroids allows for the construction of lightcurves.
@@ -123,18 +126,20 @@ The residuals in the lower panel are small for the most part, with large deviati
 Thanks to the known frequency from LCDB plotted, we note that we recover the double frequency alias, this is explored further below.
 
 %Quality Checks on the lightcurves
-Not every lightcurve is good enough for analysis, so some quality cuts are applied to the lightcurves.
+Not every lightcurve is good enough for analysis, so some quality cuts are applied to them.
 A minimum brightness cut of 10 counts ($m_T \sim \qty{18}{mag}$) %?which way around is better? 
 is applied, otherwise the lightcurve is indistinguishable from noise. %* This is emperical from match to LCDB, should that fig be here?
+%! No, fits the flow better in Results
 This check is implemented to gain a better agreement when comparing to the known periods of these objects from the LCDB (elaborated on below).
 Following \citeauthor{McNeill2023}, we do not trust the periods of any lightcurve with $\leq 200$ data points.
 
 There were also quality cuts applied to the periodograms.
-The methods would return the \qty{17}{\day} maximum value if no physical period was detected, so also following \citet{McNeill2023} we discard any periods within \qty{10}{\percent} of this maximum. %TODO min period of \qty{1}{\hour} 
-They find that periods of $\leq \qty{3}{\hour}$ is also unreliable.
+The methods would return the \qty{17}{\day} maximum value if no physical period was detected, so also following \citet{McNeill2023} we discard any periods within \qty{10}{\percent} of this maximum. 
+\citet{McNeill2023} find that periods of $\leq \qty{3}{\hour}$ is also unreliable.
 We are using data with a factor of three higher cadence, so we reduce this condition to $\leq \qty{1}{\hour}$ for the same number of observations sampled per rotation.
-%! This and the doubling of the periods means we can't get fast rotators at all. Need to think this through
-%TODO are there more checks
+%// ! This and the doubling of the periods means we can't get fast rotators at all. Need to think this through
+%* Addressed later
+
 
 %-Run all these are part of TESSELLATE
 The above methods are integrated into the rest of the \tessellate\ pipeline. %*I should probably get around to doing that...
